@@ -28,7 +28,7 @@ class City
      */
     public $museums;
     /**
-     * @ORM\ManyToOne(targetEntity="TourOperator", inversedBy="city")
+     * @ORM\OneToMany(targetEntity="TourOperator", mappedBy="city")
      */
     public $tourOperators;
 

@@ -23,9 +23,32 @@ class TourOperator
     public  $user;
 
     /**
-     * @ORM\OneToMany(targetEntity="City", mappedBy="tourOperators")
+     * @ORM\Column(type="string")
+     */
+    public $name;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    public $fName;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    public $phoneNumber;
+
+
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="City", inversedBy="tourOperators")
      */
     public  $city;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Ticket", mappedBy="tourOperator")
+     */
+    public  $tickets;
 
 
     public function getId(): ?int
@@ -64,6 +87,71 @@ class TourOperator
     {
         $this->city = $city;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTickets()
+    {
+        return $this->tickets;
+    }
+
+    /**
+     * @param mixed $tickets
+     */
+    public function setTickets($tickets): void
+    {
+        $this->tickets = $tickets;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFName()
+    {
+        return $this->fName;
+    }
+
+    /**
+     * @param mixed $fName
+     */
+    public function setFName($fName): void
+    {
+        $this->fName = $fName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
+    }
+
+    /**
+     * @param mixed $phoneNumber
+     */
+    public function setPhoneNumber($phoneNumber): void
+    {
+        $this->phoneNumber = $phoneNumber;
+    }
+
 
 
 }

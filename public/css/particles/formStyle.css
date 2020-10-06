@@ -1,0 +1,62 @@
+@import url("inputStyle.css");
+.form {
+  width: 100%;
+  margin-top: 2rem;
+  margin: auto;
+}
+
+.information-div {
+  width: 90%;
+}
+
+.information-input {
+  margin: 0px;
+}
+
+.information-input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0%;
+  padding-left: 0px;
+  outline-style: none;
+}
+
+.information-input:focus {
+  border-bottom: 1px solid #f94019;
+  box-shadow: none;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  font-size: 2.5em;
+  font-weight: 800;
+  color: white;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 1%;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  background-color: #f94019;
+}
+
+.btn {
+  background-color: #fa6b4d;
+  border-color: #f94019;
+  border-radius: 15px;
+}
+
+.btn:hover {
+  background-color: #f94019;
+}
+
+/*# sourceMappingURL=formStyle.css.map */

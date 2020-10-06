@@ -28,6 +28,11 @@ class Admin
     public $museumName;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    public $additionalInformation;
+
+    /**
      * @ORM\OneToMany(targetEntity="City", mappedBy="museums")
      */
     public  $city;
@@ -41,6 +46,11 @@ class Admin
      * @ORM\Column(type="integer")
      */
     public $maxCapacity;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Schedule", mappedBy="museum")
+     */
+    public  $schedule;
 
 
 
@@ -128,6 +138,40 @@ class Admin
     {
         $this->maxCapacity = $maxCapacity;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSchedule()
+    {
+        return $this->schedule;
+    }
+
+    /**
+     * @param mixed $schedule
+     */
+    public function setSchedule($schedule): void
+    {
+        $this->schedule = $schedule;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdditionalInformation()
+    {
+        return $this->additionalInformation;
+    }
+
+    /**
+     * @param mixed $additionalInformation
+     */
+    public function setAdditionalInformation($additionalInformation): void
+    {
+        $this->additionalInformation = $additionalInformation;
+    }
+
+
 
 
 

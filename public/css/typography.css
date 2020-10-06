@@ -1,0 +1,64 @@
+*{
+    padding: 0;
+    margin: 0;
+    font:inherit;
+}
+
+html {
+    font: 10px/1.5  'Work Sans', sans-serif;;
+    font-weight: 400;
+}
+body, form, input, select, option, p, a, span, table,thead, tbody,th, table th  {
+    font: inherit;
+}
+
+h1 {
+    font-size: 3.5em;
+    font-weight: 500;
+}
+h2{font-size: 3em}
+h3{font-size: 2.7em}
+h4{font-size: 2.0em}
+h5{font-size: 1.5em}
+h6{font-size: 1.1em}
+
+hr {
+    max-width: 5%;
+    height: .8em;
+    margin: auto;
+    background-color: #075f29;
+    margin-top: 1.5em;
+}
+
+blockquote  {
+    padding: 1em;
+    font-style: italic;
+    opacity: 0.8;
+    font-family: sans-serif;
+
+}
+
+blockquote p:last-child{
+    padding: 0;
+    padding-left: 35rem;
+}
+
+
+
+@media only screen and (min-width: 600px) {
+    html {
+        font-size: 12px ;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    html {
+        font-size: 16px;
+    }
+}
