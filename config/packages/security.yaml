@@ -22,8 +22,8 @@ security:
                 # where to redirect after logout
                 # target: app_any_route
             form_login:
-                login_path: /
-                check_path: /
+                login_path: /login
+                check_path: /login
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication

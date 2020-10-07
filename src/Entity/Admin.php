@@ -33,7 +33,7 @@ class Admin
     public $additionalInformation;
 
     /**
-     * @ORM\OneToMany(targetEntity="City", mappedBy="museums")
+     * @ORM\ManyToOne(targetEntity="City", inversedBy="museums")
      */
     public  $city;
 

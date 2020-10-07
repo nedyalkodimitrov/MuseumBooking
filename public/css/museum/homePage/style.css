@@ -1,0 +1,56 @@
+.museumImage-holder {
+  margin-top: 2em;
+  width: 90%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.museumImage-holder .larger-image {
+  position: relative;
+  padding-top: 47.5%;
+  width: 60%;
+}
+.museumImage-holder .larger-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+}
+.museumImage-holder .small-images-container {
+  display: block;
+  width: 25%;
+}
+.museumImage-holder .small-images-container .small-image {
+  position: relative;
+  padding-top: 0%;
+}
+.museumImage-holder .small-images-container .small-image img {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  width: 100%;
+}
+
+.text {
+  width: 64em;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 2em;
+}
+.text h1 {
+  margin: auto;
+  text-align: center;
+  font-size: 5em;
+}
+.text h3 {
+  text-align: left;
+  border-left: 5px solid saddlebrown;
+  padding-left: 0.4em;
+  font-style: italic;
+}
+
+/*# sourceMappingURL=style.css.map */

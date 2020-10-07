@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="849987b0-80f0-4d98-9254-bdbd26928508" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/particles/formStyle.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/particles/inputStyle.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/security/loginStyle.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/typography.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/museum/homePage/style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/museum/particles/navStyle.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/museum/particles/slideshow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/museum/particles/navScript.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/particles/slidshow.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/City.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/City.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/TourOperator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/TourOperator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/museum/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +27,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="composer.json" />
-        <option value="CSS File" />
         <option value="SCSS File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -145,7 +147,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="list.type.of.created.stylesheet" value="SCSS" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -172,6 +174,7 @@
       <workItem from="1601896222365" duration="3079000" />
       <workItem from="1601956814601" duration="1413000" />
       <workItem from="1602011476747" duration="1360000" />
+      <workItem from="1602067629290" duration="6890000" />
     </task>
     <servers />
   </component>

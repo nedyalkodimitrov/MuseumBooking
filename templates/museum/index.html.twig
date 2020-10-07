@@ -1,20 +1,88 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("css/museum/particles/navStyle.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/museum/particles/slideshow.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/museum/homePage/style.css") }}">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 
-{% block title %}Hello MuseumController!{% endblock %}
+    <script src="{{ asset("js/museum/particles/navScript.js") }}"></script>
+    <script src="{{ asset("js/particles/slidshow.js") }}"></script>
+{% endblock %}
+{% block title %}{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="topnav" id="myTopnav">
+        <a href="#home" class="active">Home</a>
+        <a href="#news">News</a>
+        <a href="#news" class="logo">Logo</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/Develpment/Symfony/MuseumBooking/src/Controller/MuseumController.php'|file_link(0) }}">src/Controller/MuseumController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/Develpment/Symfony/MuseumBooking/templates/museum/index.html.twig'|file_link(0) }}">templates/museum/index.html.twig</a></code></li>
-    </ul>
-</div>
+
+    <div class="slider-container pt-5 mt-0 container-color" >
+        <div class="slider  ">
+            <div class="slider--el slider--el-1 anim-4parts active">
+                <div class="slider--el-bg">
+                    <div class="part top left"></div>
+                    <div class="part top right"></div>
+                    <div class="part bot left"></div>
+                    <div class="part bot right"></div>
+                </div>
+                <div class="slider--el-content">
+
+                </div>
+            </div>
+            <div class="slider--el slider--el-2 anim-9parts">
+                <div class="slider--el-bg">
+                    <div class="part left-top"></div>
+                    <div class="part mid-top"></div>
+                    <div class="part right-top"></div>
+                    <div class="part left-mid"></div>
+                    <div class="part mid-mid"></div>
+                    <div class="part right-mid"></div>
+                    <div class="part left-bot"></div>
+                    <div class="part mid-bot"></div>
+                    <div class="part right-bot"></div>
+                </div>
+                <div class="slider--el-content">
+
+                </div>
+            </div>
+            <div class="slider--el slider--el-3 anim-5parts">
+                <div class="slider--el-bg">
+                    <div class="part part-1"></div>
+                    <div class="part part-2"></div>
+                    <div class="part part-3"></div>
+                    <div class="part part-4"></div>
+                    <div class="part part-5"></div>
+                </div>
+                <div class="slider--el-content">
+
+                </div>
+            </div>
+            <div class="slider--el slider--el-4 anim-3parts">
+                <div class="slider--el-bg">
+                    <div class="part left"></div>
+                    <div class="part mid"></div>
+                    <div class="part right"></div>
+                </div>
+                <div class="slider--el-content">
+
+                </div>
+            </div>
+            <span class="slider--control left"><i class="fas fa-chevron-left"></i></span>
+            <span class="slider--control right"><i class="fas fa-chevron-right"></i></span>
+        </div>
+    </div>
+
+    <div class="text">
+        <h1>Абритус</h1>
+        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam assumenda est ipsam iusto placeat quod sequi temporibus tenetur, totam! A assumenda, consequatur harum hic impedit in incidunt itaque optio quibusdam!</h3>
+    </div>
+    
 {% endblock %}
