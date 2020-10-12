@@ -1,4 +1,13 @@
+body {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/slider-3.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .museumImage-holder {
+  background-color: white;
   margin-top: 2em;
   width: 90%;
   height: auto;
@@ -35,8 +44,16 @@
   width: 100%;
 }
 
+.white-container {
+  background-color: white;
+  width: 100%;
+  padding: 0.2rem;
+}
+
 .text {
+  background-color: white;
   width: 64em;
+  max-width: 100%;
   margin: auto;
   text-align: center;
   margin-bottom: 2em;
@@ -51,6 +68,79 @@
   border-left: 5px solid saddlebrown;
   padding-left: 0.4em;
   font-style: italic;
+}
+
+.tickets-wrapper {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.tickets-wrapper .info {
+  color: white;
+}
+.tickets-wrapper hr {
+  border: 4px solid white;
+  background-color: white;
+}
+
+.tickets-container {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+.tickets-container .ticket {
+  background-color: white;
+  width: auto;
+  height: auto;
+  border: 2px solid black;
+  text-align: center;
+}
+.tickets-container .ticket div {
+  padding: 1rem;
+}
+.tickets-container .ticket .hour {
+  background-color: white;
+  color: black;
+  border-bottom: 2px solid gray;
+}
+.tickets-container .ticket .counter {
+  border-top: 2px solid gray;
+  border-bottom: 2px solid gray;
+}
+.tickets-container .ticket .btn-holder {
+  background-color: #05a440;
+  cursor: pointer;
+}
+.tickets-container .ticket .btn-holder button {
+  background-color: inherit;
+  color: inherit;
+}
+.tickets-container .ticket .btn-holder:hover {
+  background-color: #014a01;
+  color: white;
+}
+.tickets-container .ticket .btn-holder:hover button {
+  background-color: inherit;
+  color: inherit;
+}
+
+.location-container .location {
+  max-width: 100%;
+  text-align: center;
+}
+.location-container .location div {
+  position: relative;
+  width: 80%;
+  padding-top: 56.25%;
+  margin: auto;
+}
+.location-container .location div iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
