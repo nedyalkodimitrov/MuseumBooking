@@ -1,0 +1,168 @@
+.schedules-container {
+  width: 95%;
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  border-radius: 2px;
+  margin: auto;
+  display: flex;
+  padding: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.schedules-container .schedules-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: flex-start;
+}
+.schedules-container .schedules-wrapper .schedule-container {
+  flex: 0 1 25%;
+}
+.schedules-container .schedules-wrapper .schedule-container .schedule {
+  margin: 0.4em;
+  text-align: center;
+  border: 1px solid #e6e6e6;
+  transition: 0.2s;
+  padding-bottom: 0.4em;
+}
+.schedules-container .schedules-wrapper .schedule-container .schedule:hover {
+  box-shadow: 0px 0px 9px 0px #cbcbcb;
+}
+.schedules-container .schedules-wrapper .schedule-container .schedule .museumImage-holder {
+  margin: auto;
+  margin-bottom: 0em;
+  position: relative;
+  padding-top: 57.35%;
+  object-fit: cover;
+  width: 100%;
+  overflow: hidden;
+}
+.schedules-container .schedules-wrapper .schedule-container .schedule .museumImage-holder:after {
+  content: " ";
+  background-color: rgba(0, 0, 0, 0);
+}
+.schedules-container .schedules-wrapper .schedule-container .schedule .museumImage-holder img {
+  width: 100%;
+  height: 100%;
+}
+.schedules-container .schedules-wrapper .schedule-container .schedule .museumImage-holder:after, .schedules-container .schedules-wrapper .schedule-container .schedule .museumImage-holder img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.schedules-container .schedules-wrapper .schedule-container .schedule .museumImage-holder .museumName {
+  position: absolute;
+  z-index: 1000;
+  bottom: 0;
+  padding-left: 0.3em;
+  background-color: white;
+  border-left: 1px solid #e6e6e6;
+}
+.schedules-container .schedules-wrapper .schedule-container .schedule .museumImage-holder .museumName:after {
+  position: absolute;
+  content: " ";
+  width: 0;
+  height: 0;
+  border-top: 1.54em solid transparent;
+  border-bottom: 0px solid white;
+  border-left: 2em solid white;
+}
+.schedules-container .schedules-wrapper .schedule-container .schedule .date {
+  border-top: 1px solid #e6e6e6;
+}
+.schedules-container .schedules-wrapper .schedule-container .schedule .date, .schedules-container .schedules-wrapper .schedule-container .schedule .information {
+  padding: 0.3em;
+  margin: 0em 0;
+}
+.schedules-container .schedules-wrapper .schedule-container .schedule .event-holder {
+  margin: auto;
+  margin: 0.5em 0;
+  width: 100%;
+  text-align: center;
+}
+.schedules-container .schedules-wrapper .schedule-container .schedule .event-holder button {
+  padding: 0.4em;
+  border: 1px solid red;
+  color: black;
+  transition: 0.2s;
+}
+.schedules-container .schedules-wrapper .schedule-container .schedule .event-holder button:hover {
+  box-shadow: 0px 0px 10px 2px #f57c7c;
+  background-color: red;
+  color: white;
+}
+
+.top-museum {
+  display: flex;
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  flex-wrap: wrap;
+}
+.top-museum .museum {
+  width: 100%;
+  display: inherit;
+  margin-top: 1em;
+  border-bottom: 1px solid #e6e6e6;
+}
+.top-museum .museum .museumImage-holder {
+  flex: 1;
+  margin: 0 auto;
+  margin-bottom: 0.5em;
+  position: relative;
+  padding-top: 18.35%;
+  width: 24em;
+}
+.top-museum .museum .museumImage-holder:after {
+  content: " ";
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.top-museum .museum .museumImage-holder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.top-museum .museum .museumImage-holder:after, .top-museum .museum .museumImage-holder img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.top-museum .museum .museumImage-holder .museumName {
+  position: absolute;
+  z-index: 1000;
+  bottom: 0;
+  padding-left: 0.3em;
+  background-color: white;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+}
+.top-museum .museum .museumImage-holder .museumName:after {
+  position: absolute;
+  content: " ";
+  width: 0;
+  height: 0;
+  border-top: 1.5em solid transparent;
+  border-bottom: 0px solid white;
+  border-left: 2em solid white;
+}
+.top-museum .museum .stars {
+  color: #ca5e04;
+}
+.top-museum .museumInformation-container {
+  flex: 2;
+  display: block;
+  padding-left: 0.5em;
+}
+
+.text {
+  flex: 0 0 100%;
+  text-align: center;
+  margin: 0.3em 0;
+}
+
+/*# sourceMappingURL=homePageStyle.css.map */
