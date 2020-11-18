@@ -36,9 +36,9 @@ class User implements  UserInterface
     public  $tourOperator;
 
     /**
-     * @ORM\OneToOne(targetEntity="Admin", mappedBy="user")
+     * @ORM\OneToOne(targetEntity="Museum", mappedBy="user")
      */
-    public  $admin;
+    public  $museum;
 
     /**
      * @ORM\ManyToMany(targetEntity="Role")
@@ -106,18 +106,19 @@ class User implements  UserInterface
     /**
      * @return mixed
      */
-    public function getAdmin()
+    public function getMuseum()
     {
-        return $this->admin;
+        return $this->museum;
     }
 
     /**
-     * @param mixed $admin
+     * @param mixed $museum
      */
-    public function setAdmin($admin): void
+    public function setMuseum($museum): void
     {
-        $this->admin = $admin;
+        $this->museum = $museum;
     }
+
 
 
     public function getRoles()

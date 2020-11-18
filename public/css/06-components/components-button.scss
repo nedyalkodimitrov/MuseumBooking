@@ -1,0 +1,18 @@
+.c-button{
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0.5em;
+  border-radius: 0px;
+
+  &--danger{
+    background-color: #ba4242;
+    transition: background-color 0.3s ease;
+    &:hover{
+      background-color: darkred;
+
+    }
+
+  }
+
+}

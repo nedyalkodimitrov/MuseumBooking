@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=AdminRepository::class)
  */
-class Admin
+class Museum
 {
     /**
      * @ORM\Id
@@ -18,7 +18,7 @@ class Admin
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="User", inversedBy="admin")
+     * @ORM\OneToOne(targetEntity="User", inversedBy="museum")
      */
     public  $user;
 
@@ -52,6 +52,11 @@ class Admin
      */
     public  $schedule;
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="Image", mappedBy="museum")
+     */
+    public  $images;
 
 
     public function getId(): ?int
@@ -169,6 +174,22 @@ class Admin
     public function setAdditionalInformation($additionalInformation): void
     {
         $this->additionalInformation = $additionalInformation;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * @param mixed $images
+     */
+    public function setImages($images): void
+    {
+        $this->images = $images;
     }
 
 

@@ -1,0 +1,77 @@
+h1 {
+  font-size: 3em;
+}
+@media (max-width: 599px) {
+  h1 {
+    font-seize: 2em;
+  }
+}
+@media (min-width: 600px) {
+  h1 {
+    font-seize: 2em;
+  }
+}
+@media (min-width: 900px) {
+  h1 {
+    font-seize: 2.5em;
+  }
+}
+@media (min-width: 1200px) {
+  h1 {
+    font-seize: 3em;
+  }
+}
+
+h2 {
+  font-size: 2.25em;
+}
+@media (max-width: 599px) {
+  h2 {
+    font-seize: 1.625em;
+  }
+}
+@media (min-width: 600px) {
+  h2 {
+    font-seize: 1.625em;
+  }
+}
+@media (min-width: 900px) {
+  h2 {
+    font-seize: 2em;
+  }
+}
+@media (min-width: 1200px) {
+  h2 {
+    font-seize: 2.25em;
+  }
+}
+
+h3 {
+  font-size: 1.75em;
+}
+@media (max-width: 599px) {
+  h3 {
+    font-seize: 1.375em;
+  }
+}
+@media (min-width: 600px) {
+  h3 {
+    font-seize: 1.375em;
+  }
+}
+@media (min-width: 900px) {
+  h3 {
+    font-seize: 1.5em;
+  }
+}
+@media (min-width: 1200px) {
+  h3 {
+    font-seize: 1.75em;
+  }
+}
+
+h4 {
+  font-size: 1.125em;
+}
+
+/*# sourceMappingURL=elemets-headings.css.map */

@@ -1,0 +1,58 @@
+@import "../02-tools/tools-breakpoints";
+
+h1{
+  font-size: 3em;
+  @include for-phone-only {
+    font-seize: 2em ;
+  }
+  @include for-tablet-portrait-up {
+    font-seize: 2em ;
+  }
+  @include for-tablet-landscape-up {
+    font-seize: 2.5em ;
+  }
+  @include for-desktop-up {
+    font-seize: 3em ;
+  }
+
+
+}
+h2{
+  font-size: 2.25em;
+
+  @include for-phone-only {
+    font-seize: 1.625em ;
+  }
+  @include for-tablet-portrait-up {
+    font-seize: 1.625em ;
+  }
+  @include for-tablet-landscape-up {
+    font-seize: 2em ;
+  }
+  @include for-desktop-up {
+    font-seize: 2.25em ;
+  }
+
+
+}
+
+h3{
+  font-size: 1.75em;
+  @include for-phone-only {
+    font-seize: 1.375em ;
+  }
+  @include for-tablet-portrait-up {
+    font-seize: 1.375em;
+  }
+  @include for-tablet-landscape-up {
+    font-seize: 1.5em ;
+  }
+  @include for-desktop-up {
+    font-seize: 1.75em ;
+  }
+
+
+}
+h4{
+  font-size: 1.125em;
+}

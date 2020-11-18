@@ -1,0 +1,48 @@
+/*= input focus effects css
+=========================== */
+.c-input {
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+}
+.c-input:focus {
+  outline: none;
+}
+.c-input--expand-effect {
+  border: 0;
+  padding: 7px 0;
+  border-bottom: 1px solid #ccc;
+}
+.c-input--option {
+  width: 30px;
+}
+.c-input--select {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0%;
+  padding-left: 0px;
+  outline-style: none;
+}
+.c-input--select:focus {
+  border-bottom: 1px solid #f94019;
+  box-shadow: none;
+}
+
+.c-input--expand-effect ~ .focus-border {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #f94019;
+  transition: 0.4s;
+}
+
+.c-input--expand-effect:focus ~ .focus-border {
+  width: 100%;
+  transition: 0.4s;
+  left: 0;
+}
+
+/*# sourceMappingURL=components-input.css.map */

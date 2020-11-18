@@ -1,0 +1,34 @@
+.c-schedules-card {
+  width: 100%;
+  padding: 2rem;
+}
+.c-schedules-card__day {
+  padding: 0;
+}
+.c-schedules-card hr {
+  background-color: #C1C2BE;
+  border: 0.1em solid #C1C2BE;
+  width: 15%;
+  margin-left: 0;
+}
+.c-schedules-card__schedule {
+  height: 9em;
+  text-align: center;
+  padding: 0;
+  border: 1px solid #7a7878;
+  margin-bottom: 1em;
+}
+.c-schedules-card__schedule__hour, .c-schedules-card__schedule__max-capacity {
+  padding: 0.4em;
+}
+.c-schedules-card__schedule__delete {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.c-schedules-card__schedule__delete i {
+  color: white;
+}
+
+/*# sourceMappingURL=components-schedules-card.css.map */

@@ -1,0 +1,8 @@
+@import '../01-settings/settings-fonts';
+
+body {
+  font-family: $font-Lato;
+  font-size: $base-font-size;
+  line-height: $base-font-line;
+  background-color: white ;
+}

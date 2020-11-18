@@ -1,0 +1,137 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("css/museum/homePage/homePageStyle.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-schedules-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-add-schedule.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-hidden-container.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-input.css") }}">
+{% endblock %}
+
+{% block body %}
+
+    {% for daySchedule in schedules %}
+
+        <div class="c-schedules-card row m-0 justify-content-left" >
+            <div class="c-schedules-card__day col-12 ">
+                <div class="row justify-content-between">
+                    <h2 class="c-schedules-card__day__text">{{ daySchedule[0].Name }}</h2>
+                    <h5 class="c-schedules-card__day__text">{{ daySchedule[1]|length }}/6</h5>
+
+                </div>
+                <hr>
+            </div>
+
+            {% for hourSchedule in daySchedule[1] %}
+                <div class="col-6 col-sm-6 col-md-4 col-lg-2 mr-1 row">
+                    <div class=" c-schedules-card__schedule  col-12">
+                        <div class="c-schedules-card__schedule__hour">
+                            <h4>{{ hourSchedule.startTime |date('H:i')}}-{{ hourSchedule.endTime |date('H:i')}}</h4>
+                        </div>
+                        <div class="c-schedules-card__schedule__max-capacity">
+                            <h5> Капацитет - {{ daySchedule[1][0].Museum.MaxCapacity }}</h5>
+                        </div>
+                        <div class="c-schedules-card__schedule__delete m-0 p-0">
+                            <button class="c-button c-button--danger" value="{{ hourSchedule.Id }}"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
+            {% if daySchedule[1]|length < 6%}
+
+                <div class=" col-6 col-sm-6 col-md-4 col-lg-2  row">
+                    <div class=" c-add-schedule col-12">
+                        <button class="c-add-schedule__button" value="{{ daySchedule[0].Name  }}">
+                            <i class="fas fa-plus   "></i>
+                        </button>
+
+                    </div>
+                </div>
+            {% endif %}
+
+        </div>
+
+
+    {% endfor %}
+
+
+
+
+
+    <div class="c-hidden-container" id="hidden-container-monday">
+        <div class="c-hidden-container__form " >
+            <h3 class="text-center c-hidden-container__form__text" id="day"></h3>
+            <div class="row">
+                <div class="col-6">
+                    <div class="input-group  ">
+                        <label for="inputEmail">Start hour</label>
+                        <input type="email"  placeholder="17:00" name="startHour" id="startHour" class="c-input c-input--expand-effect" required autofocus>
+                        <span class="focus-border"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="input-group">
+                        <label for="inputEmail">End hour</label>
+                        <input type="email"  placeholder="18:00" name="endHour" id="endHour" class="c-input c-input--expand-effect" required autofocus>
+                        <span class="focus-border"></span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="c-button c-hidden-container__button"> Изпрати</button>
+            <button class="c-hidden-container__close-button"><i class="fa fa-times"> </i></button>
+        </div>
+
+    </div>
+
+  <div class="c-hidden-container" id="hidden-container-delete-schedule">
+        <div class="c-hidden-container--buttons " >
+            <input type="hidden" class="id">
+            <h4 class="c-hidden-container--buttons__header-text ">Искате ли да изтриете разписанието?</h4>
+            <button class="c-button c-hidden-container--buttons__delete-btn">Изтриване</button>
+            <button class="c-button c-hidden-container--buttons__close-btn">Затваряне</button>
+        </div>
+
+    </div>
+
+
+    {% block javascripts %}
+        <script src="{{ asset("js/components/components-hidden-container.js") }}" crossorigin="anonymous"></script>
+        <script src="{{ asset("js/components/components-ajax.js") }}" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+                openContainer("c-add-schedule__button", "hidden-container-monday");
+                openContainer("c-button--danger", "hidden-container-delete-schedule");
+                closeContainer();
+
+                $('.c-add-schedule__button').on('click', function (){
+                    $(".c-hidden-container__form__text").text($(this).val());
+                });
+
+                $('.c-hidden-container__button').on('click', function () {
+                    var startHour = $("#startHour").val();
+                    var endHour = $("#endHour").val();
+                    var day = $("#day").text();
+                    $('.c-hidden-container__button').disable = true;
+
+                    let type = "POST";
+                    let url = "/museum/createSchedule"
+                    let data = {'startTime': startHour, 'endTime': endHour, 'dayName': day};
+
+
+
+                    console.log(ajaxRequest(type, url, data));
+
+                });
+
+
+
+        //has to make a delete option
+
+
+
+
+        </script>
+    {% endblock %}
+
+{% endblock %}

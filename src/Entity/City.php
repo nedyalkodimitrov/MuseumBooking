@@ -24,7 +24,7 @@ class City
     public $country;
 
     /**
-     * @ORM\OneToMany(targetEntity="Admin", mappedBy="city")
+     * @ORM\OneToMany(targetEntity="Museum", mappedBy="city")
      */
     public $museums;
     /**

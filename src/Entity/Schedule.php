@@ -21,12 +21,12 @@ class Schedule
     /**
      * @ORM\Column(type="time")
      */
-    public $time;
-
+    public $startTime;
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="time")
      */
-    public $dayOfTheWeek;
+    public $endTime;
+
 
 
     /**
@@ -35,7 +35,12 @@ class Schedule
     public  $tickets;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Admin", inversedBy="schedule")
+     * @ORM\ManyToOne(targetEntity="Day", inversedBy="schedules")
+     */
+    public  $day;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Museum", inversedBy="schedule")
      */
     public  $museum;
 
@@ -47,34 +52,55 @@ class Schedule
     /**
      * @return mixed
      */
-    public function getTime()
+    public function getStartTime()
     {
-        return $this->time;
+        return$this->startTime->format('H:i');;
     }
 
     /**
-     * @param mixed $time
+     * @param mixed $startTime
      */
-    public function setTime($time): void
+    public function setStartTime($startTime): void
     {
-        $this->time = $time;
+        $this->startTime = $startTime;
     }
 
     /**
      * @return mixed
      */
-    public function getDayOfTheWeek()
+    public function getEndTime()
     {
-        return $this->dayOfTheWeek;
+
+        return $this->endTime->format('H:i');
     }
 
     /**
-     * @param mixed $dayOfTheWeek
+     * @param mixed $endTime
      */
-    public function setDayOfTheWeek($dayOfTheWeek): void
+    public function setEndTime($endTime): void
     {
-        $this->dayOfTheWeek = $dayOfTheWeek;
+        $this->endTime = $endTime;
     }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getDay()
+    {
+        return $this->day;
+    }
+
+    /**
+     * @param mixed $day
+     */
+    public function setDay($day): void
+    {
+        $this->day = $day;
+    }
+
+
 
     /**
      * @return mixed
