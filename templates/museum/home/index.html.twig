@@ -1,8 +1,16 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset("css/museum/homePage/homePageStyle.css") }}">
-    <script src="{{ asset("js/museum/homePage/slideshow.js") }}" ></script>
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-visitor-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-schedules-card.css") }}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-slider.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-schedule-visitor-card.css") }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="{{ asset("js/museum/homePage/slideshow.js") }}" ></script>
+    <script src="{{ asset("js/components/components-slider.js") }}" ></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 {% endblock %}
 
 {% block body %}
@@ -10,21 +18,26 @@
 
     <div class="container">
         <div class="images-container">
-            {% if images | length == 0%}
+            {% if images | length == 1%}
              <div class="empty">
                  <p>Нямате снимки</p>
                  <label for="addImage"><i class="fa fa-plus"></i></label>
                  <input type="file" id="addImage">
              </div>
                 {% else %}
-                    <div class="w3-content w3-display-container">
-                        <img class="mySlides" src="img_snowtops.jpg" style="width:100%">
-                        <img class="mySlides" src="img_lights.jpg" style="width:100%">
-                        <img class="mySlides" src="img_mountains.jpg" style="width:100%">
-                        <img class="mySlides" src="img_forest.jpg" style="width:100%">
 
-                        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-                        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+                    <div class="w3-content w3-display-container">
+                        <div clas="mySlides">
+                            <img class="mySlides" src="{{ asset("images/museum/abritus1.jpg") }}" style="width:100%">
+                            <span><i class="fas fa-times"></i></span>
+                        </div>
+
+                          <img class="mySlides" src="{{ asset("images/user-profile-image.jpg") }}" style="width:100%">
+                          <img class="mySlides" src="{{ asset("images/museum/abritus1.jpg") }}" style="width:100%">
+                          <img class="mySlides" src="{{ asset("images/museum/abritus1.jpg") }}" style="width:100%">
+
+                        <button class="w3-button slider-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                        <button class="w3-button slider-button w3-display-right" onclick="plusDivs(1)">&#10095;</button>
                     </div>
 
             {% endif %}
@@ -32,19 +45,179 @@
 
         </div>
         <div class="information-container">
-
+            <textarea class="form-control" name="" id=""  rows="10" placeholder="Please add additional information about your museum..."></textarea>
 
         </div>
 
-
     </div>
 
+<div class="col-11 row justify-content-center m-auto">
+<div class="col-12 text-center">
+    <h2>Top upcoming tourists</h2>
+</div>
+   <div class="col-12 m-0 p-0 row">
+       <div class="col-6 container m-auto ">
+           <div class="col-12 c-visitor-card row">
+               <div class="col-12 row c-visitor-card__first-page">
+                   <div class="col-12 c-visitor-card__hour">
+                       <h4>17:00-18:00</h4>
+                   </div>
+                   <div class="c-visitor-card__image-container col-4 ">
+                       <img src="{{asset("images/user-profile-image.jpg") }}" alt="">
+                   </div>
+                   <div class="c-visitor-card__credential col-8">
+                       <div class="c-visitor-card__credential__name">
+                           <h4>Иванела Стойлова</h4>
+                       </div>
+                       <div class="c-visitor-card__credential__booked-tickets">
+                           <h5>Резервирани билета - 21</h5>
 
-    <div class="container">
+                       </div>
+
+                       <div class="c-visitor-card__credential__visit-rate">
+                           4.7/5
+                       </div>
+                   </div>
+               </div>
+               <div class="c-visitor-card__second-page">
+                   <h4>Потребителят посети ли музеят ви </h4>
+                   <button class="btn btn-success">Да</button>
+                   <button class="btn btn-danger">Не</button>
+               </div>
+
+           </div>
+
+       </div>  <div class="col-6 container m-auto ">
+           <div class="col-12 c-visitor-card row">
+               <div class="col-12 row c-visitor-card__first-page">
+                   <div class="col-12 c-visitor-card__hour">
+                       <h4>17:00-18:00</h4>
+                   </div>
+                   <div class="c-visitor-card__image-container col-4 ">
+                       <img src="{{asset("images/user-profile-image.jpg") }}" alt="">
+                   </div>
+                   <div class="c-visitor-card__credential col-8">
+                       <div class="c-visitor-card__credential__name">
+                           <h4>Иванела Стойлова</h4>
+                       </div>
+                       <div class="c-visitor-card__credential__booked-tickets">
+                           <h5>Резервирани билета - 21</h5>
+
+                       </div>
+
+                       <div class="c-visitor-card__credential__visit-rate">
+                           4.7/5
+                       </div>
+                   </div>
+               </div>
+               <div class="c-visitor-card__second-page">
+                   <h4>Потребителят посети ли музеят ви </h4>
+                   <button class="btn btn-success">Да</button>
+                   <button class="btn btn-danger">Не</button>
+               </div>
+
+           </div>
+
+       </div>
+
+   </div>
+</div>
 
 
-    </div>
 
+
+
+   <div class="col-11 row mt-5 mx-auto  justify-content-center">
+       <div class="col-12 text-center mb-3"><h2>Monday schedule</h2></div>
+
+       {% for schedule in schedules %}
+           <div class="col-6 col-sm-6 col-md-4 col-lg-2 mr-1 row p-0 ">
+               <div class="  c-schedule-visitor-card  col-11">
+                   <div class="c-schedule-visitor-card__hour">
+                       <h4>{{ schedule.startTime|date('H:i') }}-{{ schedule.endTime|date('H:i') }}</h4>
+                   </div>
+                   <div class="c-schedule-visitor-card__max-capacity">
+                       <h5> Капацитет - {{ schedule.museum.maxCapacity }}</h5>
+                   </div>
+                   <div class="cc-schedule-visitor-card__max-capacity">
+                       <h5>Посетители - {{ schedule.tickets|length }}</h5>
+                   </div>
+                   {% if "now"|date('H:i') >  schedule.endTime|date('H:i') %}
+                       <div class="c-schedule-visitor-card__done">
+                           <i class="fas fa-check"></i>
+                       </div>
+                       {% else %}
+                           <div class="c-schedule-visitor-card__wait">
+                               <i class="fas fa-clock"></i>
+                           </div>
+                   {% endif %}
+               </div>
+
+           </div>
+       {% endfor %}
+
+
+
+       </div>
+   </div>
+
+
+   <div class="col-12 container justify-content-center">
+       <div class="col-12 text-center m-3"><h2>Most visited hours </h2></div>
+       <div id="chart_div" style="width: 100%; height: 100%"></div>
+   </div>
+
+    <script>
+        google.charts.load('current', {packages: ['corechart', 'line']});
+        google.charts.setOnLoadCallback(drawBackgroundColor);
+
+        function drawBackgroundColor() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('number', 'X');
+            data.addColumn('number', 'People');
+
+            data.addRows([
+                [0, 0],   [1, 0],  [2, 0],  [3, 0],  [4, 0],  [5, 0],
+                [6, 0],  [7, 0],  [8, 0],  [9, 25],  [10, 20], [11, 25],
+                [12, 20], [13, 25], [14, 20], [15, 20], [16, 14], [17, 25],
+                [18, 0], [19, 0], [20, 0], [21, 0], [22, 0], [23, 0],
+                [24, 0]
+            ]);
+
+            var options = {
+                hAxis: {
+                    title: 'Top hours'
+                },
+                vAxis: {
+                    title: ''
+                },
+                backgroundColor: '#fff'
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+
+
+            var slideIndex = 1;
+            showDivs(slideIndex);
+
+            function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+            function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            if (n > x.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = x.length}
+            for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+            x[slideIndex-1].style.display = "block";
+        }
+
+    </script>
 
 
 {%  endblock %}

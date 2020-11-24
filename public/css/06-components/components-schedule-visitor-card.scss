@@ -1,0 +1,30 @@
+.c-schedule-visitor-card{
+  border: 1px solid black;
+  height: fit-content;
+  padding: 0;
+  text-align: center;
+  &__hour{
+    padding: 0.3em;
+    color: white;
+    background-color: #6873A5;
+    width: 100%;
+  }
+  &__max-capacity{
+    padding: 0.5em;
+  }
+
+  &__done, &__wait{
+
+    color: white;
+
+    font-size: 1.1em;
+    padding: 0.3em;
+  }
+  &__done{
+    background-color: darkgreen;
+  }
+
+  &__wait{
+    background-color: orangered;
+  }
+}

@@ -5,13 +5,23 @@
   padding: 0.5em;
   border-radius: 0px;
 
-  &--danger{
+  &--danger {
     background-color: #ba4242;
     transition: background-color 0.3s ease;
-    &:hover{
+
+    &:hover {
       background-color: darkred;
 
     }
+  }
+  &--success{
+    background-color: green;
+    transition: background-color 0.3s ease;
+    &:hover{
+      background-color: darkgreen;
+
+    }
+
 
   }
 

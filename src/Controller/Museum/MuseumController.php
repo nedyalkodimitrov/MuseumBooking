@@ -22,7 +22,7 @@ class MuseumController extends AbstractController
         return $this->render('museum/home/index.html.twig', [
             'controller_name' => 'MuseumController',
             'images' => $images,
-            'schedule' => $schedule,
+            'schedules' => $schedule,
         ]);
     }
     /**

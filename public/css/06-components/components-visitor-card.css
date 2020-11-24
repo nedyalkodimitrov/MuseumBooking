@@ -1,0 +1,47 @@
+.c-visitor-card {
+  margin-top: 2em;
+  box-shadow: 0px 0px 5px 1px gray;
+  background: linear-gradient(to right, #E8CBC0, #636FA4);
+  overflow: hidden;
+  transition: background 0.4s;
+  padding: 1em;
+}
+.c-visitor-card__first-page {
+  transition: transform 0.4s ease-out, opacity 0.2s ease-out;
+}
+.c-visitor-card__second-page {
+  left: 100%;
+  transform: translateX(0);
+  width: 100%;
+  text-align: center;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  position: absolute;
+  opacity: 0;
+  height: 100%;
+}
+.c-visitor-card__hour {
+  text-align: center;
+  color: white;
+}
+.c-visitor-card__image-container img {
+  width: 7em;
+  height: 7em;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.c-visitor-card__credential {
+  color: white;
+}
+.c-visitor-card__credential__name, .c-visitor-card__credential__booked-tickets, .c-visitor-card__credential__visit-rate {
+  padding: 0.4em;
+}
+.c-visitor-card:hover .c-visitor-card__first-page {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.c-visitor-card:hover .c-visitor-card__second-page {
+  transform: translateX(-100%);
+  opacity: 1;
+}
+
+/*# sourceMappingURL=components-visitor-card.css.map */

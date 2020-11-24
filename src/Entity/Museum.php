@@ -21,6 +21,11 @@ class Museum
      * @ORM\OneToOne(targetEntity="User", inversedBy="museum")
      */
     public  $user;
+    /**
+     * @ORM\OneToMany(targetEntity="MuseumWorker", mappedBy="museum")
+     */
+
+    public  $worker;
 
     /**
      * @ORM\Column(type="string")
@@ -191,6 +196,23 @@ class Museum
     {
         $this->images = $images;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getWorker()
+    {
+        return $this->worker;
+    }
+
+    /**
+     * @param mixed $worker
+     */
+    public function setWorker($worker): void
+    {
+        $this->worker = $worker;
+    }
+
 
 
 

@@ -1,0 +1,62 @@
+.c-visitor-card{
+  margin-top: 2em;
+  box-shadow: 0px 0px  5px 1px gray;
+  background: linear-gradient(to right, #E8CBC0, #636FA4);
+  overflow: hidden;
+transition: background 0.4s ;
+
+  &__first-page{
+    transition: transform 0.4s ease-out, opacity 0.2s ease-out;
+
+
+  }
+  &__second-page{
+    left: 100%;
+    transform: translateX(0);
+    width: 100%;
+    text-align: center;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    position: absolute;
+
+    opacity: 0;
+    height: 100%;
+
+  }
+
+  padding: 1em;
+  &__hour{
+    text-align: center;
+    color: white;
+  }
+
+  &__image-container{
+    img{
+      width: 7em;
+      height: 7em;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+  }
+  &__credential{
+    color: white;
+    &__name,&__booked-tickets, &__visit-rate {
+     padding: 0.4em;
+    }
+  }
+
+  &:hover{
+
+    .c-visitor-card__first-page{
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    .c-visitor-card__second-page{
+      transform: translateX(-100%);
+      opacity: 1;
+    }
+
+
+}
+
+}

@@ -286,5 +286,12 @@ body {
 .c-button--danger:hover {
   background-color: darkred;
 }
+.c-button--success {
+  background-color: green;
+  transition: background-color 0.3s ease;
+}
+.c-button--success:hover {
+  background-color: darkgreen;
+}
 
 /*# sourceMappingURL=all.css.map */
