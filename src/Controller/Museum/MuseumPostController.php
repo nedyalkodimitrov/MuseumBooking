@@ -5,6 +5,8 @@ namespace App\Controller\Museum;
 use App\Entity\Schedule;
 use App\Repository\DayRepository;
 use App\Repository\ScheduleRepository;
+use App\Repository\TicketRepository;
+use App\Service\tourOperatorService;
 use Symfony\Component\HttpFoundation;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -81,6 +83,60 @@ class MuseumPostController extends AbstractController
     }
 
 
+    /**
+     * @Route("/museum/userHasCome", name="delete-schedule")
+     */
+    public function userHasCome(HttpFoundation\Request $request, TicketRepository  $ticketRepository, tourOperatorService  $tourOperatorService)
+    {
+        $ticketId = $request->request->get("ticketId");
 
+        //set that operator visited museum
+        $ticket = $ticketRepository->find(1);
+        $ticket->setHasCome(true);
+
+        //change operator visit rate
+        $tourOperator = $ticket->getTourOperator();
+
+        //result[0] --> visitedMuseums
+        //result[1] --> allTourOperatorTickets
+        $result = $tourOperatorService->changeVisitRating($tourOperator);
+
+        $tourOperator->setVisitRating(5* ($result[0] / count($result[1])));
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($ticket);
+        $em->persist($tourOperator);
+        $em->flush();
+
+        return $this->json( 5* ($result[0] / count($result[1])));
+
+    }
+
+
+    /**
+     * @Route("/museum/userHasNotCome", name="delete-schedule")
+     */
+    public function userHasNotCome(HttpFoundation\Request $request, TicketRepository  $ticketRepository, tourOperatorService $tourOperatorService)
+    {
+        $ticketId = $request->request->get("ticketId");
+
+        $ticket = $ticketRepository->find(1);
+
+        $tourOperator = $ticket->getTourOperator();
+
+
+        //result[0] --> visitedMuseums
+        //result[1] --> allTourOperatorTickets
+        $result = $tourOperatorService->changeVisitRating($tourOperator);
+
+
+        $tourOperator->setVisitRating(5* ($result[0] / count($result[1])));
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($tourOperator);
+        $em->flush();
+
+        return $this->json( 5* ($result[0] / count($result[1])));
+    }
 
 }

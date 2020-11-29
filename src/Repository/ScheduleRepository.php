@@ -47,4 +47,19 @@ class ScheduleRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findSchedulesOrdered($museumId, $dayId)
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.day = :dayId')
+            ->andWhere('s.museum = :museumId')
+            ->setParameter('dayId', $dayId)
+            ->setParameter('museumId', $museumId)
+            ->orderBy('s.startTime', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+
 }

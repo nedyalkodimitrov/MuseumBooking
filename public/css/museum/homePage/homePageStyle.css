@@ -1,14 +1,9 @@
 .container {
   margin: auto;
   margin-top: 0.5em;
-  width: 95%;
-  flex-wrap: wrap;
-  display: flex;
 }
 .container .images-container {
-  flex: 2;
   box-shadow: 0px 0px 5px 1px gray;
-  margin-right: 1em;
   text-align: center;
   height: fit-content;
 }
@@ -21,16 +16,32 @@
   display: none;
 }
 .container .information-container {
-  flex: 3;
   border: 1px solid black;
+}
+.container .information-container textarea {
+  height: auto;
 }
 
 .mySlides {
   height: 18em;
+}
+.mySlides img {
+  height: 100%;
   object-fit: cover;
 }
-.mySlides .fa-times {
+.mySlides span {
   position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0.5em;
+  font-size: 1.7em;
+  color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: darkred;
+  transition: color 0.2s ease-out;
+}
+.mySlides span:hover {
+  color: darkred;
 }
 
 .w3-display-container .slider-button {

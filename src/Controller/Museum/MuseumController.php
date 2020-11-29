@@ -5,24 +5,56 @@ namespace App\Controller\Museum;
 use App\Entity\Day;
 use App\Repository\DayRepository;
 use App\Repository\ScheduleRepository;
+use App\Repository\TicketRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\Date;
 
 class MuseumController extends AbstractController
 {
     /**
      * @Route("/museum", name="museum")
      */
-    public function home(ScheduleRepository $scheduleRepository)
+    public function home(TicketRepository  $ticketRepository, ScheduleRepository $scheduleRepository, DayRepository $dayRepository)
     {
         $museum = $this->getUser()->getMuseum();
+        $museumId = $museum->getId();
+        $date = new \DateTime();
+        $date->format("D");
+        $dayName = $date->format("l");
+        $currentTime = $date->format('H');
+
+
+        var_dump( $currentTime + 1);
+
+        $dayId = $dayRepository->findOneBy(["name" => $dayName]);
+
+        $schedule = null;
         $images = $museum->getImages();
-        $schedule = $scheduleRepository->findBy(["day"=>1]);
+        if ($dayId == null){
+
+            $schedule = $scheduleRepository->findSchedulesOrdered($museumId, 1);
+
+        }
+
+        var_dump($dayName);
+        var_dump($dayId);
+//        var_dump($schedule);
+        $bestTickets = [];
+        for ($i = 0; $i < count($schedule); $i++){
+            if ($schedule[$i]->getEndTime() > $currentTime){
+                var_dump(true);
+                $bestTickets = $ticketRepository->getBestMuseumTicketsOrdered($museumId, $currentTime);
+
+            }
+        }
 
         return $this->render('museum/home/index.html.twig', [
             'controller_name' => 'MuseumController',
             'images' => $images,
             'schedules' => $schedule,
+            'dayName' => $dayName,
+            'bestTickets' => $bestTickets
         ]);
     }
     /**

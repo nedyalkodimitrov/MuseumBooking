@@ -43,6 +43,11 @@ class Ticket
     public  $schedule;
 
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    public $hasCome;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -127,6 +132,27 @@ class Ticket
     {
         $this->schedule = $schedule;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getHasCome()
+    {
+        return $this->hasCome;
+    }
+
+    /**
+     * @param mixed $hasCome
+     */
+    public function setHasCome($hasCome): void
+    {
+        $this->hasCome = $hasCome;
+    }
+
+
+
+
+
 
 
 }

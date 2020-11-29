@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Schedule;
 use App\Entity\Ticket;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -47,4 +48,25 @@ class TicketRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function getBestMuseumTicketsOrdered($museumId, $currentTime)
+    {
+
+        return    $qb = $this->createQueryBuilder('t')
+            ->leftJoin('t.schedule', 's')
+            ->where('s.museum = :museumId')
+            ->andWhere('s.endTime > :currentTime')
+            ->setParameter('museumId', $museumId)
+            ->setParameter('currentTime', $currentTime)
+            ->orderBy('t.number', 'ASC')
+           ->getQuery()
+            ->getResult();
+
+
+//        return  $this->getEntityManager()->createQuery(
+//        'SELECT t FROM App\Entity\Ticket t Join App\Entity\Schedule s ON t.schedule_id = s.id WHERE s.museum_id = 1 ORDER BY number ASC LIMIT 2'
+//        )
+//            ->setParameter('museumId', $value)
+//            ->getResult();
+    }
 }

@@ -37,9 +37,6 @@ class TourOperator
      */
     public $phoneNumber;
 
-
-
-
     /**
      * @ORM\ManyToOne(targetEntity="City", inversedBy="tourOperators")
      */
@@ -49,6 +46,13 @@ class TourOperator
      * @ORM\OneToMany(targetEntity="Ticket", mappedBy="tourOperator")
      */
     public  $tickets;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    public $visitRating;
+
+
 
 
     public function getId(): ?int
@@ -151,6 +155,23 @@ class TourOperator
     {
         $this->phoneNumber = $phoneNumber;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getVisitRating()
+    {
+        return $this->visitRating;
+    }
+
+    /**
+     * @param mixed $visitRating
+     */
+    public function setVisitRating($visitRating): void
+    {
+        $this->visitRating = $visitRating;
+    }
+
 
 
 

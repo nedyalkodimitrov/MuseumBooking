@@ -27,7 +27,7 @@ class Museum
 
     public  $worker;
 
-    /**
+/**
      * @ORM\Column(type="string")
      */
     public $museumName;

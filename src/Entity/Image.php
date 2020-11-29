@@ -19,9 +19,9 @@ class Image
 
 
     /**
-     * @ORM\Column(type="blob")
+     * @ORM\Column(type="string")
      */
-    public $image;
+    public $path;
 
 
     /**
@@ -40,18 +40,20 @@ class Image
     /**
      * @return mixed
      */
-    public function getImage()
+    public function getPath()
     {
-        return $this->image;
+        return $this->path;
     }
 
     /**
-     * @param mixed $image
+     * @param mixed $path
      */
-    public function setImage($image): void
+    public function setPath($path): void
     {
-        $this->image = $image;
+        $this->path = $path;
     }
+
+
 
     /**
      * @return mixed

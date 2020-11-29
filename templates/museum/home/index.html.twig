@@ -16,38 +16,47 @@
 {% block body %}
 
 
-    <div class="container">
-        <div class="images-container">
-            {% if images | length == 1%}
-             <div class="empty">
-                 <p>Нямате снимки</p>
-                 <label for="addImage"><i class="fa fa-plus"></i></label>
-                 <input type="file" id="addImage">
-             </div>
-                {% else %}
+    <div class="container row col-11 mx-auto p-0 justify-content-center">
+     <div class="col-11 col-md-10 col-lg-5  m-0 p-0 justify-content-center row ">
+         <div class="images-container col-12 m-0 p-0  ">
+             {% if images | length == 0%}
+                 <div class="empty">
+                     <p>Нямате снимки</p>
+                     <label for="addImage"><i class="fa fa-plus"></i></label>
+                     <input type="file" id="addImage">
+                 </div>
 
-                    <div class="w3-content w3-display-container">
-                        <div clas="mySlides">
-                            <img class="mySlides" src="{{ asset("images/museum/abritus1.jpg") }}" style="width:100%">
-                            <span><i class="fas fa-times"></i></span>
-                        </div>
 
-                          <img class="mySlides" src="{{ asset("images/user-profile-image.jpg") }}" style="width:100%">
-                          <img class="mySlides" src="{{ asset("images/museum/abritus1.jpg") }}" style="width:100%">
-                          <img class="mySlides" src="{{ asset("images/museum/abritus1.jpg") }}" style="width:100%">
+             {% else %}
 
-                        <button class="w3-button slider-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-                        <button class="w3-button slider-button w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-                    </div>
+                 <div class="w3-content w3-display-container">
+                     {% for image in images %}
+                         <div class="mySlides">
+                             <img class="" src="{{ asset("images/museums/"~image.path) }}" style="width:100%">
+                             <span value="{{ image.id }}"><i class="fas fa-times"></i></span>
+                         </div>
+                     {% endfor %}
+                     <div class="empty mySlides">
+                         <p>Нямате снимки</p>
+                         <label for="addImage"><i class="fa fa-plus"></i></label>
+                         <input type="file" id="addImage">
+                     </div>
+                     <button class="w3-button slider-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                     <button class="w3-button slider-button w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+                 </div>
 
-            {% endif %}
+             {% endif %}
 
+
+         </div>
+     </div>
+    <div class="col-11 col-md-10 col-lg-7 row p-0 m-0 justify-content-center mt-3 mt-lg-0 ">
+        <div class="information-container col-12 col-lg-11">
+            <div><h2 class="text-center">Please add additional information about you museum</h2></div>
+            <textarea class="form-control" name="" id=""  rows="" placeholder="Please add additional information about your museum..."></textarea>
 
         </div>
-        <div class="information-container">
-            <textarea class="form-control" name="" id=""  rows="10" placeholder="Please add additional information about your museum..."></textarea>
-
-        </div>
+    </div>
 
     </div>
 
@@ -56,69 +65,81 @@
     <h2>Top upcoming tourists</h2>
 </div>
    <div class="col-12 m-0 p-0 row">
-       <div class="col-6 container m-auto ">
-           <div class="col-12 c-visitor-card row">
-               <div class="col-12 row c-visitor-card__first-page">
-                   <div class="col-12 c-visitor-card__hour">
-                       <h4>17:00-18:00</h4>
-                   </div>
-                   <div class="c-visitor-card__image-container col-4 ">
-                       <img src="{{asset("images/user-profile-image.jpg") }}" alt="">
-                   </div>
-                   <div class="c-visitor-card__credential col-8">
-                       <div class="c-visitor-card__credential__name">
-                           <h4>Иванела Стойлова</h4>
+       {% for ticket in bestTickets %}
+
+
+           <div class="col-6 container m-auto ">
+               <div class="col-12 c-visitor-card row">
+                   <div class="col-12 row c-visitor-card__first-page">
+                       <div class="col-12 c-visitor-card__hour">
+                           <h4>{{ ticket.Schedule.StartTime  }} - {{ ticket.Schedule.EndTime  }}</h4>
                        </div>
-                       <div class="c-visitor-card__credential__booked-tickets">
-                           <h5>Резервирани билета - 21</h5>
-
+                       <div class="c-visitor-card__image-container col-4 ">
+                           <img src="{{asset("images/user-profile-image.jpg") }}" alt="">
                        </div>
+                       <div class="c-visitor-card__credential col-8">
+                           <div class="c-visitor-card__credential__name">
+                               <h4>{{ ticket.tourOperator.Name  }} {{ ticket.tourOperator.FName  }} </h4>
+                           </div>
+                           <div class="c-visitor-card__credential__booked-tickets">
+                               <h5>Резервирани билета - {{ ticket.Number  }}</h5>
 
-                       <div class="c-visitor-card__credential__visit-rate">
-                           4.7/5
-                       </div>
-                   </div>
-               </div>
-               <div class="c-visitor-card__second-page">
-                   <h4>Потребителят посети ли музеят ви </h4>
-                   <button class="btn btn-success">Да</button>
-                   <button class="btn btn-danger">Не</button>
-               </div>
+                           </div>
 
-           </div>
-
-       </div>  <div class="col-6 container m-auto ">
-           <div class="col-12 c-visitor-card row">
-               <div class="col-12 row c-visitor-card__first-page">
-                   <div class="col-12 c-visitor-card__hour">
-                       <h4>17:00-18:00</h4>
-                   </div>
-                   <div class="c-visitor-card__image-container col-4 ">
-                       <img src="{{asset("images/user-profile-image.jpg") }}" alt="">
-                   </div>
-                   <div class="c-visitor-card__credential col-8">
-                       <div class="c-visitor-card__credential__name">
-                           <h4>Иванела Стойлова</h4>
-                       </div>
-                       <div class="c-visitor-card__credential__booked-tickets">
-                           <h5>Резервирани билета - 21</h5>
-
-                       </div>
-
-                       <div class="c-visitor-card__credential__visit-rate">
-                           4.7/5
+                           <div class="c-visitor-card__credential__visit-rate">
+                              {{ ticket.tourOperator.visitRating }}/5
+                           </div>
                        </div>
                    </div>
-               </div>
-               <div class="c-visitor-card__second-page">
-                   <h4>Потребителят посети ли музеят ви </h4>
-                   <button class="btn btn-success">Да</button>
-                   <button class="btn btn-danger">Не</button>
+                   <div class="c-visitor-card__second-page">
+                       <h4>Потребителят посети ли музеят ви </h4>
+                       <button class="btn btn-success" value="{{ ticket.Id }}">Да</button>
+                       <button class="btn btn-danger" value="{{ ticket.Id }}">Не</button>
+                   </div>
+
                </div>
 
            </div>
+           {% else %}
+           <div class="text-center">
+            <h4>
+                You dont have any upcoming tourist
+            </h4>
+           </div>
+       {% endfor %}
 
-       </div>
+{#       <div class="col-6 container m-auto ">#}
+{#           <div class="col-12 c-visitor-card row">#}
+{#               <div class="col-12 row c-visitor-card__first-page">#}
+{#                   <div class="col-12 c-visitor-card__hour">#}
+{#                       <h4>17:00-18:00</h4>#}
+{#                   </div>#}
+{#                   <div class="c-visitor-card__image-container col-4 ">#}
+{#                       <img src="{{asset("images/user-profile-image.jpg") }}" alt="">#}
+{#                   </div>#}
+{#                   <div class="c-visitor-card__credential col-8">#}
+{#                       <div class="c-visitor-card__credential__name">#}
+{#                           <h4>Иванела Стойлова</h4>#}
+{#                       </div>#}
+{#                       <div class="c-visitor-card__credential__booked-tickets">#}
+{#                           <h5>Резервирани билета - 21</h5>#}
+
+{#                       </div>#}
+
+{#                       <div class="c-visitor-card__credential__visit-rate">#}
+{#                           4.7/5#}
+{#                       </div>#}
+{#                   </div>#}
+{#               </div>#}
+{#               <div class="c-visitor-card__second-page">#}
+{#                   <h4>Потребителят посети ли музеят ви </h4>#}
+{#                   <button class="btn btn-success">Да</button>#}
+{#                   <button class="btn btn-danger">Не</button>#}
+{#               </div>#}
+
+{#           </div>#}
+
+{#       </div>#}
 
    </div>
 </div>
@@ -128,7 +149,7 @@
 
 
    <div class="col-11 row mt-5 mx-auto  justify-content-center">
-       <div class="col-12 text-center mb-3"><h2>Monday schedule</h2></div>
+       <div class="col-12 text-center mb-3"><h2>{{ dayName}} schedule</h2></div>
 
        {% for schedule in schedules %}
            <div class="col-6 col-sm-6 col-md-4 col-lg-2 mr-1 row p-0 ">
@@ -137,10 +158,10 @@
                        <h4>{{ schedule.startTime|date('H:i') }}-{{ schedule.endTime|date('H:i') }}</h4>
                    </div>
                    <div class="c-schedule-visitor-card__max-capacity">
-                       <h5> Капацитет - {{ schedule.museum.maxCapacity }}</h5>
+                       <h5> Capacity - {{ schedule.museum.maxCapacity }}</h5>
                    </div>
                    <div class="cc-schedule-visitor-card__max-capacity">
-                       <h5>Посетители - {{ schedule.tickets|length }}</h5>
+                       <h5>Visitors - {{ schedule.tickets|length }}</h5>
                    </div>
                    {% if "now"|date('H:i') >  schedule.endTime|date('H:i') %}
                        <div class="c-schedule-visitor-card__done">
@@ -154,6 +175,9 @@
                </div>
 
            </div>
+           {% else %}
+
+           <div class="text-center"><h4>You do not have a schedule for {{ dayName }}</h4></div>
        {% endfor %}
 
 
