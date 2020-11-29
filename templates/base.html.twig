@@ -13,6 +13,7 @@
        <script src="https://cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 
         {% block stylesheets %}{% endblock %}
     </head>
@@ -21,7 +22,7 @@
     <nav class="navbar large-navbar navbar-expand-lg  navbar-light bg-white py-3 shadow-sm homePage-start-nav" id="navbar">
         <div class="container mx-auto col-12  p-0 row">
 
-            <a href="" class="justify-content-center  demo-logo-text"><h4>Museum`Booking</h4></a>
+            <a href="" class="justify-content-center  demo-logo-text"><h4>Museum Booking</h4></a>
             <button class="navbar-toggler" id="navbar-toggler-button" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" >
                 <div class="nav-toggle-button-container" onclick="changeToggleMenuButton(this)">
                     <div class="bar1"></div>
@@ -33,7 +34,10 @@
                 <ul class="nav navbar-nav menu"  id="menu">
                     <li><a href="">Home</a></li>
                     <li class="dropdown"><a href="">Schedule </a></li>
+                    <li><a href="">Stats</a></li>
                 </ul>
+
+                <a href=""><img src="{{ asset("user-profile-image.jpg") }}" alt=""></a>
             </div>
         </div>
     </nav>

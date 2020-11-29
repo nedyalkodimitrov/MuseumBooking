@@ -25,8 +25,6 @@ class MuseumController extends AbstractController
         $currentTime = $date->format('H');
 
 
-        var_dump( $currentTime + 1);
-
         $dayId = $dayRepository->findOneBy(["name" => $dayName]);
 
         $schedule = null;
@@ -37,13 +35,10 @@ class MuseumController extends AbstractController
 
         }
 
-        var_dump($dayName);
-        var_dump($dayId);
-//        var_dump($schedule);
         $bestTickets = [];
         for ($i = 0; $i < count($schedule); $i++){
             if ($schedule[$i]->getEndTime() > $currentTime){
-                var_dump(true);
+
                 $bestTickets = $ticketRepository->getBestMuseumTicketsOrdered($museumId, $currentTime);
 
             }
@@ -62,8 +57,12 @@ class MuseumController extends AbstractController
      */
     public function museumSettings()
     {
+        $museum = $this->getUser()->getMuseum();
+        $images = $museum->getImages();
+
         return $this->render('museum/settings/settings.html.twig', [
             'controller_name' => 'MuseumController',
+            'images' => $images
         ]);
     }
     /**
