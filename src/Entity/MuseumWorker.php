@@ -47,7 +47,6 @@ class MuseumWorker
 
 
 
-
     public function getId(): ?int
     {
         return $this->id;

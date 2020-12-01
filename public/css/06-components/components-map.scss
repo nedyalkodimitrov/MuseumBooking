@@ -1,0 +1,11 @@
+@import '../01-settings/settings-metrics';
+
+.c-map{
+  margin-top: 2em;
+  text-align: center;
+  iframe {
+    max-width: $max-width;
+    width: 100%;
+    height: 25em;
+  }
+}

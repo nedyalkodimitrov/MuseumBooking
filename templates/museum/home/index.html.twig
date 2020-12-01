@@ -16,54 +16,10 @@
 {% block body %}
 
 
-    <div class="container row col-11 mx-auto p-0 justify-content-center">
-     <div class="col-11 col-md-10 col-lg-5  m-0 p-0 justify-content-center row ">
-         <div class="images-container col-12 m-0 p-0  ">
-             {% if images | length == 0%}
-                 <div class="empty">
-                     <p>Нямате снимки</p>
-                     <label for="addImage"><i class="fa fa-plus"></i></label>
-                     <input type="file" id="addImage">
-                 </div>
-
-
-             {% else %}
-
-                 <div class="w3-content w3-display-container">
-                     {% for image in images %}
-                         <div class="mySlides">
-                             <img class="" src="{{ asset("images/museums/"~image.path) }}" style="width:100%">
-                             <span value="{{ image.id }}"><i class="fas fa-times"></i></span>
-                         </div>
-                     {% endfor %}
-                     <div class="empty mySlides">
-                         <p>Нямате снимки</p>
-                         <label for="addImage"><i class="fa fa-plus"></i></label>
-                         <input type="file" id="addImage">
-                     </div>
-                     <button class="w3-button slider-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-                     <button class="w3-button slider-button w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-                 </div>
-
-             {% endif %}
-
-
-         </div>
-     </div>
-    <div class="col-11 col-md-10 col-lg-7 row p-0 m-0 justify-content-center mt-3 mt-lg-0 ">
-        <div class="information-container col-12 col-lg-11">
-            <div><h2 class="text-center">Please add additional information about you museum</h2></div>
-            <textarea class="form-control" name="" id=""  rows="" placeholder="Please add additional information about your museum..."></textarea>
-
-        </div>
-    </div>
-
-    </div>
-
 <div class="col-11 row justify-content-center m-auto">
-<div class="col-12 text-center">
-    <h2>Top upcoming tourists</h2>
-</div>
+    <div class="col-12 text-center">
+        <h2>Top upcoming tourists</h2>
+    </div>
    <div class="col-12 m-0 p-0 row">
        {% for ticket in bestTickets %}
 

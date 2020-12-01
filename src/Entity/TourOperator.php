@@ -53,6 +53,11 @@ class TourOperator
     public $visitRating;
 
 
+    /**
+     * @ORM\OneToMany(targetEntity="MuseumReview", mappedBy="user")
+     */
+    public  $reviews;
+
 
 
     public function getId(): ?int
@@ -170,6 +175,22 @@ class TourOperator
     public function setVisitRating($visitRating): void
     {
         $this->visitRating = $visitRating;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReviews()
+    {
+        return $this->reviews;
+    }
+
+    /**
+     * @param mixed $reviews
+     */
+    public function setReviews($reviews): void
+    {
+        $this->reviews = $reviews;
     }
 
 

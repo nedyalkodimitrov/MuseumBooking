@@ -15,7 +15,7 @@ class MuseumController extends AbstractController
     /**
      * @Route("/museum", name="museum")
      */
-    public function home(TicketRepository  $ticketRepository, ScheduleRepository $scheduleRepository, DayRepository $dayRepository)
+    public function home(TicketRepository $ticketRepository, ScheduleRepository $scheduleRepository, DayRepository $dayRepository)
     {
         $museum = $this->getUser()->getMuseum();
         $museumId = $museum->getId();
@@ -29,15 +29,15 @@ class MuseumController extends AbstractController
 
         $schedule = null;
         $images = $museum->getImages();
-        if ($dayId == null){
+        if ($dayId == null) {
 
-            $schedule = $scheduleRepository->findSchedulesOrdered($museumId, 1);
 
         }
+        $schedule = $scheduleRepository->findSchedulesOrdered($museumId, $dayId);
 
         $bestTickets = [];
-        for ($i = 0; $i < count($schedule); $i++){
-            if ($schedule[$i]->getEndTime() > $currentTime){
+        for ($i = 0; $i < count($schedule); $i++) {
+            if ($schedule[$i]->getEndTime() > $currentTime) {
 
                 $bestTickets = $ticketRepository->getBestMuseumTicketsOrdered($museumId, $currentTime);
 
@@ -52,6 +52,7 @@ class MuseumController extends AbstractController
             'bestTickets' => $bestTickets
         ]);
     }
+
     /**
      * @Route("/museum/settings", name="museum_settings")
      */
@@ -65,6 +66,7 @@ class MuseumController extends AbstractController
             'images' => $images
         ]);
     }
+
     /**
      * @Route("/museum/schedule", name="museum_schedule")
      */
@@ -72,21 +74,37 @@ class MuseumController extends AbstractController
     {
         $museum = $this->getUser()->getMuseum();
         $schedule = [];
-            $days = $dayRepository->findAll();
-            for ($i = 0; $i < count($days); $i++){
-                $daySchedule = [];
+        $days = $dayRepository->findAll();
+        for ($i = 0; $i < count($days); $i++) {
+            $daySchedule = [];
 
-                array_push($daySchedule, $days[$i]);
-                $scheduleForDay = $scheduleRepository->findBy(["museum" => $museum, "day" => $days[$i]]);
-                array_push($daySchedule, $scheduleForDay);
-                array_push($schedule, $daySchedule);
+            array_push($daySchedule, $days[$i]);
+            $scheduleForDay = $scheduleRepository->findSchedulesOrdered($museum, $days[$i]);
+            array_push($daySchedule, $scheduleForDay);
+            array_push($schedule, $daySchedule);
 
 
-
-            }
+        }
         return $this->render('museum/schedule/schedule.html.twig', [
             'controller_name' => 'MuseumController',
-            'schedules' =>$schedule,
+            'schedules' => $schedule,
+        ]);
+    }
+
+
+    /**
+     * @Route("/museum/stats", name="museum_stats")
+     */
+    public function stats(ScheduleRepository $scheduleRepository, DayRepository $dayRepository)
+    {
+        $museum = $this->getUser()->getMuseum();
+        $reviews = $museum->getReviews();
+
+
+        return $this->render('museum/stats/stats.html.twig', [
+            'controller_name' => 'MuseumController',
+            'reviews' => $reviews
+
         ]);
     }
 

@@ -1,18 +1,24 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
 
-    <link rel="stylesheet" href="{{ asset("css/06-components/components-visitor-card.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-schedules-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-settings-profile-image.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-settings-museum-summary-information.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-map.css") }}">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <link rel="stylesheet" href="{{ asset("css/06-components/components-slider.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/06-components/components-schedule-visitor-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/pages/museum/settingsPage/settingsPageStyle.css") }}">
+    <script
+            src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
+            defer
+    ></script>
 
 {% endblock %}
 
 {% block body %}
 
-        <div class="col-12 col-md-12 col-lg-12  m-0 p-0 justify-content-center row ">
+        <div class="col-12 col-md-12 col-lg-12   justify-content-center row header">
             <div class="slider col-12 m-0 p-0  ">
                 {% if images | length == 0%}
                     <div class="slider__no-image">
@@ -29,43 +35,50 @@
                                 <span value="{{ image.id }}"><i class="fas fa-times"></i></span>
                             </div>
                         {% endfor %}
-                        <div class=" mySlides">
-                            <p>Нямате снимки</p>
-                            <label for="addImage"><i class="fa fa-plus"></i></label>
-                            <input type="file" id="addImage">
+                            <div class="slider__slides-container__slide slider__slides-container__slide--add-image mySlides ">
+                            <h3 class="slider__slides-container__slide__text">Нямате снимки</h3>
+                            <label class="slider__slides-container__slide__upload-image" for="addImage"><i class="fa fa-plus"></i></label>
+                            <input class="slider__slides-container__slide__input" type="file" id="addImage">
                         </div>
                         <button class="w3-button slider-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
                         <button class="w3-button slider-button w3-display-right" onclick="plusDivs(1)">&#10095;</button>
                     </div>
-
                 {% endif %}
-
-
-
-
                 </div>
 
+            <div class="c-profile-image">
+                <label for="addImage" class="c-profile-image__image-container">
+                    <img src="{{ asset("images/user-profile-image.jpg") }}" alt="">
+                    <div class="c-profile-image__image-container__hover-container">
+                        <i class="fas fa-camera c-profile-image__image-container__hover-container__element"></i>
+                    </div>
+
+                </label>
+                <input type="file" id="addImage" class="c-profile-image__upload">
+                <h2 class="c-profile-image__museum-name">Abritus</h2>
+            </div>
+
             </div>
 
         </div>
+    <hr>
+        <div class="col-12 col-md-10 col-lg-12 row p-0 m-0 justify-content-center mt-3 mt-lg-0 ">
 
-
-
-
-
-
-        <div class="col-11 col-md-10 col-lg-7 row p-0 m-0 justify-content-center mt-3 mt-lg-0 ">
-            <div class="information-container col-12 col-lg-11">
+            <div class="c-settings-museum-summary-information col-12 col-lg-12">
                 <div><h2 class="text-center">Please add additional information about you museum</h2></div>
-                <textarea class="form-control" name="" id=""  rows="" placeholder="Please add additional information about your museum..."></textarea>
-
+                <textarea class="form-control" name="" id=""  placeholder="Please add additional information about your museum..."></textarea>
             </div>
         </div>
+
+    <div class="c-map col-12 p-0 justify-content-center">
+        <iframe class="col-12 mx-auto" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=728&amp;height=349&amp;hl=en&amp;q=%20Abritus+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> <a href='https://add-map.com/'>add google map to your website</a> <script type='text/javascript' src='https://maps-generator.com/google-maps-authorization/script.js?id=773cab6eb5377681709bbeceb206b61feabda139'></script>
+
+    </div>
+    <script src="{{ asset("js/museum/homePage/slideshow.js") }}" ></script>
+    <script src="{{ asset("js/components/components-slider.js") }}" ></script>
 
 
     {% block javascript %}
-        <script src="{{ asset("js/museum/homePage/slideshow.js") }}" ></script>
-        <script src="{{ asset("js/components/components-slider.js") }}" ></script>
 
     {% endblock %}
 

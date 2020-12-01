@@ -1,7 +1,10 @@
   //to work this must be added https://www.w3schools.com/w3css/4/w3.css
   //and components-slide.js file
-  .slider {
+  @import "../01-settings/settings-metrics";
+  @import '../02-tools/tools-breakpoints';
 
+  .slider {
+    max-width: $max-width;
     box-shadow: 0px 0px 5px 1px gray;
 
     text-align: center;
@@ -44,23 +47,50 @@
             }
           }
 
+        &--add-image{
+
+        &:after {
+          margin: 0;
+          padding: 0;
+          content: " ";
+          position: absolute;
+          top: 0;left: 0;right: 0;bottom: 0;
+          background: linear-gradient(to right, #E8CBC0, #636FA4);
+          z-index: -1;
+        }
+
+
+        }
+        &__text{
+          color: white;
+          text-align: center;
+          padding-top: 1em;
+        }
+        &__upload-image{
+          padding: 0.5em;
+          border-radius: 50%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 3em;
+          vertical-align: center;
+          color:white;
+
+        }
+        &__input{
+          display: none;
+        }
+
       }
-
     }
 
-  }
-
-
-
-
-
-
-
-  .information-container{
-    border: 1px solid black;
-    textarea{
-      height: auto;
+    @include for-big-desktop-up {
+      margin-top: 0.5em;
+      border-radius: 15px;
+      overflow: hidden;
     }
+
   }
 
 

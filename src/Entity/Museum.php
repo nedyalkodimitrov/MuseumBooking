@@ -25,6 +25,12 @@ class Museum
      * @ORM\OneToMany(targetEntity="MuseumWorker", mappedBy="museum")
      */
 
+    /**
+     * @ORM\Column(type="float")
+     */
+    public $rating;
+
+
     public  $worker;
 
 /**
@@ -62,6 +68,11 @@ class Museum
      * @ORM\OneToMany(targetEntity="Image", mappedBy="museum")
      */
     public  $images;
+
+    /**
+     * @ORM\OneToMany(targetEntity="MuseumReview", mappedBy="museum")
+     */
+    public  $reviews;
 
 
     public function getId(): ?int
@@ -212,6 +223,39 @@ class Museum
     {
         $this->worker = $worker;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * @param mixed $rating
+     */
+    public function setRating($rating): void
+    {
+        $this->rating = $rating;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReviews()
+    {
+        return $this->reviews;
+    }
+
+    /**
+     * @param mixed $reviews
+     */
+    public function setReviews($reviews): void
+    {
+        $this->reviews = $reviews;
+    }
+
 
 
 

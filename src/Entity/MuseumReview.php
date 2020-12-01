@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=MuseumReviewsRepository::class)
  */
-class MuseumReviews
+class MuseumReview
 {
     /**
      * @ORM\Id
@@ -30,14 +30,22 @@ class MuseumReviews
     public $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="review")
+     * @ORM\ManyToOne(targetEntity="TourOperator", inversedBy="reviews")
      */
-    public  $user;
+    public  $tourOperator;
 
     /**
      * @ORM\ManyToOne(targetEntity="Museum", inversedBy="review")
      */
     public  $museum;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    public $rating;
+
+
+
 
     public function getId(): ?int
     {
@@ -79,18 +87,20 @@ class MuseumReviews
     /**
      * @return mixed
      */
-    public function getUser()
+    public function getTourOperator()
     {
-        return $this->user;
+        return $this->tourOperator;
     }
 
     /**
-     * @param mixed $user
+     * @param mixed $tourOperator
      */
-    public function setUser($user): void
+    public function setTourOperator($tourOperator): void
     {
-        $this->user = $user;
+        $this->tourOperator = $tourOperator;
     }
+
+
 
     /**
      * @return mixed
@@ -107,6 +117,24 @@ class MuseumReviews
     {
         $this->museum = $museum;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * @param mixed $rating
+     */
+    public function setRating($rating): void
+    {
+        $this->rating = $rating;
+    }
+
+
 
 
 }

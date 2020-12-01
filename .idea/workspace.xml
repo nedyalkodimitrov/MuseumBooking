@@ -2,14 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="849987b0-80f0-4d98-9254-bdbd26928508" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/css/01-settings/settings-metrics.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/components-map.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/components-settings-museum-information.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/components-settings-museum-summary-information.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/components-settings-profile-image.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/components-stats-museum-review.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/pages/museum/settingsPage/settingsPageStyle.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/components/components-map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/museum/stats/stats.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/01-settings/settings-colors.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/01-settings/settings-colors.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/06-components/components-slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/components-slider.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/06-components/components-slider.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/components-slider.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/06-components/components-slider.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/components-slider.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/museum/homePage/homePageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/museum/homePage/homePageStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/components/components-slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/components/components-slider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/museum/homePage/homePageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/pages/museum/homePage/homePageStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/museum/homePage/homePageStyle.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/pages/museum/homePage/homePageStyle.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/museum/homePage/homePageStyle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/pages/museum/homePage/homePageStyle.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/museum/homePage/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/pages/museum/homePage/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/museum/homePage/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/pages/museum/homePage/style.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/museum/homePage/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/pages/museum/homePage/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/museum/particles/navStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/pages/museum/particles/navStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/museum/particles/navStyle.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/pages/museum/particles/navStyle.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/museum/particles/navStyle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/pages/museum/particles/navStyle.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/museum/particles/slideshow.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/pages/museum/particles/slideshow.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/tourOperator/home/homePageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/pages/tourOperator/home/homePageStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/tourOperator/home/homePageStyle.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/pages/tourOperator/home/homePageStyle.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/tourOperator/home/homePageStyle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/pages/tourOperator/home/homePageStyle.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Museum/MuseumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Museum/MuseumController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Museum.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Museum.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/MuseumReviews.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/MuseumReview.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/MuseumWorker.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/MuseumWorker.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/TourOperator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/TourOperator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/MuseumReviewsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/MuseumReviewsRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/museum/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/home/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/museum/settings/settings.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/settings/settings.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -168,6 +196,7 @@
       <recent name="D:\Develpment\Symfony\MuseumBooking\public\images\museum" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Develpment\Symfony\MuseumBooking\public\css\pages" />
       <recent name="D:\Develpment\Symfony\MuseumBooking\public\images\museums" />
       <recent name="D:\Develpment\Symfony\MuseumBooking\public\js\pages" />
       <recent name="D:\Develpment\Symfony\MuseumBooking\src\Controller\tourOperator" />
@@ -220,7 +249,10 @@
       <workItem from="1606504138235" duration="1909000" />
       <workItem from="1606549619230" duration="8963000" />
       <workItem from="1606630407640" duration="6180000" />
-      <workItem from="1606666344226" duration="6878000" />
+      <workItem from="1606666344226" duration="7277000" />
+      <workItem from="1606711621398" duration="7106000" />
+      <workItem from="1606798832705" duration="3874000" />
+      <workItem from="1606809389564" duration="11544000" />
     </task>
     <servers />
   </component>
