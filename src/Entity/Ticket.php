@@ -21,16 +21,16 @@ class Ticket
      * @ORM\Column(type="time")
      */
     public $time;
+    /**
+     * @ORM\Column(type="date")
+     */
+    public $date;
 
     /**
      * @ORM\Column(type="integer")
      */
     public $number;
 
-    /**
-     * @ORM\Column(type="decimal")
-     */
-    public $price;
 
     /**
      * @ORM\ManyToOne (targetEntity="TourOperator", inversedBy="tickets")
@@ -46,7 +46,7 @@ class Ticket
     /**
      * @ORM\Column(type="boolean")
      */
-    public $hasCome;
+    public $hasCome = false;
 
     public function getId(): ?int
     {
@@ -85,21 +85,6 @@ class Ticket
         $this->number = $number;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    /**
-     * @param mixed $price
-     */
-    public function setPrice($price): void
-    {
-        $this->price = $price;
-    }
 
     /**
      * @return mixed
@@ -148,6 +133,23 @@ class Ticket
     {
         $this->hasCome = $hasCome;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param mixed $date
+     */
+    public function setDate($date): void
+    {
+        $this->date = $date;
+    }
+
 
 
 

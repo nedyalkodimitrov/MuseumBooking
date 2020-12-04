@@ -116,7 +116,7 @@
                    <div class="c-schedule-visitor-card__max-capacity">
                        <h5> Capacity - {{ schedule.museum.maxCapacity }}</h5>
                    </div>
-                   <div class="cc-schedule-visitor-card__max-capacity">
+                   <div class="c-schedule-visitor-card__max-capacity">
                        <h5>Visitors - {{ schedule.tickets|length }}</h5>
                    </div>
                    {% if "now"|date('H:i') >  schedule.endTime|date('H:i') %}

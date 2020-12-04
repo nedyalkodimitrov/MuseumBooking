@@ -1,195 +1,29 @@
 {% extends 'base.html.twig' %}
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset("css/museum/particles/navStyle.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/museum/particles/slideshow.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/museum/homePage/style.css") }}">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+{% block title %} {% endblock %}
 
-    <script src="{{ asset("js/museum/particles/navScript.js") }}"></script>
-    <script src="{{ asset("js/particles/slidshow.js") }}"></script>
-{% endblock %}
-{% block title %}{% endblock %}
+{% block stylesheets %}{% endblock %}
 
 {% block body %}
-
-    <div class="topnav" id="myTopnav">
-        <a href="#home" class="active">Home</a>
-        <a href="#news">News</a>
-        <a href="#news" class="logo">Logo</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
+    {% block navBarLinks %}
+        <li><a href="{{ path("museum") }}">Home</a></li>
+        <li class="dropdown"><a href="{{ path("museum_schedule") }}" >Schedule </a></li>
+        <li><a href="">Stats</a></li>
+    {% endblock %}
 
 
-    <div class="slider-container pt-5 mt-0 container-color" >
-        <div class="slider  ">
-            <div class="slider--el slider--el-1 anim-4parts active">
-                <div class="slider--el-bg">
-                    <div class="part top left"></div>
-                    <div class="part top right"></div>
-                    <div class="part bot left"></div>
-                    <div class="part bot right"></div>
-                </div>
-                <div class="slider--el-content">
-
-                </div>
-            </div>
-            <div class="slider--el slider--el-2 anim-9parts">
-                <div class="slider--el-bg">
-                    <div class="part left-top"></div>
-                    <div class="part mid-top"></div>
-                    <div class="part right-top"></div>
-                    <div class="part left-mid"></div>
-                    <div class="part mid-mid"></div>
-                    <div class="part right-mid"></div>
-                    <div class="part left-bot"></div>
-                    <div class="part mid-bot"></div>
-                    <div class="part right-bot"></div>
-                </div>
-                <div class="slider--el-content">
-
-                </div>
-            </div>
-            <div class="slider--el slider--el-3 anim-5parts">
-                <div class="slider--el-bg">
-                    <div class="part part-1"></div>
-                    <div class="part part-2"></div>
-                    <div class="part part-3"></div>
-                    <div class="part part-4"></div>
-                    <div class="part part-5"></div>
-                </div>
-                <div class="slider--el-content">
-
-                </div>
-            </div>
-            <div class="slider--el slider--el-4 anim-3parts">
-                <div class="slider--el-bg">
-                    <div class="part left"></div>
-                    <div class="part mid"></div>
-                    <div class="part right"></div>
-                </div>
-                <div class="slider--el-content">
-
-                </div>
-            </div>
-            <span class="slider--control left"><i class="fas fa-chevron-left"></i></span>
-            <span class="slider--control right"><i class="fas fa-chevron-right"></i></span>
-        </div>
-    </div>
-    <div class="white-container">
-
-        <div class="text">
-            <h1>Абритус</h1>
-            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam assumenda est ipsam iusto placeat quod sequi temporibus tenetur, totam! A assumenda, consequatur harum hic impedit in incidunt itaque optio quibusdam!</h3>
-        </div>
-
-    </div>
-
-
-<div class="tickets-wrapper">
-
-    <div class="info">
-        <h2>Билети и цени</h2>
-        <hr>
-    </div>
-    <div class="tickets-container">
-        <div class="ticket">
-            <div class="hour">
-                <h3>Час</h3>
-                <h3>12:00-13:00</h3>
-            </div>
-            <div class="price">
-                <h4>Цена</h4>
-                <h4>35.00лв</h4>
-            </div>
-            <div class="counter">
-                <h4>Брой билети</h4>
-                <input type="number" value="1">
-            </div>
-            <div class=" btn-holder">
-                <button><h4>Резервирай</h4></button>
-
-            </div>
-
-        </div>
- <div class="ticket">
-            <div class="hour">
-                <h3>Час</h3>
-                <h3>12:00-13:00</h3>
-            </div>
-            <div class="price">
-                <h4>Цена</h4>
-                <h4>35.00лв</h4>
-            </div>
-            <div class="counter">
-                <h4>Брой билети</h4>
-                <input type="number" value="1">
-            </div>
-            <div class=" btn-holder">
-                <button><h4>Резервирай</h4></button>
-
-            </div>
-
-        </div>
- <div class="ticket">
-            <div class="hour">
-                <h3>Час</h3>
-                <h3>12:00-13:00</h3>
-            </div>
-            <div class="price">
-                <h4>Цена</h4>
-                <h4>35.00лв</h4>
-            </div>
-            <div class="counter">
-                <h4>Брой билети</h4>
-                <input type="number" value="1">
-            </div>
-            <div class=" btn-holder">
-                <button><h4>Резервирай</h4></button>
-
-            </div>
-
-        </div>
- <div class="ticket">
-            <div class="hour">
-                <h3>Час</h3>
-                <h3>12:00-13:00</h3>
-            </div>
-            <div class="price">
-                <h4>Цена</h4>
-                <h4>35.00лв</h4>
-            </div>
-            <div class="counter">
-                <h4>Брой билети</h4>
-                <input type="number" value="1">
-            </div>
-            <div class=" btn-holder">
-                <button><h4>Резервирай</h4></button>
-
-            </div>
-
-        </div>
-
-    </div>
+    {% block footerLinksLinksUp %}
+        <li><a href="{{ path("museum") }}">Home</a></li>
+        <li class="dropdown"><a href="{{ path("museum_schedule") }}" >Schedule </a></li>
+        <li><a href="">Stats</a></li>
+    {% endblock %}
+    {% block footerLinksLinksDown %}
+        <li><a href="{{ path("museum") }}">Home</a></li>
+        <li class="dropdown"><a href="{{ path("museum_schedule") }}" >Schedule </a></li>
+        <li><a href="">Stats</a></li>
+    {% endblock %}
 
 
 
-</div>
-<div class="white-container">
-    <div class="location-container">
-        <div class="text"> <h2>Къде се намира </h2></div>
-        <div class="location"><div class="gmap_canvas"><iframe  id="gmap_canvas" src="https://maps.google.com/maps?q=abrituscastle&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.whatismyip-address.com"></a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:932px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:932px;}</style></div>
+    {% block javascripts %}{% endblock %}
 
-    </div>
-</div>
-
-<header>
-
-
-
-
-</header>
 {% endblock %}

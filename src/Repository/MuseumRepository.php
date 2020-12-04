@@ -12,7 +12,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Museum[]    findAll()
  * @method Museum[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class AdminRepository extends ServiceEntityRepository
+class MuseumRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {

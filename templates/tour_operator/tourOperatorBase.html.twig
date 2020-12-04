@@ -2,30 +2,33 @@
 
 {% block title %}Hello TourOperatorController!{% endblock %}
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset("css/museum/particles/navStyle.css") }}">
+    {{ parent() }}
 {% endblock %}
+
+{% block navBarLinks %}
+    <li><a href="{{ path("museum") }}">Home</a></li>
+    <li class="dropdown"><a href="{{ path("museum_schedule") }}" >Visited museums </a></li>
+    <li><a href="">Stats</a></li>
+
+    <input type="text">
+{% endblock %}
+
+        {% block footerLinksUp%}
+            <li><a href="{{ path("museum") }}">Home</a></li>
+            <li class="dropdown"><a href="{{ path("museum_schedule") }}" >Visited museums </a></li>
+            <li><a href="">Stats</a></li>
+        {% endblock %}
+
+        {% block footerLinksDown%}
+            <li><a href="{{ path("museum") }}">Home</a></li>
+            <li class="dropdown"><a href="{{ path("museum_schedule") }}" >Schedule </a></li>
+            <li><a href="">Stats</a></li>
+        {% endblock %}
+
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-    <div class="topnav" id="myTopnav">
-        <a href="#home" class="active">Home</a>
-        <a href="#news">News</a>
-        <a href="#news" class="logo">Logo</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
 
-<div class="example-wrapper">
+    {% block javascripts %}{% endblock %}
 
-</div>
 {% endblock %}
 
-{% block javascripts %}
-    <script src="{{ asset("js/museum/particles/navScript.js") }}"></script>
-{% endblock %}

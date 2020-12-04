@@ -1,0 +1,9 @@
+.o-block-container {
+  display: block;
+  width: 100%;
+  height: fit-content;
+  padding: 0.2em;
+  &--white{
+    background-color: white;
+  }
+}

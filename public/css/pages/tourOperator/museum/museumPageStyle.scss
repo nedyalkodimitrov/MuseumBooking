@@ -1,0 +1,159 @@
+body{
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/slider-3.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.museumImage-holder{
+
+  background-color: white;
+  margin-top: 2em;
+  width: 90%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  .larger-image{
+    position: relative;
+    padding-top: 47.5%;
+    width: 60%;
+    img{
+      position: absolute;
+      top: 0; left: 0;right: 0; bottom: 0;
+      width: 100%;
+    }
+  }
+  .small-images-container{
+    display: block;
+    width: 25%;
+    .small-image{
+      position: relative;
+      padding-top: 0%;
+
+      img{
+        top: 0; left: 0;right: 0; bottom: 0;
+        width: 100%;
+
+      }
+    }
+  }
+}
+
+.tickets-wrapper {
+  margin-bottom: 2em;
+  text-align: center;
+  .info{
+    color: white;
+  }
+  hr{
+    width: 10%;
+    margin: auto;
+    margin-bottom: 1em;
+    border: 3px solid white;
+    background-color: white;
+  }
+  background-color: rgba(0,0,0,0.7);
+}
+
+.tickets-container{
+
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  //.ticket{
+  //  background-color: white;
+  //  width: auto;
+  //  height: auto;
+  //  border: 2px solid black;
+  //  text-align: center;
+  //  div{
+  //    padding: 1rem;
+  //  }
+  //  .hour{
+  //
+  //    background-color: white;
+  //    color: black;
+  //    border-bottom: 2px solid gray;
+  //  }
+  //  .counter{
+  //    border-top: 2px solid gray;
+  //    border-bottom: 2px solid gray;
+  //  }
+  //  .btn-holder{
+  //    background-color: #05a440;
+  //    cursor: pointer;
+  //
+  //    button{
+  //      background-color: inherit;
+  //      color: inherit;
+  //    }
+  //    &:hover{
+  //
+  //      background-color: #014a01;
+  //      color: white;
+  //      button{
+  //        background-color: inherit;
+  //        color: inherit;
+  //      }
+  //    }
+  //
+  //  }
+  //
+  //}
+
+
+  .c-schedule-visitor-card__done{
+    padding: 0;
+    button{
+      margin: 0 ;
+      border: none;
+      background-color: green;
+      color: white;
+      font-size: 1.1em;
+      width: 100%;
+      height: 100%;
+      padding: 0.4em;
+      transition: 0.3s background-color ease ;
+      &:hover{
+        background-color: darkgreen;
+      }
+    }
+  }
+
+  .c-schedule-visitor-card__wait{
+    padding: 0;
+    button{
+      margin: 0 ;
+      border: none;
+      background-color: orangered;
+      color: white;
+      font-size: 1.1em;
+      width: 100%;
+      height: 100%;
+      padding: 0.4em;
+      pointer-events: none;
+      cursor: pointer;
+    }
+  }
+
+}
+
+.location-container{
+
+  .location {
+    max-width: 100%;
+    text-align: center;
+    div{
+      position: relative;
+      width: 100%;
+      padding-top: 45.25%;
+      margin: auto;
+      iframe{
+        position: absolute;
+        top: 0;left: 0;right: 0;bottom: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

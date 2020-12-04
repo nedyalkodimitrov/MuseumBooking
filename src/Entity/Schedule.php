@@ -44,6 +44,12 @@ class Schedule
      */
     public  $museum;
 
+    /**
+     * @ORM\Column(type="decimal")
+     */
+    public $price;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -132,6 +138,22 @@ class Schedule
     public function setMuseum($museum): void
     {
         $this->museum = $museum;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param mixed $price
+     */
+    public function setPrice($price): void
+    {
+        $this->price = $price;
     }
 
 

@@ -272,6 +272,16 @@ body {
   background-color: white;
 }
 
+.o-block-container {
+  display: block;
+  width: 100%;
+  height: fit-content;
+  padding: 0.2em;
+}
+.o-block-container--white {
+  background-color: white;
+}
+
 .c-button {
   border: none;
   outline: none;
