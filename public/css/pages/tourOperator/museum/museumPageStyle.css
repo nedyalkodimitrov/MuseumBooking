@@ -67,6 +67,10 @@ body {
 .tickets-container .c-schedule-visitor-card__done {
   padding: 0;
 }
+.tickets-container .c-schedule-visitor-card__done i {
+  font-size: 1em;
+  padding: 0.5em;
+}
 .tickets-container .c-schedule-visitor-card__done button {
   margin: 0;
   border: none;
@@ -83,6 +87,10 @@ body {
 }
 .tickets-container .c-schedule-visitor-card__wait {
   padding: 0;
+}
+.tickets-container .c-schedule-visitor-card__wait i {
+  font-size: 1em;
+  padding: 0.5em;
 }
 .tickets-container .c-schedule-visitor-card__wait button {
   margin: 0;

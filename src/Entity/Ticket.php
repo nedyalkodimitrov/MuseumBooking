@@ -24,7 +24,13 @@ class Ticket
     /**
      * @ORM\Column(type="date")
      */
-    public $date;
+    public $boughtDate;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    public $reservedDate;
+
 
     /**
      * @ORM\Column(type="integer")
@@ -137,17 +143,33 @@ class Ticket
     /**
      * @return mixed
      */
-    public function getDate()
+    public function getBoughtDate()
     {
-        return $this->date;
+        return $this->boughtDate;
     }
 
     /**
-     * @param mixed $date
+     * @param mixed $boughtDate
      */
-    public function setDate($date): void
+    public function setBoughtDate($boughtDate): void
     {
-        $this->date = $date;
+        $this->boughtDate = $boughtDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReservedDate()
+    {
+        return $this->reservedDate;
+    }
+
+    /**
+     * @param mixed $reservedDate
+     */
+    public function setReservedDate($reservedDate): void
+    {
+        $this->reservedDate = $reservedDate;
     }
 
 

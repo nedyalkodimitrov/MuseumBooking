@@ -75,26 +75,35 @@
             <span class="slider--control right"><i class="fas fa-chevron-right"></i></span>
         </div>
     </div>
-    <div class="o-block-container o-block-container--white c-tourOperator-museumPage-museumInformation">
 
+
+    <div class="o-block-container o-block-container--white c-tourOperator-museumPage-museumInformation">
+        {# museum information       #}
         <div class=" c-tourOperator-museumPage-museumInformation__content">
             <h1 class="c-tourOperator-museumPage-museumInformation__content__museumName">{{museum.museumName}}</h1>
             <h3 class="c-tourOperator-museumPage-museumInformation__content__museumAdditionalInformation">{{ museum.additionalInformation    }}</h3>
         </div>
+        <hr class="mx-auto col-2">
+        {#   museum most visit hours     #}
         <div class="col-12 container justify-content-center">
             <div class="col-12 text-center m-3"><h2>Most visited hours </h2></div>
             <div id="chart_div" class="mx-auto" style="width: 100%; height: 100%"></div>
         </div>
 
     </div>
-    
-    <div class="col-12 ">
-        <div class="boughtTickets">
-            {% for ticket in tourOperator.Tickets %}
+
+    {#    bought tickets#}
+    <div class="col-12 o-block-container o-block-container--white">
+        <div class="text-center p-4">
+            <h2>Bought tickets for this museum</h2>
+        </div>
+        <div class="tickets-container row m-0 p-3   col-12">
+            {% for ticket in tourOperatorTickets %}
                 {% set schedule = ticket.schedule %}
                 <div class="col-6 col-sm-6 col-md-4 col-lg-2 row p-0 justify-content-center">
                     <div class="  c-schedule-visitor-card  col-11">
                         <div class="c-schedule-visitor-card__hour">
+                            <h4>{{ ticket.reservedDate|date('d-m-Y')  }}</h4><span>{{ schedule.Day.Name }}</span>
                             <h4>{{ schedule.startTime|date('H:i') }}-{{ schedule.endTime|date('H:i') }}</h4>
                         </div>
                         <div class="c-schedule-visitor-card__max-capacity">
@@ -105,18 +114,16 @@
                             {% for ticket in schedule.tickets %}
                                 {% set ticketsNumber = ticketsNumber + ticket.number %}
                             {% endfor %}
-                            <h5>Free entry - {{ schedule.museum.maxCapacity - ticketsNumber }}</h5>
+                            <h5>Number - {{ ticket.number }}</h5>
                         </div>
-                        <div class="c-schedule-visitor-card__max-capacity number" >
-                            <input type="number" value="0" min="0" max="{{ schedule.museum.maxCapacity - ticketsNumber }}">
-                        </div>
-                        {% if "now"|date('H:i') < schedule.endTime|date('H:i')  %}
+                     
+                        {% if ticket.hasCome   %}
                             <div class="c-schedule-visitor-card__done">
-                                <button value="{{ schedule.id }}" class="reserve-ticket-btn">Reserve</button>
+                                <i class="fas fa-check "> You are gone</i>
                             </div>
                         {% else %}
                             <div class="c-schedule-visitor-card__wait">
-                                <button>Time Out  <i class="fas fa-clock ml-1"></i></button>
+                               <i class="fas fa-times">You are not gone</i>
                             </div>
                         {% endif %}
 
@@ -134,29 +141,11 @@
     <div class="tickets-wrapper m-0 pb-3 ">
 
         <div class="info m-0  ">
-            <h2 class="p-3">Tickets</h2>
+            <h2 class="p-3">Today's Tickets</h2>
+            <h6>* the reservation deadline is 2 hours before the ticket start time</h6>
             <hr >
         </div>
         <div class="tickets-container row m-0 p-3   col-12 ">
-{#            <div class="ticket">#}
-{#                <div class="hour">#}
-{#                    <h3>Час</h3>#}
-{#                    <h3>12:00-13:00</h3>#}
-{#                </div>#}
-{#                <div class="price">#}
-{#                    <h4>Цена</h4>#}
-{#                    <h4>35.00лв</h4>#}
-{#                </div>#}
-{#                <div class="counter">#}
-{#                    <h4>Брой билети</h4>#}
-{#                    <input type="number" value="1">#}
-{#                </div>#}
-{#                <div class=" btn-holder">#}
-{#                    <button><h4>Резервирай</h4></button>#}
-
-{#                </div>#}
-
-{#            </div>#}
             {% for schedule in schedules %}
                 <div class="col-6 col-sm-6 col-md-4 col-lg-2 row p-0 justify-content-center">
                     <div class="  c-schedule-visitor-card  col-11">

@@ -33,7 +33,7 @@ class TourOperatorController extends AbstractController
     /**
      * @Route("/tourOperator/museum/{id}", name="tour_operator_settings")
      */
-    public function museum($id, MuseumRepository $museumRepository,DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
+    public function museum($id,TicketRepository  $ticketRepository, MuseumRepository $museumRepository,DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
     {
         $museum = $museumRepository->find(intval($id));
         $tourOperator = $this->getUser()->getTourOperator();
@@ -50,13 +50,13 @@ class TourOperatorController extends AbstractController
 
         }
         $schedule = $scheduleRepository->findSchedulesOrdered($id, 1);
-
+        $tourOperatorTickets = $ticketRepository->getTourOperatorTicketsOrdered($tourOperator->getId());
 
         return $this->render('tour_operator/museum/museum.html.twig', [
             'controller_name' => 'TourOperatorController',
             'museum' => $museum,
             'schedules' => $schedule,
-            'tourOperator' => $tourOperator
+            'tourOperatorTickets' => $tourOperatorTickets
         ]);
     }
 

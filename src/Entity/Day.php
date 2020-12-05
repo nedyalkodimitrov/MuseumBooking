@@ -25,7 +25,7 @@ class Day
     /**
      * @ORM\OneToMany(targetEntity="Schedule", mappedBy="day")
      */
-    public  $schedules;
+    private  $schedules;
 
 
     public function getId(): ?int
