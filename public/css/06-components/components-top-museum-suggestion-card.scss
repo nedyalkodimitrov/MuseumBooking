@@ -1,7 +1,7 @@
-
+@import "../02-tools/tools-breakpoints";
 .c-top-museum-suggestion-card {
   width: 100%;
-  display: flex;
+
   margin-top: 1em;
   border-bottom: 1px solid #e6e6e6;;
 
@@ -9,12 +9,16 @@
     color: #ca5e04;
   }
   &__image-holder {
-    flex: 1;
+
     margin: 0 auto;
     margin-bottom: 0.5em;
     position: relative;
     padding-top: 18.35%;
     width: 24em;
+    @include for-phone-only{
+      padding-top: 47%;
+    }
+
 
     &:after {
       content: " ";
@@ -38,7 +42,7 @@
   }
 
   &__information-container {
-    flex: 2;
+
     display: block;
     padding-left: 0.5em;
 

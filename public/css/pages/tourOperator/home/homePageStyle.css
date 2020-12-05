@@ -9,9 +9,6 @@
 .tickets-container .tickets-wrapper {
   flex: 1;
 }
-.tickets-container .tickets-wrapper .ticket-container {
-  flex: 0 1 25%;
-}
 
 .top-museum-container {
   display: flex;

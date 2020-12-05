@@ -1,6 +1,5 @@
 .c-top-museum-suggestion-card {
   width: 100%;
-  display: flex;
   margin-top: 1em;
   border-bottom: 1px solid #e6e6e6;
 }
@@ -8,12 +7,16 @@
   color: #ca5e04;
 }
 .c-top-museum-suggestion-card__image-holder {
-  flex: 1;
   margin: 0 auto;
   margin-bottom: 0.5em;
   position: relative;
   padding-top: 18.35%;
   width: 24em;
+}
+@media (max-width: 599px) {
+  .c-top-museum-suggestion-card__image-holder {
+    padding-top: 47%;
+  }
 }
 .c-top-museum-suggestion-card__image-holder:after {
   content: " ";
@@ -32,7 +35,6 @@
   bottom: 0;
 }
 .c-top-museum-suggestion-card__information-container {
-  flex: 2;
   display: block;
   padding-left: 0.5em;
 }
