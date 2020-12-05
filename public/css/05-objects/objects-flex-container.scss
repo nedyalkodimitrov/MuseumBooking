@@ -1,0 +1,11 @@
+.o-flex-container{
+  display: flex;
+  flex-wrap: wrap;
+  &--flex-start{
+    justify-content: flex-start;
+  }
+
+  &--center{
+    justify-content: center;
+  }
+}

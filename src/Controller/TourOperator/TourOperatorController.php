@@ -15,10 +15,16 @@ class TourOperatorController extends AbstractController
     /**
      * @Route("/tourOperator", name="tour_operator")
      */
-    public function home()
+    public function home(MuseumRepository $museumRepository)
     {
+        $tourOperator = $this->getUser()->getTourOperator();
+        $tickets = $tourOperator->getTickets();
+
+        $topMuseums = $museumRepository->getTopMuseums();
         return $this->render('tour_operator/home/index.html.twig', [
             'controller_name' => 'TourOperatorController',
+            'tickets' => $tickets,
+            'topMuseums' => $topMuseums
         ]);
     }
     /**

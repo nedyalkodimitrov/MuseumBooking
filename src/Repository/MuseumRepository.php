@@ -47,4 +47,17 @@ class MuseumRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+
+    public function getTopMuseums()
+    {
+
+        return    $qb = $this->createQueryBuilder('m')
+            ->orderBy('m.rating', 'ASC')
+            ->getQuery()
+            ->getResult();
+
+
+    }
 }

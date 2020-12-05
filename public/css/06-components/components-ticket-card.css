@@ -1,0 +1,76 @@
+.c-ticket-card {
+  margin: 0.4em;
+  text-align: center;
+  border: 1px solid #e6e6e6;
+  transition: 0.2s;
+  padding-bottom: 0.4em;
+}
+.c-ticket-card:hover {
+  box-shadow: 0px 0px 9px 0px #cbcbcb;
+}
+.c-ticket-card__image-holder {
+  margin: auto;
+  margin-bottom: 0em;
+  position: relative;
+  padding-top: 57.35%;
+  object-fit: cover;
+  width: 100%;
+  overflow: hidden;
+}
+.c-ticket-card__image-holder:after {
+  content: " ";
+  background-color: rgba(0, 0, 0, 0);
+}
+.c-ticket-card__image-holder img {
+  width: 100%;
+  height: 100%;
+}
+.c-ticket-card__image-holder:after, .c-ticket-card__image-holder img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.c-ticket-card__name {
+  position: absolute;
+  z-index: 1000;
+  bottom: 0;
+  padding-left: 0.3em;
+  background-color: white;
+  margin: 0;
+}
+.c-ticket-card__name:after {
+  position: absolute;
+  content: " ";
+  width: 0;
+  height: 0;
+  border-top: 1.5em solid transparent;
+  border-bottom: 0px solid white;
+  border-left: 2em solid white;
+}
+.c-ticket-card__date {
+  border-top: 1px solid #e6e6e6;
+}
+.c-ticket-card__date, .c-ticket-card__information {
+  padding: 0.3em;
+  margin: 0em 0;
+}
+.c-ticket-card__event-holder {
+  margin: 0.5em 0;
+  width: 100%;
+  text-align: center;
+}
+.c-ticket-card__event-holder button {
+  padding: 0.4em;
+  border: 1px solid #E8CBC0;
+  color: black;
+  transition: 0.2s;
+}
+.c-ticket-card__event-holder button:hover {
+  box-shadow: 0px 0px 10px 2px #E8CBC0;
+  background-color: #6873A5;
+  color: white;
+}
+
+/*# sourceMappingURL=components-ticket-card.css.map */

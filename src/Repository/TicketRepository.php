@@ -62,12 +62,6 @@ class TicketRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
 
-
-//        return  $this->getEntityManager()->createQuery(
-//        'SELECT t FROM App\Entity\Ticket t Join App\Entity\Schedule s ON t.schedule_id = s.id WHERE s.museum_id = 1 ORDER BY number ASC LIMIT 2'
-//        )
-//            ->setParameter('museumId', $value)
-//            ->getResult();
     }
 
     public function getTourOperatorTicketsOrdered($tourOperatorId)
@@ -78,15 +72,9 @@ class TicketRepository extends ServiceEntityRepository
             ->setParameter('tourOperatorId', $tourOperatorId)
             ->orderBy('t.reservedDate', 'ASC')
             ->addOrderBy('t.number', 'ASC')
-
             ->getQuery()
             ->getResult();
 
 
-//        return  $this->getEntityManager()->createQuery(
-//        'SELECT t FROM App\Entity\Ticket t Join App\Entity\Schedule s ON t.schedule_id = s.id WHERE s.museum_id = 1 ORDER BY number ASC LIMIT 2'
-//        )
-//            ->setParameter('museumId', $value)
-//            ->getResult();
     }
 }

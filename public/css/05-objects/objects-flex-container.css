@@ -1,0 +1,12 @@
+.o-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.o-flex-container--flex-start {
+  justify-content: flex-start;
+}
+.o-flex-container--center {
+  justify-content: center;
+}
+
+/*# sourceMappingURL=objects-flex-container.css.map */

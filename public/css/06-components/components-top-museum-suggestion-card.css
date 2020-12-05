@@ -1,0 +1,44 @@
+.c-top-museum-suggestion-card {
+  width: 100%;
+  display: flex;
+  margin-top: 1em;
+  border-bottom: 1px solid #e6e6e6;
+}
+.c-top-museum-suggestion-card .stars {
+  color: #ca5e04;
+}
+.c-top-museum-suggestion-card__image-holder {
+  flex: 1;
+  margin: 0 auto;
+  margin-bottom: 0.5em;
+  position: relative;
+  padding-top: 18.35%;
+  width: 24em;
+}
+.c-top-museum-suggestion-card__image-holder:after {
+  content: " ";
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.c-top-museum-suggestion-card__image-holder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.c-top-museum-suggestion-card__image-holder:after, .c-top-museum-suggestion-card__image-holder img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.c-top-museum-suggestion-card__information-container {
+  flex: 2;
+  display: block;
+  padding-left: 0.5em;
+}
+.c-top-museum-suggestion-card__information-container__museumName {
+  bottom: 0;
+  padding-left: 0.3em;
+}
+
+/*# sourceMappingURL=components-top-museum-suggestion-card.css.map */

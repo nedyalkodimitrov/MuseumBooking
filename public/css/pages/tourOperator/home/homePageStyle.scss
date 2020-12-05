@@ -1,177 +1,31 @@
-.schedules-container {
+.tickets-container {
+  margin: 2em auto;
   width: 95%;
   border: 1px solid #e6e6e6;
   background: #fff;
   border-radius: 2px;
   //box-shadow: 0px 0px 20px 2px gray;
-  margin: auto;
-  display: flex;
+
   padding: 1rem;
-  flex-wrap: wrap;
-  justify-content: flex-start;
 
-  .schedules-wrapper{
-    display: flex;
-    flex-wrap: wrap;
-    //flex-wrap: wrap;
+  .tickets-wrapper{
     flex: 1;
-    justify-content: flex-start;
-    .schedule-container{
+
+    .ticket-container{
         flex: 0 1 25%;
-
-      .schedule{
-        margin: 0.4em;
-        text-align: center;
-        border: 1px solid #e6e6e6;
-        transition: 0.2s;
-        padding-bottom: 0.4em  ;
-        &:hover {
-          box-shadow: 0px 0px 9px 0px #cbcbcb;
-        }
-        .museumImage-holder{
-          margin: auto;
-          margin-bottom: 0em;
-          position: relative;
-          padding-top: 57.35%;
-          object-fit: cover;
-          width: 100%;
-          overflow: hidden;
-          &:after {
-            content: " ";
-            background-color: rgba(0,0,0,0.0);
-          }
-          img{
-            width: 100%;
-            height: 100%;
-
-          }
-          &:after, img{
-            position: absolute;
-            top: 0;left: 0;right: 0;bottom: 0;
-          }
-          .museumName {
-            position: absolute;
-            z-index: 1000;
-            bottom: 0;
-            padding-left: 0.3em;
-            background-color: white;
-
-            border-left: 1px solid #e6e6e6;
-
-            &:after{
-              position: absolute;
-              content: " ";
-              width: 0;
-              height: 0;
-              border-top: 1.54em solid transparent;
-              border-bottom: 0px solid white;
-              border-left: 2em solid white;
-
-            }
-          }
-        }
-        .date {
-          border-top: 1px solid #e6e6e6;
-
-        }
-        .date, .information{
-          padding: 0.3em;
-          margin: 0em 0;
-        }
-
-        .event-holder{
-          margin: auto;
-          margin: 0.5em 0  ;
-          width: 100%;
-          text-align: center;
-          button{
-            padding: 0.4em;
-
-            border: 1px solid red;
-            color: black;
-            transition: 0.2s;
-            &:hover {
-              box-shadow: 0px 0px 10px 2px #f57c7c;
-              background-color: red;
-              color: white;
-            }
-
-          }
-        }
-
-      }
     }
   }
 }
 
 
-
-.top-museum {
+.top-museum-container{
   display: flex;
   width: 95%;
   margin: 0 auto;
   margin-top: 2em;
   margin-bottom: 2em;
   flex-wrap: wrap;
-  .museum {
-    width: 100%;
-    display: inherit;
-    margin-top: 1em;
-    border-bottom: 1px solid #e6e6e6;;
-    .museumImage-holder{
-      flex: 1;
-      margin: 0 auto;
-      margin-bottom: 0.5em;
-      position: relative;
-      padding-top: 18.35%;
-      width: 24em;
-      &:after {
-        content: " ";
-        background-color: rgba(0,0,0,0.2);
-      }
-      img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-
-      }
-      &:after, img{
-        position: absolute;
-        top: 0;left: 0;right: 0;bottom: 0;
-      }
-      .museumName {
-        position: absolute;
-        z-index: 1000;
-        bottom: 0;
-        padding-left: 0.3em;
-        background-color: white;
-        border-bottom: 1px solid black;
-        border-left: 1px solid black;
-
-        &:after{
-          position: absolute;
-          content: " ";
-          width: 0;
-          height: 0;
-          border-top: 1.5em solid transparent;
-          border-bottom: 0px solid white;
-          border-left: 2em solid white;
-        }
-      }
-    }
-  .stars {
-    color: #ca5e04;
-  }
-
-  }
-  .museumInformation-container{
-    flex: 2;
-    display: block;
-    padding-left: 0.5em;
-  }
-
 }
-
 .text{
   flex: 0 0 100%;
   text-align: center;
