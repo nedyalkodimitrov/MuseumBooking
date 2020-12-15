@@ -1,9 +1,10 @@
 @import "../02-tools/tools-breakpoints";
+@import "../01-settings/settings-colors";
 .c-top-museum-suggestion-card {
   width: 100%;
 
   margin-top: 1em;
-  border-bottom: 1px solid #e6e6e6;;
+  border-bottom: 1px solid $primary-color;;
 
   .stars {
     color: #ca5e04;
@@ -50,6 +51,9 @@
       bottom: 0;
       padding-left: 0.3em;
 
+    }
+    &__presentation{
+      max-width: 64em;
     }
 
   }

@@ -11,7 +11,7 @@
 {% block body %}
     {{ parent() }}
     <div class="tickets-container o-flex-container col-12 ">
-        <div class="text"> <h4>Last reserved tickets</h4></div>
+        <div class="text"> <h2>Last reserved tickets</h2></div>
         <div class="tickets-wrapper row col-12 m-0 p-0 justify-content-center">
 
                {% for ticket in tickets %}
@@ -49,16 +49,16 @@
                {% endfor %}
         </div>
     </div>
-
+    <hr class="col-4 mx-auto line">
     <div class="top-museum-container">
        <div class="text">
-           <h4>Top museums in Bulgaria</h4>
+           <h2>Top museums in Bulgaria</h2>
        </div>
 
         {% for museum in topMuseums %}
             <div class="c-top-museum-suggestion-card row col-12 mx-auto ">
                 <div class="c-top-museum-suggestion-card__image-holder col-12 col-md-5 col-lg-4">
-                    <img src="{{ asset('images/museums/'~museum.images[0].path) }}" alt="">
+                    <a href="{{ path('    ') }}"> <img src="{{ asset('images/museums/'~museum.images[0].path) }}" alt=""></a>
                 </div>
                 <div class="c-top-museum-suggestion-card__information-container col-12 col-md-7 col-lg-8">
 

@@ -2,11 +2,12 @@
 .c-ticket-card{
   margin: 0.4em;
   text-align: center;
-  border: 1px solid #e6e6e6;
-  transition: 0.2s;
+  border: 1px solid $primary-color;
+  transition: 0.25s;
   padding-bottom: 0.4em  ;
+  //#e6e6e6
   &:hover {
-    box-shadow: 0px 0px 9px 0px #cbcbcb;
+    box-shadow: 0px 0px 13px 5px $secondary-color;
   }
   &__image-holder{
     margin: auto;

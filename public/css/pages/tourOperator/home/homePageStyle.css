@@ -1,13 +1,17 @@
 .tickets-container {
   margin: 2em auto;
   width: 95%;
-  border: 1px solid #e6e6e6;
   background: #fff;
   border-radius: 2px;
   padding: 1rem;
 }
 .tickets-container .tickets-wrapper {
   flex: 1;
+}
+
+.line {
+  background-color: #6873A5;
+  padding: 0.2em;
 }
 
 .top-museum-container {

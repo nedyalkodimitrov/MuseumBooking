@@ -1,7 +1,7 @@
 .c-top-museum-suggestion-card {
   width: 100%;
   margin-top: 1em;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid #6873A5;
 }
 .c-top-museum-suggestion-card .stars {
   color: #ca5e04;
@@ -41,6 +41,9 @@
 .c-top-museum-suggestion-card__information-container__museumName {
   bottom: 0;
   padding-left: 0.3em;
+}
+.c-top-museum-suggestion-card__information-container__presentation {
+  max-width: 64em;
 }
 
 /*# sourceMappingURL=components-top-museum-suggestion-card.css.map */

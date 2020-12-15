@@ -1,7 +1,9 @@
+@import '../../../01-settings/settings-colors';
+
 .tickets-container {
   margin: 2em auto;
   width: 95%;
-  border: 1px solid #e6e6e6;
+  //border: 1px solid #e6e6e6;
   background: #fff;
   border-radius: 2px;
   //box-shadow: 0px 0px 20px 2px gray;
@@ -15,6 +17,10 @@
   }
 }
 
+.line {
+  background-color: $primary-color;
+  padding: 0.2em;
+}
 
 .top-museum-container{
   display: flex;
