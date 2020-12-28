@@ -4,7 +4,7 @@
   text-align: center;
   border: 1px solid $primary-color;
   transition: 0.25s;
-  padding-bottom: 0.4em  ;
+
   //#e6e6e6
   &:hover {
     box-shadow: 0px 0px 13px 5px $secondary-color;
@@ -35,7 +35,7 @@
 
   &__name {
     position: absolute;
-    z-index: 1000;
+    z-index: 1;
     bottom: 0;
     padding-left: 0.3em;
     background-color: white;
@@ -60,7 +60,9 @@
     margin: 0em 0;
   }
 
+
   &__event-holder{
+    padding-bottom: 0.4em  ;
     margin: 0.5em 0  ;
     width: 100%;
     text-align: center;
@@ -76,6 +78,29 @@
         color: white;
       }
 
+    }
+  }
+
+  &__check, &__missed{
+    button{
+      padding: 0.5em;
+      width: 100%;
+      border: none;
+      pointer-events: none;
+      color: white;
+    }
+    width: 100%;
+  }
+  &__check{
+    button{
+      background-color: darkgreen;
+
+    }
+  }
+  &__missed{
+    button{
+
+      background-color: darkred;
     }
   }
 

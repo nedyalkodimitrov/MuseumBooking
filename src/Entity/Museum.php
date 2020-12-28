@@ -49,7 +49,7 @@ class Museum
     public  $city;
 
     /**
-     * @ORM\Column(type="blob")
+     * @ORM\Column(type="string")
      */
     public $image;
 

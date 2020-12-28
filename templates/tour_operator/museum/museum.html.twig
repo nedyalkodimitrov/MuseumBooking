@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ asset("css/pages/tourOperator/museum/museumPageStyle.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-tourOperator-museumPage-museumInformation.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-schedule-visitor-card.css") }}">
-
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-input.css") }}">
 
     <script src="{{ asset("js/pages/museum/particles/navScript.js") }}"></script>
     <script src="{{ asset("js/particles/slidshow.js") }}"></script>
@@ -79,7 +79,7 @@
 
     <div class="o-block-container o-block-container--white c-tourOperator-museumPage-museumInformation">
         {# museum information       #}
-        <div class=" c-tourOperator-museumPage-museumInformation__content">
+        <div class=" c-tourOperator-museumPage-museumInformation__content mt-1">
             <h1 class="c-tourOperator-museumPage-museumInformation__content__museumName">{{museum.museumName}}</h1>
             <h3 class="c-tourOperator-museumPage-museumInformation__content__museumAdditionalInformation">{{ museum.additionalInformation    }}</h3>
         </div>
@@ -147,7 +147,7 @@
         </div>
         <div class="tickets-container row m-0 p-3   col-12 ">
             {% for schedule in schedules %}
-                <div class="col-6 col-sm-6 col-md-4 col-lg-2 row p-0 justify-content-center">
+                <div class="col-6 col-sm-6 col-md-4 col-lg-2 row p-0 justify-content-center mt-3 mt-sm-0">
                     <div class="  c-schedule-visitor-card  col-11">
                         <div class="c-schedule-visitor-card__hour">
                             <h4>{{ schedule.startTime|date('H:i') }}-{{ schedule.endTime|date('H:i') }}</h4>
@@ -194,6 +194,18 @@
     </div>
 
 
+
+    <div class="o-block-container o-block-container--white">
+        <div class="text p-2 text-center mt-2">
+            <h2> Feedback </h2>
+            <h5>* we need your feedback to continue our mission to popularity travel</h5>
+        </div>
+       <div class="col-12 container row justify-content-center">
+           <textarea name="" id="" class="col-9"></textarea>
+           <input type="number" class="col-9">
+           <button class="btn btn-primary col-9" >Send review</button>
+       </div>
+    </div>
 
     <script>
         google.charts.load('current', {packages: ['corechart', 'line']});

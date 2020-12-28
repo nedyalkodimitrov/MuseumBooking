@@ -17,9 +17,21 @@ transition: background 0.4s ;
     text-align: center;
     transition: transform 0.4s ease-out, opacity 0.4s ease-out;
     position: absolute;
-
+    color: white;
     opacity: 0;
     height: 100%;
+    .btn{
+      width: 25%;
+      margin: 0.2em 0.5em;
+    }
+
+    .btn-success{
+    background-color: rgba(0,0,0,0);
+      transition: background-color 0.2s ease-in;
+      &:hover {
+        background-color: rgb(32, 136, 56);
+      }
+    }
 
   }
 

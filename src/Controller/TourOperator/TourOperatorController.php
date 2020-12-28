@@ -2,6 +2,7 @@
 
 namespace App\Controller\TourOperator;
 
+use App\Entity\Image;
 use App\Entity\Schedule;
 use App\Repository\DayRepository;
 use App\Repository\MuseumRepository;
@@ -12,6 +13,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TourOperatorController extends AbstractController
 {
+    private const  ImagePath = "images/tourOperator/";
+
     /**
      * @Route("/tourOperator", name="tour_operator")
      */
@@ -24,7 +27,9 @@ class TourOperatorController extends AbstractController
         return $this->render('tour_operator/home/index.html.twig', [
             'controller_name' => 'TourOperatorController',
             'tickets' => $tickets,
-            'topMuseums' => $topMuseums
+            'topMuseums' => $topMuseums,
+            'userName' => $tourOperator->getName() .' '. $tourOperator->getFName(),
+            'userImage' => self::ImagePath.$tourOperator->getImage()
         ]);
     }
     /**
@@ -34,10 +39,11 @@ class TourOperatorController extends AbstractController
     {
         return $this->render('tour_operator/schedule/schedule.html.twig', [
             'controller_name' => 'TourOperatorController',
+
         ]);
     }
     /**
-     * @Route("/tourOperator/museum/{id}", name="tour_operator_settings")
+     * @Route("/tourOperator/museum/{id}", name="tour_operator_museumView")
      */
     public function museum($id,TicketRepository  $ticketRepository, MuseumRepository $museumRepository,DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
     {
@@ -62,8 +68,46 @@ class TourOperatorController extends AbstractController
             'controller_name' => 'TourOperatorController',
             'museum' => $museum,
             'schedules' => $schedule,
-            'tourOperatorTickets' => $tourOperatorTickets
+            'tourOperatorTickets' => $tourOperatorTickets,
+            'userName' => $tourOperator->getName() .' '. $tourOperator->getFName(),
+            'userImage' => self::ImagePath.$tourOperator->getImage()
         ]);
     }
+
+    /**
+     * @Route("/tourOperator/stats", name="tour_operator_stats")
+     */
+    public function stats($id,TicketRepository  $ticketRepository, MuseumRepository $museumRepository,DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
+    {
+
+    }
+
+    /**
+     * @Route("/tourOperator/visitedMuseums", name="tour_operator_visitedMuseums")
+     */
+    public function visitedMuseums(TicketRepository  $ticketRepository, MuseumRepository $museumRepository,DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
+    {
+        $tourOperator = $this->getUser()->getTourOperator();
+        $tickets = $ticketRepository->getTourOperatorTicketsOrdered($tourOperator->getId());
+
+        return $this->render('tour_operator/museum/visitedMuseums.html.twig', [
+            'controller_name' => 'TourOperatorController',
+            'tickets' => $tickets,
+            'userName' => $tourOperator->getName() .' '. $tourOperator->getFName(),
+            'userImage' => self::ImagePath.$tourOperator->getImage()
+
+        ]);
+
+
+    }
+
+    /**
+     * @Route("/tourOperator/boughtTickets", name="tour_operator_boughtTickets")
+     */
+    public function boughtTickets($id,TicketRepository  $ticketRepository, MuseumRepository $museumRepository,DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
+    {
+
+    }
+
 
 }

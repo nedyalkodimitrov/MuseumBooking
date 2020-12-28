@@ -1,0 +1,57 @@
+@import  '../01-settings/settings-colors';
+@import  '../02-tools/tools-breakpoints';
+
+.c-form-security {
+  line-height: 1.5;
+  height: 50%;
+  width: 70%;
+  margin: auto;
+  position: absolute;
+  padding: 2em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @include for-phone-only{
+    width: 100%;
+    padding: 2.5em;
+  }
+
+  &__logo-holder{
+    text-align: center;
+    margin-bottom: 4em;
+  }
+  &__input-holder{
+
+    margin-bottom: 1.5em;
+    width: 100%;
+    position: relative;
+    input{
+      margin: auto;
+    }
+
+
+  }
+
+  button {
+    margin: auto  ;
+    padding: 0.5em 0.8em;
+    border-radius: 2px;
+    //background-color: #FF6201;
+    color: white;
+    font-weight: 500;
+    font-style: italic ;
+    border: none;
+    line-height: 1.5;
+    font-size: 1.2em;
+    text-align: center;
+    background-color: $primary-color;
+    opacity: 0.6;
+    transition: opacity 0.3s ease-out;
+    &:hover{
+  opacity: 1;
+    }
+
+  }
+}
+

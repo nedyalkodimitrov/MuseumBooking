@@ -17,7 +17,6 @@
 .c-schedule-visitor-card__done, .c-schedule-visitor-card__wait {
   color: white;
   font-size: 1.1em;
-  padding: 0.3em;
 }
 .c-schedule-visitor-card__done {
   background-color: darkgreen;

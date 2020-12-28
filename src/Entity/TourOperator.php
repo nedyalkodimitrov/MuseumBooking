@@ -54,6 +54,12 @@ class TourOperator
 
 
     /**
+     * @ORM\Column(type="string")
+     */
+    public $image;
+
+
+    /**
      * @ORM\OneToMany(targetEntity="MuseumReview", mappedBy="user")
      */
     public  $reviews;
@@ -191,6 +197,22 @@ class TourOperator
     public function setReviews($reviews): void
     {
         $this->reviews = $reviews;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image): void
+    {
+        $this->image = $image;
     }
 
 

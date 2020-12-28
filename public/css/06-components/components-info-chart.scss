@@ -1,0 +1,14 @@
+@import '../01-settings/settings-colors';
+.c-info-chart{
+  box-shadow: 0px 0px 3px 1px  $primary-color;
+  margin: auto;
+  padding: 1em;
+  &__element{
+    text-align: center;
+    span{
+      font-weight: bold;
+      display: block;
+    }
+  }
+
+}

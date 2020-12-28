@@ -1,13 +1,31 @@
-{% extends 'base.html.twig' %}
+{% extends 'museum/museumBase.html.twig' %}
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset("css/06-components/components-stats-museum-review.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-info-chart.css") }}">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 
 {% endblock %}
 
 {% block body %}
+
+   <div class="col-12 mt-3 mb-3">
+       <div class="c-info-chart col-12 row">
+           <div class="c-info-chart__element col-12 text-center m-2">
+               <h3>Top information</h3>
+           </div>
+           <div class="col-4 c-info-chart__element">
+               <h5>10 <span>Place in Bulgaria</span></h5>
+           </div>
+           <div class="col-4 c-info-chart__element">
+               <h5>200 <span>Visits this mouth</span></h5>
+           </div>
+           <div class="col-4 c-info-chart__element">
+               <h5>4000 .lv <span>Mouth Profit</span></h5>
+           </div>
+       </div>
+   </div>
 
     <div class="col-12 justify-content-center row">
         <h3 class="col-12 text-center">Reviews</h3>

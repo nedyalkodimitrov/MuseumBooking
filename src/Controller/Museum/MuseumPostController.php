@@ -2,11 +2,17 @@
 
 namespace App\Controller\Museum;
 
+use App\Entity\Museum;
 use App\Entity\Schedule;
 use App\Repository\DayRepository;
+use App\Repository\MuseumRepository;
 use App\Repository\ScheduleRepository;
 use App\Repository\TicketRepository;
+use App\Service\FileService;
 use App\Service\tourOperatorService;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\SubmitButton;
 use Symfony\Component\HttpFoundation;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -137,6 +143,19 @@ class MuseumPostController extends AbstractController
         $em->flush();
 
         return $this->json( 5* ($result[0] / count($result[1])));
+    }
+
+
+    /**
+     * @Route("/museum/updateImage", name="museum-update-image")
+     */
+    public function settingsUpdateImage(HttpFoundation\Request $request, FileService $fileService){
+
+
+        return $this->render('museum/example.html.twig', [
+            'controller_name' => 'MuseumController',
+            'form' => $form->createView()
+        ]);
     }
 
 }

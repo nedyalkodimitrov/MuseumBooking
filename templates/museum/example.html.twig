@@ -1,0 +1,17 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+{{ form(form) }}
+
+<script>
+    $('#form_image').on("change", function (){
+       $('form').submit();
+    });
+
+</script>
+</body>
+</html>

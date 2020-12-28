@@ -16,8 +16,20 @@
   text-align: center;
   transition: transform 0.4s ease-out, opacity 0.4s ease-out;
   position: absolute;
+  color: white;
   opacity: 0;
   height: 100%;
+}
+.c-visitor-card__second-page .btn {
+  width: 25%;
+  margin: 0.2em 0.5em;
+}
+.c-visitor-card__second-page .btn-success {
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.2s ease-in;
+}
+.c-visitor-card__second-page .btn-success:hover {
+  background-color: #208838;
 }
 .c-visitor-card__hour {
   text-align: center;

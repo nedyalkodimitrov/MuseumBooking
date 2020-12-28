@@ -12,11 +12,11 @@
   margin-left: 0;
 }
 .c-schedules-card__schedule {
+  margin: 0;
   height: 9em;
   text-align: center;
   padding: 0;
   border: 1px solid #7a7878;
-  margin-bottom: 1em;
 }
 .c-schedules-card__schedule__hour, .c-schedules-card__schedule__max-capacity {
   padding: 0.4em;

@@ -1,0 +1,65 @@
+{% extends 'tour_operator/tourOperatorBase.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("css/pages/museum/particles/navStyle.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/pages/museum/particles/slideshow.css") }}">
+{#    <link rel="stylesheet" href="{{ asset("css/pages/tourOperator/museum/museumPageStyle.css") }}">#}
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-tourOperator-museumPage-museumInformation.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-schedule-visitor-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-ticket-card.css") }}">
+
+
+    <script src="{{ asset("js/pages/museum/particles/navScript.js") }}"></script>
+    <script src="{{ asset("js/particles/slidshow.js") }}"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="{{ asset("js/components/components-ajax.js") }}"></script>
+
+{% endblock %}
+{% block title %}{% endblock %}
+
+{% block body %}
+    <div class="">
+        <div class="text-center m-2">
+            <h1>Visited museums</h1>
+
+            {% for ticket in tickets %}
+                {% if ticket.hasCome %}
+                    <div class="ticket-container col-10 col-md-6 col-lg-4">
+                        <div class="col-11 mx-auto">
+                            <div class="c-ticket-card">
+                                <div class="c-ticket-card__image-holder">
+                                    <img src="{{ asset('images/museums/'~ ticket.schedule.museum.images[0].path) }}" alt="">
+                                    <a href="{{ path('tour_operator_museumView', {"id": ticket.schedule.museum.id}) }}">  <h4 class="c-ticket-card__name">{{ ticket.schedule.museum.museumName }}</h4></a>
+                                </div>
+                                <div class="c-ticket-card__date">
+                                    <h5>Reserved Date: {{ ticket.reservedDate| date('d/m/Y') }}</h5>
+                                </div>
+                                <div class="c-ticket-card__information">
+                                    <h5>Hour: {{ ticket.schedule.startTime |date('H:i') }} - {{ ticket.schedule.endTime|date('H:i') }}</h5>
+
+                                </div>
+                                <div class="c-ticket-card__information">
+                                    <h5>{{ticket.number }}  bought tickets </h5>
+
+                                </div>
+                                <div class="c-ticket-card__information">
+                                    <h5>Ticket Price: {{ ticket.schedule.price }}lv </h5>
+
+                                </div>
+                                <div class="c-ticket-card__information">
+                                    <h5>Total Price: {{ ticket.number * ticket.schedule.price }}lv </h5>
+
+                                </div>
+                                <div class="c-ticket-card__check">
+                                    <button><i class="fas fa-check "></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'museum/museumBase.html.twig' %}
 {% block stylesheets %}
 
     <link rel="stylesheet" href="{{ asset("css/06-components/components-schedules-card.css") }}">
@@ -45,19 +45,21 @@
                     </div>
                 {% endif %}
                 </div>
+            {{ form_start(form) }}
 
             <div class="c-profile-image">
-                <label for="addImage" class="c-profile-image__image-container">
-                    <img src="{{ asset("images/user-profile-image.jpg") }}" alt="">
+                <label for="form_image" class="c-profile-image__image-container">
+                    <img src="{{ asset(userImage) }}" alt="">
                     <div class="c-profile-image__image-container__hover-container">
                         <i class="fas fa-camera c-profile-image__image-container__hover-container__element"></i>
                     </div>
 
                 </label>
-                <input type="file" id="addImage" class="c-profile-image__upload">
-                <h2 class="c-profile-image__museum-name">Abritus</h2>
-            </div>
+                {{ form_widget(form.image, {'attr': {'class': 'c-profile-image__upload'}}) }}
 
+                <h2 class="c-profile-image__museum-name">{{ museum.museumName }}</h2>
+            </div>
+            {{ form_end(form) }}
             </div>
 
         </div>
@@ -66,17 +68,51 @@
 
             <div class="c-settings-museum-summary-information col-12 col-lg-12">
                 <div><h2 class="text-center">Please add additional information about you museum</h2></div>
-                <textarea class="form-control" name="" id=""  placeholder="Please add additional information about your museum..."></textarea>
-            </div>
-        </div>
+                <textarea class="form-control" name="" id=""  value="{{ museum.additionalInformation }}">{{ museum.additionalInformation }}</textarea>
 
+                <div class="col-12 row  p-0 mt-3     justify-content-around">
+                    <button disabled="true" class="col-5 btn btn-danger textarea-btn textarea-btn-decline">Отказ</button>
+                    <button disabled="true" class="col-5 btn btn-success textarea-btn textarea-btn-update">Запазване</button>
+
+                </div>
+            </div>
+
+        </div>
+    <hr class="col-2 mx-auto pt-2">
     <div class="c-map col-12 p-0 justify-content-center">
-        <iframe class="col-12 mx-auto" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=728&amp;height=349&amp;hl=en&amp;q=%20Abritus+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> <a href='https://add-map.com/'>add google map to your website</a> <script type='text/javascript' src='https://maps-generator.com/google-maps-authorization/script.js?id=773cab6eb5377681709bbeceb206b61feabda139'></script>
+        <h1 class="m-1 mb-2 pb-2">Museum location </h1>
+      <div class="gmap_canvas"><iframe class="col-12 m-0 p-0 " id="gmap_canvas" src="https://maps.google.com/maps?q=abrituscastle&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.whatismyip-address.com"></a></div>
+        <style>.mapouter{position:relative;text-align:right;}.gmap_canvas {overflow:hidden;background:none!important; width: 100%}</style>
 
     </div>
     <script src="{{ asset("js/museum/homePage/slideshow.js") }}" ></script>
     <script src="{{ asset("js/components/components-slider.js") }}" ></script>
+    <script>
+        let textareaValue = null;
 
+        $(document).ready( function (){
+          textareaValue = $('textarea').val();
+
+        });
+
+        $('textarea').on("keypress", function (){
+            $('.textarea-btn').removeAttr("disabled");
+            console.log(2)
+        });
+
+        $('.textarea-btn-decline').on('click', function (){
+           $('textarea').val(textareaValue);
+            $('.textarea-btn').attr("disabled", "disabled");
+
+        });
+
+
+
+        $('#form_image').on("change", function (){
+            $('form').submit();
+        });
+
+    </script>
 
     {% block javascript %}
 

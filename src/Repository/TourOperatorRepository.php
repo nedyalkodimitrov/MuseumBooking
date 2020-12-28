@@ -36,15 +36,21 @@ class TourOperatorRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?TourOperator
+
+    public function findByValue($value)
     {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT t
+            FROM App\Entity\TourOperator t
+            INNER JOIN t.city c 
+            WHERE t.name LIKE :value or t.fName Like :value or c.name Like :value
+            ORDER BY t.name ASC'
+        )->setParameter('value', '%' . $value.'%');
+
+        // returns an array of Product objects
+        return $query->getResult();
     }
-    */
+
 }

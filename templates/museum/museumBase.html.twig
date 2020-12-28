@@ -1,14 +1,16 @@
 {% extends 'base.html.twig' %}
-{% block title %} {% endblock %}
+{% block title %} Hi{% endblock %}
 
 {% block stylesheets %}{% endblock %}
+
 
 {% block body %}
     {% block navBarLinks %}
         <li><a href="{{ path("museum") }}">Home</a></li>
         <li class="dropdown"><a href="{{ path("museum_schedule") }}" >Schedule </a></li>
-        <li><a href="">Stats</a></li>
+        <li><a href="{{ path("museum_stats") }}">Stats</a></li>
     {% endblock %}
+
 
 
     {% block footerLinksLinksUp %}

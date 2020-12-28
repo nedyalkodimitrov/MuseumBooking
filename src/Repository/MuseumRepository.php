@@ -60,4 +60,22 @@ class MuseumRepository extends ServiceEntityRepository
 
 
     }
+
+
+    public function findByValue($value)
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT m
+            FROM App\Entity\Museum m
+            INNER JOIN m.city c 
+            INNER JOIN c.country country 
+            WHERE m.museumName LIKE :value or c.name Like :value or country.name Like :value
+            ORDER BY m.museumName ASC'
+        )->setParameter('value', '%' . $value.'%');
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
 }

@@ -1,0 +1,76 @@
+@import "../01-settings/settings-colors";
+.c-navbar-search{
+
+  min-width: 80%;
+  border-radius: 10px;
+  border: 2px solid $primary-color;
+  outline: none;
+  padding: 0.3em;
+  margin-right: 0.2em;
+
+  &__results{
+    visibility: hidden;
+    background-color: whitesmoke;
+    position: fixed;
+    left: 0;
+    bottom: -11%;
+    width:100%;
+    height: 100vh;
+    overflow-y: scroll;
+    padding-bottom: 2em;
+    z-index: 20000;
+    &__title{
+
+      text-align:center;
+      margin: 0;
+      padding: 0.4em;
+    }
+    hr{
+      width: 20%;
+      border: 3px solid $primary-color;
+    }
+    .closeBtn{
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 1em;
+      color: darkred;
+      cursor: pointer;
+
+      font-size: 1.5em;
+    }
+  }
+  &__result{
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 0.5em;
+    width: 90%;
+    margin: auto;
+    margin-top: 1em;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 8em 1fr 1fr 1fr 1fr;
+    &__image{
+      width: 4em;
+      height: 4em;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-left: 2em;
+    }
+    &:hover{
+      background-color: #a9a9a9;
+    }
+  }
+}
+
+.c-navbar-search-container{
+
+  width: 17em;
+  height: 2em;
+  position: relative;
+  margin-left: 1em;
+
+  transition: width 0.3s ease;
+
+}

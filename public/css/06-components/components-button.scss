@@ -11,18 +11,14 @@
 
     &:hover {
       background-color: darkred;
-
     }
   }
+
   &--success{
     background-color: green;
     transition: background-color 0.3s ease;
     &:hover{
       background-color: darkgreen;
-
     }
-
-
   }
-
 }

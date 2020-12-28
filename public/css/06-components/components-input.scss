@@ -1,6 +1,6 @@
 /*= input focus effects css
 =========================== */
-
+@import '../01-settings/settings-colors';
 .c-input{
   color: #333;
   width: 100%;
@@ -23,7 +23,7 @@
     padding-left:  0px;
     outline-style: none;
     &:focus {
-      border-bottom: 1px solid #f94019;
+      border-bottom: 1px solid $primary-color;
       box-shadow: none;
 
     }
@@ -37,7 +37,7 @@
   position: absolute;
   bottom: 0; left: 50%;
   width: 0; height: 2px;
-  background-color: #f94019;
+  background-color: $primary-color;
   transition: 0.4s;
 }
 .c-input--expand-effect:focus ~ .focus-border {

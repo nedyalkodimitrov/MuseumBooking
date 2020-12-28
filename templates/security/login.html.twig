@@ -1,53 +1,52 @@
-{% extends 'base.html.twig' %}
+{% extends 'security/securityBase.html.twig' %}
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset("css/security/logi    nStyle.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-form-security.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-input.css") }}">
 {% endblock %}
 {% block title %}Museum Booking | Sign in{% endblock %}
 
 {% block body %}
-<form method="post">
+<form method="post" class="c-form-security">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+{#    {% if app.user %}#}
+{#        <div class="mb-3">#}
+{#            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>#}
+{#        </div>#}
+{#    {% endif %}#}
 
-    <div class="logo-holder">
+    <div class="c-form-security__logo-holder ">
         <h1 class="h3 mb-3 logo font-weight-normal">Museum Booking</h1>
     </div>
 
-    <div class="input-holder ">
+    <div class="c-form-security__input-holder ">
         <label for="inputEmail">Email</label>
-        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" placeholder="ivan@gmail.com" class="effect-2" required autofocus>
+        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" placeholder="ivan@gmail.com" class=" c-input c-input--expand-effect" required autofocus>
         <span class="focus-border"></span>
     </div>
-    <div class="input-holder ">
+    <div class="c-form-security__input-holder ">
         <label for="inputPassword">Password</label>
-        <input type="password" name="password" id="inputPassword" placeholder="*********" class=" effect-2" required>
+        <input type="password" name="password" id="inputPassword" placeholder="*********" class="  c-input c-input--expand-effect" required>
         <span class="focus-border"></span>
     </div>
 
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
+
+{#        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.#}
+{#        See https://symfony.com/doc/current/security/remember_me.html#}
 
         <div class="checkbox mb-3">
             <label>
                 <input type="checkbox" name="_remember_me"> Remember me
             </label>
         </div>
-    #}
 
-    <button class="btn btn-lg btn-primary " type="submit">
+
+    <button class="c-button " type="submit">
         Sign in
     </button>
 </form>

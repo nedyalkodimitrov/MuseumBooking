@@ -10,12 +10,14 @@
         width: 15%;
         margin-left: 0;
     }
+
     &__schedule {
+        margin: 0;
         height: 9em;
         text-align: center;
         padding: 0;
         border: 1px solid #7a7878;
-        margin-bottom: 1em;
+
         &__hour,  &__max-capacity{
             padding: 0.4em;
         }

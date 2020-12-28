@@ -25,7 +25,7 @@
   outline-style: none;
 }
 .c-input--select:focus {
-  border-bottom: 1px solid #f94019;
+  border-bottom: 1px solid #6873A5;
   box-shadow: none;
 }
 
@@ -35,7 +35,7 @@
   left: 50%;
   width: 0;
   height: 2px;
-  background-color: #f94019;
+  background-color: #6873A5;
   transition: 0.4s;
 }
 

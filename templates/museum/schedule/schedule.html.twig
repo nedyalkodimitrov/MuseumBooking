@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'museum/museumBase.html.twig' %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset("css/museum/homePage/homePageStyle.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-schedules-card.css") }}">
@@ -65,14 +65,14 @@
                 <div class="col-6">
                     <div class="input-group  ">
                         <label for="inputEmail">Start hour</label>
-                        <input type="email"  placeholder="17:00" name="startHour" id="startHour" class="c-input c-input--expand-effect" required autofocus>
+                        <input type="time"  placeholder="17:00" name="startHour" id="startHour" class="c-input c-input--expand-effect" required autofocus>
                         <span class="focus-border"></span>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="input-group">
                         <label for="inputEmail">End hour</label>
-                        <input type="email"  placeholder="18:00" name="endHour" id="endHour" class="c-input c-input--expand-effect" required autofocus>
+                        <input type="time" max="11:59" placeholder="18:00" name="endHour" id="endHour" class="c-input c-input--expand-effect" required autofocus>
                         <span class="focus-border"></span>
                     </div>
                 </div>
@@ -103,6 +103,42 @@
                 openContainer("c-add-schedule__button", "hidden-container-monday");
                 openContainer("c-button--danger", "hidden-container-delete-schedule");
                 closeContainer();
+
+                $('#endHour').on('focusout', function (){
+                   var endHour = $('#endHour').val();
+                   var startHour = $('#startHour').val();
+                   if (endHour == ''){
+                       return;
+                   }
+
+                   if (endHour <= startHour ){
+                        $('#endHour').value == ""
+                       iziToast.warning({
+                           title: 'Warning',
+                           message: 'Start time has to be earlier than end time',
+                           position: 'center',
+                           timeout: 5000,
+
+                       });
+                   }
+
+                   console.log(typeof(endHour));
+                   if (endHour == "24:00"){
+                       $('#endHour').value == "";
+                       // iziToast.show({
+                       //     title: 'Warning!',
+                       //     message: 'End time has to be earlier than 24:00',
+                       //     position: 'center',
+                       //     timeout: 3000,
+                       //     close: true,
+                       //     closeOnEscape: true,
+                       //     closeOnClick: true,
+                       //     transitionIn: 'flipInX',
+                       //     transitionOut: 'flipOutX',
+                       // });
+                   }
+
+                });
 
                 $('.c-add-schedule__button').on('click', function (){
                     $(".c-hidden-container__form__text").text($(this).val());

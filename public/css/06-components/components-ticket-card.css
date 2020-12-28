@@ -3,7 +3,6 @@
   text-align: center;
   border: 1px solid #6873A5;
   transition: 0.25s;
-  padding-bottom: 0.4em;
 }
 .c-ticket-card:hover {
   box-shadow: 0px 0px 13px 5px #E8CBC0;
@@ -34,7 +33,7 @@
 }
 .c-ticket-card__name {
   position: absolute;
-  z-index: 1000;
+  z-index: 1;
   bottom: 0;
   padding-left: 0.3em;
   background-color: white;
@@ -57,6 +56,7 @@
   margin: 0em 0;
 }
 .c-ticket-card__event-holder {
+  padding-bottom: 0.4em;
   margin: 0.5em 0;
   width: 100%;
   text-align: center;
@@ -71,6 +71,22 @@
   box-shadow: 0px 0px 10px 2px #E8CBC0;
   background-color: #6873A5;
   color: white;
+}
+.c-ticket-card__check, .c-ticket-card__missed {
+  width: 100%;
+}
+.c-ticket-card__check button, .c-ticket-card__missed button {
+  padding: 0.5em;
+  width: 100%;
+  border: none;
+  pointer-events: none;
+  color: white;
+}
+.c-ticket-card__check button {
+  background-color: darkgreen;
+}
+.c-ticket-card__missed button {
+  background-color: darkred;
 }
 
 /*# sourceMappingURL=components-ticket-card.css.map */
