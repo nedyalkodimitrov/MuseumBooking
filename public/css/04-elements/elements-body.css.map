@@ -1,1 +1,10 @@
-{"version":3,"sourceRoot":"","sources":["../01-settings/settings-fonts.scss","elements-body.scss"],"names":[],"mappings":"AACQ;AACA;AACA;ACDR;EACE,aDGW;ECFX,WDKgB;ECJhB,aDKgB;ECJhB","file":"elements-body.css"}
+{
+    "version": 3,
+    "mappings": "ACCA,OAAO,CAAC,uEAAI;AACZ,OAAO,CAAC,iEAAI;AACZ,OAAO,CAAC,iFAAI;ADDZ,AAAA,IAAI,CAAC;EACH,WAAW,ECGA,MAAM,EAAE,UAAU;EDF7B,SAAS,ECKO,IAAI;EDJpB,WAAW,ECKK,CAAC,EAAC,GAAG;EDJrB,gBAAgB,EAAE,KAAM;CACzB",
+    "sources": [
+        "elements-body.scss",
+        "../01-settings/settings-fonts.scss"
+    ],
+    "names": [],
+    "file": "elements-body.css"
+}

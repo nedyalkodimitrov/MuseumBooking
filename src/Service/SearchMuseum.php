@@ -19,6 +19,7 @@ class SearchMuseum
             array_push($information, $result[0]->getMuseumName());
             array_push($information, $result[0]->getCity()->getCountry()->getName().', '.$result[0]->getCity()->getName());
             array_push($information, $result[0]->getRating());
+            array_push($information, $result[0]->getId());
 
         }
         if (count($information) == 0){

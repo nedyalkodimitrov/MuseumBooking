@@ -28,6 +28,7 @@ class MuseumPostController extends AbstractController
         $startTimeStr = $request->request->get("startTime");
         $endTimeStr = $request->request->get("endTime");
         $dayName = $request->request->get("dayName");
+        $price = $request->request->get("price");
 
         $startTime = new \DateTime($startTimeStr);
         $endTime = new \DateTime($endTimeStr);
@@ -48,7 +49,7 @@ class MuseumPostController extends AbstractController
         $schedule->setMuseum($museum);
         $schedule->setStartTime($startTime);
         $schedule->setEndTime($endTime);
-
+        $schedule->setPrice($price);
         $em = $this->getDoctrine()->getManager();
 
         $em->persist($schedule);
@@ -59,38 +60,30 @@ class MuseumPostController extends AbstractController
     }
 
     /**
-     * @Route("/museum/deleteSchedule", name="delete-schedule")
+     * @Route("/museum/deleteSchedule", name="delete-schedule", methods={"GET"})
      */
     public function deleteSchedule(HttpFoundation\Request $request, DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
     {
+        $scheduleId = $request->request->get("scheduleId");
 
-        $startTimeStr = $request->request->get("startTime");
-        $endTimeStr = $request->request->get("endTime");
-        $dayName = $request->request->get("dayName");
-
-
-        $startTime = new \DateTime($startTimeStr);
-        $endTime = new \DateTime($endTimeStr);
-        $day = $dayRepository->findOneBy(["name" => $dayName]);
-
-        $museum = $this->getUser()->getMuseum();
-
-        $equallySchedule = $scheduleRepository->findBy(["day" => $day, "museum" => $museum, "startTime" => $startTime]);
+        $equallySchedule = $scheduleRepository->find(intval($scheduleId));
 
         if ($equallySchedule) {
             $em = $this->getDoctrine()->getManager();
 
-            $em->remove($equallySchedule[0]);
+            $em->remove($equallySchedule);
             $em->flush();
 
             return $this->json("ex");
         }
+        var_dump(2);
+        exit();
 
     }
 
 
     /**
-     * @Route("/museum/userHasCome", name="delete-schedule")
+     * @Route("/museum/userHasCome", name="user-has-come")
      */
     public function userHasCome(HttpFoundation\Request $request, TicketRepository  $ticketRepository, tourOperatorService  $tourOperatorService)
     {
@@ -146,16 +139,5 @@ class MuseumPostController extends AbstractController
     }
 
 
-    /**
-     * @Route("/museum/updateImage", name="museum-update-image")
-     */
-    public function settingsUpdateImage(HttpFoundation\Request $request, FileService $fileService){
-
-
-        return $this->render('museum/example.html.twig', [
-            'controller_name' => 'MuseumController',
-            'form' => $form->createView()
-        ]);
-    }
 
 }

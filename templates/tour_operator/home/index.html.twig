@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{ asset("css/06-components/components-ticket-card.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-top-museum-suggestion-card.css") }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-fancy-card.css") }}">
 {% endblock %}
 
 {% block body %}
@@ -15,56 +16,107 @@
         <div class="tickets-wrapper row col-12 m-0 p-0 justify-content-center">
 
                {% for ticket in tickets %}
-               <div class="ticket-container col-10 col-md-6 col-lg-4">
-                  <div class="col-11 mx-auto">
-                      <div class="c-ticket-card">
-                          <div class="c-ticket-card__image-holder">
-                              <img src="{{ asset('images/museums/'~ ticket.schedule.museum.images[0].path) }}" alt="">
-                              <a href="{{ path('tour_operator_museumView', {"id": ticket.schedule.museum.id}) }}">  <h4 class="c-ticket-card__name">{{ ticket.schedule.museum.museumName }}</h4></a>
-                          </div>
-                          <div class="c-ticket-card__date">
-                              <h5>Reserved Date: {{ ticket.reservedDate| date('d/m/Y') }}</h5>
-                          </div>
-                          <div class="c-ticket-card__information">
-                              <h5>Hour: {{ ticket.schedule.startTime |date('H:i') }} - {{ ticket.schedule.endTime|date('H:i') }}</h5>
+{#               <div class="ticket-container col-10 col-md-6 col-lg-4">#}
+{#                  <div class="col-11 mx-auto">#}
+{#                      <div class="c-ticket-card">#}
+{#                          <div class="c-ticket-card__image-holder">#}
+{#                              <img src="{{ asset('images/museums/'~ ticket.schedule.museum.images[0].path) }}" alt="">#}
+{#                              <a href="{{ path('tour_operator_museumView', {"id": ticket.schedule.museum.id}) }}">  <h4 class="c-ticket-card__name">{{ ticket.schedule.museum.museumName }}</h4></a>#}
+{#                          </div>#}
+{#                          <div class="c-ticket-card__date">#}
+{#                              <h5>Reserved Date: {{ ticket.reservedDate| date('d/m/Y') }}</h5>#}
+{#                          </div>#}
+{#                          <div class="c-ticket-card__information">#}
+{#                              <h5>Hour: {{ ticket.schedule.startTime |date('H:i') }} - {{ ticket.schedule.endTime|date('H:i') }}</h5>#}
 
-                          </div>
-                          <div class="c-ticket-card__information">
-                              <h5>{{ticket.number }}  bought tickets </h5>
+{#                          </div>#}
+{#                          <div class="c-ticket-card__information">#}
+{#                              <h5>{{ticket.number }}  bought tickets </h5>#}
 
-                          </div>
-                          <div class="c-ticket-card__information">
-                              <h5>Total Price: {{ ticket.number * ticket.schedule.price }}lv </h5>
+{#                          </div>#}
+{#                          <div class="c-ticket-card__information">#}
+{#                              <h5>Total Price: {{ ticket.number * ticket.schedule.price }}lv </h5>#}
 
-                          </div>
+{#                          </div>#}
 
-                          {% if ticket.reservedDate| date('d-m-Y') >= "now"| date('d-m-Y') %}
-                              <div class="c-ticket-card__event-holder">
-                                  <button>
-                                      <h6>Cancellation </h6>
-                                  </button>
+{#                          {% if ticket.reservedDate| date('d-m-Y') >= "now"| date('d-m-Y') %}#}
+{#                              <div class="c-ticket-card__event-holder">#}
+{#                                  <button>#}
+{#                                      <h6>Cancellation </h6>#}
+{#                                  </button>#}
 
-                              </div>
-
-
-                              {% else  %}
-
-                                  {% if ticket.hasCome %}
-                                      <div class="c-ticket-card__check">
-                                          <button><i class="fas fa-check "></i></button>
-                                      </div>
-                                      {% else %}
-                                          <div class="c-ticket-card__missed">
-                                              <button><i class="fas fa-times "></i></button>
-                                          </div>
-                                  {% endif %}
+{#                              </div>#}
 
 
+{#                              {% else  %}#}
 
-                          {% endif %}
-                      </div>
-                  </div>
-               </div>
+{#                                  {% if ticket.hasCome %}#}
+{#                                      <div class="c-ticket-card__check">#}
+{#                                          <button><i class="fas fa-check "></i></button>#}
+{#                                      </div>#}
+{#                                      {% else %}#}
+{#                                          <div class="c-ticket-card__missed">#}
+{#                                              <button><i class="fas fa-times "></i></button>#}
+{#                                          </div>#}
+{#                                  {% endif %}#}
+
+
+
+{#                          {% endif %}#}
+{#                      </div>#}
+{#                  </div>#}
+{#               </div>#}
+                      <div class="col-12 col-md-6 col-xl-5 c-fancy-card c-fancy-card--with-title">
+                           <div class="c-fancy-card__title">
+                                    <h4>
+                                        <a href="{{ path('tour_operator_museumView', {"id": ticket.schedule.museum.id}) }}">
+
+                                            Abritus
+                                        </a>
+                                    </h4>
+                           </div>
+                           <div class=" c-fancy-card__user">
+                               <img class="c-fancy-card__image c-fancy-card__image--big" src="{{ asset('images/museums/'~ ticket.schedule.museum.images[0].path) }}" alt="">
+                               {#                                <div class=" c-fancy-card__name">{{ ticket.schedule.museum.museumName }}</div>#}
+
+                           </div>
+                           <div class=" c-fancy-card__text text-left"> Bought tickets: {{ticket.number }} tickets
+                               <br>
+                               Reserved Date: {{ ticket.reservedDate| date('d/m/Y') }}
+                               <br>
+                               Hour: {{ ticket.schedule.startTime |date('H:i') }} - {{ ticket.schedule.endTime|date('H:i') }}
+                           </div>
+                           {#                            <div class="c-fancy-card__information--left">Reserved Date: {{ ticket.reservedDate| date('d/m/Y') }}</div>#}
+                           {#                            <div class=" c-fancy-card__information--right"></div>#}
+                           <div class=" text-center c-fancy-card__information">
+                               {% if ticket.reservedDate| date('d-m-Y') >= "now"| date('d-m-Y') %}
+                                   <div class="c-fancy-card__button-holder">
+                                       <button>
+                                           <h6>Cancellation </h6>
+                                       </button>
+
+                                   </div>
+
+
+                               {% else  %}
+
+                                   {% if ticket.hasCome %}
+                                       <div class="c-fancy-card__check">
+                                           <button><i class="fas fa-check "></i></button>
+                                       </div>
+                                   {% else %}
+                                       <div class="c-fancy-card__missed">
+                                           <button><i class="fas fa-times "></i></button>
+                                       </div>
+                                   {% endif %}
+
+
+
+                               {% endif %}
+                           </div>
+
+                       </div>
+
                {% endfor %}
         </div>
     </div>

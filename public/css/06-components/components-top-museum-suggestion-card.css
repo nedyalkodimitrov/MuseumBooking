@@ -1,17 +1,23 @@
 .c-top-museum-suggestion-card {
   width: 100%;
+  border-radius: 15px;
   margin-top: 1em;
-  border-bottom: 1px solid #6873A5;
+  border: 2px solid #6873A5;
+  padding: 1em;
+}
+.c-top-museum-suggestion-card a {
+  color: black;
 }
 .c-top-museum-suggestion-card .stars {
   color: #ca5e04;
 }
 .c-top-museum-suggestion-card__image-holder {
   margin: 0 auto;
-  margin-bottom: 0.5em;
   position: relative;
   padding-top: 18.35%;
   width: 24em;
+  border-radius: 15px;
+  overflow: hidden;
 }
 @media (max-width: 599px) {
   .c-top-museum-suggestion-card__image-holder {

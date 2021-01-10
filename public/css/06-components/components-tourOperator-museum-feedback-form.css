@@ -1,0 +1,31 @@
+.c-tourOperator-museum-feedback-form {
+  width: 80%;
+  margin: auto;
+}
+.c-tourOperator-museum-feedback-form__textarea {
+  width: 100%;
+  padding: 1em;
+  height: 18em;
+  margin: auto;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.c-tourOperator-museum-feedback-form__rating {
+  display: inline;
+  width: 19%;
+  border: 1px solid black;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.c-tourOperator-museum-feedback-form__sendBtn {
+  display: inline;
+  width: 80%;
+  background-color: #6873A5;
+  color: white;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/*# sourceMappingURL=components-tourOperator-museum-feedback-form.css.map */

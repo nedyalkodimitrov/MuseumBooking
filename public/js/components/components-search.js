@@ -68,7 +68,7 @@ $(document).ready(function () {
 
                 if (tourOperatorSearchResult[0] != null){
                     for (let i = 0; i < tourOperatorSearchResult.length; i++) {
-                        dataToAppend +=" <a href =\"/tourOperator/1\"><div class=\"c-navbar-search__result\">\n" +
+                        dataToAppend +=" <a href =\"/tourOperator/profile/1\"><div class=\"c-navbar-search__result\">\n" +
                             "                <img src=\"../images/tourOperator/"+ tourOperatorSearchResult[i][0] +"\" alt=\"asdsa\" class=\"c-navbar-search__result__image\">\n" +
                             "                <h5 class=\"c-navbar-search__result__name\">"+ tourOperatorSearchResult[i][1]+"</h5>\n" +
                             "                <h5 class=\"c-navbar-search__result__city\">"+ tourOperatorSearchResult[i][2]+"</h5>\n" +

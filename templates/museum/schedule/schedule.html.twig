@@ -1,4 +1,5 @@
 {% extends 'museum/museumBase.html.twig' %}
+{% block title %}Museum Booking | Schedule{% endblock %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset("css/museum/homePage/homePageStyle.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-schedules-card.css") }}">
@@ -29,6 +30,9 @@
                         </div>
                         <div class="c-schedules-card__schedule__max-capacity">
                             <h5> Капацитет - {{ daySchedule[1][0].Museum.MaxCapacity }}</h5>
+                        </div>
+                        <div class="c-schedules-card__schedule__price">
+                            <h5> Цена: {{ hourSchedule.price }}лв.</h5>
                         </div>
                         <div class="c-schedules-card__schedule__delete m-0 p-0">
                             <button class="c-button c-button--danger" value="{{ hourSchedule.Id }}"><i class="fas fa-times"></i></button>
@@ -65,20 +69,27 @@
                 <div class="col-6">
                     <div class="input-group  ">
                         <label for="inputEmail">Start hour</label>
-                        <input type="time"  placeholder="17:00" name="startHour" id="startHour" class="c-input c-input--expand-effect" required autofocus>
+                        <input type="time"  placeholder="17:00" name="startHour" id="startHour" class="c-input c-input--expand-effect" required >
                         <span class="focus-border"></span>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="input-group">
                         <label for="inputEmail">End hour</label>
-                        <input type="time" max="11:59" placeholder="18:00" name="endHour" id="endHour" class="c-input c-input--expand-effect" required autofocus>
+                        <input type="time" max="11:59" placeholder="18:00" name="endHour" id="endHour" class="c-input c-input--expand-effect" required >
+                        <span class="focus-border"></span>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="input-group ">
+                        <label for="inputEmail">Price</label>
+                        <input type="number" max="500" name="price" placeholder="Цена: 5.00лв" id="price" class="c-input c-input--expand-effect" required >
                         <span class="focus-border"></span>
                     </div>
                 </div>
             </div>
 
-            <button class="c-button c-hidden-container__button"> Изпрати</button>
+            <button class="c-button c-hidden-container__button createScheduleBtn"> Изпрати</button>
             <button class="c-hidden-container__close-button"><i class="fa fa-times"> </i></button>
         </div>
 
@@ -88,8 +99,11 @@
         <div class="c-hidden-container--buttons " >
             <input type="hidden" class="id">
             <h4 class="c-hidden-container--buttons__header-text ">Искате ли да изтриете разписанието?</h4>
-            <button class="c-button c-hidden-container--buttons__delete-btn">Изтриване</button>
+            <button class="c-button c-hidden-container--buttons__delete-btn" id="deleteSchedule">Изтриване</button>
             <button class="c-button c-hidden-container--buttons__close-btn">Затваряне</button>
+            <input type="hidden">
+            <input type="hidden">
+            <input type="hidden">
         </div>
 
     </div>
@@ -107,6 +121,7 @@
                 $('#endHour').on('focusout', function (){
                    var endHour = $('#endHour').val();
                    var startHour = $('#startHour').val();
+
                    if (endHour == ''){
                        return;
                    }
@@ -144,17 +159,16 @@
                     $(".c-hidden-container__form__text").text($(this).val());
                 });
 
-                $('.c-hidden-container__button').on('click', function () {
+                $('.createScheduleBtn').on('click', function () {
                     var startHour = $("#startHour").val();
                     var endHour = $("#endHour").val();
                     var day = $("#day").text();
+                    var price = $('#price').val();
                     $('.c-hidden-container__button').disable = true;
 
                     let type = "POST";
                     let url = "/museum/createSchedule"
-                    let data = {'startTime': startHour, 'endTime': endHour, 'dayName': day};
-
-
+                    let data = {'startTime': startHour, 'endTime': endHour, 'dayName': day, 'price': price};
 
                     console.log(ajaxRequest(type, url, data));
 
@@ -163,6 +177,20 @@
 
 
         //has to make a delete option
+
+                $('.c-button--danger').on('click', function () {
+
+                    var id = $(this).val();
+
+                    $('#deleteSchedule').on('click', function () {
+                        let type = "POST";
+                        let url = "museum/deleteSchedule";
+                        let data = {"id": id};
+
+                        console.log(ajaxRequest(type, url, data));
+                    });
+
+                });
 
 
 

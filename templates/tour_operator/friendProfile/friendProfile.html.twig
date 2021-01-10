@@ -1,0 +1,72 @@
+{% extends 'tour_operator/tourOperatorBase.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    {#    <link rel="stylesheet" href="{{ asset("css/06-components/components-settings-drive-license-type.css") }}">#}
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-settings-profile-image.css") }}">
+    {#    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">#}
+    <link rel="stylesheet" href="{{ asset("css/pages/tourOperator/settings/settingPageStyle.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-slider.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-stats-information.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-fancy-card.css") }}">
+    <script src="{{ asset("js/components/components-ajax.js") }}"></script>
+
+{% endblock %}
+{% block title %}Museum Booking | {{ friend.Name }} {{ friend.fName }}{% endblock %}
+
+{% block body %}
+    <div class="col-12 col-md-12 col-lg-12   justify-content-center row header">
+        <div class="slider col-12 m-0 p-0  ">
+            <div class="slider__slides-container__slide mySlides">
+                <img class="" src="{{ asset("images/tourOperatorCoverImage.jpg") }}" style="width:100%">
+                {# <span value=""><i class="fas fa-times"></i></span> #}
+            </div>
+        </div>
+        <div class="c-profile-image">
+            <label for="form_image" class="c-profile-image__image-container">
+                <img src="{{ asset(userImage) }}" alt="">
+            </label>
+
+            <h3 class="c-profile-image__museum-name">{{ friend.Name }}</h3>
+            <h2 class="c-profile-image__museum-name">{{ friend.FName }}</h2>
+        </div>
+
+
+
+    </div>
+
+    <hr>
+
+    <div class="col-12">
+        <div class="c-stats-information col-11">
+            <div class="c-stats-information__inner">
+                <div class="c-stats-information__inner__title"><h2>Statistics</h2></div>
+                <div class="c-stats-information__inner__element text-center"><h5>100</h5><h6>Visited museums</h6></div>
+                <div class="c-stats-information__inner__element text-center"><h5>400 lv</h5><h6>Invested money</h6></div>
+                <div class="c-stats-information__inner__element text-center"><h5>4.5</h5><h6>Visit rating</h6></div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="mx-auto justify-content-center row c-fancy-cards-container">
+        <h3 class="col-12 text-center">Favorite museum </h3>
+        <hr class="col-2 mx-auto m-3">
+        <div class="  col-11 c-fancy-card">
+            <div class=" c-fancy-card__user">
+                <img class="c-fancy-card__image p-0 " src="{{asset("images/museums/"~bestReview.museum.image) }}" alt="">
+                <div class=" c-fancy-card__name"><h5>{{ bestReview.museum.museumName }}</h5></div>
+            </div>
+            <div class=" c-fancy-card__text">
+                <div class="row justify-content-between px-3"><h5>Review Date: {{ bestReview.Date | date('m/d/Y') }} </h5></div>
+                <h5>Your Review: {{ bestReview.Text   }}</h5>
+
+            </div>
+            <div class=" c-fancy-card__information--left">Your rating: {{ bestReview.rating }}</div>
+            <div class="c-fancy-card__information--right">Museum Rating: {{ bestReview.museum.rating }}</div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

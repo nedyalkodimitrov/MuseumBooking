@@ -2,22 +2,30 @@
   margin: auto;
   margin-top: 0.5em;
 }
+
 .container .images-container {
-  box-shadow: 0px 0px 5px 1px gray;
+  -webkit-box-shadow: 0px 0px  5px 1px gray;
+          box-shadow: 0px 0px  5px 1px gray;
   text-align: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
 }
+
 .container .images-container label {
   border: none;
   margin: 0.4em;
   background-color: white;
 }
+
 .container .images-container input {
   display: none;
 }
+
 .container .information-container {
   border: 1px solid black;
 }
+
 .container .information-container textarea {
   height: auto;
 }
@@ -25,10 +33,13 @@
 .mySlides {
   height: 18em;
 }
+
 .mySlides img {
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
+
 .mySlides span {
   position: absolute;
   top: 0;
@@ -38,8 +49,10 @@
   color: white;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: darkred;
+  -webkit-transition: color 0.2s ease-out;
   transition: color 0.2s ease-out;
 }
+
 .mySlides span:hover {
   color: darkred;
 }
@@ -50,17 +63,21 @@
   border: 1px solid white;
   margin: auto 0.5em;
   border-radius: 50%;
+  -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
   font-size: 1.1em;
-  box-shadow: 0px 0px 5px 1px gray;
+  -webkit-box-shadow: 0px 0px  5px 1px gray;
+          box-shadow: 0px 0px  5px 1px gray;
 }
+
 .w3-display-container .slider-button:hover {
   background-color: white !important;
   color: black;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
+
 .w3-display-container .slider-button:focus {
   outline: none;
 }
-
 /*# sourceMappingURL=homePageStyle.css.map */

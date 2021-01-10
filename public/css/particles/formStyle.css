@@ -23,7 +23,8 @@
 
 .information-input:focus {
   border-bottom: 1px solid #f94019;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .inputfile {
@@ -58,5 +59,4 @@
 .btn:hover {
   background-color: #f94019;
 }
-
 /*# sourceMappingURL=formStyle.css.map */

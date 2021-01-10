@@ -1,12 +1,20 @@
 .o-flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-}
-.o-flex-container--flex-start {
-  justify-content: flex-start;
-}
-.o-flex-container--center {
-  justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
+.o-flex-container--flex-start {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.o-flex-container--center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 /*# sourceMappingURL=objects-flex-container.css.map */

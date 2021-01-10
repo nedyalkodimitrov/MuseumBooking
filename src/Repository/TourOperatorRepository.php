@@ -53,4 +53,23 @@ class TourOperatorRepository extends ServiceEntityRepository
         return $query->getResult();
     }
 
+    public function getBestReview($tourOperatorId)
+    {
+        $entityManager = $this->getEntityManager();
+
+
+
+        $query = $entityManager->createQuery(
+            'SELECT r
+            FROM App\Entity\MuseumReview r
+            INNER JOIN r.tourOperator t 
+            WHERE t.id = :value
+            ORDER BY r.rating ASC'
+        )->setParameter('value',  $tourOperatorId)
+        ->setMaxResults(1);
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
+
 }

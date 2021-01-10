@@ -1,3 +1,28 @@
+.c-button {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0.5em;
+  border-radius: 0px;
+}
 
+.c-button--danger {
+  background-color: #ba4242;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
 
+.c-button--danger:hover {
+  background-color: darkred;
+}
+
+.c-button--success {
+  background-color: green;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+.c-button--success:hover {
+  background-color: darkgreen;
+}
 /*# sourceMappingURL=components-button.css.map */

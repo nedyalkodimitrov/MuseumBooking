@@ -29,14 +29,15 @@ class FileService
         if ($form->isSubmitted()) {
             /** @var UploadedFile $file */
             $file = $form->get('image')->getData();
-
+//            var_dump($file);
 
             $imageNewFileName = $this->generateUniqueFileName() . uniqid() . '.' . $file->getExtension();
 //            var_dump($filesystem->exists( $this->params->get('images_directory')));
+
             try {
 
                 $file->move(
-                    $this->params->get('museum_images_directory'),
+                    $this->params->get($imageDirectory),
                     $imageNewFileName
                 );
                 return $imageNewFileName;

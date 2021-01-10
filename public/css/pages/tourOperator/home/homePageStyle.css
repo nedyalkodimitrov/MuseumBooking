@@ -9,11 +9,6 @@
   flex: 1;
 }
 
-.line {
-  background-color: #6873A5;
-  padding: 0.2em;
-}
-
 .top-museum-container {
   display: flex;
   width: 95%;

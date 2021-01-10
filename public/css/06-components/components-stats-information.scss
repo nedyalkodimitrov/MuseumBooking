@@ -1,0 +1,28 @@
+.c-stats-information{
+  width: 100%;
+  margin: 1em auto;
+  height: 100%;
+  background: linear-gradient(90deg, #9cecfb, #65c7f7, #0052d4,#9cecfb); /* Chrome 10-25, Safari 5.1-6 */
+  background-size: 1100% 100%;
+  border-radius: 15px;
+  padding: 0.1em;
+  animation: startAnimation 5s linear infinite;
+  &__inner{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 1em;
+    justify-items: center;
+    background: white;
+    padding: 1em;
+    border-radius: 15px;
+    &__title{
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
+  }
+}
+
+@keyframes startAnimation {
+  from {background-position: 0% 0%; }
+  to { background-position: 100% 0%;}
+}

@@ -6,70 +6,95 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-  transform: translateY(-100%);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: -webkit-transform 0.6s ease;
+  transition: -webkit-transform 0.6s ease;
   transition: transform 0.6s ease;
+  transition: transform 0.6s ease, -webkit-transform 0.6s ease;
 }
+
 .c-hidden-container__form {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   width: 50%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   background-color: #E6E6FA;
   border: 1px solid white;
   padding: 1.5rem;
 }
+
 .c-hidden-container__form__text {
   margin: 1 em;
   margin-bottom: 1.5em;
 }
+
 .c-hidden-container__form input {
   background-color: inherit;
   padding-left: 0.2rem;
 }
+
 .c-hidden-container__form__input-container {
   display: inline-block;
 }
+
 .c-hidden-container__button {
   margin-top: 1em;
 }
+
 .c-hidden-container--buttons {
   width: 50%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   border-radius: 5px;
   overflow: hidden;
   background-color: white;
 }
+
 .c-hidden-container--buttons__header-text {
   text-align: center;
   padding: 0.5em;
 }
+
 .c-hidden-container--buttons button {
   font-size: 1.1em;
-  transition: background-color 0.3s ease-in, color 0.3s ease-in;
+  -webkit-transition: background-color 0.3s ease-in , color 0.3s ease-in;
+  transition: background-color 0.3s ease-in , color 0.3s ease-in;
 }
+
 .c-hidden-container--buttons__delete-btn {
   background-color: white;
   color: black;
 }
+
 .c-hidden-container--buttons__delete-btn:hover {
   background-color: black;
   color: white;
 }
+
 .c-hidden-container--buttons__close-btn {
   background-color: #d25555;
   color: white;
 }
+
 .c-hidden-container--buttons__close-btn:hover {
   background-color: #8b0000;
   color: white;
 }
+
 .c-hidden-container__close-button {
   position: absolute;
   top: 0;
@@ -79,8 +104,8 @@
   font-size: 1.2em;
   color: #a50d0d;
 }
+
 .c-hidden-container__close-button:focus {
   outline: none;
 }
-
 /*# sourceMappingURL=components-hidden-container.css.map */

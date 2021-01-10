@@ -1,10 +1,13 @@
 .o-block-container {
   display: block;
   width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   padding: 0.2em;
 }
+
 .o-block-container--white {
   background-color: white;
 }
-
 /*# sourceMappingURL=objects-container.css.map */

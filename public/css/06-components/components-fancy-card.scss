@@ -1,0 +1,145 @@
+@import '../01-settings/settings-metrics';
+@import '../01-settings/settings-colors';
+@import '../02-tools/tools-breakpoints';
+
+.c-fancy-cards-container{
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.c-fancy-card{
+  line-height: 1.68;
+  display: grid;
+  grid-template-columns: 9em 1fr 1fr 1fr ;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+          'user text text text'
+          'date date rating rating'
+;
+  grid-row-gap: 1em;
+  box-shadow: 0px 0px  5px 1px gray;
+  background: linear-gradient(to right, #636FA4, #636FA4);
+  overflow: hidden;
+  transition: background 0.4s ;
+  padding: 2em;
+  color: white;
+  border-radius: 15px;
+
+
+
+  &--with-title{
+    grid-template-rows:2em 7.2em 2em;
+    grid-template-areas:
+            'title title title title '
+            'user text text text'
+            'date date rating rating'
+  ;
+  }
+
+  &__title{
+    grid-area: title;
+    justify-self: center  ;
+
+  }
+  &__image, &__user, &__text{
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid #E8CBC0;
+  }
+
+
+  &__user{
+    grid-area: user;
+    }
+
+  &__image {
+    width: 5em;
+    height: 5em;
+    object-fit: cover;
+    border-radius: 50%;
+
+    &--big {
+      width: 6em;
+      height: 6em;
+      padding: 0;
+    }
+  }
+
+
+
+  &__user{
+    grid-area: user;
+  }
+
+  &__text{
+    grid-area: text;
+  }
+  &__information {
+    justify-items: center;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    &--left{
+
+      padding-left: 0.5em;
+      grid-area: date;
+
+    }
+    &--right{
+      padding-right: 1.5em;
+      grid-area: rating;
+      justify-self: right;
+
+    }
+
+  }
+
+  &__button-holder{
+    width: 80%;
+    margin: auto;
+    button{
+      width: 100%;
+      border: 1px solid $secondary-color;
+      border-radius: 15px;
+      padding: 0.1em;
+      transition: 0.2s background-color ease-in;
+    &:hover{
+      background-color: $secondary-color;
+    }
+
+    }
+  }
+
+  a{
+    color: white;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+
+
+  @include for-phone-only{
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    grid-template-rows: auto auto auto ;
+    grid-template-areas:
+            'user user user user '
+            'text text text text '
+            'date date rating rating'
+  ;
+
+    &--with-title{
+      grid-template-columns: 1fr 1fr 1fr 1fr ;
+      grid-template-rows: auto auto auto ;
+      grid-template-areas:
+              'user user user user '
+              'title title title title '
+              'text text text text '
+              'date date rating rating'
+    ;
+    }
+    &__user {
+      justify-self: center;
+    }
+  }
+
+
+}

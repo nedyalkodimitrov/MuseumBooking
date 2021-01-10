@@ -70,7 +70,7 @@ ul {
   display: block;
   font-size: 20px;
   font-weight: 700;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin-bottom: 20px;
 }
 
@@ -159,7 +159,8 @@ ul {
 .subscribe-form button i {
   color: #fff;
   font-size: 22px;
-  transform: rotate(-6deg);
+  -webkit-transform: rotate(-6deg);
+          transform: rotate(-6deg);
 }
 
 .copyright-area {
@@ -190,5 +191,4 @@ ul {
   font-size: 14px;
   color: #878787;
 }
-
 /*# sourceMappingURL=footer.css.map */

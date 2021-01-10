@@ -1,0 +1,67 @@
+{% extends 'tour_operator/tourOperatorBase.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-stats-information.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-fancy-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-bought-ticket.css") }}">
+
+{% endblock %}
+{% block title %}Museum Booking | Stats{% endblock %}
+{% block body %}
+    <div class="col-12">
+        <div class="c-stats-information col-11">
+            <div class="c-stats-information__inner">
+                <div class="c-stats-information__inner__title"><h2>Statistics</h2></div>
+                <div class="c-stats-information__inner__element text-center"><h5>100</h5><h6>Visited museums</h6></div>
+                <div class="c-stats-information__inner__element text-center"><h5>400 lv</h5><h6>Invested money</h6></div>
+                <div class="c-stats-information__inner__element text-center"><h5>4.5</h5><h6>Visit rating</h6></div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="mx-auto justify-content-center row c-fancy-cards-container">
+        <h3 class="col-12 text-center">Your favourite museum </h3>
+        <hr class="col-2 mx-auto m-3">
+            <div class="  col-11 c-fancy-card">
+                <div class=" c-fancy-card__user">
+                    <img class="c-fancy-card__image p-0 " src="{{asset("images/museums/"~bestReview.museum.image) }}" alt="">
+                    <div class=" c-fancy-card__name"><h5>{{ bestReview.museum.museumName }}</h5></div>
+                </div>
+                <div class=" c-fancy-card__text">
+                    <div class="row justify-content-between px-3"><h5>Review date:{{ bestReview.date | date('d/m/Y') }}  </h5></div>
+                    <h5>Your review: {{ bestReview.Text }}</h5>
+
+                </div>
+                <div class=" c-fancy-card__information--left">Your rating: {{ bestReview.rating }}</div>
+                <div class="c-fancy-card__information--right">Museum Rating: {{ bestReview.museum.rating }}</div>
+
+            </div>
+
+    </div>
+
+    <div class=" col-12 row p-0 m-0 c-boughtTickets-container">
+        <h3 class="col-12 text-center p-3">Your purchase ticket </h3>
+        {% for ticket in tickets %}
+            <div class="  col-11 c-bought-ticket my-2">
+                <h4 class="col-12 text-center">Ticket Information</h4>
+                <div class="c-bought-ticket__information">
+                    <div class="c-bought-ticket__profile">
+                        <img class="c-bought-ticket__image p-0 " src="{{asset("images/museums/"~ticket.schedule.museum.image) }}" alt="">
+                        <div class="c-bought-ticket__name"><h5>{{ ticket.schedule.museum.museumName }}</h5></div>
+                    </div>
+                    <div class=" c-bought-ticket__text">
+                        <div class=""><h6>Date: {{ ticket.reservedDate | date('d/m/Y') }} | {{ ticket.schedule.startTime |  date('h:i') }} - {{ ticket.schedule.endTime |  date('h:i') }}</h6></div>
+                        <h5></h5>
+                    </div>
+                    <div class=" c-bought-ticket__text"><h6>Price: {{ ticket.schedule.price }}</h6></div>
+                    <div class="c-bought-ticket__text"><h6>Amount: {{ ticket.number }}</h6></div>
+                    <div class="c-bought-ticket__text"><h6>Total: {{ ticket.schedule.price * ticket.number}}</h6></div>
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -4,6 +4,8 @@
   height: fit-content;
   padding: 0;
   text-align: center;
+  border-radius: 5px;
+  overflow: hidden;
   &__hour{
     padding: 0.3em;
     color: white;
@@ -24,7 +26,6 @@
     background-color: darkgreen;
 
   }
-
   &__wait{
     background-color: orangered;
   }

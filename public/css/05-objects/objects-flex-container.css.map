@@ -1,1 +1,9 @@
-{"version":3,"sourceRoot":"","sources":["objects-flex-container.scss"],"names":[],"mappings":"AAAA;EACE;EACA;;AACA;EACE;;AAGF;EACE","file":"objects-flex-container.css"}
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,iBAAiB,CAAA;EACf,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI;CAQhB;;AAPE,AAAD,6BAAa,CAAA;EACX,eAAe,EAAE,UAAU;CAC5B;;AAEA,AAAD,yBAAS,CAAA;EACP,eAAe,EAAE,MAAM;CACxB",
+    "sources": [
+        "objects-flex-container.scss"
+    ],
+    "names": [],
+    "file": "objects-flex-container.css"
+}

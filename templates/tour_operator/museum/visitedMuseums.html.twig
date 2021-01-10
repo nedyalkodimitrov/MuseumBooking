@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="{{ asset("css/06-components/components-tourOperator-museumPage-museumInformation.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-schedule-visitor-card.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-ticket-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-stats-museum-review.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-fancy-card.css") }}">
 
 
     <script src="{{ asset("js/pages/museum/particles/navScript.js") }}"></script>
@@ -24,38 +26,70 @@
 
             {% for ticket in tickets %}
                 {% if ticket.hasCome %}
-                    <div class="ticket-container col-10 col-md-6 col-lg-4">
+                    <div class="col-10 col-md-6 col-lg-4 c-fancy-cards-container">
                         <div class="col-11 mx-auto">
-                            <div class="c-ticket-card">
-                                <div class="c-ticket-card__image-holder">
-                                    <img src="{{ asset('images/museums/'~ ticket.schedule.museum.images[0].path) }}" alt="">
-                                    <a href="{{ path('tour_operator_museumView', {"id": ticket.schedule.museum.id}) }}">  <h4 class="c-ticket-card__name">{{ ticket.schedule.museum.museumName }}</h4></a>
-                                </div>
-                                <div class="c-ticket-card__date">
-                                    <h5>Reserved Date: {{ ticket.reservedDate| date('d/m/Y') }}</h5>
-                                </div>
-                                <div class="c-ticket-card__information">
-                                    <h5>Hour: {{ ticket.schedule.startTime |date('H:i') }} - {{ ticket.schedule.endTime|date('H:i') }}</h5>
+{#                            <div class="c-ticket-card">#}
+{#                                <div class="c-ticket-card__image-holder">#}
+{#                                    <img src="{{ asset('images/museums/'~ ticket.schedule.museum.images[0].path) }}" alt="">#}
+{#                                    <a href="{{ path('tour_operator_museumView', {"id": ticket.schedule.museum.id}) }}">  <h4 class="c-ticket-card__name">{{ ticket.schedule.museum.museumName }}</h4></a>#}
+{#                                </div>#}
+{#                                <div class="c-ticket-card__date">#}
+{#                                    <h5>Reserved Date: {{ ticket.reservedDate| date('d/m/Y') }}</h5>#}
+{#                                </div>#}
+{#                                <div class="c-ticket-card__information">#}
+{#                                    <h5>Hour: {{ ticket.schedule.startTime |date('H:i') }} - {{ ticket.schedule.endTime|date('H:i') }}</h5>#}
 
-                                </div>
-                                <div class="c-ticket-card__information">
-                                    <h5>{{ticket.number }}  bought tickets </h5>
+{#                                </div>#}
+{#                                <div class="c-ticket-card__information">#}
+{#                                    <h5>{{ticket.number }}  bought tickets </h5>#}
 
-                                </div>
-                                <div class="c-ticket-card__information">
-                                    <h5>Ticket Price: {{ ticket.schedule.price }}lv </h5>
+{#                                </div>#}
+{#                                <div class="c-ticket-card__information">#}
+{#                                    <h5>Ticket Price: {{ ticket.schedule.price }}lv </h5>#}
 
-                                </div>
-                                <div class="c-ticket-card__information">
-                                    <h5>Total Price: {{ ticket.number * ticket.schedule.price }}lv </h5>
+{#                                </div>#}
+{#                                <div class="c-ticket-card__information">#}
+{#                                    <h5>Total Price: {{ ticket.number * ticket.schedule.price }}lv </h5>#}
 
-                                </div>
-                                <div class="c-ticket-card__check">
-                                    <button><i class="fas fa-check "></i></button>
-                                </div>
+{#                                </div>#}
+{#                                <div class="c-ticket-card__check">#}
+{#                                    <button><i class="fas fa-check "></i></button>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+
+                       <div class="col-12 col-md-6 col-xl-5 c-fancy-card c-fancy-card--with-title">
+                            <div class="c-fancy-card__title">
+                               <h4>
+                                   <a href="{{ path('tour_operator_museumView', {"id": ticket.schedule.museum.id}) }}">
+                                       Abritus
+                                   </a>
+                               </h4>
                             </div>
+                            <div class=" c-fancy-card__user">
+                                <img class="c-fancy-card__image c-fancy-card__image--big" src="{{ asset('images/museums/'~ ticket.schedule.museum.images[0].path) }}" alt="">
+{#                                <div class=" c-fancy-card__name">{{ ticket.schedule.museum.museumName }}</div>#}
+
+                            </div>
+                            <div class=" c-fancy-card__text text-left"> Bought tickets: {{ticket.number }} tickets
+                                <br>
+                                Reserved Date: {{ ticket.reservedDate| date('d/m/Y') }}
+                                <br>
+                                Hour: {{ ticket.schedule.startTime |date('H:i') }} - {{ ticket.schedule.endTime|date('H:i') }}
+                            </div>
+{#                            <div class="c-fancy-card__information--left">Reserved Date: {{ ticket.reservedDate| date('d/m/Y') }}</div>#}
+{#                            <div class=" c-fancy-card__information--right"></div>#}
+                            <div class=" text-center c-fancy-card__information">
+                                <h5 class="">Because we love traveling </h5>
+                            </div>
+
                         </div>
-                    </div>
+                    </a>
+
+
+
+
                 {% endif %}
 
             {% endfor %}

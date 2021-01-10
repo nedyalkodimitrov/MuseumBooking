@@ -1,1 +1,9 @@
-{"version":3,"sourceRoot":"","sources":["settingsPageStyle.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA","file":"settingsPageStyle.css"}
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,OAAO,CAAA;EACL,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,aAAa,EAAE,GAAG;CACnB",
+    "sources": [
+        "settingsPageStyle.scss"
+    ],
+    "names": [],
+    "file": "settingsPageStyle.css"
+}

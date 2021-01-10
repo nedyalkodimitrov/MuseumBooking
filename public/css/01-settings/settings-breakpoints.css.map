@@ -1,1 +1,9 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"settings-breakpoints.css"}
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "settings-breakpoints.scss"
+    ],
+    "names": [],
+    "file": "settings-breakpoints.css"
+}
