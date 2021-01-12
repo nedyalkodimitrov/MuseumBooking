@@ -1,0 +1,124 @@
+@import '../01-settings/settings-colors';
+
+.card-header * {list-style-type: none;}
+
+.required:after{
+  content:"*";
+  font-weight:bold;
+  color: red;
+  margin-left: 5px;
+
+}
+
+.card-header {
+
+  background-color: $primary-color;
+  padding: 50px 25px;
+  width: 100%;
+}
+
+.card-header ul {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.card-header ul li {
+  color: white;
+  font-size: 1.5em;
+  letter-spacing: 3px;
+}
+
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+}
+.weekdays > th
+{
+
+}
+
+tr{
+
+}
+td
+{
+  overflow: hidden;
+}
+
+.days {
+  padding: 10px 0;
+}
+
+.badge1 {
+  position:relative;
+}
+.badge1[data-badge]:after {
+  content: attr(data-badge);
+  position: absolute;
+  top: -0.5px;
+  right: -0.5px;
+  font-size: .7em;
+  background: red;
+  color: white;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  line-height: 18px;
+  border-radius: 50%;
+  box-shadow: 0 0 1px #333;
+  z-index: 1000;
+}
+
+@media screen and (max-width:720px) {
+
+  .weekdays td,
+  .days td {
+    width: 13.1%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+
+  .weekdays td,
+  .days td {
+    width: 12.5%;
+  }
+
+  .days td .active {
+    padding: 2px;
+  }
+}
+
+@media screen and (max-width: 290px) {
+
+  .weekdays td,
+  .days td {
+    width: 12.2%;
+  }
+}
+
+.current-day{
+  background-color: $primary-color;
+}
+.day:hover {
+  background-color: $secondary-color;
+}
+
+
+.active{
+
+  cursor: pointer;
+}
+
+.bg-customColor {
+  background-color: white;
+}
+
+.btn-holder-calendar-training .btn {
+  background-color: $secondary-color;
+}
+
+
+.calendar-upper-title{
+  color: white;
+}

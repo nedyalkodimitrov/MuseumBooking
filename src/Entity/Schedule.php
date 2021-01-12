@@ -50,6 +50,8 @@ class Schedule
     public $price;
 
 
+
+
     public function getId(): ?int
     {
         return $this->id;

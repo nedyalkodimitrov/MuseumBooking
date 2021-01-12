@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="{{ asset("css/06-components/components-schedule-visitor-card.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-input.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-tourOperator-museum-feedback-form.css") }}">
-
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-calendar.css") }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
     <script src="{{ asset("js/pages/museum/particles/navScript.js") }}"></script>
     <script src="{{ asset("js/particles/slidshow.js") }}"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -140,13 +141,47 @@
 
 
     <div class="tickets-wrapper m-0 pb-3 ">
+        <div class="col-12 text-center mx-auto pt-4 calendar-upper-title"><h2>Chose your reservation date</h2> </div>
+        <div class="container">
+            <div class="row">
+                <div class="calendar col-12 mt-2">
+                    <div>
+                        <div class="card-header">
+                            <ul>
+                                <li id="month" class="text-white text-uppercase text-center">
+                                </li>
+                                <li id="year" class="text-white text-uppercase text-center">
+                                </li>
+                            </ul>
+                        </div>
+                        <table class="table calendar table-bordered  "  id="calendar">
+                            <thead>
+                            <tr class="weekdays bg-dark">
+                                <th scope="col" class="text-white text-center">Пон</th>
+                                <th scope="col" class="text-white text-center">Вто</th>
+                                <th scope="col" class="text-white text-center">Сря</th>
+                                <th scope="col" class="text-white text-center">Чет</th>
+                                <th scope="col" class="text-white text-center">Пет</th>
+                                <th scope="col" class="text-white text-center">Съб</th>
+                                <th scope="col" class="text-white text-center">Нед</th>
+                            </tr>
+                            </thead>
+                            <tbody class="days bg-light" id="calendarDays"></tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
+{#            <br><hr>#}
+
+        </div>
         <div class="info m-0  ">
-            <h2 class="p-3">Today's Tickets</h2>
+            <h2 class="p-3 schedules-day-text">Today's Tickets</h2>
             <h6>* the reservation deadline is 2 hours before the ticket start time</h6>
             <hr >
         </div>
-        <div class="tickets-container row m-0 p-3   col-12 ">
+        <div class="tickets-container ticket-reserve-container row m-0 p-3   col-12 ">
             {% for schedule in schedules %}
                 <div class="col-6 col-sm-6 col-md-4 col-lg-2 row p-0 justify-content-center mt-3 mt-sm-0">
                     <div class="  c-schedule-visitor-card  col-11">
@@ -209,6 +244,7 @@
            <button class="c-button c-tourOperator-museum-feedback-form__sendBtn" >Send review</button>
        </div>
     </div>
+    <script src="{{ asset("js/components/components-calendar.js") }}"></script>
 
     <script>
         google.charts.load('current', {packages: ['corechart', 'line']});
@@ -254,7 +290,21 @@
         });
 
 
+        function ticketsAnimationOnDateChange(){
+            $('.ticket-reserve-container').css('transition', '0.3s');
+            $('.ticket-reserve-container').css('transform', 'translateY(100%)');
+            setTimeout(function () {
+                $('.ticket-reserve-container').css('transform', 'translateY(0%)')
+            }, 1000);
+        }
+
+
+
+
     </script>
+
+
+
 
 
 
