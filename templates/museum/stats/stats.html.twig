@@ -2,6 +2,9 @@
 {% block title %}Museum Booking | Stats{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-stats-information.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-chart-card.css") }}">
+
     <link rel="stylesheet" href="{{ asset("css/06-components/components-stats-museum-review.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-info-chart.css") }}">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -11,22 +14,18 @@
 
 {% block body %}
 
-   <div class="col-12 mt-3 mb-3">
-       <div class="c-info-chart col-12 row">
-           <div class="c-info-chart__element col-12 text-center m-2">
-               <h3>Top information</h3>
-           </div>
-           <div class="col-4 c-info-chart__element">
-               <h5>10 <span>Place in Bulgaria</span></h5>
-           </div>
-           <div class="col-4 c-info-chart__element">
-               <h5>200 <span>Visits this mouth</span></h5>
-           </div>
-           <div class="col-4 c-info-chart__element">
-               <h5>4000 .lv <span>Mouth Profit</span></h5>
-           </div>
-       </div>
-   </div>
+    <div class="col-12">
+        <div class="c-stats-information col-11">
+            <div class="c-stats-information__inner">
+                <div class="c-stats-information__inner__title"><h2>Statistics</h2></div>
+                <div class="c-stats-information__inner__element text-center"><h5>100</h5><h6>Visited museums</h6></div>
+                <div class="c-stats-information__inner__element text-center"><h5>400 lv</h5><h6>Invested money</h6></div>
+                <div class="c-stats-information__inner__element text-center"><h5>4.5</h5><h6>Visit rating</h6></div>
+
+            </div>
+
+        </div>
+    </div>
 
     <div class="col-12 justify-content-center row">
         <h3 class="col-12 text-center">Reviews</h3>
@@ -51,6 +50,29 @@
     <div class="col-12 container justify-content-center">
         <div class="col-12 text-center m-3"><h2>Most visited days </h2></div>
         <div id="chart_div" style="width: 100%; height: 100%"></div>
+    </div>
+
+    <div class="c-chart-cards-container">
+        <div class="c-chart-cards-container__text"><h2>Charts</h2></div>
+        <div class="c-chart-card">
+                <div class="c-chart-card__image"><img src="{{ asset("images/system/clock.jpg") }}" alt=""></div>
+                <div class="c-chart-card__title"><h4>Most visit hour</h4></div>
+                <div class="c-chart-card__text">
+                    <div class="c-chart-card__text--left"><h5>12:00</h5></div>
+                    <div class="c-chart-card__text--middle"><h5>-</h5></div>
+                    <div class="c-chart-card__text--right"><h5>13:00</h5></div>
+                </div>
+        </div>
+
+        <div class="c-chart-card">
+                <div class="c-chart-card__image"><img src="{{ asset("images/system/calendar.jpg") }}" alt=""></div>
+                <div class="c-chart-card__title"><h4>Most visit day</h4></div>
+                <div class="c-chart-card__text">
+
+                    <div class="c-chart-card__text--middle"><h5>Friday</h5></div>
+
+                </div>
+        </div>
     </div>
 
 

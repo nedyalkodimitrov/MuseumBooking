@@ -1,0 +1,57 @@
+.c-chart-cards-container {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+.c-chart-cards-container__text {
+  padding: 0.5em;
+}
+
+.c-chart-card {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 300px;
+  margin-left: 2em;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.c-chart-card__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.c-chart-card__image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.c-chart-card__title {
+  position: relative;
+  color: white;
+  padding: 1em;
+}
+.c-chart-card__title {
+  text-align: center;
+}
+.c-chart-card__text {
+  width: 50%;
+  margin: auto;
+  position: relative;
+  color: white;
+  padding: 1em;
+  font-weight: bold;
+}
+.c-chart-card__text--middle {
+  text-align: center;
+}
+.c-chart-card__text--left {
+  text-align: left;
+}
+.c-chart-card__text--right {
+  text-align: right;
+}
+
+/*# sourceMappingURL=components-chart-card.css.map */

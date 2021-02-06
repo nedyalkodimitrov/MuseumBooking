@@ -92,13 +92,13 @@ class TourOperatorController extends AbstractController
         $dayId = $dayRepository->findOneBy(["name" => $dayName]);
 
         $schedule = null;
-
-        if ($dayId == null) {
+        $tourOperatorTickets = null;
+        if ($dayId != null) {
+            $schedule = $scheduleRepository->findSchedulesOrdered($id, $dayId);
+            $tourOperatorTickets = $ticketRepository->getTourOperatorTicketsOrdered($tourOperator->getId());
 
 
         }
-        $schedule = $scheduleRepository->findSchedulesOrdered($id, 1);
-        $tourOperatorTickets = $ticketRepository->getTourOperatorTicketsOrdered($tourOperator->getId());
 
         return $this->render('tour_operator/museum/museum.html.twig', [
             'controller_name' => 'TourOperatorController',

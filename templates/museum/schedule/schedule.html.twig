@@ -167,7 +167,7 @@
                     $('.c-hidden-container__button').disable = true;
 
                     let type = "POST";
-                    let url = "/museum/createSchedule"
+                    let url = "/museum/createSchedule";
                     let data = {'startTime': startHour, 'endTime': endHour, 'dayName': day, 'price': price};
 
                     console.log(ajaxRequest(type, url, data));

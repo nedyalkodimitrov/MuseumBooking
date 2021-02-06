@@ -1,3 +1,4 @@
+
 let arrAppointment;
 
 $(function () {
@@ -139,21 +140,13 @@ function showCalendar(month, year) {
 
 $("#calendarDays td.active").on("click", function () {
     var dateInSting = $(this).text() + "/" + "0"+($('#month').data('val') + 1) + "/" + $('#year').text();
+    $('.schedules-day-text').text(dateInSting + " Tickets") ;
 
-    var d = new  Date("16/01/2021");
-    var weekday = new Array(7);
-    weekday[0] = "Sunday";
-    weekday[1] = "Monday";
-    weekday[2] = "Tuesday";
-    weekday[3] = "Wednesday";
-    weekday[4] = "Thursday";
-    weekday[5] = "Friday";
-    weekday[6] = "Saturday";
-    var n = weekday[d.getDay()];
-    console.log(n);
-    console.log(d);
+    var d = "21/01/2021";
 
-    ticketsAnimationOnDateChange();
+    console.log(dateInSting);
+    
+
 
     $('.current-day').removeClass("active");
     $('.current-day').removeClass("text-white");
@@ -175,8 +168,6 @@ $("#calendarDays td.active").on("click", function () {
     $(this).addClass("text-center");
     $(this).addClass("font-weight-bold");
 
-    console.log($(this).text());
-    $('.schedules-day-text').text($(this).text() + "/" + ($('#month').data('val') + 1) + "/" + $('#year').text() + " Tickets") ;
 
     if (is_empty() == true) {
         $("#submit").prop('disabled', true);

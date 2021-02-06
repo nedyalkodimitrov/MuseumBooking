@@ -150,6 +150,23 @@ class MuseumController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/museum/tourists", name="museum_tourists")
+     */
+    public function tourists(ScheduleRepository $scheduleRepository, DayRepository $dayRepository)
+    {
+        $museum = $this->getUser()->getMuseum();
+        $reviews = $museum->getReviews();
+
+
+        return $this->render('museum/tourists/tourists.html.twig', [
+            'controller_name' => 'MuseumController',
+            'userName' => $museum->getMuseumName(),
+            'userImage' => self::ImagePath . $museum->getImage()
+
+        ]);
+    }
+
 
 //    public function SettingsView(\Symfony\Component\HttpFoundation\Request $request, FileService $fileService, PlayerService $playerService){
 //        $currentPlayer = $this->getUser()->getPlayer();

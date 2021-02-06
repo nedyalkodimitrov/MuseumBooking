@@ -1,0 +1,64 @@
+{% extends 'museum/museumBase.html.twig' %}
+{% block title %}Museum Booking | Stats{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-calendar.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-schedule-visitor-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-visitor-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/pages/museum/tourists/tourists.css") }}">
+
+
+
+{% endblock %}
+
+{% block body %}
+    <div class="container col-12 row mx-auto justify-content-center">
+        <div class="row">
+            <div class="calendar col-11 mx-auto mt-2">
+                <div>
+                    <div class="card-header">
+                        <ul>
+                            <li id="month" class="text-white text-uppercase text-center">
+                            </li>
+                            <li id="year" class="text-white text-uppercase text-center">
+                            </li>
+                        </ul>
+                    </div>
+                    <table class="table calendar table-bordered  "  id="calendar">
+                        <thead>
+                        <tr class="weekdays bg-dark">
+                            <th scope="col" class="text-white text-center">Пон</th>
+                            <th scope="col" class="text-white text-center">Вто</th>
+                            <th scope="col" class="text-white text-center">Сря</th>
+                            <th scope="col" class="text-white text-center">Чет</th>
+                            <th scope="col" class="text-white text-center">Пет</th>
+                            <th scope="col" class="text-white text-center">Съб</th>
+                            <th scope="col" class="text-white text-center">Нед</th>
+                        </tr>
+                        </thead>
+                        <tbody class="days bg-light" id="calendarDays"></tbody>
+                        <tfoot></tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        {#            <br><hr>#}
+
+    </div>
+
+    <div class="col-11 mx-auto m-0 p-0 row justify-content-center touristContainer">
+        <h2 class="col-12 text-center p-1 text">Tourist</h2>
+
+    </div>
+    <script src="{{ asset("js/components/components-calendar.js") }}"></script>
+    <script src="{{ asset("js/pages/museum/tourists/onDateCalendarClick.js") }}"></script>
+    <script src="{{ asset("js/pages/museum/tourists/onDateChangeAction.js") }}"></script>
+    <script src="{{ asset("js/components/components-ajax.js") }}"></script>
+
+    {% block javascript %}
+
+    {% endblock %}
+
+
+{% endblock %}

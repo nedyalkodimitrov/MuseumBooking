@@ -21,7 +21,7 @@
 {% block body %}
 
 
-
+    <input type="hidden" id="museumId" value="{{ museum.id }}">
     <div class="slider-container pt-5 mt-0 container-color" >
         <div class="slider  ">
             <div class="slider--el slider--el-1 anim-4parts active">
@@ -99,11 +99,11 @@
         <div class="text-center p-4">
             <h2>Bought tickets for this museum</h2>
         </div>
-        <div class="tickets-container row m-0 p-3   col-12">
+        <div class="tickets-container row m-0 p-3 justify-content-center  container col-12">
             {% for ticket in tourOperatorTickets %}
                 {% set schedule = ticket.schedule %}
-                <div class="col-6 col-sm-6 col-md-4 col-lg-2 row p-0 justify-content-center">
-                    <div class="  c-schedule-visitor-card  col-11">
+                <div class="col-6 col-sm-6 mt-4 col-md-4 col-lg-2  p-0 ">
+                    <div class="  c-schedule-visitor-card  col-10">
                         <div class="c-schedule-visitor-card__hour">
                             <h4>{{ ticket.reservedDate|date('d-m-Y')  }}</h4><span>{{ schedule.Day.Name }}</span>
                             <h4>{{ schedule.startTime|date('H:i') }}-{{ schedule.endTime|date('H:i') }}</h4>
@@ -141,7 +141,9 @@
 
 
     <div class="tickets-wrapper m-0 pb-3 ">
-        <div class="col-12 text-center mx-auto pt-4 calendar-upper-title"><h2>Chose your reservation date</h2> </div>
+        <div class="col-12 text-center mx-auto pt-4 calendar-upper-title">
+            <h2>Chose your reservation date</h2>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="calendar col-12 mt-2">
@@ -183,7 +185,7 @@
         </div>
         <div class="tickets-container ticket-reserve-container row m-0 p-3   col-12 ">
             {% for schedule in schedules %}
-                <div class="col-6 col-sm-6 col-md-4 col-lg-2 row p-0 justify-content-center mt-3 mt-sm-0">
+                <div class="col-6 c-schedule-visitor-card--container col-sm-6 col-md-4 col-lg-2 row p-0 justify-content-center mt-3 mt-sm-0">
                     <div class="  c-schedule-visitor-card  col-11">
                         <div class="c-schedule-visitor-card__hour">
                             <h4>{{ schedule.startTime|date('H:i') }}-{{ schedule.endTime|date('H:i') }}</h4>
@@ -205,7 +207,7 @@
                         </div>
                         {% if "now"|date('H:i') < schedule.endTime|date('H:i')  %}
                             <div class="c-schedule-visitor-card__done">
-                                <button value="{{ schedule.id }}" class="reserve-ticket-btn">Reserve</button>
+                                <button value="{{ schedule.id }}" onclick="bookTicket()" class="reserve-ticket-btn">Reserve</button>
                             </div>
                         {% else %}
                             <div class="c-schedule-visitor-card__wait">
@@ -216,6 +218,8 @@
                     </div>
 
                 </div>
+                {% else  %}
+                <h4 class="text-center info c-schedule-visitor-card--container">This museum doesn't have tickets for this day</h4>
             {% endfor %}
 
         </div>
@@ -244,9 +248,15 @@
            <button class="c-button c-tourOperator-museum-feedback-form__sendBtn" >Send review</button>
        </div>
     </div>
+    <div id="employee-list">
+
+    </div>
     <script src="{{ asset("js/components/components-calendar.js") }}"></script>
+    <script src="{{ asset("js/pages/tourOperator/museumPage/onDateChangeAction.js") }}"></script>
+    <script src="{{ asset("js/pages/tourOperator/museumPage/reservationBtnAction.js") }}"></script>
 
     <script>
+
         google.charts.load('current', {packages: ['corechart', 'line']});
         google.charts.setOnLoadCallback(drawBackgroundColor);
 
@@ -278,25 +288,12 @@
         }
 
 
-        $('.reserve-ticket-btn').on('click', function (){
-            var scheduleId = this.value;
-            var numberOfTickets = this.parentNode.parentNode.querySelector('.number').querySelector('input').value
-            console.log();
-
-            let result = ajaxRequest('POST', '/tourOperator/bookTicket', {"scheduleId": scheduleId, "number" : numberOfTickets});
-            console.log(result)
-            console.log(scheduleId)
-            console.log(numberOfTickets)
-        });
 
 
-        function ticketsAnimationOnDateChange(){
-            $('.ticket-reserve-container').css('transition', '0.3s');
-            $('.ticket-reserve-container').css('transform', 'translateY(100%)');
-            setTimeout(function () {
-                $('.ticket-reserve-container').css('transform', 'translateY(0%)')
-            }, 1000);
-        }
+
+
+
+
 
 
 

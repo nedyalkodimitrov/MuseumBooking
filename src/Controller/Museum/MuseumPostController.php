@@ -119,7 +119,7 @@ class MuseumPostController extends AbstractController
     {
         $ticketId = $request->request->get("ticketId");
 
-        $ticket = $ticketRepository->find(1);
+        $ticket = $ticketRepository->find(intval($ticketId));
 
         $tourOperator = $ticket->getTourOperator();
 
@@ -136,6 +136,38 @@ class MuseumPostController extends AbstractController
         $em->flush();
 
         return $this->json( 5* ($result[0] / count($result[1])));
+    }
+
+    /**
+     * @Route("/museum/getTouristsByDate", name="getTouristsByDate")
+     */
+    public function getTouristsByDate(HttpFoundation\Request $request, TicketRepository  $ticketRepository, tourOperatorService $tourOperatorService)
+    {
+        $dateInString = $request->request->get("date");
+
+
+
+        $date =  new \DateTime($dateInString);
+        $tourists = $ticketRepository->findBy(['reservedDate' => $date]);
+        $touristsInfo = [];
+
+          for ($i = 0; $i < count($tourists); $i++){
+              $tourist = [];
+              array_push( $tourist, $tourists[$i]->getId());
+              array_push( $tourist, $tourists[$i]->getSchedule()->getStartTime());
+              array_push( $tourist, $tourists[$i]->getSchedule()->getEndTime());
+              array_push( $tourist,$tourists[$i]->getNumber());
+              array_push( $tourist, $tourists[$i]->getTourOperator()->getName());
+              array_push( $tourist, $tourists[$i]->getTourOperator()->getFName());
+              array_push( $tourist, $tourists[$i]->getTourOperator()->getVisitRating());
+              array_push( $touristsInfo, $tourist);
+          }
+
+
+
+
+
+        return $this->json($touristsInfo );
     }
 
 

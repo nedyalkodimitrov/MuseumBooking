@@ -10,6 +10,7 @@ use App\Service\CustomSerializer;
 use http\Client\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class tourOperatorPostController extends AbstractController
 {
@@ -35,6 +36,16 @@ class tourOperatorPostController extends AbstractController
         $number = $request->request->get("number");
         $scheduleId = $request->request->get("scheduleId");
         $reservedDate = $request->request->get("reservedDate");
+        $reservedDate = "18/01/2021 tickets";
+        $splitTextFromDate = explode(' ', $reservedDate);
+
+
+
+        if ($reservedDate != "Today's Tickets"){
+            $date = new \DateTime($splitTextFromDate[0]);
+        }else{
+            $date =  new \DateTime();
+        }
 
         $ticket = new Ticket();
         $schedule = $scheduleRepository->find($scheduleId);
@@ -44,7 +55,7 @@ class tourOperatorPostController extends AbstractController
         $ticket->setTourOperator($tourOperator);
         $ticket->setTime(new \DateTime());
         $ticket->setBoughtDate(new \DateTime());
-        $ticket->setReservedDate(new \DateTime());
+        $ticket->setReservedDate($date);
 
 
         $em = $this->getDoctrine()->getManager();
@@ -56,34 +67,52 @@ class tourOperatorPostController extends AbstractController
     }
 
     /**
-     * @Route("/tourOperator/getSchedulesByDate", name="tour_operator_tour_operator_post")
+     * @Route("/tourOperator/getSchedulesByDate", name="getSchedule")
      */
     public function GetScheduleByDate( \Symfony\Component\HttpFoundation\Request $request, TourOperatorRepository $tourOperatorRepository, ScheduleRepository $scheduleRepository, DayRepository $dayRepository, CustomSerializer  $customSerializer)
     {
 //        $date = new \DateTime();
-        $date = $request->request->get("date");
-//        $dayName = $date->format("l");
+        $dateString = $request->request->get("date");
+
+        $dateSplit = explode('/', $dateString);
+        $date =  date("l", mktime(0,0,0,$dateSplit[1],$dateSplit[0],$dateSplit[2]));
 
         $museumId = $request->request->get("museumId");
-        $dayName = "Friday";
-        $dayId = $dayRepository->findOneBy(["name" => $dayName]);
+        $dayId = $dayRepository->findOneBy(["name" => $date]);
 
         $schedules = null;
         $schedulesData = [];
         if ($dayId != null) {
-            $schedules = $scheduleRepository->findSchedulesOrdered(1, 1);
-
+            $schedules = $scheduleRepository->findSchedulesOrdered($museumId, $dayId);
         }
-
         for ($i = 0; $i < count($schedules); $i++){
             $data = [];
-            array_push($data, $schedules[$i]->getDate());
+            //[0] -> id of the schedule
+            array_push($data, $schedules[$i]->getId());
 
+            $tickets = $schedules[$i]->getTickets();
+            $ticketNumber = 0;
 
+            for ($j = 0; $j < count($tickets); $j++){
+                $ticketNumber += $tickets[$j]->getNumber();
+            }
+
+            $freeSpace = $schedules[$i]->getMuseum()->getMaxCapacity() -  $ticketNumber;
+           //[1] -> free space in the museum
+            array_push($data, $freeSpace);
+            //[2] -> museum max capacity
+            array_push($data, $schedules[$i]->getMuseum()->getMaxCapacity());
+            //[3] -> schedule start time
+            array_push($data, $schedules[$i]->getStartTime());
+            //[4] -> schedule end time
+            array_push($data, $schedules[$i]->getEndTime());
+            //[5] -> schedule price
+            array_push($data, $schedules[$i]->getPrice());
+            array_push($schedulesData, $data);
         }
 
+        return $this->json($schedulesData);
 
-        exit;
     }
 
 

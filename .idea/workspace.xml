@@ -2,13 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="849987b0-80f0-4d98-9254-bdbd26928508" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/06-components/components-calendar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/components/components-calendar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/components-chart-card.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/pages/museum/tourists/tourists.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/musuemLogo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/museum/tourists/onDateCalendarClick.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/museum/tourists/onDateChangeAction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/museumPage/onDateCalendarClick.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/museumPage/onDateChangeAction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/museumPage/reservationBtnAction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/museum/tourists/tourists.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/components/navBarStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/components/navBarStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/components/navBarStyle.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/components/navBarStyle.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/components/navBarStyle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/components/navBarStyle.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/pages/tourOperator/museum/museumPageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/pages/tourOperator/museum/museumPageStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/pages/tourOperator/museum/museumPageStyle.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/pages/tourOperator/museum/museumPageStyle.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/pages/tourOperator/museum/museumPageStyle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/pages/tourOperator/museum/museumPageStyle.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Schedule.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Schedule.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/components/components-calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/components/components-calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Museum/MuseumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Museum/MuseumController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Museum/MuseumPostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Museum/MuseumPostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/TourOperator/TourOperatorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TourOperator/TourOperatorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/TourOperator/tourOperatorPostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TourOperator/tourOperatorPostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/museum/museumBase.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/museumBase.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/museum/schedule/schedule.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/schedule/schedule.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/museum/stats/stats.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/stats/stats.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/tour_operator/museum/museum.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour_operator/museum/museum.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,9 +40,7 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -47,9 +64,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/Controller/Museum/MuseumPostController.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/Controller/Museum/MuseumController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="PhpServers">
-    <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -182,7 +196,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/museum/tourists" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -195,22 +209,23 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Develpment\Symfony\MuseumBooking\public\js\pages\museum" />
+      <recent name="D:\Develpment\Symfony\MuseumBooking\public\images" />
       <recent name="D:\Develpment\Symfony\MuseumBooking\templates\museum" />
       <recent name="D:\Develpment\Symfony\MuseumBooking\public\css\pages" />
       <recent name="D:\Develpment\Symfony\MuseumBooking\public\images\museums" />
-      <recent name="D:\Develpment\Symfony\MuseumBooking\public\js\pages" />
-      <recent name="D:\Develpment\Symfony\MuseumBooking\src\Controller\tourOperator" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Develpment\Symfony\MuseumBooking\templates\museum\tourists" />
+      <recent name="D:\Develpment\Symfony\MuseumBooking\public\js\pages\museum" />
       <recent name="D:\Develpment\Symfony\MuseumBooking\public\images" />
       <recent name="D:\Develpment\Symfony\MuseumBooking\public\images\tourOperator" />
       <recent name="D:\Develpment\Symfony\MuseumBooking\src\Controller\museum" />
-      <recent name="D:\Develpment\Symfony\MuseumBooking\public\images\museum" />
     </key>
   </component>
   <component name="RunManager">
@@ -224,7 +239,7 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -307,12 +322,23 @@
       <workItem from="1610225964902" duration="1600000" />
       <workItem from="1610303591565" duration="6032000" />
       <workItem from="1610397489551" duration="965000" />
-      <workItem from="1610424383332" duration="290000" />
+      <workItem from="1610424383332" duration="1619000" />
+      <workItem from="1610515199640" duration="400000" />
+      <workItem from="1610601383381" duration="2788000" />
+      <workItem from="1610655869760" duration="1703000" />
+      <workItem from="1610686514610" duration="19808000" />
+      <workItem from="1610883201642" duration="4621000" />
+      <workItem from="1611122852516" duration="1766000" />
+      <workItem from="1611329281312" duration="1921000" />
+      <workItem from="1611433876819" duration="1125000" />
+      <workItem from="1611500566750" duration="4229000" />
+      <workItem from="1612469275849" duration="936000" />
+      <workItem from="1612499150290" duration="2530000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -321,35 +347,5 @@
     <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="94" y="167" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610309215200">
-      <screen x="0" y="0" width="1280" height="1024" />
-    </state>
-    <state x="94" y="167" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.1024@0.0.1280.1024" timestamp="1610309215200" />
-    <state x="370" y="267" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1609878962428">
-      <screen x="0" y="0" width="1280" height="1024" />
-    </state>
-    <state x="370" y="267" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.1024@0.0.1280.1024" timestamp="1609878962428" />
-    <state x="274" y="290" key="EditFileWatcherDialog" timestamp="1609394254622">
-      <screen x="0" y="0" width="1280" height="1024" />
-    </state>
-    <state x="274" y="290" key="EditFileWatcherDialog/0.0.1280.1024@0.0.1280.1024" timestamp="1609394254622" />
-    <state x="419" y="267" key="FileChooserDialogImpl" timestamp="1609394251275">
-      <screen x="0" y="0" width="1280" height="1024" />
-    </state>
-    <state x="419" y="267" key="FileChooserDialogImpl/0.0.1280.1024@0.0.1280.1024" timestamp="1609394251275" />
-    <state x="141" y="154" key="SettingsEditor" timestamp="1609394261502">
-      <screen x="0" y="0" width="1280" height="1024" />
-    </state>
-    <state x="141" y="154" key="SettingsEditor/0.0.1280.1024@0.0.1280.1024" timestamp="1609394261502" />
-    <state x="336" y="336" key="com.intellij.ide.util.TipDialog" timestamp="1610424479223">
-      <screen x="0" y="0" width="1280" height="1024" />
-    </state>
-    <state x="336" y="336" key="com.intellij.ide.util.TipDialog/0.0.1280.1024@0.0.1280.1024" timestamp="1610424479223" />
-    <state x="296" y="236" key="run.anything.popup" timestamp="1609785404211">
-      <screen x="0" y="0" width="1280" height="1024" />
-    </state>
-    <state x="296" y="236" key="run.anything.popup/0.0.1280.1024@0.0.1280.1024" timestamp="1609785404211" />
   </component>
 </project>

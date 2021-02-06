@@ -28,10 +28,13 @@ nav li a {
   font-size: 1rem;
   padding-bottom: 1rem;
 }
-nav .demo-logo-text {
+nav .logo {
   color: black;
   margin: 0 0.6em;
   font-size: 1.5em;
+}
+nav .logo img {
+  width: 12em;
 }
 nav .navbar__profile {
   display: flex;
