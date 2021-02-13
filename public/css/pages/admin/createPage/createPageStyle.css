@@ -1,0 +1,44 @@
+.form-create {
+  width: 80%;
+  margin: auto;
+  justify-content: center;
+}
+.form-create__row {
+  padding: 0.4em;
+  width: 90%;
+  margin: auto;
+}
+.form-create__row label {
+  font-weight: 600;
+  font-size: 1.1em;
+  font-style: italic;
+  display: block;
+}
+.form-create__row input, .form-create__row select {
+  width: 100%;
+  padding: 0.3em;
+  border-radius: 0px;
+  border: 2px solid #6873A5;
+  outline-color: #E8CBC0;
+}
+
+.btn-container {
+  width: 100%;
+  text-align: center;
+  padding: 0.4em;
+}
+.btn-container .btn {
+  transition: 0.3s background-color, 0.3s color;
+  background-color: #6873A5;
+  color: white;
+  border-radius: 0;
+  width: 71%;
+  margin: auto;
+}
+.btn-container .btn:hover {
+  background-color: #E8CBC0;
+  box-shadow: 0px 0px 10px 0px #928585;
+  color: black;
+}
+
+/*# sourceMappingURL=createPageStyle.css.map */

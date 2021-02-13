@@ -19,6 +19,12 @@ class TourOperatorRepository extends ServiceEntityRepository
         parent::__construct($registry, TourOperator::class);
     }
 
+    public function findLastAdded()
+    {
+        return $this->findBy(array(), array('id' => 'DESC',), 3);
+    }
+
+
     // /**
     //  * @return TourOperator[] Returns an array of TourOperator objects
     //  */

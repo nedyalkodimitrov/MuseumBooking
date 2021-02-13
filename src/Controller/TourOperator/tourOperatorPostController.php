@@ -19,7 +19,7 @@ class tourOperatorPostController extends AbstractController
      */
     public function UnbookTicket($id)
     {
-        return $this->render('tour_operator/tour_operator_post/index.html.twig', [
+        return $this->render('tour_operator/tour_operator_post/adminBase.html.twig', [
             'controller_name' => 'tour/operator/pourOperatorPostController',
         ]);
     }
@@ -67,17 +67,20 @@ class tourOperatorPostController extends AbstractController
     }
 
     /**
-     * @Route("/tourOperator/getSchedulesByDate", name="getSchedule")
+     * @Route("/tourOperator/getSchedulesByDate", name="getSchedule", methods={"POST"})
      */
     public function GetScheduleByDate( \Symfony\Component\HttpFoundation\Request $request, TourOperatorRepository $tourOperatorRepository, ScheduleRepository $scheduleRepository, DayRepository $dayRepository, CustomSerializer  $customSerializer)
     {
 //        $date = new \DateTime();
-        $dateString = $request->request->get("date");
+        $dateSplit = $request->request->get("date");
+        $museumId = $request->request->get("museumId");
+            var_dump($dateSplit);
+            exit();
+//        $dateSplit = explode('/', $dateString);
 
-        $dateSplit = explode('/', $dateString);
         $date =  date("l", mktime(0,0,0,$dateSplit[1],$dateSplit[0],$dateSplit[2]));
 
-        $museumId = $request->request->get("museumId");
+
         $dayId = $dayRepository->findOneBy(["name" => $date]);
 
         $schedules = null;
@@ -111,7 +114,7 @@ class tourOperatorPostController extends AbstractController
             array_push($schedulesData, $data);
         }
 
-        return $this->json($schedulesData);
+        return $this->json($dateString);
 
     }
 

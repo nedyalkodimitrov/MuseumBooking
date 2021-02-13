@@ -4,7 +4,9 @@ function ajaxRequest(type, url, data){
         type: type,
         url: url,
         async: false,
-        data: data
+        data: data,
+        processData: false,
+        contentType: false,
     }).done(function (msg) {
         messege =  msg;
     });

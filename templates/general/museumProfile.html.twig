@@ -1,0 +1,365 @@
+{% extends is_granted('ROLE_TOUROPERATOR') == 1
+    ? 'tour_operator/tourOperatorBase.html.twig'
+    :  is_granted('ROLE_MUSEUM') == 1
+    ?'museum/museumBase.html.twig'
+    : 'admin/adminBase.html.twig'%}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("css/pages/museum/particles/navStyle.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/pages/museum/particles/slideshow.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/pages/tourOperator/museum/museumPageStyle.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-tourOperator-museumPage-museumInformation.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-schedule-visitor-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-input.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-tourOperator-museum-feedback-form.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-calendar.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-museum-chart-card.css") }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+    <script src="{{ asset("js/pages/museum/particles/navScript.js") }}"></script>
+    <script src="{{ asset("js/particles/slidshow.js") }}"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="{{  asset("easy-pie-chart-master/dist/jquery.easypiechart.js")}}"></script>
+{% endblock %}
+{% block title %}{% endblock %}
+
+{% block body %}
+
+
+    <input type="hidden" id="museumId" value="{{ museum.id }}">
+    <div class="slider-container pt-5 mt-0 container-color" >
+        <div class="slider  ">
+            <div class="slider--el slider--el-1 anim-4parts active">
+                <div class="slider--el-bg">
+                    <div class="part top left"></div>
+                    <div class="part top right"></div>
+                    <div class="part bot left"></div>
+                    <div class="part bot right"></div>
+                </div>
+                <div class="slider--el-content">
+
+                </div>
+            </div>
+            <div class="slider--el slider--el-2 anim-9parts">
+                <div class="slider--el-bg">
+                    <div class="part left-top"></div>
+                    <div class="part mid-top"></div>
+                    <div class="part right-top"></div>
+                    <div class="part left-mid"></div>
+                    <div class="part mid-mid"></div>
+                    <div class="part right-mid"></div>
+                    <div class="part left-bot"></div>
+                    <div class="part mid-bot"></div>
+                    <div class="part right-bot"></div>
+                </div>
+                <div class="slider--el-content">
+
+                </div>
+            </div>
+            <div class="slider--el slider--el-3 anim-5parts">
+                <div class="slider--el-bg">
+                    <div class="part part-1"></div>
+                    <div class="part part-2"></div>
+                    <div class="part part-3"></div>
+                    <div class="part part-4"></div>
+                    <div class="part part-5"></div>
+                </div>
+                <div class="slider--el-content">
+
+                </div>
+            </div>
+            <div class="slider--el slider--el-4 anim-3parts">
+                <div class="slider--el-bg">
+                    <div class="part left"></div>
+                    <div class="part mid"></div>
+                    <div class="part right"></div>
+                </div>
+                <div class="slider--el-content">
+
+                </div>
+            </div>
+            <span class="slider--control left"><i class="fas fa-chevron-left"></i></span>
+            <span class="slider--control right"><i class="fas fa-chevron-right"></i></span>
+        </div>
+    </div>
+
+
+    <div class="o-block-container o-block-container--white c-tourOperator-museumPage-museumInformation">
+        {# museum information       #}
+        <div class=" c-tourOperator-museumPage-museumInformation__content mt-1">
+            <h1 class="c-tourOperator-museumPage-museumInformation__content__museumName">{{museum.museumName}}</h1>
+            <h3 class="c-tourOperator-museumPage-museumInformation__content__museumAdditionalInformation">{{ museum.additionalInformation    }}</h3>
+        </div>
+        <hr class="mx-auto col-2">
+        {#   museum most visit hours     #}
+        <div class="col-12 container justify-content-center">
+            <div class="col-12 text-center m-3"><h2>Most visited hours </h2></div>
+            <div id="chart_div" class="mx-auto" style="width: 100%; height: 100%"></div>
+        </div>
+
+    </div>
+
+    {#    bought tickets#}
+    {% if tickets != null %}
+        <div class="col-12 o-block-container o-block-container--white">
+            <div class="text-center p-4">
+                <h2>Bought tickets for this museum</h2>
+            </div>
+            <div class="tickets-container row m-0 p-3 justify-content-center  container col-12">
+                {% for ticket in tickets %}
+                    {% set schedule = ticket.schedule %}
+                    <div class="col-6 col-sm-6 mt-4 col-md-4 col-lg-2  p-0 ">
+                        <div class="  c-schedule-visitor-card  col-10">
+                            <div class="c-schedule-visitor-card__hour">
+                                <h4>{{ ticket.reservedDate|date('d-m-Y')  }}</h4><span>{{ schedule.Day.Name }}</span>
+                                <h4>{{ schedule.startTime|date('H:i') }}-{{ schedule.endTime|date('H:i') }}</h4>
+                            </div>
+                            <div class="c-schedule-visitor-card__max-capacity">
+                                <h5> Price: {{ schedule.museum.maxCapacity }}</h5>
+                            </div>
+                            <div class="c-schedule-visitor-card__max-capacity">
+                                {% set ticketsNumber = 0 %}
+                                {% for ticket in schedule.tickets %}
+                                    {% set ticketsNumber = ticketsNumber + ticket.number %}
+                                {% endfor %}
+                                <h5>Number - {{ ticket.number }}</h5>
+                            </div>
+
+                            {% if ticket.hasCome   %}
+                                <div class="c-schedule-visitor-card__done">
+                                    <i class="fas fa-check "> You are gone</i>
+                                </div>
+                            {% else %}
+                                <div class="c-schedule-visitor-card__wait">
+                                    <i class="fas fa-times">You are not gone</i>
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    {% endif %}
+
+
+
+
+    <div class="tickets-wrapper m-0 pb-3 ">
+        {% if is_granted('ROLE_TOUROPERATOR') %}
+            <div class="col-12 text-center mx-auto pt-4 calendar-upper-title">
+                <h2>Chose your reservation date</h2>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="calendar col-12 mt-2">
+                        <div>
+                            <div class="card-header">
+                                <ul>
+                                    <li id="month" class="text-white text-uppercase text-center">
+                                    </li>
+                                    <li id="year" class="text-white text-uppercase text-center">
+                                    </li>
+                                </ul>
+                            </div>
+                            <table class="table calendar table-bordered  "  id="calendar">
+                                <thead>
+                                <tr class="weekdays bg-dark">
+                                    <th scope="col" class="text-white text-center">Пон</th>
+                                    <th scope="col" class="text-white text-center">Вто</th>
+                                    <th scope="col" class="text-white text-center">Сря</th>
+                                    <th scope="col" class="text-white text-center">Чет</th>
+                                    <th scope="col" class="text-white text-center">Пет</th>
+                                    <th scope="col" class="text-white text-center">Съб</th>
+                                    <th scope="col" class="text-white text-center">Нед</th>
+                                </tr>
+                                </thead>
+                                <tbody class="days bg-light" id="calendarDays"></tbody>
+                                <tfoot></tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                {#            <br><hr>#}
+
+            </div>
+            <div class="info m-0  ">
+                <h2 class="p-3 schedules-day-text">Today's Tickets</h2>
+                <h6>* the reservation deadline is 2 hours before the ticket start time</h6>
+                <hr >
+            </div>
+            <div class="tickets-container ticket-reserve-container row m-0 p-3   col-12 ">
+                {% for schedule in schedules %}
+                    <div class="col-6 c-schedule-visitor-card--container col-sm-6 col-md-4 col-lg-2 row p-0 justify-content-center mt-3 mt-sm-0">
+                        <div class="  c-schedule-visitor-card  col-11">
+                            <div class="c-schedule-visitor-card__hour">
+                                <h4>{{ schedule.startTime|date('H:i') }}-{{ schedule.endTime|date('H:i') }}</h4>
+                            </div>
+                            <div class="c-schedule-visitor-card__max-capacity">
+                                <h5> Price: {{ schedule.museum.maxCapacity }}</h5>
+                            </div>
+                            <div class="c-schedule-visitor-card__max-capacity">
+                                {% set ticketsNumber = 0 %}
+                                {% for ticket in schedule.tickets %}
+                                    {% if ticket.reservedDate == date('now')%}
+                                        {% set ticketsNumber = ticketsNumber + ticket.number %}
+                                    {% endif %}
+                                {% endfor %}
+                                <h5>Free entry - {{ schedule.museum.maxCapacity - ticketsNumber }}</h5>
+                            </div>
+                            <div class="c-schedule-visitor-card__max-capacity number" >
+                                <input type="number" value="0" min="0" max="{{ schedule.museum.maxCapacity - ticketsNumber }}">
+                            </div>
+                            {% if "now"|date('H:i') < schedule.endTime|date('H:i')  %}
+                                <div class="c-schedule-visitor-card__done">
+                                    <button value="{{ schedule.id }}" onclick="bookTicket()" class="reserve-ticket-btn">Reserve</button>
+                                </div>
+                            {% else %}
+                                <div class="c-schedule-visitor-card__wait">
+                                    <button>Time Out  <i class="fas fa-clock ml-1"></i></button>
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+                {% else  %}
+                    <h4 class="text-center info c-schedule-visitor-card--container">This museum doesn't have tickets for this day</h4>
+                {% endfor %}
+
+            </div>
+
+            {% else %}
+
+                <div id="container">
+                    <div class="row mt-5  justify-content-center">
+                        <div class="col-lg-11 col-md-7 col-sm-11 col-9  c-museum-chart-card row pb-3">
+                            <div class="col-12 text-center c-museum-chart-card__text">
+                                <h2 class="mt-4  mb-5 ">Stats</h2>
+                            </div>
+                            <div class="col-lg-4 col-md-12 col-sm-12 text-center align-content-center c-museum-chart-card__element ">
+                                <div class="c-museum-chart-card__element__credential ">
+                                    {% set reservedTickets = 0 %}
+                                    {% for schedule in museum.schedule %}
+                                        {% set reservedTickets = reservedTickets + schedule.tickets | length %}
+                                    {% endfor %}
+                                    <h4>{{ reservedTickets }}</h4>
+                                </div>
+                                <div class="fat-percent-div c-museum-chart-card__element__credential">
+                                    <h5>
+                                        <span >Reserved Tickets</span>
+                                    </h5>
+                                </div>
+                            </div> <div class="col-lg-4 col-md-12 col-sm-12 text-center align-content-center c-museum-chart-card__element ">
+                                <div class="c-museum-chart-card__element__credential ">
+                                    <h4>{{ museum.rating }}/5</h4>
+                                </div>
+                                <div class="fat-percent-div c-museum-chart-card__element__credential">
+                                    <h5>
+                                        <span >Rating</span>
+                                    </h5>
+                                </div>
+                            </div> <div class="col-lg-4 col-md-12 col-sm-12 text-center align-content-center c-museum-chart-card__element ">
+                                <div class="c-museum-chart-card__element__credential ">
+                                    <h4>{{ museum.maxCapacity }}</h4>
+                                </div>
+                                <div class="fat-percent-div c-museum-chart-card__element__credential">
+                                    <h5>
+                                        <span >Max Capacity</span>
+                                    </h5>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+        {% endif %}
+
+    </div>
+    <div class="o-block-container o-block-container--white">
+        <div class="location-container">
+            <div class="text p-2 text-center mt-2"> <h2> Where to find museum? </h2></div>
+            <div class="location"><div class="gmap_canvas"><iframe  id="gmap_canvas" src="https://maps.google.com/maps?q=abrituscastle&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.whatismyip-address.com"></a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:932px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:932px;}</style></div>
+
+        </div>
+    </div>
+
+
+
+    <div class="o-block-container o-block-container--white">
+        <div class="text p-2 text-center mt-2">
+            <h2> Feedback </h2>
+            <h5>* we need your feedback to continue our mission to popularity travel</h5>
+        </div>
+        <div class="c-tourOperator-museum-feedback-form  justify-content-center">
+            <textarea placeholder="My opinion about that museum is .... " name="" id="" class=" c-tourOperator-museum-feedback-form__textarea"></textarea>
+            <input type="number" min="0" max='5' placeholder="Rating: 5" class="c-tourOperator-museum-feedback-form__rating">
+            <button class="c-button c-tourOperator-museum-feedback-form__sendBtn" >Send review</button>
+        </div>
+    </div>
+    <div id="employee-list">
+
+    </div>
+    <script src="{{ asset("js/components/components-calendar.js") }}"></script>
+
+    <script src="{{ asset("js/pages/tourOperator/museumPage/onDateCalendarClick.js") }}"></script>
+    <script src="{{ asset("js/pages/tourOperator/museumPage/onDateChangeAction.js") }}"></script>
+    <script src="{{ asset("js/components/components-ajax.js") }}"></script>
+    <script src="{{ asset("js/pages/tourOperator/museumPage/reservationBtnAction.js") }}"></script>
+
+    <script>
+
+        google.charts.load('current', {packages: ['corechart', 'line']});
+        google.charts.setOnLoadCallback(drawBackgroundColor);
+
+        function drawBackgroundColor() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('number', 'X');
+            data.addColumn('number', 'People');
+
+            data.addRows([
+                [0, 0],   [1, 0],  [2, 0],  [3, 0],  [4, 0],  [5, 0],
+                [6, 0],  [7, 0],  [8, 0],  [9, 25],  [10, 20], [11, 25],
+                [12, 20], [13, 25], [14, 20], [15, 20], [16, 14], [17, 25],
+                [18, 0], [19, 0], [20, 0], [21, 0], [22, 0], [23, 0],
+                [24, 0]
+            ]);
+
+            var options = {
+                hAxis: {
+                    title: 'Top hours'
+                },
+                vAxis: {
+                    title: ''
+                },
+                backgroundColor: '#fff'
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'admin/adminBase.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("css/pages/admin/createPage/createPageStyle.css") }}">
+{% endblock %}
+{% block title %}Museum Booking | Create Museums{% endblock %}
+
+{% block body %}
+    <h2 class="text-center m-2">Create museum</h2>
+
+    {{ form_start(museumForm) }}
+    <div class="form-create">
+        <div class="form-create__row">
+            {{ form_label(museumForm.museumName) }}
+            {{ form_widget(museumForm.museumName) }}
+        </div>
+        <div class="form-create__row">
+            {{ form_label(museumForm.maxCapacity) }}
+            {{ form_widget(museumForm.maxCapacity) }}
+        </div>
+        <div class="form-create__row">
+            {{ form_label(museumForm.city) }}
+            {{ form_widget(museumForm.city) }}
+        </div>
+
+    </div>
+
+
+    {{ form_end(museumForm) }}
+    {{ form_start(userForm) }}
+    <div class="form-create">
+        <div class="form-create__row">
+            {{ form_label(userForm.email) }}
+            {{ form_widget(userForm.email) }}
+        </div>
+        <div class="form-create__row">
+            {{ form_label(userForm.password) }}
+            {{ form_widget(userForm.password) }}
+        </div>
+
+
+    </div>
+    {{ form_end(userForm) }}
+
+
+    <div class="form-create">
+        <div class="form-create__row">
+            {{ form_widget(museumForm.museumName) }}
+        </div>
+    </div>
+    <div class="btn-container">
+        <button class="btn text-center">Submit</button>
+    </div>
+
+    <script src="{{ asset("js/pages/admin/create/createMuseum.js") }}" ></script>
+    <script src="{{ asset("js/components/components-ajax.js") }}"></script>
+
+
+{% endblock %}

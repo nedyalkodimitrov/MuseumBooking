@@ -1,0 +1,150 @@
+{% extends 'admin/adminBase.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("css/pages/admin/createPage/createPageStyle.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-fancy-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-visitor-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-top-museum-suggestion-card.css") }}">
+
+{% endblock %}
+{% block title %}Museum Booking | Create Museums{% endblock %}
+
+{% block body %}
+    <div class="tickets-container o-flex-container col-12 ">
+         <div class="m-3 mx-auto "> <h2>Last added museums</h2></div>
+         <div class="tickets-wrapper row col-12 m-0 p-0 justify-content-center">
+            {% for museum in lastAddedMuseums %}
+                <div class="col-12 col-md-6 col-xl-5 c-fancy-card m-2 c-fancy-card--with-title">
+                    <div class="c-fancy-card__title">
+                        <h4>
+                            <a href="{{ path('tour_operator_museumView', {"id": museum.id}) }}">
+
+                                {{ museum.museumName }}
+                            </a>
+                        </h4>
+                    </div>
+                    <div class=" c-fancy-card__user">
+                        <img class="c-fancy-card__image c-fancy-card__image--big" src="{{ asset('images/museums/'~museum.image) }}" alt="">
+                        {#                                <div class=" c-fancy-card__name">{{ ticket.schedule.museum.museumName }}</div>#}
+
+                    </div>
+                    <div class=" c-fancy-card__text text-left"> City: {{museum.city }}, {{ museum.city.country }}
+                        <br>
+                        Museum Rating: {{ museum.rating }}
+                        <br>
+                        {% set reservedTickets = 0 %}
+                        {% for schedule in museum.schedule %}
+                            {% set reservedTickets = reservedTickets + schedule.tickets | length %}
+                        {% endfor %}
+                        Reserved Tickets: {{ reservedTickets }}
+                        <br>
+        {#                Hour: {{ ticket.schedule.startTime |date('H:i') }} - {{ ticket.schedule.endTime|date('H:i') }}#}
+                    </div>
+                    {#                            <div class="c-fancy-card__information--left">Reserved Date: {{ ticket.reservedDate| date('d/m/Y') }}</div>#}
+                    {#                            <div class=" c-fancy-card__information--right"></div>#}
+                    <div class=" text-center c-fancy-card__information">
+                        <div class="c-fancy-card__button-holder">
+                          <h5>We love to travel <i class="fas fa-heart"></i> </h5>
+                        </div>
+
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <hr class="col-3 mx-auto">
+    <div class="col-11 row justify-content-center m-auto">
+        <div class="col-12 mt-2 text-center">
+            <h2>Last created tourists</h2>
+        </div>
+        <div class="col-12 m-0 p-0 row justify-content-center">
+            {% for tourOperator in lastAddedTourOperators %}
+
+
+                <div class="col-6 container m-auto ">
+                    <div class="col-12 c-visitor-card row">
+
+                            <div class="col-12 c-visitor-card__hour">
+                                <h4></h4>
+                            </div>
+                            <div class="c-visitor-card__image-container col-4 ">
+                                <img src="{{asset("images/user-profile-image.jpg") }}" alt="">
+                            </div>
+                            <div class="c-visitor-card__credential col-8">
+                                <div class="c-visitor-card__credential__name">
+                                    <h4>{{ tourOperator.Name  }} {{ tourOperator.FName  }} </h4>
+                                </div>
+                                <div class="c-visitor-card__credential__booked-tickets">
+                                    <h5>From: {{ tourOperator.City}}, {{ tourOperator.City.Country}} </h5>
+                                </div>
+                                <div class="c-visitor-card__credential__booked-tickets">
+                                    <h5>Reserved tickets - {{ tourOperator.tickets | length  }}</h5>
+                                </div>
+                                <div class="c-visitor-card__credential__booked-tickets">
+                                    <h5>Phone: {{ tourOperator.phoneNumber }}</h5>
+                                </div>
+
+
+                                <div class="c-visitor-card__credential__visit-rate">
+                                  Rating: {{ tourOperator.visitRating }}/5
+                                </div>
+                            </div>
+
+
+
+                    </div>
+
+                </div>
+            {% else %}
+                <div class="">
+                    <h4 class="">
+                        You dont have any upcoming tourist
+                    </h4>
+                </div>
+            {% endfor %}
+
+
+
+        </div>
+    </div>
+
+    <hr class="col-4 m-5 mx-auto line">
+    <div class="top-museum-container">
+        <div class="text text-center mb-3">
+            <h2>Top museums in Bulgaria</h2>
+        </div>
+
+        {% for museum in topMuseums %}
+            <div class="c-top-museum-suggestion-card row col-12 mx-auto ">
+                <div class="c-top-museum-suggestion-card__image-holder col-12 col-md-5 col-lg-4">
+                    <img src="{{ asset('images/museums/'~museum.image) }}" alt="">
+                </div>
+                <div class="c-top-museum-suggestion-card__information-container col-12 col-md-7 col-lg-8">
+
+                    <div class="col-11">
+                        <div class="c-top-museum-suggestion-card__information-container__museumName">
+                            <a href="{{ path('tour_operator_museumView', {"id": museum.id}) }}"> <h2>{{museum.museumName}}</h2></a>
+                        </div>
+                        <div class="c-top-museum-suggestion-card__information-container__presentation">
+                            <h5>{{ museum.additionalInformation }}</h5>
+                        </div>
+                        <div class="stars">
+                            <h5>{{ museum.rating  }}/5</h5>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        {% endfor %}
+
+
+    </div>
+
+
+
+
+
+
+
+{% endblock %}

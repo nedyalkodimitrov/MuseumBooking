@@ -23,7 +23,7 @@ class SearchController extends AbstractController
         $allResults[1] = [];
 
         $tourOperatorResults = $searchTourOperator->searchTourOperator($data, $tourOperatorRepository);
-        $museumResults = $searchMuseum->searchTourOperator($data, $museumRepository);
+        $museumResults = $searchMuseum->searchMuseum($data, $museumRepository);
 //        $allResults[0] = $museumResults;
 //        $allResults[1] = $tourOperatorResults;
 

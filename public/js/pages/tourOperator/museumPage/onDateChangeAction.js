@@ -7,7 +7,7 @@ function onDateChangeAction(museumId, date ){
     var currentDay = today.getDate();
 
     var day = date.split('/')[0];
-
+    console.log(museumId);
     var data = {'museumId': museumId, 'date' : date};
     let result = ajaxRequest('POST', '/tourOperator/getSchedulesByDate', data );
 

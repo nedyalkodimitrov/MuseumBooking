@@ -116,6 +116,29 @@
     }
   }
 
+  &__check,&__missed{
+    width: 100%;
+    button{
+    border: none;
+      width: 50%;
+      border-radius: 15px;
+      padding: 0.3em;
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+  &__check{
+    background: green;
+
+  }
+  &__missed{
+    button{
+
+      background: #d52525;
+      color: white;
+    }
+  }
+
 
   @include for-phone-only{
     grid-template-columns: 1fr 1fr 1fr 1fr ;

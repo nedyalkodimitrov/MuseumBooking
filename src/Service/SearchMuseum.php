@@ -8,7 +8,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 class SearchMuseum
 {
-    public function  searchTourOperator(string $data, ServiceEntityRepository  $museumRepository)
+    public function  searchMuseum(string $data, ServiceEntityRepository  $museumRepository)
     {
         $information = [];
         $result = $museumRepository->findByValue($data);

@@ -127,7 +127,10 @@ class City
         $this->tourOperators = $tourOperators;
     }
 
-
+    public function __toString()
+    {
+      return $this->name;
+    }
 
 
 }

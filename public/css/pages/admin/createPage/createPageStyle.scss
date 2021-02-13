@@ -1,0 +1,46 @@
+@import '../../../01-settings/settings-colors';
+.form-create{
+  width: 80%;
+  margin: auto;
+  justify-content: center;
+  &__row{
+    padding: 0.4em;
+    width: 90%;
+    margin: auto;
+    label{
+      font-weight: 600;
+      font-size: 1.1em;
+      font-style: italic;
+      //text-transform: uppercase;
+      display: block;
+    }
+    input, select{
+
+      width: 100%;
+      padding: 0.3em;
+      border-radius: 0px;
+      border: 2px solid $primary-color;
+      outline-color: $secondary-color;
+    }
+  }
+}
+
+.btn-container{
+  width: 100%;
+  text-align: center;
+  padding: 0.4em;
+  .btn{
+    transition: 0.3s background-color, 0.3s color ;
+    background-color: $primary-color;
+    color: white;
+    border-radius: 0;
+    width: 71%;
+    margin: auto;
+    &:hover{
+      background-color:  $secondary-color;
+      box-shadow: 0px 0px 10px 0px #928585;
+      color: black;
+    }
+  }
+
+}

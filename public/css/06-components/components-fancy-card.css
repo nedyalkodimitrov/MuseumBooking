@@ -85,6 +85,24 @@
 .c-fancy-card a:hover {
   text-decoration: underline;
 }
+.c-fancy-card__check, .c-fancy-card__missed {
+  width: 100%;
+}
+.c-fancy-card__check button, .c-fancy-card__missed button {
+  border: none;
+  width: 50%;
+  border-radius: 15px;
+  padding: 0.3em;
+  cursor: default;
+  pointer-events: none;
+}
+.c-fancy-card__check {
+  background: green;
+}
+.c-fancy-card__missed button {
+  background: #d52525;
+  color: white;
+}
 @media (max-width: 599px) {
   .c-fancy-card {
     grid-template-columns: 1fr 1fr 1fr 1fr;

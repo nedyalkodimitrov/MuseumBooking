@@ -24,10 +24,11 @@ class TourOperatorController extends AbstractController
     /**
      * @Route("/tourOperator", name="tour_operator")
      */
-    public function home(MuseumRepository $museumRepository)
+    public function home(MuseumRepository $museumRepository, TicketRepository  $ticketRepository)
     {
         $tourOperator = $this->getUser()->getTourOperator();
         $tickets = $tourOperator->getTickets();
+        $tickets = $ticketRepository->findBy(['tourOperator'=> $tourOperator->getId()],['boughtDate'=>'DESC'], 4);
 
         $topMuseums = $museumRepository->getTopMuseums();
         return $this->render('tour_operator/home/index.html.twig', [
@@ -39,7 +40,7 @@ class TourOperatorController extends AbstractController
         ]);
     }
     /**
-     * @Route("/tourOperator/settings", name="tour_operator_schedule")
+     * @Route("/tourOperator/settings", name="settings")
      */
     public function settings(Request $request, FileService $fileService )
     {   
@@ -92,13 +93,10 @@ class TourOperatorController extends AbstractController
         $dayId = $dayRepository->findOneBy(["name" => $dayName]);
 
         $schedule = null;
-        $tourOperatorTickets = null;
         if ($dayId != null) {
             $schedule = $scheduleRepository->findSchedulesOrdered($id, $dayId);
-            $tourOperatorTickets = $ticketRepository->getTourOperatorTicketsOrdered($tourOperator->getId());
-
-
         }
+        $tourOperatorTickets = $ticketRepository->getTourOperatorTicketsOrdered($tourOperator->getId());
 
         return $this->render('tour_operator/museum/museum.html.twig', [
             'controller_name' => 'TourOperatorController',

@@ -1,0 +1,57 @@
+{% extends 'admin/adminBase.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("css/pages/admin/createPage/createPageStyle.css") }}">
+{% endblock %}
+{% block title %}Museum Booking | Create TourOperator{% endblock %}
+
+{% block body %}
+    <h2 class="text-center m-2">Create tour operator</h2>
+
+    {{ form_start(tourOperatorForm) }}
+    <div class="form-create">
+        <div class="form-create__row">
+            {{ form_label(tourOperatorForm.name) }}
+            {{ form_widget(tourOperatorForm.name) }}
+        </div>
+        <div class="form-create__row">
+            {{ form_label(tourOperatorForm.fName) }}
+            {{ form_widget(tourOperatorForm.fName) }}
+        </div>
+        <div class="form-create__row">
+            {{ form_label(tourOperatorForm.phoneNumber) }}
+            {{ form_widget(tourOperatorForm.phoneNumber) }}
+        </div> <div class="form-create__row">
+            {{ form_label(tourOperatorForm.city) }}
+            {{ form_widget(tourOperatorForm.city) }}
+        </div>
+
+    </div>
+
+
+    {{ form_end(tourOperatorForm) }}
+    {{ form_start(userForm) }}
+    <div class="form-create">
+        <div class="form-create__row">
+            {{ form_label(userForm.email) }}
+            {{ form_widget(userForm.email) }}
+        </div>
+        <div class="form-create__row">
+            {{ form_label(userForm.password) }}
+            {{ form_widget(userForm.password) }}
+        </div>
+
+
+    </div>
+    {{ form_end(userForm) }}
+
+
+
+    <div class="btn-container">
+        <button class="btn text-center">Submit</button>
+    </div>
+
+    <script src="{{ asset("js/pages/admin/create/createTourOperator.js") }}" ></script>
+    <script src="{{ asset("js/components/components-ajax.js") }}"></script>
+
+
+{% endblock %}

@@ -19,6 +19,11 @@ class MuseumRepository extends ServiceEntityRepository
         parent::__construct($registry, Museum::class);
     }
 
+    public function findLastAdded()
+    {
+        return $this->findBy(array(), array('id' => 'DESC',), 3);
+    }
+
     // /**
     //  * @return Museum[] Returns an array of Museum objects
     //  */
@@ -54,7 +59,7 @@ class MuseumRepository extends ServiceEntityRepository
     {
 
         return    $qb = $this->createQueryBuilder('m')
-            ->orderBy('m.rating', 'ASC')
+            ->orderBy('m.rating', 'DESC')
             ->getQuery()
             ->getResult();
 

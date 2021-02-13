@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TourOperatorController!{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-navbar-search.css") }}">
+
+    {{ parent() }}
+{% endblock %}
+
+{% block navBarLinks %}
+    <li><a href="{{ path("adminHome") }}"><i class="fas fa-home"></i></a></li>
+    <li><a href="{{ path("createMuseum") }}">Create Museum</a></li>
+    <li class="dropdown"><a href="{{ path("createTourOperator") }}" >Create Tour Operator </a></li>
+
+{% endblock %}
+
+        {% block footerLinksUp%}
+            <li><a href="{{ path("createMuseum") }}">Create Museum</a></li>
+            <li class="dropdown"><a href="{{ path("createTourOperator") }}" >Create Tour Operator</a></li>
+        {% endblock %}
+
+        {% block footerLinksDown%}
+            <li><a href="{{ path("museum") }}">Home</a></li>
+            <li><a href="">Stats</a></li>
+        {% endblock %}
+
+{% block body %}
+
+
+    {% block javascripts %}
+        <script src="{{ asset('js/components/components-search.js') }}"></script>
+
+    {% endblock %}
+
+{% endblock %}
+
