@@ -68,11 +68,11 @@
 
             <div class="c-settings-museum-summary-information col-12 col-lg-12">
                 <div><h2 class="text-center">Please add additional information about you museum</h2></div>
-                <textarea class="form-control" name="" id=""  value="{{ museum.additionalInformation }}">{{ museum.additionalInformation }}</textarea>
+                <textarea class="form-control additionalInformation"  name="" id=""  value="{{ museum.additionalInformation }}">{{ museum.additionalInformation }}</textarea>
 
                 <div class="col-12 row  p-0 mt-3     justify-content-around">
                     <button disabled="true" class="col-5 btn btn-danger textarea-btn textarea-btn-decline">Отказ</button>
-                    <button disabled="true" class="col-5 btn btn-success textarea-btn textarea-btn-update">Запазване</button>
+                    <button disabled="true" class="col-5 btn btn-success textarea-btn textarea-btn-update" id="saveAdditionalInformation">Запазване</button>
 
                 </div>
             </div>
@@ -87,6 +87,8 @@
     </div>
     <script src="{{ asset("js/museum/homePage/slideshow.js") }}" ></script>
     <script src="{{ asset("js/components/components-slider.js") }}" ></script>
+    <script src="{{ asset("js/components/components-ajax.js") }}" crossorigin="anonymous"></script>
+
     <script>
         let textareaValue = null;
 
@@ -110,6 +112,18 @@
 
         $('#form_image').on("change", function (){
             $('form').submit();
+        });
+
+
+        $('#saveAdditionalInformation').on('click', function (){
+            var addInformation = $('.additionalInformation').val();
+            let type = "POST";
+            let url = "/museum/additionInformationChange";
+            let data = {"additionalInformation": addInformation};
+
+            console.log(ajaxRequest(type, url, data));
+            $('.textarea-btn').attr("disabled", "disabled");
+            textareaValue = addInformation;
         });
 
     </script>

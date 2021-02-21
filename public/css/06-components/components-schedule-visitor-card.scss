@@ -17,15 +17,37 @@
   }
 
   &__done, &__wait{
+    transition: 0.3s background-color ease ;
+    button{
+      width: 100%;
+      height: 100%;
+      color: white;
+      font-size: 1.1em;
+      border: none;
+      background-color: inherit;
+    }
 
+    i{
+      padding: 0.5em;
+    }
     color: white;
     font-size: 1.1em;
 
-  }
-  &__done{
-    background-color: darkgreen;
 
   }
+  &__done{
+
+    background-color: green;
+    button{
+      padding: 1em;
+      &:hover{
+        background-color: darkgreen;
+
+      }
+  }
+
+
+}
   &__wait{
     background-color: orangered;
   }

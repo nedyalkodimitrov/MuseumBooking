@@ -100,7 +100,7 @@
             <input type="hidden" class="id">
             <h4 class="c-hidden-container--buttons__header-text ">Искате ли да изтриете разписанието?</h4>
             <button class="c-button c-hidden-container--buttons__delete-btn" id="deleteSchedule">Изтриване</button>
-            <button class="c-button c-hidden-container--buttons__close-btn">Затваряне</button>
+            <button class="c-button c-hidden-container--buttons__close-btn ">Затваряне</button>
             <input type="hidden">
             <input type="hidden">
             <input type="hidden">
@@ -116,7 +116,8 @@
         <script>
                 openContainer("c-add-schedule__button", "hidden-container-monday");
                 openContainer("c-button--danger", "hidden-container-delete-schedule");
-                closeContainer();
+                closeContainer("c-hidden-container__close-button", "hidden-container-monday");
+                closeContainer(".c-hidden-container__close-button", "hidden-container-delete-schedule");
 
                 $('#endHour').on('focusout', function (){
                    var endHour = $('#endHour').val();
@@ -184,8 +185,8 @@
 
                     $('#deleteSchedule').on('click', function () {
                         let type = "POST";
-                        let url = "museum/deleteSchedule";
-                        let data = {"id": id};
+                        let url = "/museum/deleteSchedule";
+                        let data = {"scheduleId": id};
 
                         console.log(ajaxRequest(type, url, data));
                     });

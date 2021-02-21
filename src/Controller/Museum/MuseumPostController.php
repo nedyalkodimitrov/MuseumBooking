@@ -60,7 +60,7 @@ class MuseumPostController extends AbstractController
     }
 
     /**
-     * @Route("/museum/deleteSchedule", name="delete-schedule", methods={"GET"})
+     * @Route("/museum/deleteSchedule", name="delete-schedule", methods={"POST"})
      */
     public function deleteSchedule(HttpFoundation\Request $request, DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
     {
@@ -76,7 +76,7 @@ class MuseumPostController extends AbstractController
 
             return $this->json("ex");
         }
-        var_dump(2);
+        var_dump($scheduleId);
         exit();
 
     }
@@ -113,7 +113,7 @@ class MuseumPostController extends AbstractController
 
 
     /**
-     * @Route("/museum/userHasNotCome", name="delete-schedule")
+     * @Route("/museum/userHasNotCome", name="")
      */
     public function userHasNotCome(HttpFoundation\Request $request, TicketRepository  $ticketRepository, tourOperatorService $tourOperatorService)
     {
@@ -170,6 +170,20 @@ class MuseumPostController extends AbstractController
         return $this->json($touristsInfo );
     }
 
+    /**
+     * @Route("/museum/additionInformationChange", name="changeAdditionalInformation")
+     */
+    public function additionalInformationChangeAction(HttpFoundation\Request $request)
+    {
+        $additionaInforamation = $request->request->get('additionalInformation');
+
+        $museum = $this->getUser()->getMuseum();
+        $museum->setAdditionalInformation($additionaInforamation);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($museum);
+        $em->flush();
+        return $this->json(1);
+    }
 
 
 }

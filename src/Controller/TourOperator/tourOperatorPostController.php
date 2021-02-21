@@ -74,9 +74,9 @@ class tourOperatorPostController extends AbstractController
 //        $date = new \DateTime();
         $dateSplit = $request->request->get("date");
         $museumId = $request->request->get("museumId");
-            var_dump($dateSplit);
-            exit();
-//        $dateSplit = explode('/', $dateString);
+
+
+        $dateSplit = explode('/', $dateSplit);
 
         $date =  date("l", mktime(0,0,0,$dateSplit[1],$dateSplit[0],$dateSplit[2]));
 
@@ -114,7 +114,7 @@ class tourOperatorPostController extends AbstractController
             array_push($schedulesData, $data);
         }
 
-        return $this->json($dateString);
+        return $this->json($schedulesData);
 
     }
 

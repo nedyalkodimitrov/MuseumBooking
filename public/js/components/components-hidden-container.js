@@ -4,8 +4,8 @@
     });
  }
 
- function closeContainer(){
-    $(".c-hidden-container__close-button").on("click", function (){
-        $(".c-hidden-container").css("transform", "translateY(-100%)");
+ function closeContainer(trigger, target){
+    $("."+trigger+"").on("click", function (){
+        $("#"+target+"").css("transform", "translateY(-100%)");
     });
  }

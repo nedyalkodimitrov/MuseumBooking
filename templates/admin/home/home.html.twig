@@ -16,7 +16,7 @@
                 <div class="col-12 col-md-6 col-xl-5 c-fancy-card m-2 c-fancy-card--with-title">
                     <div class="c-fancy-card__title">
                         <h4>
-                            <a href="{{ path('tour_operator_museumView', {"id": museum.id}) }}">
+                            <a href="{{ path('museumProfile', {"id": museum.id}) }}">
 
                                 {{ museum.museumName }}
                             </a>
@@ -61,7 +61,7 @@
             {% for tourOperator in lastAddedTourOperators %}
 
 
-                <div class="col-6 container m-auto ">
+                <div class="col-12 col-md-6 container m-auto ">
                     <div class="col-12 c-visitor-card row">
 
                             <div class="col-12 c-visitor-card__hour">
@@ -109,6 +109,7 @@
     </div>
 
     <hr class="col-4 m-5 mx-auto line">
+<div class="col-11 mx-auto">
     <div class="top-museum-container">
         <div class="text text-center mb-3">
             <h2>Top museums in Bulgaria</h2>
@@ -123,7 +124,7 @@
 
                     <div class="col-11">
                         <div class="c-top-museum-suggestion-card__information-container__museumName">
-                            <a href="{{ path('tour_operator_museumView', {"id": museum.id}) }}"> <h2>{{museum.museumName}}</h2></a>
+                            <a href="{{ path('museumProfile', {"id": museum.id}) }}"> <h2>{{museum.museumName}}</h2></a>
                         </div>
                         <div class="c-top-museum-suggestion-card__information-container__presentation">
                             <h5>{{ museum.additionalInformation }}</h5>
@@ -141,6 +142,7 @@
 
     </div>
 
+</div>
 
 
 

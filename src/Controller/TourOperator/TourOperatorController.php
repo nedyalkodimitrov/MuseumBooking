@@ -40,7 +40,7 @@ class TourOperatorController extends AbstractController
         ]);
     }
     /**
-     * @Route("/tourOperator/settings", name="settings")
+     * @Route("/tourOperator/settings", name="tourOperator_settings")
      */
     public function settings(Request $request, FileService $fileService )
     {   
@@ -69,6 +69,8 @@ class TourOperatorController extends AbstractController
             }
         }
         }
+
+
         return $this->render('tour_operator/settings/settings.html.twig', [
             'controller_name' => 'TourOperatorController',
             'form' => $form->createView(),

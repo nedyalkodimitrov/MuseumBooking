@@ -7,7 +7,7 @@ function onDateChangeAction(museumId, date ){
     var currentDay = today.getDate();
 
     var day = date.split('/')[0];
-    console.log(museumId);
+
     var data = {'museumId': museumId, 'date' : date};
     let result = ajaxRequest('POST', '/tourOperator/getSchedulesByDate', data );
 
@@ -15,15 +15,9 @@ function onDateChangeAction(museumId, date ){
     $('.ticket-reserve-container').css('transform', 'translateY(100%)');
 
 
-    console.log(result);
-    console.log(result != null);
     $('.c-schedule-visitor-card--container').remove( );
     if (result.length > 0){
-
-        // result = JSON.parse(result);
-        console.log(result.length);
         for (var i = 0; i < result.length; i++){
-            console.log(result);
 
             var card =          '<div class="col-6 c-schedule-visitor-card--container col-sm-6 col-md-4 col-lg-2 row p-0 justify-content-center mt-3 mt-sm-0">\n' +
                 '                    <div class="  c-schedule-visitor-card  col-11">\n' +

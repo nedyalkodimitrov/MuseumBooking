@@ -103,47 +103,7 @@ body{
   //}
 
 
-  .c-schedule-visitor-card__done{
-    padding: 0.5em;
-   i{
-      font-size: 1em;
 
-    }
-    button{
-      border: none;
-      background-color: green;
-      color: white;
-      font-size: 1.1em;
-      width: 100%;
-      height: 100%;
-      padding: 0.5em;
-      transition: 0.3s background-color ease ;
-      &:hover{
-        background-color: darkgreen;
-      }
-    }
-  }
-
-  .c-schedule-visitor-card__wait{
-    padding: 0.5em;
-    i{
-      font-size: 1em;
-
-    }
-
-    button{
-      margin: 0 ;
-      border: none;
-      background-color: orangered;
-      color: white;
-      font-size: 1.1em;
-      width: 100%;
-      height: 100%;
-
-      pointer-events: none;
-      cursor: pointer;
-    }
-  }
 
 }
 

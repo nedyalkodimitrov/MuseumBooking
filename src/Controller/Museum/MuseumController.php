@@ -63,7 +63,7 @@ class MuseumController extends AbstractController
     }
 
     /**
-     * @Route("/museum/settings", name="settings")
+     * @Route("/museum/settings", name="museums_settings")
      */
     public function museumSettings(Request $request,FileService $fileService)
     {

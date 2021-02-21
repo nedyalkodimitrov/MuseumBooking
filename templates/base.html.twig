@@ -55,7 +55,17 @@
                <div class="navbar__profile">
                   <div class="navbar__profile__text-holder">  <h5>{{ userName }}</h5></div>
                    <div class="navbar__profile__image-holder">
-                       <a href="{{ path('settings') }}"><img src="{{ asset(userImage)}}" alt=""></a>
+                       {% if is_granted('ROLE_TOUROPERATOR') %}
+                           <a href="{{ path('tourOperator_settings') }}"><img src="{{ asset(userImage)}}" alt=""></a>
+                       {% endif %}
+
+                       {% if is_granted('ROLE_MUSEUM') %}
+                           <a href="{{ path('museums_settings') }}"><img src="{{ asset(userImage)}}" alt=""></a>
+                       {% endif %}
+
+                       {%  if is_granted('ROLE_ADMIN') %}
+                           <a href=""><img src="{{ asset(userImage)}}" alt=""></a>
+                       {% endif %}
                    </div>
                </div>
             </div>
