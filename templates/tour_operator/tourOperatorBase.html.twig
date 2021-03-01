@@ -9,20 +9,24 @@
 
 {% block navBarLinks %}
     <li><a href="{{ path("tour_operator") }}"><i class="fas fa-home"></i></a></li>
+    <li><a href="{{ path("tour_operator_allMuseums") }}">Museums</a></li>
     <li class="dropdown"><a href="{{ path("tour_operator_visitedMuseums") }}" >Visited museums </a></li>
+    <li><a href="{{ path('tour_operator_tourists') }}">Tourists</a></li>
     <li><a href="{{ path('tour_operator_stats') }}">Stats</a></li>
 
 {% endblock %}
 
         {% block footerLinksUp%}
             <li><a href="{{ path("museum") }}">Home</a></li>
+            <li><a href="{{ path("tour_operator_allMuseums") }}">Museums</a></li>
             <li class="dropdown"><a href="{{ path("museum_schedule") }}" >Visited museums </a></li>
             <li><a href="">Stats</a></li>
         {% endblock %}
 
         {% block footerLinksDown%}
             <li><a href="{{ path("museum") }}">Home</a></li>
-            <li class="dropdown"><a href="{{ path("museum_schedule") }}" >Schedule </a></li>
+            <li><a href="{{ path("tour_operator_allMuseums") }}">Museums</a></li>
+
             <li><a href="">Stats</a></li>
         {% endblock %}
 

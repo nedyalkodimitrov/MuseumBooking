@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{{ asset("css/06-components/components-input.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-tourOperator-museum-feedback-form.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-calendar.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-stats-museum-review.css") }}">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
     <script src="{{ asset("js/pages/museum/particles/navScript.js") }}"></script>
     <script src="{{ asset("js/particles/slidshow.js") }}"></script>
@@ -158,13 +160,13 @@
                         <table class="table calendar table-bordered  "  id="calendar">
                             <thead>
                             <tr class="weekdays bg-dark">
-                                <th scope="col" class="text-white text-center">Пон</th>
-                                <th scope="col" class="text-white text-center">Вто</th>
-                                <th scope="col" class="text-white text-center">Сря</th>
-                                <th scope="col" class="text-white text-center">Чет</th>
-                                <th scope="col" class="text-white text-center">Пет</th>
-                                <th scope="col" class="text-white text-center">Съб</th>
-                                <th scope="col" class="text-white text-center">Нед</th>
+                                <th scope="col" class="text-white text-center">Mon</th>
+                                <th scope="col" class="text-white text-center">Tue</th>
+                                <th scope="col" class="text-white text-center">Wed</th>
+                                <th scope="col" class="text-white text-center">Thu</th>
+                                <th scope="col" class="text-white text-center">Fri</th>
+                                <th scope="col" class="text-white text-center">Sat</th>
+                                <th scope="col" class="text-white text-center">Sun</th>
                             </tr>
                             </thead>
                             <tbody class="days bg-light" id="calendarDays"></tbody>
@@ -235,15 +237,40 @@
     </div>
 
 
+    <div class="col-12 justify-content-center row o-block-container--white m-0 ">
+        <h3 class="col-12 m-0 p-0 justify-content-center container text-center m-3">Reviews</h3>
+        <hr class="col-2 mx-auto">
+
+        <div class="col-12 m-0 p-0   row c-stats-museum-review-container">
+            {% for review in museumReviews %}
+                <div class="col-12 justify-content-center col-md-6 col-xl-6 mt-3 row ">
+                 <div class="col-11  m-0 c-stats-museum-review">
+                     <div class=" c-stats-museum-review__user">
+                         <img src="{{asset("images/tourOperator/"~review.tourOperator.Image) }}" alt="">
+                         <div class=" c-stats-museum-review__name"><a href="">{{ review.tourOperator.Name }} {{ review.tourOperator.FName }}</a></div>
+
+                     </div>
+                     <div class=" c-stats-museum-review__text">{{ review.text }}</div>
+                     <div class=" c-stats-museum-review__date">Date: {{ review.date | date("m/d/Y") }}</div>
+                     <div class=" c-stats-museum-review__rating">Rating: {{ review.rating }}</div>
+
+                 </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 
     <div class="o-block-container o-block-container--white">
+        <hr class="col-10 mx-asymfouto">
         <div class="text p-2 text-center mt-2">
             <h2> Feedback </h2>
             <h5>* we need your feedback to continue our mission to popularity travel</h5>
+            <hr class="col-2 mx-auto">
         </div>
        <div class="c-tourOperator-museum-feedback-form  justify-content-center">
            <textarea placeholder="My opinion about that museum is .... " name="" id="" class=" c-tourOperator-museum-feedback-form__textarea"></textarea>
            <input type="number" min="0" max='5' placeholder="Rating: 5" class="c-tourOperator-museum-feedback-form__rating">
+           <input type="hidden" class="museumId" value="{{ museum.id }}">
            <button class="c-button c-tourOperator-museum-feedback-form__sendBtn" >Send review</button>
        </div>
     </div>
@@ -256,6 +283,7 @@
     <script src="{{ asset("js/pages/tourOperator/museumPage/onDateChangeAction.js") }}"></script>
     <script src="{{ asset("js/components/components-ajax.js") }}"></script>
     <script src="{{ asset("js/pages/tourOperator/museumPage/reservationBtnAction.js") }}"></script>
+    <script src="{{ asset("js/pages/tourOperator/museumPage/sendReview.js") }}"></script>
 
     <script>
 

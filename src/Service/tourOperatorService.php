@@ -32,6 +32,9 @@ class tourOperatorService
 
         $bestReview = $tourOperatorRepository->getBestReview($tourOperatorId);
 
+        if ($bestReview == null){
+            return null;
+        }
         return $bestReview[0];
 
 
@@ -46,5 +49,16 @@ class tourOperatorService
 
 
     }
+
+    public function getBestTourOperator( TourOperatorRepository $tourOperatorRepository)
+    {
+
+       $bestTourOperators = $tourOperatorRepository->findBy(array(), array('visitRating' => 'DESC'), 10);
+        return $bestTourOperators;
+
+
+    }
+
+
 
 }

@@ -18,9 +18,9 @@
         <div class="c-stats-information col-11">
             <div class="c-stats-information__inner">
                 <div class="c-stats-information__inner__title"><h2>Statistics</h2></div>
-                <div class="c-stats-information__inner__element text-center"><h5>100</h5><h6>Visited museums</h6></div>
-                <div class="c-stats-information__inner__element text-center"><h5>400 lv</h5><h6>Invested money</h6></div>
-                <div class="c-stats-information__inner__element text-center"><h5>4.5</h5><h6>Visit rating</h6></div>
+                <div class="c-stats-information__inner__element text-center"><h5>100</h5><h6>Tourists </h6></div>
+                <div class="c-stats-information__inner__element text-center"><h5>400 lv</h5><h6>Profit</h6></div>
+                <div class="c-stats-information__inner__element text-center"><h5>{{ museum .rating }}</h5><h6>Rating</h6></div>
 
             </div>
 
@@ -31,16 +31,18 @@
         <h3 class="col-12 text-center">Reviews</h3>
         <div class="col-12 row c-stats-museum-review-container">
             {% for review in reviews %}
-                <div class="col-12 col-md-6 col-xl-5 c-stats-museum-review">
-                   <div class=" c-stats-museum-review__user">
-                       <img src="{{asset("images/user-profile-image.jpg") }}" alt="">
-                       <div class=" c-stats-museum-review__name">{{ review.tourOperator.Name }} {{ review.tourOperator.FName }}</div>
+                <div class="col-12 col-md-6 col-xl-6 mt-3">
+                  <div class="col-11 mx-auto c-stats-museum-review">
+                      <div class=" c-stats-museum-review__user">
+                          <img src="{{asset("images/user-profile-image.jpg") }}" alt="">
+                          <div class=" c-stats-museum-review__name">{{ review.tourOperator.Name }} {{ review.tourOperator.FName }}</div>
 
-                   </div>
-                    <div class=" c-stats-museum-review__text">{{ review.text }}</div>
-                    <div class=" c-stats-museum-review__date">Date: {{ review.date | date("m/d/Y") }}</div>
-                    <div class=" c-stats-museum-review__rating">Rating: {{ review.rating }}</div>
+                      </div>
+                      <div class=" c-stats-museum-review__text">{{ review.text }}</div>
+                      <div class=" c-stats-museum-review__date">Date: {{ review.date | date("m/d/Y") }}</div>
+                      <div class=" c-stats-museum-review__rating">Rating: {{ review.rating }}</div>
 
+                  </div>
                 </div>
             {% endfor %}
         </div>
@@ -58,9 +60,9 @@
                 <div class="c-chart-card__image"><img src="{{ asset("images/system/clock.jpg") }}" alt=""></div>
                 <div class="c-chart-card__title"><h4>Most visit hour</h4></div>
                 <div class="c-chart-card__text">
-                    <div class="c-chart-card__text--left"><h5>12:00</h5></div>
+                    <div class="c-chart-card__text--left"><h5>{{ mostVisitSchedule.startTime | date('H:i')}}</h5></div>
                     <div class="c-chart-card__text--middle"><h5>-</h5></div>
-                    <div class="c-chart-card__text--right"><h5>13:00</h5></div>
+                    <div class="c-chart-card__text--right"><h5>{{ mostVisitSchedule.endTime | date('H:i')}}</h5></div>
                 </div>
         </div>
 
@@ -69,7 +71,7 @@
                 <div class="c-chart-card__title"><h4>Most visit day</h4></div>
                 <div class="c-chart-card__text">
 
-                    <div class="c-chart-card__text--middle"><h5>Friday</h5></div>
+                    <div class="c-chart-card__text--middle"><h5>{{ mostVisitDay }}</h5></div>
 
                 </div>
         </div>
@@ -82,11 +84,17 @@
 
         function drawBackgroundColor() {
             var data = new google.visualization.DataTable();
-            data.addColumn('number', 'X');
+            data.addColumn('string', 'X');
             data.addColumn('number', 'People');
-
+                {% set days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] %}
             data.addRows([
-                [0, 10],   [1, 15],  [2, 25],  [3, 30],  [4, 50]
+                {% set daysIterator = 0 %}
+                {% for dayVisitors in daysVisitors %}
+                    ["{{ days[daysIterator] }}", {{ dayVisitors }}],
+
+                    {% set daysIterator =  daysIterator + 1 %}
+                {% endfor %}
+
 
             ]);
 

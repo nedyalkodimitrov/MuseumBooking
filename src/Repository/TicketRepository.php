@@ -49,15 +49,17 @@ class TicketRepository extends ServiceEntityRepository
     }
     */
 
-    public function getBestMuseumTicketsOrdered($museumId, $currentTime)
+    public function getBestMuseumTicketsOrdered($museumId, $currentTime, $today)
     {
 
         return    $qb = $this->createQueryBuilder('t')
             ->leftJoin('t.schedule', 's')
             ->where('s.museum = :museumId')
             ->andWhere('s.endTime > :currentTime')
+            ->andWhere('t.reservedDate = :today')
             ->setParameter('museumId', $museumId)
             ->setParameter('currentTime', $currentTime)
+            ->setParameter('today', $today)
             ->orderBy('t.number', 'ASC')
             ->getQuery()
             ->getResult();

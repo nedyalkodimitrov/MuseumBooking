@@ -96,8 +96,9 @@
   cursor: default;
   pointer-events: none;
 }
-.c-fancy-card__check {
+.c-fancy-card__check button {
   background: green;
+  color: white;
 }
 .c-fancy-card__missed button {
   background: #d52525;

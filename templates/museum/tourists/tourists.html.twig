@@ -50,13 +50,60 @@
 
     <div class="col-11 mx-auto m-0 p-0 row justify-content-center touristContainer">
         <h2 class="col-12 text-center p-1 text">Tourist</h2>
+        {% set tourists = 0 %}
+        {% for schedule in schedules %}
+            {% for ticket in schedule.tickets %}
+                {% set tourists = tourists + 1 %}
+                <div class="col-6 container m-auto tourist-card">
+                    <div class="col-12 c-visitor-card row">
+                        <div class="col-12 row c-visitor-card__first-page">
+                            <div class="col-12 c-visitor-card__hour">
+                                <h4>{{ ticket.Schedule.StartTime  }} - {{ ticket.Schedule.EndTime  }}</h4>
+                            </div>
+                            <div class="c-visitor-card__image-container col-4 ">
+                                <img src="{{asset("images/tourOperator/"~ticket.tourOperator.image) }}" alt="">
+                            </div>
+                            <div class="c-visitor-card__credential col-8">
+                                <div class="c-visitor-card__credential__name">
+                                    <h4>{{ ticket.tourOperator.Name  }} {{ ticket.tourOperator.FName  }} </h4>
+                                </div>
+                                <div class="c-visitor-card__credential__booked-tickets">
+                                    <h5>Резервирани билета - {{ ticket.Number  }}</h5>
 
+                                </div>
+
+                                <div class="c-visitor-card__credential__visit-rate">
+                                    {{ ticket.tourOperator.visitRating }}/5
+                                </div>
+                            </div>
+                        </div>
+                        <div class="c-visitor-card__second-page">
+                            {% if ticket.hasCome %}
+                                <h4>Този потребител посети вашиеят музей </h4>
+
+                            {% else %}
+                                <h4>Потребителят посети ли музеят ви </h4>
+                                <button class="btn btn-success userHasCome" value="{{ ticket.Id }}">Да</button>
+                                <button class="btn btn-danger userHasNotCome" value="{{ ticket.Id }}">Не</button>
+
+                            {% endif %}
+                        </div>
+
+                    </div>
+
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {% if tourists == 0 %}
+            <h5 class="text-center tourist-card">Today you don't have any tourists</h5>
+        {% endif %}
     </div>
     <script src="{{ asset("js/components/components-calendar.js") }}"></script>
     <script src="{{ asset("js/pages/museum/tourists/onDateCalendarClick.js") }}"></script>
     <script src="{{ asset("js/pages/museum/tourists/onDateChangeAction.js") }}"></script>
     <script src="{{ asset("js/components/components-ajax.js") }}"></script>
-
+    <script src="{{ asset('js/pages/museum/homePage/userHasCome.js') }}"></script>
+    <script src="{{ asset('js/pages/museum/homePage/userHasNotCome.js') }}"></script>
     {% block javascript %}
 
     {% endblock %}

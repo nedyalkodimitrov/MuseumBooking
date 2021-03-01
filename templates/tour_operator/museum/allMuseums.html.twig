@@ -1,0 +1,66 @@
+{% extends 'tour_operator/tourOperatorBase.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("css/pages/museum/particles/navStyle.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/pages/museum/particles/slideshow.css") }}">
+    {#    <link rel="stylesheet" href="{{ asset("css/pages/tourOperator/museum/museumPageStyle.css") }}">#}
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-tourOperator-museumPage-museumInformation.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-schedule-visitor-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-ticket-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-stats-museum-review.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-fancy-card.css") }}">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+    <script src="{{ asset("js/pages/museum/particles/navScript.js") }}"></script>
+    <script src="{{ asset("js/particles/slidshow.js") }}"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+{% endblock %}
+{% block title %}{% endblock %}
+
+{% block body %}
+  <div class="col-12 row c-fancy-cards-container justify-content-center" >
+      <div class="col-12 row justify-content-around mx-auto ">
+          {% for museum in museums %}
+              <div class="mt-4 col-12 col-md-6 col-xl-5 c-fancy-card c-fancy-card--with-title">
+                  <div class="c-fancy-card__title">
+                      <h4>
+                          <a href="{{ path('tour_operator_museumView', {"id": museum.id}) }}">
+                              {{ museum.museumName }}
+                          </a>
+                      </h4>
+                  </div>
+                  <div class=" c-fancy-card__user">
+                      <img class="c-fancy-card__image c-fancy-card__image--big" src="{{ asset('images/museums/'~ museum.image) }}" alt="">
+                      {#                                <div class=" c-fancy-card__name">{{ ticket.schedule.museum.museumName }}</div>#}
+
+                  </div>
+                  <div class=" c-fancy-card__text text-left">
+                      City: {{ museum.city.name }}, {{ museum.city.country.name }}
+
+                      <br>
+                      Max Capacity: {{museum.maxCapacity }}
+                      <br>
+                      Rating: {{ museum.rating }}
+                  </div>
+                  {#                            <div class="c-fancy-card__information--left">Reserved Date: {{ ticket.reservedDate| date('d/m/Y') }}</div>#}
+                  {#                            <div class=" c-fancy-card__information--right"></div>#}
+                  <div class=" text-center c-fancy-card__information">
+                      <h5 class="">Because we love history </h5>
+                  </div>
+
+              </div>
+          {% endfor %}
+
+
+      </div>
+
+  </div>
+
+
+
+
+
+
+{% endblock %}

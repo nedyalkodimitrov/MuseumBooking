@@ -46,4 +46,15 @@ class DayRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function get($value): ?Day
+    {
+        return $this->createQueryBuilder('d')
+            ->andWhere('d.exampleField = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
 }

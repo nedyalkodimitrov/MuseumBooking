@@ -46,9 +46,7 @@ function onDateChangeAction( date ){
                 '                       </div>\n' +
                 '                   </div>\n' +
                 '                   <div class="c-visitor-card__second-page">\n' +
-                '                       <h4>Потребителят посети ли музеят ви </h4>\n' +
-                '                       <button class="btn btn-success" value='+result[i][0]+'>Да</button>\n' +
-                '                       <button class="btn btn-danger" value='+result[i][0]+'>Не</button>\n' +
+                '                       <h4>Can not chage visit rating  </h4>\n' +
                 '                   </div>\n' +
                 '\n' +
                 '               </div>\n' +

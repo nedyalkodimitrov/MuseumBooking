@@ -44,7 +44,7 @@
                            <div class=" text-center c-fancy-card__information">
                                {% if ticket.reservedDate| date < "now"| date %}
                                    <div class="c-fancy-card__button-holder">
-                                       <button>
+                                       <button class="cancellation-btn " value="{{ ticket.id }}">
                                            <h6>Cancellation </h6>
                                        </button>
                                    </div>
@@ -104,7 +104,7 @@
 
 
 
-
+    <script src="{{ asset("js/pages/tourOperator/home/cancellationAction.js") }}"></script>
 
 
 

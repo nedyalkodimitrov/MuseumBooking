@@ -25,7 +25,7 @@ class MuseumReview
     public $text;
 
    /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="string")
      */
     public $date;
 

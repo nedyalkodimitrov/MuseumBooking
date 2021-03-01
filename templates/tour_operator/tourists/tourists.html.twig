@@ -1,0 +1,45 @@
+{% extends 'tour_operator/tourOperatorBase.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-stats-information.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-fancy-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-bought-ticket.css") }}">
+
+{% endblock %}
+{% block title %}Museum Booking | Stats{% endblock %}
+{% block body %}
+
+
+
+
+    <div class=" col-12 row p-0 m-0 c-boughtTickets-container">
+        <h3 class="col-12 text-center p-3">Top ten tourists </h3>
+        {% set touristIndex = 1 %}
+        {% for tourist in bestTourOperators %}
+
+            <div class="  col-11 c-bought-ticket my-2">
+                <h4 class="col-12 text-center"> {{ touristIndex }}# tourist information</h4>
+                <div class="c-bought-ticket__information">
+                    <div class="c-bought-ticket__profile">
+                        <img class="c-bought-ticket__image p-0 " src="{{asset("images/tourOperator/"~tourist.image) }}" alt="">
+                        <a href="">
+                            <div class="c-bought-ticket__name">
+                                <h5>{{ tourist.name }} {{ tourist.fName }}</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class=" c-bought-ticket__text">
+                        <div class=""><h6>Reserved Tickets: {{ tourist.tickets | length }}</h6></div>
+                        <h5></h5>
+                    </div>
+                    <div class="c-bought-ticket__text"><h6>Visited Museums: 10</h6></div>
+                    <div class=" c-bought-ticket__text"><h6>Rating: {{ tourist.visitRating }}</h6></div>
+{#                    <div class="c-bought-ticket__text"><h6>Total: {{ ticket.schedule.price * ticket.number}}</h6></div>#}
+                </div>
+
+            </div>
+            {% set touristIndex = touristIndex +  1 %}
+        {% endfor %}
+    </div>
+
+{% endblock %}

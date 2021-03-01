@@ -8,6 +8,7 @@ use App\Repository\DayRepository;
 use App\Repository\ScheduleRepository;
 use App\Repository\TicketRepository;
 use App\Service\FileService;
+use App\Service\StatsService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -27,7 +28,7 @@ class MuseumController extends AbstractController
         $museum = $this->getUser()->getMuseum();
         $museumId = $museum->getId();
         $date = new \DateTime();
-        $date->format("D");
+        $today = $date->format("Y-m-d");
         $dayName = $date->format("l");
         $currentTime = $date->format('H');
 
@@ -46,7 +47,7 @@ class MuseumController extends AbstractController
         for ($i = 0; $i < count($schedule); $i++) {
             if ($schedule[$i]->getEndTime() > $currentTime) {
 
-                $bestTickets = $ticketRepository->getBestMuseumTicketsOrdered($museumId, $currentTime);
+                $bestTickets = $ticketRepository->getBestMuseumTicketsOrdered($museumId, $currentTime, $today );
 
             }
         }
@@ -135,17 +136,24 @@ class MuseumController extends AbstractController
     /**
      * @Route("/museum/stats", name="museum_stats")
      */
-    public function stats(ScheduleRepository $scheduleRepository, DayRepository $dayRepository)
+    public function stats(StatsService $statsService, ScheduleRepository $scheduleRepository, DayRepository $dayRepository)
     {
         $museum = $this->getUser()->getMuseum();
         $reviews = $museum->getReviews();
-
+        $daysVisitors = $statsService->getDaysVisitors($museum->getId(), $scheduleRepository, $dayRepository);
+        $mostVisitSchedule = $statsService->getMostVisitedHour($museum->getId(), $scheduleRepository, $dayRepository);
+        $mostVisitDay = $statsService->getMostVisitedDay($museum->getId(), $scheduleRepository, $dayRepository);
 
         return $this->render('museum/stats/stats.html.twig', [
             'controller_name' => 'MuseumController',
             'reviews' => $reviews,
             'userName' => $museum->getMuseumName(),
-            'userImage' => self::ImagePath . $museum->getImage()
+            'userImage' => self::ImagePath . $museum->getImage(),
+            'museum' => $museum,
+            'daysVisitors' => $daysVisitors,
+            'mostVisitSchedule' => $mostVisitSchedule,
+            'mostVisitDay' => $mostVisitDay,
+
 
         ]);
     }
@@ -158,12 +166,19 @@ class MuseumController extends AbstractController
         $museum = $this->getUser()->getMuseum();
         $reviews = $museum->getReviews();
 
+        $date = new \DateTime();
+        $dayName = $date->format("l");
+
+        $dayId = $dayRepository->findOneBy(["name" => $dayName]);
+
+        $schedules = $scheduleRepository->findSchedulesOrdered($museum->getId(), $dayId);
+
 
         return $this->render('museum/tourists/tourists.html.twig', [
             'controller_name' => 'MuseumController',
             'userName' => $museum->getMuseumName(),
-            'userImage' => self::ImagePath . $museum->getImage()
-
+            'userImage' => self::ImagePath . $museum->getImage(),
+            'schedules' => $schedules
         ]);
     }
 

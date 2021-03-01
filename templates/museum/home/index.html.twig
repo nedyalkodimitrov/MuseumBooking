@@ -52,10 +52,16 @@
                        </div>
                    </div>
                    <div class="c-visitor-card__second-page">
-                       <h4>Потребителят посети ли музеят ви </h4>
-                       <button class="btn btn-success" value="{{ ticket.Id }}">Да</button>
-                       <button class="btn btn-danger" value="{{ ticket.Id }}">Не</button>
-                   </div>
+                       {% if ticket.hasCome %}
+                           <h4>Този потребител посети вашиеят музей </h4>
+
+                       {% else %}
+                               <h4>Потребителят посети ли музеят ви </h4>
+                               <button class="btn btn-success userHasCome" value="{{ ticket.Id }}">Да</button>
+                               <button class="btn btn-danger userHasNotCome" value="{{ ticket.Id }}">Не</button>
+
+                       {% endif %}
+                    </div>
 
                </div>
 
@@ -150,6 +156,8 @@
        <div class="col-12 text-center m-3"><h2>Most visited hours </h2></div>
        <div id="chart_div" style="width: 100%; height: 100%"></div>
    </div>
+    <script src="{{ asset('js/pages/museum/homePage/userHasCome.js') }}"></script>
+    <script src="{{ asset('js/pages/museum/homePage/userHasNotCome.js') }}"></script>
 
     <script>
         google.charts.load('current', {packages: ['corechart', 'line']});
@@ -200,6 +208,8 @@
         }
             x[slideIndex-1].style.display = "block";
         }
+
+
 
     </script>
 

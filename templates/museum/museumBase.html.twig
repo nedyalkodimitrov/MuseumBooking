@@ -6,7 +6,7 @@
 
 {% block body %}
     {% block navBarLinks %}
-        <li><a href="{{ path("museum") }}">Home</a></li>
+        <li><a href="{{ path("museum") }}"><i class="fas fa-home"></i></a></li>
         <li class="dropdown"><a href="{{ path("museum_schedule") }}" >Schedule </a></li>
         <li><a href="{{ path("museum_stats") }}">Stats</a></li>
         <li><a href="{{ path("museum_tourists") }}">Tourists</a></li>
@@ -28,6 +28,10 @@
 
 
 
-    {% block javascripts %}{% endblock %}
+    {% block javascripts %}
+        <script src="{{ asset('js/components/components-search.js') }}"></script>
+
+    {% endblock %}
+
 
 {% endblock %}

@@ -63,7 +63,7 @@ let today = new Date();
 let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
 console.log(currentYear);
-let months = ["Януари", "Февруари ", "Март", "Април", "Май", "Юни", "Юли", "Август", "Септември", "Октомври", "Ноември", "December"];
+let months = ["January", "February ", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 showCalendar(currentMonth, currentYear);
 

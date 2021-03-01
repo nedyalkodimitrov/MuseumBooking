@@ -128,7 +128,10 @@
     }
   }
   &__check{
-    background: green;
+    button{
+      background: green;
+      color: white;
+    }
 
   }
   &__missed{

@@ -20,7 +20,7 @@ $(document).ready(function () {
         if (searchObj == "") {
             var container = $('.c-navbar-search__results');
             container.css('visibility', 'hidden');
-            $('body').css("overflow", "scroll");
+            $('body').css("position", "static");
             return
 
         }
@@ -35,7 +35,7 @@ $(document).ready(function () {
                 var dataToAppend = '';
 
                 var container = $('.c-navbar-search__results');
-                $('body').css('overflow', 'hidden');
+                $('body').css('position', 'fixed');
                 container.css('visibility', 'visible');
                 container.css('overflow-y', 'scroll');
 
@@ -88,7 +88,7 @@ $(document).ready(function () {
 
     $('.closeBtn').on('click', function (){
        $('.c-navbar-search__results').css('visibility', 'hidden');
-
+        $('body').css("position", "static");
     });
 
 

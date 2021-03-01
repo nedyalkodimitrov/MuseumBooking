@@ -2,26 +2,34 @@
 
 namespace App\Controller\TourOperator;
 
+use App\Entity\MuseumReview;
 use App\Entity\Ticket;
 use App\Repository\DayRepository;
+use App\Repository\MuseumRepository;
 use App\Repository\ScheduleRepository;
+use App\Repository\TicketRepository;
 use App\Repository\TourOperatorRepository;
 use App\Service\CustomSerializer;
 use http\Client\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 class tourOperatorPostController extends AbstractController
 {
     /**
-     * @Route("/tourOperator/unbookTicket/{id}", name="tour_operator_tour_operator_post")
+     * @Route("/tourOperator/unbookTicket/{id}", name="tour_operator_unbook")
      */
-    public function UnbookTicket($id)
+    public function UnbookTicket($id, TicketRepository $ticketRepository)
     {
-        return $this->render('tour_operator/tour_operator_post/adminBase.html.twig', [
-            'controller_name' => 'tour/operator/pourOperatorPostController',
-        ]);
+       $tourOperator = $this->getUser()->getTourOperator();
+       $ticket = $ticketRepository->find($id);
+
+       $em = $this->getDoctrine()->getManager();
+       $em->remove($ticket);
+       $em->flush();
+       return $this->json(1);
     }
 
 
@@ -36,13 +44,15 @@ class tourOperatorPostController extends AbstractController
         $number = $request->request->get("number");
         $scheduleId = $request->request->get("scheduleId");
         $reservedDate = $request->request->get("reservedDate");
-        $reservedDate = "18/01/2021 tickets";
         $splitTextFromDate = explode(' ', $reservedDate);
 
 
 
         if ($reservedDate != "Today's Tickets"){
-            $date = new \DateTime($splitTextFromDate[0]);
+            $digits = explode('/', $splitTextFromDate[0]);
+            $newDate = $digits[0].'-'.$digits[1].'-'.$digits[2];
+            var_dump($splitTextFromDate);
+            $date = new \DateTime($newDate);
         }else{
             $date =  new \DateTime();
         }
@@ -119,7 +129,34 @@ class tourOperatorPostController extends AbstractController
     }
 
 
+    /**
+     * @Route("/tourOperator/makeReview", name="makeReview", methods={"POST"})
+     */
+    public function makeReview(MuseumRepository $museumRepository,  \Symfony\Component\HttpFoundation\Request $request, TourOperatorRepository $tourOperatorRepository, ScheduleRepository $scheduleRepository, DayRepository $dayRepository, CustomSerializer  $customSerializer)
+    {
+        $tourOperator = $this->getUser()->getTourOperator();
+        $em = $this->getDoctrine()->getManager();
 
+        $text = $request->request->get('text');
+        $rating = $request->request->get('rating');
+        $museumId = $request->request->get('museumId');
+        $date = date('Y-m-d');
+        $museum = $museumRepository->find(intval($museumId));
+
+        $review = new MuseumReview();
+
+        $review->setText($text);
+        $review->setRating(intval($rating));
+        $review->setTourOperator($tourOperator);
+        $review->setMuseum($museum);
+        $review->setDate($date);
+
+        $em->persist($review);
+        $em->flush();
+        return $this->json(1);
+
+
+    }
 
 
 

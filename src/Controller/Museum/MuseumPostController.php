@@ -90,7 +90,7 @@ class MuseumPostController extends AbstractController
         $ticketId = $request->request->get("ticketId");
 
         //set that operator visited museum
-        $ticket = $ticketRepository->find(1);
+        $ticket = $ticketRepository->find($ticketId);
         $ticket->setHasCome(true);
 
         //change operator visit rate
@@ -100,7 +100,7 @@ class MuseumPostController extends AbstractController
         //result[1] --> allTourOperatorTickets
         $result = $tourOperatorService->changeVisitRating($tourOperator);
 
-        $tourOperator->setVisitRating(5* ($result[0] / count($result[1])));
+        $tourOperator->setVisitRating(round(5* ($result[0] / count($result[1])), 1));
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($ticket);
@@ -129,7 +129,7 @@ class MuseumPostController extends AbstractController
         $result = $tourOperatorService->changeVisitRating($tourOperator);
 
 
-        $tourOperator->setVisitRating(5* ($result[0] / count($result[1])));
+        $tourOperator->setVisitRating(round(5* ($result[0] / count($result[1])), 1));
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($tourOperator);

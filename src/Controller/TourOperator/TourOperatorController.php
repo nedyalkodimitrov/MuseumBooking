@@ -3,8 +3,10 @@
 namespace App\Controller\TourOperator;
 
 use App\Entity\Image;
+use App\Entity\MuseumReview;
 use App\Entity\Schedule;
 use App\Repository\DayRepository;
+use App\Repository\MuseumReviewsRepository;
 use App\Repository\TourOperatorRepository;
 use App\Service\FileService;
 use App\Repository\MuseumRepository;
@@ -84,7 +86,7 @@ class TourOperatorController extends AbstractController
     /**
      * @Route("/tourOperator/museum/{id}", name="tour_operator_museumView")
      */
-    public function museum($id,TicketRepository  $ticketRepository, MuseumRepository $museumRepository,DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
+    public function museum($id,MuseumReviewsRepository $museumReviewsRepository, TicketRepository  $ticketRepository, MuseumRepository $museumRepository,DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
     {
         $museum = $museumRepository->find(intval($id));
         $tourOperator = $this->getUser()->getTourOperator();
@@ -100,13 +102,17 @@ class TourOperatorController extends AbstractController
         }
         $tourOperatorTickets = $ticketRepository->getTourOperatorTicketsOrdered($tourOperator->getId());
 
+        $museumReviews = $museumReviewsRepository->findBy(array(),array(), 4);
+
+
         return $this->render('tour_operator/museum/museum.html.twig', [
             'controller_name' => 'TourOperatorController',
             'museum' => $museum,
             'schedules' => $schedule,
             'tourOperatorTickets' => $tourOperatorTickets,
             'userName' => $tourOperator->getName() .' '. $tourOperator->getFName(),
-            'userImage' => self::ImagePath.$tourOperator->getImage()
+            'userImage' => self::ImagePath.$tourOperator->getImage(),
+            'museumReviews' => $museumReviews
         ]);
     }
 
@@ -118,12 +124,15 @@ class TourOperatorController extends AbstractController
         $tourOperator = $this->getUser()->getTourOperator();
         $bestReview = $tourOperatorService->getBestReview($tourOperator->getId(), $tourOperatorRepository);
         $tickets = $tourOperatorService->getTickets($tourOperator->getId(), $ticketRepository);
+        $visitedMuseums = $this->getVisitedMuseums($ticketRepository);
         return $this->render('tour_operator/stats/stats.html.twig', [
             'controller_name' => 'TourOperatorController',
             'userName' => $tourOperator->getName() .' '. $tourOperator->getFName(),
             'userImage' => self::ImagePath.$tourOperator->getImage(),
             'bestReview' => $bestReview,
-            'tickets' => $tickets
+            'tickets' => $tickets,
+            'tourOperator' => $tourOperator,
+            'visitedMuseums' => $visitedMuseums
         ]);
     }
 
@@ -140,6 +149,50 @@ class TourOperatorController extends AbstractController
             'tickets' => $tickets,
             'userName' => $tourOperator->getName() .' '. $tourOperator->getFName(),
             'userImage' => self::ImagePath.$tourOperator->getImage()
+
+        ]);
+
+
+    }
+    /**
+     * @Route("/tourOperator/allMuseums", name="tour_operator_allMuseums")
+     */
+    public function allMuseums(TicketRepository  $ticketRepository, MuseumRepository $museumRepository,DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
+    {
+        $tourOperator = $this->getUser()->getTourOperator();
+        $tickets = $ticketRepository->getTourOperatorTicketsOrdered($tourOperator->getId());
+
+        $museums = $museumRepository->findAll();
+        return $this->render('tour_operator/museum/allMuseums.html.twig', [
+            'controller_name' => 'TourOperatorController',
+            'tickets' => $tickets,
+            'userName' => $tourOperator->getName() .' '. $tourOperator->getFName(),
+            'userImage' => self::ImagePath.$tourOperator->getImage(),
+            'museums' => $museums
+
+        ]);
+
+
+    }
+
+    /**
+     * @Route("/tourOperator/tourists", name="tour_operator_tourists")
+     */
+    public function tourists(tourOperatorService $tourOperatorService,TourOperatorRepository $tourOperatorRepository, TicketRepository  $ticketRepository, MuseumRepository $museumRepository,DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
+    {
+        $tourOperator = $this->getUser()->getTourOperator();
+        $tickets = $ticketRepository->getTourOperatorTicketsOrdered($tourOperator->getId());
+        $bestTourOperators = $tourOperatorService->getBestTourOperator($tourOperatorRepository);
+
+
+        $museums = $museumRepository->findAll();
+        return $this->render('tour_operator/tourists/tourists.html.twig', [
+            'controller_name' => 'TourOperatorController',
+            'tickets' => $tickets,
+            'userName' => $tourOperator->getName() .' '. $tourOperator->getFName(),
+            'userImage' => self::ImagePath.$tourOperator->getImage(),
+            'museums' => $museums,
+            'bestTourOperators' => $bestTourOperators
 
         ]);
 
@@ -174,6 +227,36 @@ class TourOperatorController extends AbstractController
     {
 
     }
+
+
+    private function getVisitedMuseums(TicketRepository $ticketRepository)
+    {
+        $tourOperator = $this->getUser()->getTourOperator();
+        $tickets = $tourOperator->getTickets();
+        $visitedMuseums =  [];
+       for ($j = 0; $j < count($tickets); $j++){
+            $ticket = $tickets[$j];
+
+            $museum = [];
+            if ($ticket->getHasCome()){
+                for ($i = 0; $i < count($visitedMuseums); $i++){
+                    if ($ticket->getMuseum() == $visitedMuseums[$i][0]->getMuseum()){
+                        $visitedMuseums[$i][1]++;
+                        continue;
+                    }
+                }
+                $museum[0] = $ticket;
+                $museum[1] = 1;
+                array_push($visitedMuseums, $museum);
+
+            }
+         }
+
+        return $visitedMuseums;
+
+    }
+
+
 
 
 }

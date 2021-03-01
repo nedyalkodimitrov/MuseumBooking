@@ -2,6 +2,7 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset("css/06-components/components-form-security.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-input.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/07-utilities/utilities-security-page.css") }}">
 {% endblock %}
 {% block title %}Museum Booking | Sign in{% endblock %}
 
@@ -18,7 +19,8 @@
 {#    {% endif %}#}
 
     <div class="c-form-security__logo-holder ">
-        <h1 class="h3 mb-3 logo font-weight-normal">Museum Booking</h1>
+        <img class="security_logo " src="{{ asset("images/musuemLogo.jpg") }}" alt="">
+{#        <h1 class="h3 mb-3 logo font-weight-normal">Museum Booking</h1>#}
     </div>
 
     <div class="c-form-security__input-holder ">
