@@ -4,6 +4,7 @@
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset("css/06-components/components-stats-information.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-chart-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-fancy-card.css") }}">
 
     <link rel="stylesheet" href="{{ asset("css/06-components/components-stats-museum-review.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-info-chart.css") }}">
@@ -31,19 +32,23 @@
         <h3 class="col-12 text-center">Reviews</h3>
         <div class="col-12 row c-stats-museum-review-container">
             {% for review in reviews %}
-                <div class="col-12 col-md-6 col-xl-6 mt-3">
-                  <div class="col-11 mx-auto c-stats-museum-review">
-                      <div class=" c-stats-museum-review__user">
-                          <img src="{{asset("images/user-profile-image.jpg") }}" alt="">
-                          <div class=" c-stats-museum-review__name">{{ review.tourOperator.Name }} {{ review.tourOperator.FName }}</div>
+                <div class="col-12 col-md-6 col-lg-6 p-0 m-0 mt-4 justify-content-center">
+                    <div class=" mx-auto col-11 c-fancy-card ">
+                        <div class=" c-fancy-card__user">
+                            <img class="c-fancy-card__image p-0 " src="{{asset("images/tourOperator/"~review.tourOperator.image) }}" alt="">
+                            <div class=" c-fancy-card__name"><h5>{{ review.tourOperator.Name }} {{ review.tourOperator.FName }}</h5></div>
+                        </div>
+                        <div class=" c-fancy-card__text">
+                            <h5>{{ review.text }}</h5>
 
-                      </div>
-                      <div class=" c-stats-museum-review__text">{{ review.text }}</div>
-                      <div class=" c-stats-museum-review__date">Date: {{ review.date | date("m/d/Y") }}</div>
-                      <div class=" c-stats-museum-review__rating">Rating: {{ review.rating }}</div>
+                        </div>
+                        <div class=" c-fancy-card__information--left">Date: {{ review.date | date("m/d/Y") }}</div>
+                        <div class="c-fancy-card__information--right">Rating: {{ review.rating }}</div>
 
-                  </div>
+                    </div>
+
                 </div>
+
             {% endfor %}
         </div>
 

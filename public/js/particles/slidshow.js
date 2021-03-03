@@ -7,7 +7,9 @@ $(document).ready(function() {
         autoSlideTimeout;
     $
 
+
     $(document).on("click", ".slider--control", function() {
+        console.log("Current slide " + curSlide);
         if (sliding) return;
         sliding = true;
         $(".slider--el").show();
@@ -17,7 +19,7 @@ $(document).ready(function() {
         if (curSlide < 1) curSlide = numOfSlides;
         if (curSlide > numOfSlides) curSlide = 1;
         $(".slider--el-" + curSlide).addClass("next");
-
+        console.log(curSlide);
         setTimeout(function() {
             $(".slider--el.removed").hide();
             $(".slider--el").removeClass("active next removed");

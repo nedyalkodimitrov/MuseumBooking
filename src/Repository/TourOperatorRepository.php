@@ -70,7 +70,7 @@ class TourOperatorRepository extends ServiceEntityRepository
             FROM App\Entity\MuseumReview r
             INNER JOIN r.tourOperator t 
             WHERE t.id = :value
-            ORDER BY r.rating ASC'
+            ORDER BY r.rating DESC'
         )->setParameter('value',  $tourOperatorId)
         ->setMaxResults(1);
 

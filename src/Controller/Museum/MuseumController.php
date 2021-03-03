@@ -80,19 +80,19 @@ class MuseumController extends AbstractController
 
         if($form->isSubmitted())
         {
-            $fileName = $fileService->MoveImage($form, true);
-        if ($fileName != null){
 
-            $newFileName = $fileService->MoveImage($form, true);
 
-            if($newFileName != false) {
-                $em = $this->getDoctrine()->getManager();
-                $museum->setImage($newFileName);
-                $em->persist($museum);
-                $em->flush();
+                $newFileName = $fileService->MoveImage($form, true);
 
-            }
-        }
+                if($newFileName != false) {
+                    $em = $this->getDoctrine()->getManager();
+                    $museum->setImage($newFileName);
+                    $em->persist($museum);
+                    $em->flush();
+
+                }
+
+
         }
 
         return $this->render('museum/settings/settings.html.twig', [

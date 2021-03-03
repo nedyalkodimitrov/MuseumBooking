@@ -45,3 +45,4 @@ security:
     access_control:
          - { path: ^/museum, roles: ROLE_MUSEUM }
          - { path: ^/tourOperator, roles: ROLE_TOUROPERATOR }
+         - { path: ^/admin, roles: ROLE_ADMIN }

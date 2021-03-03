@@ -59,6 +59,34 @@ class tourOperatorService
 
     }
 
+    public function getVisitedMuseums($tourOperatorId, TicketRepository $ticketRepository, TourOperatorRepository  $tourOperatorRepository)
+    {
+        $tourOperator = $tourOperatorRepository->find($tourOperatorId);
+        $tickets = $tourOperator->getTickets();
+        $visitedMuseums =  [];
+        for ($j = 0; $j < count($tickets); $j++){
+            $ticket = $tickets[$j];
+
+            $museum = [];
+            if ($ticket->getHasCome()){
+                for ($i = 0; $i < count($visitedMuseums); $i++){
+                    if ($ticket->getSchedule()->getMuseum() == $visitedMuseums[$i][0]->getSchedule()->getMuseum()){
+                        $visitedMuseums[$i][1]++;
+                        continue;
+                    }
+                }
+                $museum[0] = $ticket;
+                $museum[1] = 1;
+                array_push($visitedMuseums, $museum);
+
+            }
+        }
+
+        return $visitedMuseums;
+
+    }
+
+
 
 
 }

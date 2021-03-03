@@ -66,7 +66,23 @@ class TicketRepository extends ServiceEntityRepository
 
     }
 
-    public function getTourOperatorTicketsOrdered($tourOperatorId)
+    public function getTourOperatorTicketsOrdered($tourOperatorId, $museumId)
+    {
+
+        return    $qb = $this->createQueryBuilder('t')
+            ->leftJoin('t.schedule', 's')
+            ->where('t.tourOperator = :tourOperatorId')
+            ->andWhere('s.museum = :museumsId')
+            ->setParameter('tourOperatorId', $tourOperatorId)
+            ->setParameter('museumsId', $museumId)
+            ->orderBy('t.reservedDate', 'ASC')
+            ->addOrderBy('t.number', 'ASC')
+            ->getQuery()
+            ->getResult();
+
+
+    }
+    public function getAllTourOperatorTicketsOrdered($tourOperatorId)
     {
 
         return    $qb = $this->createQueryBuilder('t')

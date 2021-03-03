@@ -100,9 +100,9 @@ class TourOperatorController extends AbstractController
         if ($dayId != null) {
             $schedule = $scheduleRepository->findSchedulesOrdered($id, $dayId);
         }
-        $tourOperatorTickets = $ticketRepository->getTourOperatorTicketsOrdered($tourOperator->getId());
+        $tourOperatorTickets = $ticketRepository->getTourOperatorTicketsOrdered($tourOperator->getId(), $id);
 
-        $museumReviews = $museumReviewsRepository->findBy(array(),array(), 4);
+        $museumReviews = $museumReviewsRepository->findBy(['id' => $id],array(), 4);
 
 
         return $this->render('tour_operator/museum/museum.html.twig', [
@@ -124,7 +124,7 @@ class TourOperatorController extends AbstractController
         $tourOperator = $this->getUser()->getTourOperator();
         $bestReview = $tourOperatorService->getBestReview($tourOperator->getId(), $tourOperatorRepository);
         $tickets = $tourOperatorService->getTickets($tourOperator->getId(), $ticketRepository);
-        $visitedMuseums = $this->getVisitedMuseums($ticketRepository);
+        $visitedMuseums = $tourOperatorService->getVisitedMuseums($tourOperator->getid(), $ticketRepository, $tourOperatorRepository);
         return $this->render('tour_operator/stats/stats.html.twig', [
             'controller_name' => 'TourOperatorController',
             'userName' => $tourOperator->getName() .' '. $tourOperator->getFName(),
@@ -142,7 +142,7 @@ class TourOperatorController extends AbstractController
     public function visitedMuseums(TicketRepository  $ticketRepository, MuseumRepository $museumRepository,DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
     {
         $tourOperator = $this->getUser()->getTourOperator();
-        $tickets = $ticketRepository->getTourOperatorTicketsOrdered($tourOperator->getId());
+        $tickets = $ticketRepository->getAllTourOperatorTicketsOrdered($tourOperator->getId());
 
         return $this->render('tour_operator/museum/visitedMuseums.html.twig', [
             'controller_name' => 'TourOperatorController',
@@ -160,12 +160,10 @@ class TourOperatorController extends AbstractController
     public function allMuseums(TicketRepository  $ticketRepository, MuseumRepository $museumRepository,DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
     {
         $tourOperator = $this->getUser()->getTourOperator();
-        $tickets = $ticketRepository->getTourOperatorTicketsOrdered($tourOperator->getId());
 
         $museums = $museumRepository->findAll();
         return $this->render('tour_operator/museum/allMuseums.html.twig', [
             'controller_name' => 'TourOperatorController',
-            'tickets' => $tickets,
             'userName' => $tourOperator->getName() .' '. $tourOperator->getFName(),
             'userImage' => self::ImagePath.$tourOperator->getImage(),
             'museums' => $museums
@@ -181,7 +179,7 @@ class TourOperatorController extends AbstractController
     public function tourists(tourOperatorService $tourOperatorService,TourOperatorRepository $tourOperatorRepository, TicketRepository  $ticketRepository, MuseumRepository $museumRepository,DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
     {
         $tourOperator = $this->getUser()->getTourOperator();
-        $tickets = $ticketRepository->getTourOperatorTicketsOrdered($tourOperator->getId());
+        $tickets = $ticketRepository->getAllTourOperatorTicketsOrdered($tourOperator->getId());
         $bestTourOperators = $tourOperatorService->getBestTourOperator($tourOperatorRepository);
 
 
@@ -229,32 +227,6 @@ class TourOperatorController extends AbstractController
     }
 
 
-    private function getVisitedMuseums(TicketRepository $ticketRepository)
-    {
-        $tourOperator = $this->getUser()->getTourOperator();
-        $tickets = $tourOperator->getTickets();
-        $visitedMuseums =  [];
-       for ($j = 0; $j < count($tickets); $j++){
-            $ticket = $tickets[$j];
-
-            $museum = [];
-            if ($ticket->getHasCome()){
-                for ($i = 0; $i < count($visitedMuseums); $i++){
-                    if ($ticket->getMuseum() == $visitedMuseums[$i][0]->getMuseum()){
-                        $visitedMuseums[$i][1]++;
-                        continue;
-                    }
-                }
-                $museum[0] = $ticket;
-                $museum[1] = 1;
-                array_push($visitedMuseums, $museum);
-
-            }
-         }
-
-        return $visitedMuseums;
-
-    }
 
 
 

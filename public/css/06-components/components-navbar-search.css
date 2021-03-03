@@ -38,6 +38,7 @@
   font-size: 1.5em;
 }
 .c-navbar-search__result {
+  color: black;
   transition: background-color 0.2s ease;
   cursor: pointer;
   border-radius: 5px;

@@ -14,7 +14,10 @@
     <link rel="stylesheet" href="{{ asset("css/06-components/components-tourOperator-museum-feedback-form.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-calendar.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-museum-chart-card.css") }}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-stats-museum-review.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-fancy-card.css") }}">
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
     <script src="{{ asset("js/pages/museum/particles/navScript.js") }}"></script>
     <script src="{{ asset("js/particles/slidshow.js") }}"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -28,55 +31,35 @@
     <input type="hidden" id="museumId" value="{{ museum.id }}">
     <div class="slider-container pt-5 mt-0 container-color" >
         <div class="slider  ">
-            <div class="slider--el slider--el-1 anim-4parts active">
-                <div class="slider--el-bg">
-                    <div class="part top left"></div>
-                    <div class="part top right"></div>
-                    <div class="part bot left"></div>
-                    <div class="part bot right"></div>
+            {% set sliderEl = 1 %}
+            {% for image in museum.images %}
+                {#                style="background-image: url('{{ asset('images/museums/'~image.path) }}');"#}
+                <div class="slider--el slider--el-{{ sliderEl }} anim-9parts">
+                    <div class="slider--el-bg">
+                        <div class="part left-top"></div>
+                        <div class="part mid-top"></div>
+                        <div class="part right-top"></div>
+                        <div class="part left-mid"></div>
+                        <div class="part mid-mid"></div>
+                        <div class="part right-mid"></div>
+                        <div class="part left-bot"></div>
+                        <div class="part mid-bot"></div>
+                        <div class="part right-bot"></div>
+                    </div>
+                    <style>.slider--el-{{ sliderEl }} .part:before{background-image:  url(" {{ asset('images/museums/'~image.path) }}");}</style>
+                    <div class="slider--el-content">
+                        <input type="hidden" class="slider--el-content-{{ sliderEl }}" value="{{ asset('images/museums/'~image.path) }}">
+                    </div>
                 </div>
-                <div class="slider--el-content">
+                {% set sliderEl = sliderEl + 1 %}
+                {% else %}
+                    <div class=" ">
+                        <div class=" col-12 text-center mt-3">
+                          <h3>This museum has not set cover images</h3>
+                        </div>
 
-                </div>
-            </div>
-            <div class="slider--el slider--el-2 anim-9parts">
-                <div class="slider--el-bg">
-                    <div class="part left-top"></div>
-                    <div class="part mid-top"></div>
-                    <div class="part right-top"></div>
-                    <div class="part left-mid"></div>
-                    <div class="part mid-mid"></div>
-                    <div class="part right-mid"></div>
-                    <div class="part left-bot"></div>
-                    <div class="part mid-bot"></div>
-                    <div class="part right-bot"></div>
-                </div>
-                <div class="slider--el-content">
-
-                </div>
-            </div>
-            <div class="slider--el slider--el-3 anim-5parts">
-                <div class="slider--el-bg">
-                    <div class="part part-1"></div>
-                    <div class="part part-2"></div>
-                    <div class="part part-3"></div>
-                    <div class="part part-4"></div>
-                    <div class="part part-5"></div>
-                </div>
-                <div class="slider--el-content">
-
-                </div>
-            </div>
-            <div class="slider--el slider--el-4 anim-3parts">
-                <div class="slider--el-bg">
-                    <div class="part left"></div>
-                    <div class="part mid"></div>
-                    <div class="part right"></div>
-                </div>
-                <div class="slider--el-content">
-
-                </div>
-            </div>
+                    </div>
+            {% endfor %}
             <span class="slider--control left"><i class="fas fa-chevron-left"></i></span>
             <span class="slider--control right"><i class="fas fa-chevron-right"></i></span>
         </div>
@@ -153,7 +136,7 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="calendar col-12 mt-2">
+                    <div class="calendar col-11 col-md-12 mx-auto mt-2 p-0">
                         <div>
                             <div class="card-header">
                                 <ul>
@@ -288,6 +271,32 @@
         </div>
     </div>
 
+    <div class="col-12 justify-content-center row o-block-container--white m-0 ">
+        <h3 class="col-12 m-0 p-0 justify-content-center container text-center m-3">Reviews</h3>
+        <hr class="col-2 mx-auto">
+
+        <div class="col-12 m-0 p-0   row c-stats-museum-review-container">
+            {% for review in museumReviews %}
+                <div class="col-12 col-md-6 col-lg-6 p-0 m-0 mt-2 justify-content-center">
+                    <div class=" mx-auto col-11 c-fancy-card ">
+                        <div class=" c-fancy-card__user">
+                            <img class="c-fancy-card__image p-0 " src="{{asset("images/tourOperator/"~review.tourOperator.image) }}" alt="">
+                            <div class=" c-fancy-card__name"><h5>{{ review.tourOperator.Name }} {{ review.tourOperator.FName }}</h5></div>
+                        </div>
+                        <div class=" c-fancy-card__text">
+                            <h5>{{ review.text }}</h5>
+
+                        </div>
+                        <div class=" c-fancy-card__information--left">Date: {{ review.date | date("m/d/Y") }}</div>
+                        <div class="c-fancy-card__information--right">Rating: {{ review.rating }}</div>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
 
 
     <div class="o-block-container o-block-container--white">

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\DayRepository;
 use App\Repository\MuseumRepository;
+use App\Repository\MuseumReviewsRepository;
 use App\Repository\ScheduleRepository;
 use App\Repository\TicketRepository;
 use App\Repository\TourOperatorRepository;
@@ -21,7 +22,7 @@ class GeneralController extends AbstractController
     /**
      * @Route("/general/tourOperator/{profileId}", name="tourOperatorProfile")
      */
-    public function tourOperatorProfile($profileId, TourOperatorRepository $tourOperatorRepository, tourOperatorService $tourOperatorService)
+    public function tourOperatorProfile($profileId, TourOperatorRepository $tourOperatorRepository,TicketRepository $ticketRepository,  tourOperatorService $tourOperatorService)
     {
         $credentials = $this->getUserCredentials();
         $userImage = $credentials[0];
@@ -29,14 +30,18 @@ class GeneralController extends AbstractController
 
         $tourOperatorFriend = $tourOperatorRepository->find($profileId);
         $bestReview = $tourOperatorService->getBestReview($tourOperatorFriend->getId(), $tourOperatorRepository);
+        $tickets = $tourOperatorService->getTickets($profileId, $ticketRepository);
 
+        $visitedMuseums = $tourOperatorService->getVisitedMuseums($profileId, $ticketRepository, $tourOperatorRepository);
         return $this->render('general/tourOperatorProfile.html.twig', [
             'controller_name' => 'TourOperatorController',
             'userName' => $userName,
             'userImage' => $userImage,
             'friend' => $tourOperatorFriend,
             'friendImage' => self::TourOperatorImagePath.$tourOperatorFriend->getImage(),
-            'bestReview' => $bestReview
+            'bestReview' => $bestReview,
+            'tickets' => $tickets,
+            'visitedMuseums' => $visitedMuseums
 
         ]);
 
@@ -45,7 +50,7 @@ class GeneralController extends AbstractController
     /**
      * @Route("/general/museumsProfile/{id}", name="museumProfile")
      */
-    public function museusmProfile($id,TicketRepository  $ticketRepository, MuseumRepository $museumRepository,DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
+    public function museusmProfile($id,MuseumReviewsRepository  $museumReviewsRepository, TicketRepository  $ticketRepository, MuseumRepository $museumRepository,DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
     {
         $credentials = $this->getUserCredentials();
         $userImage = $credentials[0];
@@ -66,9 +71,10 @@ class GeneralController extends AbstractController
         $tickets = null;
         if ($this->isGranted('ROLE_TOUROPERATOR')){
             $tourOperator = $this->getUser()->getTourOperator();
-            $tickets = $ticketRepository->getTourOperatorTicketsOrdered($tourOperator->getId());
+            $tickets = $ticketRepository->getTourOperatorTicketsOrdered($tourOperator->getId(), $id);
 
         }
+        $museumReviews = $museumReviewsRepository->findBy(['id' => $id],array(), 4);
 
         return $this->render('general/museumProfile.html.twig', [
             'controller_name' => 'TourOperatorController',
@@ -76,7 +82,8 @@ class GeneralController extends AbstractController
             'schedules' => $schedule,
             'tickets' => $tickets,
             'userName' => $userName,
-            'userImage' =>  $userImage
+            'userImage' =>  $userImage,
+            'museumReviews' => $museumReviews
         ]);
     }
 

@@ -33,6 +33,7 @@
 }
 .c-fancy-card__user {
   grid-area: user;
+  text-align: center;
 }
 .c-fancy-card__image {
   width: 5em;

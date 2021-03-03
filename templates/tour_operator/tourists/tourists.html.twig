@@ -22,7 +22,7 @@
                 <div class="c-bought-ticket__information">
                     <div class="c-bought-ticket__profile">
                         <img class="c-bought-ticket__image p-0 " src="{{asset("images/tourOperator/"~tourist.image) }}" alt="">
-                        <a href="">
+                        <a href="{{ path("tourOperatorProfile", {'profileId': tourist.id}) }}">
                             <div class="c-bought-ticket__name">
                                 <h5>{{ tourist.name }} {{ tourist.fName }}</h5>
                             </div>

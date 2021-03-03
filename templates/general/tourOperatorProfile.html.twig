@@ -46,10 +46,15 @@
         <div class="c-stats-information col-11">
             <div class="c-stats-information__inner">
                 <div class="c-stats-information__inner__title"><h2>Statistics</h2></div>
-                <div class="c-stats-information__inner__element text-center"><h5>100</h5><h6>Visited museums</h6></div>
-                <div class="c-stats-information__inner__element text-center"><h5>400 lv</h5><h6>Invested money</h6></div>
-                <div class="c-stats-information__inner__element text-center"><h5>4.5</h5><h6>Visit rating</h6></div>
-
+                <div class="c-stats-information__inner__element text-center"><h5>{{ visitedMuseums | length }}</h5><h6>Visited museums</h6></div>
+                {% set ticketsPrice = 0 %}
+                {% for ticket in tickets %}
+                    {% if ticket.hasCome %}
+                        {% set ticketsPrice = ticketsPrice +  (ticket.schedule.price * ticket.number) %}
+                    {% endif %}
+                {% endfor %}
+                <div class="c-stats-information__inner__element text-center"><h5>{{ ticketsPrice }} lv</h5><h6>Invested money</h6></div>
+                <div class="c-stats-information__inner__element text-center"><h5>{{ friend.visitRating }}</h5><h6>Visit rating</h6></div>
             </div>
 
         </div>
@@ -58,19 +63,70 @@
     <div class="mx-auto justify-content-center row c-fancy-cards-container">
         <h3 class="col-12 text-center">Favorite museum </h3>
         <hr class="col-2 mx-auto m-3">
-        <div class="  col-11 c-fancy-card">
-            <div class=" c-fancy-card__user">
-                <img class="c-fancy-card__image p-0 " src="{{asset("images/museums/"~bestReview.museum.image) }}" alt="">
-                <div class=" c-fancy-card__name"><h5>{{ bestReview.museum.museumName }}</h5></div>
-            </div>
-            <div class=" c-fancy-card__text">
-                <div class="row justify-content-between px-3"><h5>Review Date: {{ bestReview.Date | date('m/d/Y') }} </h5></div>
-                <h5>Your Review: {{ bestReview.Text   }}</h5>
+        {% if bestReview != null %}
+            <div class="  col-11 c-fancy-card">
+                <div class=" c-fancy-card__user">
+                    <img class="c-fancy-card__image p-0 " src="{{asset("images/museums/"~bestReview.museum.image) }}" alt="">
+                    <div class=" c-fancy-card__name"><h5>{{ bestReview.museum.museumName }}</h5></div>
+                </div>
+                <div class=" c-fancy-card__text">
+                    <div class="row justify-content-between px-3"><h5>Review Date: {{ bestReview.Date | date('m/d/Y') }} </h5></div>
+                    <h5>Your Review: {{ bestReview.Text   }}</h5>
+
+                </div>
+                <div class=" c-fancy-card__information--left">Your rating: {{ bestReview.rating }}</div>
+                <div class="c-fancy-card__information--right">Museum Rating: {{ bestReview.museum.rating }}</div>
 
             </div>
-            <div class=" c-fancy-card__information--left">Your rating: {{ bestReview.rating }}</div>
-            <div class="c-fancy-card__information--right">Museum Rating: {{ bestReview.museum.rating }}</div>
+            {% else  %}
+            <div class="col-12 text-center"><h5>This user dont have favourite museum</h5></div>
+        {% endif %}
 
+    </div>
+
+    <div class="container col-12">
+        <div class="text-center row col-12  m-2">
+            <h3 class="col-12 ">Visited museums</h3>
+
+
+            {% for ticket in tickets %}
+                {% if ticket.hasCome %}
+
+
+                    <div class="col-12 col-md-6 col-lg-6 mt-4">
+                        <div class="  col-11 c-fancy-card">
+                            <div class=" c-fancy-card__user">
+                                <img class="c-fancy-card__image p-0 " src="{{asset("images/museums/"~ticket.schedule.museum.image) }}" alt="">
+                                <div class=" c-fancy-card__name"><h5>
+                                        <a href="{{ path('tour_operator_museumView', {"id": ticket.schedule.museum.id}) }}">
+                                            {{ ticket.schedule.museum.museumName }}
+                                        </a></h5></div>
+                            </div>
+                            <div class=" c-fancy-card__text">
+                                <div class="text-left px-3">
+                                    <h5>Bought tickets: {{ticket.number }} tickets</h5>
+                                    <h5> Reserved Date: {{ ticket.reservedDate| date('d/m/Y') }}</h5>
+                                    <h5> Hour: {{ ticket.schedule.startTime |date('H:i') }} - {{ ticket.schedule.endTime|date('H:i') }}</h5>
+                                </div>
+
+                            </div>
+
+                            {#                        <div class="c-fancy-card__information--right">Museum Rating: {{ bestReview.museum.rating }}</div>#}
+
+
+                        </div>
+
+                    </div>
+
+
+
+
+
+                {% endif %}
+            {% else %}
+                <div class="col-12 text-center"><h5>This user dont have visited museum</h5></div>
+
+            {% endfor %}
         </div>
 
     </div>

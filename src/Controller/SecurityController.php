@@ -16,10 +16,14 @@ class SecurityController extends AbstractController
     {
         if ($this->isGranted('ROLE_MUSEUM')) {
             return $this->redirectToRoute('museum');
-        }elseif ($this->isGranted('ROLE_TOUROPERATOR')){
+        }else if ($this->isGranted('ROLE_TOUROPERATOR')){
             return $this->redirectToRoute('tour_operator');
         }
-      
+
+        if ($this->isGranted('ROLE_ADMIN')){
+            return $this->redirectToRoute('adminHome');
+        }
+
         // if ($this->getUser()) {
         //     return $this->redirectToRoute('target_path');
         // }
