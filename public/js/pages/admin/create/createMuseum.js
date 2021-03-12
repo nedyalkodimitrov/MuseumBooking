@@ -14,6 +14,7 @@ $('.btn').on('click', function (){
     console.log(data);
     let result = ajaxRequest('POST', '/admin/createMuseumAction', data );
     console.log(result);
+    location.reload();
 
 
 });

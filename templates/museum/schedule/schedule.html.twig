@@ -66,14 +66,14 @@
         <div class="c-hidden-container__form " >
             <h3 class="text-center c-hidden-container__form__text" id="day"></h3>
             <div class="row">
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <div class="input-group  ">
                         <label for="inputEmail">Start hour</label>
                         <input type="time"  placeholder="17:00" name="startHour" id="startHour" class="c-input c-input--expand-effect" required >
                         <span class="focus-border"></span>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-12  col-md-6">
                     <div class="input-group">
                         <label for="inputEmail">End hour</label>
                         <input type="time" max="11:59" placeholder="18:00" name="endHour" id="endHour" class="c-input c-input--expand-effect" required >
@@ -99,7 +99,7 @@
         <div class="c-hidden-container--buttons " >
             <input type="hidden" class="id">
             <h4 class="c-hidden-container--buttons__header-text ">Искате ли да изтриете разписанието?</h4>
-            <button class="c-button c-hidden-container--buttons__delete-btn" id="deleteSchedule">Изтриване</button>
+            <button class="c-button c-hidden-container--buttons__delete-btn " id="deleteSchedule">Изтриване</button>
             <button class="c-button c-hidden-container--buttons__close-btn ">Затваряне</button>
             <input type="hidden">
             <input type="hidden">
@@ -168,10 +168,12 @@
                     $('.c-hidden-container__button').disable = true;
 
                     let type = "POST";
-                    let url = "/museum/createSchedule";
+                    let url = "/public/museum/createSchedule";
                     let data = {'startTime': startHour, 'endTime': endHour, 'dayName': day, 'price': price};
 
                     console.log(ajaxRequest(type, url, data));
+                    location.reload();
+
 
                 });
 
@@ -185,10 +187,12 @@
 
                     $('#deleteSchedule').on('click', function () {
                         let type = "POST";
-                        let url = "/museum/deleteSchedule";
+                        let url = "/public/museum/deleteSchedule";
                         let data = {"scheduleId": id};
 
                         console.log(ajaxRequest(type, url, data));
+                        location.reload();
+
                     });
 
                 });

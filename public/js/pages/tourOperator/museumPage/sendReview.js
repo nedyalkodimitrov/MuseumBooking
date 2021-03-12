@@ -3,7 +3,7 @@ $('.c-tourOperator-museum-feedback-form__sendBtn').on('click', function (){
     var text = $('.c-tourOperator-museum-feedback-form__textarea').val();
     var museumId = $('.museumId').val();
 
-    var url = "/tourOperator/makeReview";
+    var url = "/public/tourOperator/makeReview";
     var type = 'POST';
     var data = {'text': text, 'rating' : rating, 'museumId' : museumId};
 

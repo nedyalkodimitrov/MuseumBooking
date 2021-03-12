@@ -9,7 +9,7 @@ function onDateChangeAction(museumId, date ){
     var day = date.split('/')[0];
 
     var data = {'museumId': museumId, 'date' : date};
-    let result = ajaxRequest('POST', '/tourOperator/getSchedulesByDate', data );
+    let result = ajaxRequest('POST', '/public/tourOperator/getSchedulesByDate', data );
 
     $('.ticket-reserve-container').css('transition', '0.3s');
     $('.ticket-reserve-container').css('transform', 'translateY(100%)');

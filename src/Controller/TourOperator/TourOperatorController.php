@@ -102,7 +102,7 @@ class TourOperatorController extends AbstractController
         }
         $tourOperatorTickets = $ticketRepository->getTourOperatorTicketsOrdered($tourOperator->getId(), $id);
 
-        $museumReviews = $museumReviewsRepository->findBy(['id' => $id],array(), 4);
+        $museumReviews = $museumReviewsRepository->findBy(['museum' => $id],array(), 4);
 
 
         return $this->render('tour_operator/museum/museum.html.twig', [

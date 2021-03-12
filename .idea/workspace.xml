@@ -3,34 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="849987b0-80f0-4d98-9254-bdbd26928508" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-fancy-card.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/components-fancy-card.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-fancy-card.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/components-fancy-card.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-fancy-card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/components-fancy-card.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-navbar-search.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/components-navbar-search.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-navbar-search.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/components-navbar-search.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-navbar-search.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/components-navbar-search.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/components/navbarStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/components/navbarStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/components/navbarStyle.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/components/navbarStyle.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/components/navbarStyle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/components/navbarStyle.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/pages/museum/particles/slideshow.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/pages/museum/particles/slideshow.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/particles/slidshow.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/particles/slidshow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/GeneralController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GeneralController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/components/components-search.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/components/components-search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/pages/admin/create/createMuseum.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/admin/create/createMuseum.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/pages/museum/homePage/userHasCome.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/museum/homePage/userHasCome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/pages/museum/homePage/userHasNotCome.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/museum/homePage/userHasNotCome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/pages/museum/tourists/onDateChangeAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/museum/tourists/onDateChangeAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/pages/tourOperator/home/cancellationAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/home/cancellationAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/pages/tourOperator/museumPage/onDateChangeAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/museumPage/onDateChangeAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/pages/tourOperator/museumPage/reservationBtnAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/museumPage/reservationBtnAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/pages/tourOperator/museumPage/sendReview.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/museumPage/sendReview.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Museum/MuseumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Museum/MuseumController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Museum/MuseumPostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Museum/MuseumPostController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/TourOperator/TourOperatorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TourOperator/TourOperatorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/TicketRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TicketRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/TourOperatorRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TourOperatorRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/tourOperatorService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/tourOperatorService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/general/museumProfile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/general/museumProfile.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/general/tourOperatorProfile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/general/tourOperatorProfile.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/museum/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/museum/schedule/schedule.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/schedule/schedule.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/museum/settings/settings.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/settings/settings.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/museum/stats/stats.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/stats/stats.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/museum/tourists/tourists.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/tourists/tourists.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/tour_operator/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour_operator/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/tour_operator/museum/museum.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour_operator/museum/museum.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/tour_operator/museum/visitedMuseums.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour_operator/museum/visitedMuseums.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/tour_operator/tourists/tourists.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour_operator/tourists/tourists.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tour_operator/settings/settings.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour_operator/settings/settings.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -381,7 +374,11 @@
       <workItem from="1614582024404" duration="12333000" />
       <workItem from="1614712124922" duration="703000" />
       <workItem from="1614757849584" duration="11875000" />
-      <workItem from="1614793221042" duration="622000" />
+      <workItem from="1614793221042" duration="4943000" />
+      <workItem from="1614831846053" duration="753000" />
+      <workItem from="1614881204677" duration="5643000" />
+      <workItem from="1614921355156" duration="3327000" />
+      <workItem from="1615572400511" duration="1197000" />
     </task>
     <servers />
   </component>

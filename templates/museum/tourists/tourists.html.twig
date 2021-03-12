@@ -15,7 +15,7 @@
 {% block body %}
     <div class="container col-12 row mx-auto justify-content-center">
         <div class="row">
-            <div class="calendar col-11 mx-auto mt-2">
+            <div class="calendar col-12 p-0 m-0 mx-auto mt-2">
                 <div>
                     <div class="card-header">
                         <ul>
@@ -53,6 +53,7 @@
         {% set tourists = 0 %}
         {% for schedule in schedules %}
             {% for ticket in schedule.tickets %}
+
                 {% set tourists = tourists + 1 %}
                 <div class="col-6 container m-auto tourist-card">
                     <div class="col-12 c-visitor-card row">

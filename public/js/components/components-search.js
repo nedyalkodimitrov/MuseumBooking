@@ -27,7 +27,7 @@ $(document).ready(function () {
         console.log(searchObj);
         $.ajax({
             type: "GET",
-            url: "/searchEngine/" + searchObj ,
+            url: "/public/searchEngine/" + searchObj ,
             async:false,
 
         })
@@ -54,8 +54,8 @@ $(document).ready(function () {
                 //create a table with a new data
               if (museumsSearchResult[0] != null){
                   for (let i = 0; i < museumsSearchResult.length; i++) {
-                      dataToAppend +=" <a href =\"/general/museumsProfile/"+  museumsSearchResult[i][4] +"\"> <div class=\"c-navbar-search__result\">\n" +
-                          "                <img src=\"../images/museums/"+ museumsSearchResult[i][0]+"\" alt=\"asdsa\" class=\"c-navbar-search__result__image\">\n" +
+                      dataToAppend +=" <a href =\"/public/general/museumsProfile/"+  museumsSearchResult[i][4] +"\"> <div class=\"c-navbar-search__result\">\n" +
+                          "                <img src=\"/public/images/museums/"+ museumsSearchResult[i][0]+"\" alt=\"asdsa\" class=\"c-navbar-search__result__image\">\n" +
                           "                <h5 class=\"c-navbar-search__result__name\">"+ museumsSearchResult[i][1]+"</h5>\n" +
                           "                <h5 class=\"c-navbar-search__result__city\">"+ museumsSearchResult[i][2] +"</h5>\n" +
                           "                <h5 class=\"c-navbar-search__result__city\">Rating: "+ museumsSearchResult[i][3] +"</h5>\n" +
@@ -68,8 +68,8 @@ $(document).ready(function () {
 
                 if (tourOperatorSearchResult[0] != null){
                     for (let i = 0; i < tourOperatorSearchResult.length; i++) {
-                        dataToAppend +=" <a href =\"/general/tourOperator/" +tourOperatorSearchResult[i][4]+"\"><div class=\"c-navbar-search__result\">\n" +
-                            "                <img src=\"../images/tourOperator/"+ tourOperatorSearchResult[i][0] +"\" alt=\"asdsa\" class=\"c-navbar-search__result__image\">\n" +
+                        dataToAppend +=" <a href =\"/public/general/tourOperator/" +tourOperatorSearchResult[i][4]+"\"><div class=\"c-navbar-search__result\">\n" +
+                            "                <img src=\"/public/images/tourOperator/"+ tourOperatorSearchResult[i][0] +"\" alt=\"asdsa\" class=\"c-navbar-search__result__image\">\n" +
                             "                <h5 class=\"c-navbar-search__result__name\">"+ tourOperatorSearchResult[i][1]+"</h5>\n" +
                             "                <h5 class=\"c-navbar-search__result__city\">"+ tourOperatorSearchResult[i][2]+"</h5>\n" +
                             "                <h5 class=\"c-navbar-search__result__city\">Rating: "+ tourOperatorSearchResult[i][3]+"</h5>\n" +

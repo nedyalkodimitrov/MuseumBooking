@@ -5,7 +5,7 @@ function onDateChangeAction( date ){
     var data = { 'date' : date};
 
     console.log(data);
-    let result = ajaxRequest('POST', '/museum/getTouristsByDate', data );
+    let result = ajaxRequest('POST', '/public/museum/getTouristsByDate', data );
 
     $('.ticket-reserve-container').css('transition', '0.3s');
     $('.ticket-reserve-container').css('transform', 'translateY(100%)');
@@ -18,7 +18,7 @@ function onDateChangeAction( date ){
     if (result.length > 0){
 
         // result = JSON.parse(result);
-        console.log(result.length);
+        console.log(result);
         for (var i = 0; i < result.length; i++){
             console.log(result);
 
@@ -29,7 +29,7 @@ function onDateChangeAction( date ){
                 '                           <h4>'+result[i][1]+ ' - '+ result[i][2]+'</h4>\n' +
                 '                       </div>\n' +
                 '                       <div class="c-visitor-card__image-container col-4 ">\n' +
-                '                           <img src="../../../../images/user-profile-image.jpg") }}" alt="">\n' +
+                '                           <img src="/public/images/tourOperator/'+result[i][7]+' " alt="">\n' +
                 '                       </div>\n' +
                 '                       <div class="c-visitor-card__credential col-8">\n' +
                 '                           <div class="c-visitor-card__credential__name">\n' +

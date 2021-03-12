@@ -121,7 +121,7 @@
         $('#saveAdditionalInformation').on('click', function (){
             var addInformation = $('.additionalInformation').val();
             let type = "POST";
-            let url = "/museum/additionInformationChange";
+            let url = "/public/museum/additionInformationChange";
             let data = {"additionalInformation": addInformation};
 
             console.log(ajaxRequest(type, url, data));

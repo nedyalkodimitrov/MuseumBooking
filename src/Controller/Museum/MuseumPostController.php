@@ -160,6 +160,7 @@ class MuseumPostController extends AbstractController
               array_push( $tourist, $tourists[$i]->getTourOperator()->getName());
               array_push( $tourist, $tourists[$i]->getTourOperator()->getFName());
               array_push( $tourist, $tourists[$i]->getTourOperator()->getVisitRating());
+              array_push( $tourist, $tourists[$i]->getTourOperator()->getImage());
               array_push( $touristsInfo, $tourist);
           }
 

@@ -144,6 +144,28 @@ class MuseumController extends AbstractController
         $mostVisitSchedule = $statsService->getMostVisitedHour($museum->getId(), $scheduleRepository, $dayRepository);
         $mostVisitDay = $statsService->getMostVisitedDay($museum->getId(), $scheduleRepository, $dayRepository);
 
+        $days = $dayRepository->findAll();
+
+        $touristsCount = 0;
+        $profit = 0;
+        foreach ($days as $day){
+
+            $schedules = $scheduleRepository->findBy(['museum' => $museum->getId(), 'day' => $day->getId()]);
+
+            foreach ($schedules as $schedule){
+                $tickets = $schedule->getTickets();
+
+               foreach ($tickets as $ticket){
+                   if ($ticket->getHasCome()){
+                       $touristsCount++;
+                       $profit += $schedule->getPrice();
+                   }
+               }
+
+            }
+
+        }
+
         return $this->render('museum/stats/stats.html.twig', [
             'controller_name' => 'MuseumController',
             'reviews' => $reviews,
@@ -153,7 +175,8 @@ class MuseumController extends AbstractController
             'daysVisitors' => $daysVisitors,
             'mostVisitSchedule' => $mostVisitSchedule,
             'mostVisitDay' => $mostVisitDay,
-
+            'touristsCount' => $touristsCount,
+            'profit' => $profit
 
         ]);
     }
