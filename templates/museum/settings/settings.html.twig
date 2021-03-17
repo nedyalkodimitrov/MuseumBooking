@@ -1,4 +1,5 @@
 {% extends 'museum/museumBase.html.twig' %}
+{% block title %}Museum Booking | Settings{% endblock %}
 {% block stylesheets %}
 
     <link rel="stylesheet" href="{{ asset("css/06-components/components-schedules-card.css") }}">
@@ -6,7 +7,6 @@
     <link rel="stylesheet" href="{{ asset("css/06-components/components-settings-museum-summary-information.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-map.css") }}">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
     <link rel="stylesheet" href="{{ asset("css/06-components/components-slider.css") }}">
     <link rel="stylesheet" href="{{ asset("css/pages/museum/settingsPage/settingsPageStyle.css") }}">
     <script
@@ -69,7 +69,7 @@
             <div class="c-settings-museum-summary-information col-12 col-lg-12">
                 <div><h2 class="text-center">Please add additional information about you museum</h2></div>
                 <textarea class="form-control additionalInformation"  name="" id=""  value="{{ museum.additionalInformation }}">{{ museum.additionalInformation }}</textarea>
-
+                <input type="hidden" value="{{ museum.additionalInformation }}" class="textareaInfo">
                 <div class="col-12 row  p-0 mt-3     justify-content-around">
                     <button disabled="true" class="col-5 btn btn-danger textarea-btn textarea-btn-decline">Отказ</button>
                     <button disabled="true" class="col-5 btn btn-success textarea-btn textarea-btn-update" id="saveAdditionalInformation">Запазване</button>
@@ -85,55 +85,18 @@
         <style>.mapouter{position:relative;text-align:right;}.gmap_canvas {overflow:hidden;background:none!important; width: 100%}</style>
 
     </div>
+
+
     <script src="{{ asset("js/museum/homePage/slideshow.js") }}" ></script>
+    <script src="{{ asset("js/pages/museum/settings/formSubmitter.js") }}" ></script>
+    <script src="{{ asset("js/pages/museum/settings/saveAdditionalInformation.js") }}" ></script>
+    <script src="{{ asset("js/pages/museum/settings/textareaActions.js") }}" ></script>
     <script src="{{ asset("js/components/components-slider.js") }}" ></script>
     <script src="{{ asset("js/components/components-ajax.js") }}" crossorigin="anonymous"></script>
 
-    <script>
-        let textareaValue = null;
-
-        $(document).ready( function (){
-          textareaValue = $('textarea').val();
-
-        });
-
-        $('textarea').on("keypress", function (){
-            $('.textarea-btn').removeAttr("disabled");
-            console.log(2)
-        });
-
-        $('.textarea-btn-decline').on('click', function (){
-           $('textarea').val(textareaValue);
-            $('.textarea-btn').attr("disabled", "disabled");
-
-        });
 
 
 
-        $('#form_image').on("change", function (){
-            $('form').submit();
-        });
-        //
-        // $('.slider__slides-container__slide__upload-image').on("change"){
-        //     $
-        // }
-
-        $('#saveAdditionalInformation').on('click', function (){
-            var addInformation = $('.additionalInformation').val();
-            let type = "POST";
-            let url = "/public/museum/additionInformationChange";
-            let data = {"additionalInformation": addInformation};
-
-            console.log(ajaxRequest(type, url, data));
-            $('.textarea-btn').attr("disabled", "disabled");
-            textareaValue = addInformation;
-        });
-
-    </script>
-
-    {% block javascript %}
-
-    {% endblock %}
 
 
 {% endblock %}

@@ -112,94 +112,17 @@
     {% block javascripts %}
         <script src="{{ asset("js/components/components-hidden-container.js") }}" crossorigin="anonymous"></script>
         <script src="{{ asset("js/components/components-ajax.js") }}" crossorigin="anonymous"></script>
+        <script src="{{ asset("js/pages/museum/schedules/scheduleActions/addSchedule.js") }}" crossorigin="anonymous"></script>
+        <script src="{{ asset("js/pages/museum/schedules/scheduleActions/deleteSchedule.js") }}" crossorigin="anonymous"></script>
+        <script src="{{ asset("js/pages/museum/schedules/validation/hourValidation.js") }}" crossorigin="anonymous"></script>
+        <script src="{{ asset("js/pages/museum/schedules/containersManager.js") }}" crossorigin="anonymous"></script>
+        <script src="{{ asset("js/components/components-ajax.js") }}" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
-                openContainer("c-add-schedule__button", "hidden-container-monday");
-                openContainer("c-button--danger", "hidden-container-delete-schedule");
-                closeContainer("c-hidden-container__close-button", "hidden-container-monday");
-                closeContainer("c-hidden-container__close-button", "hidden-container-delete-schedule");
-
-                $('#endHour').on('focusout', function (){
-                   var endHour = $('#endHour').val();
-                   var startHour = $('#startHour').val();
-
-                   if (endHour == ''){
-                       return;
-                   }
-
-                   if (endHour <= startHour ){
-                        $('#endHour').value == ""
-                       iziToast.warning({
-                           title: 'Warning',
-                           message: 'Start time has to be earlier than end time',
-                           position: 'center',
-                           timeout: 5000,
-
-                       });
-                   }
-
-                   console.log(typeof(endHour));
-                   if (endHour == "24:00"){
-                       $('#endHour').value == "";
-                       // iziToast.show({
-                       //     title: 'Warning!',
-                       //     message: 'End time has to be earlier than 24:00',
-                       //     position: 'center',
-                       //     timeout: 3000,
-                       //     close: true,
-                       //     closeOnEscape: true,
-                       //     closeOnClick: true,
-                       //     transitionIn: 'flipInX',
-                       //     transitionOut: 'flipOutX',
-                       // });
-                   }
-
-                });
-
+            //change the day text in hidden box respectively by selected date
                 $('.c-add-schedule__button').on('click', function (){
                     $(".c-hidden-container__form__text").text($(this).val());
                 });
-
-                $('.createScheduleBtn').on('click', function () {
-                    var startHour = $("#startHour").val();
-                    var endHour = $("#endHour").val();
-                    var day = $("#day").text();
-                    var price = $('#price').val();
-                    $('.c-hidden-container__button').disable = true;
-
-                    let type = "POST";
-                    let url = "/public/museum/createSchedule";
-                    let data = {'startTime': startHour, 'endTime': endHour, 'dayName': day, 'price': price};
-
-                    console.log(ajaxRequest(type, url, data));
-                    location.reload();
-
-
-                });
-
-
-
-        //has to make a delete option
-
-                $('.c-button--danger').on('click', function () {
-
-                    var id = $(this).val();
-
-                    $('#deleteSchedule').on('click', function () {
-                        let type = "POST";
-                        let url = "/public/museum/deleteSchedule";
-                        let data = {"scheduleId": id};
-
-                        console.log(ajaxRequest(type, url, data));
-                        location.reload();
-
-                    });
-
-                });
-
-
-
-
         </script>
     {% endblock %}
 

@@ -59,23 +59,6 @@
 
 
     <script>
-        let textareaValue = null;
-
-        $(document).ready( function (){
-            textareaValue = $('textarea').val();
-
-        });
-
-        $('textarea').on("keypress", function (){
-            $('.textarea-btn').removeAttr("disabled");
-            console.log(2)
-        });
-
-        $('.textarea-btn-decline').on('click', function (){
-            $('textarea').val(textareaValue);
-            $('.textarea-btn').attr("disabled", "disabled");
-
-        });
 
 
 

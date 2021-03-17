@@ -2,27 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="849987b0-80f0-4d98-9254-bdbd26928508" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/js/pages/museum/schedules/containersManager.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/museum/schedules/scheduleActions/addSchedule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/museum/schedules/scheduleActions/deleteSchedule.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/museum/schedules/validation/hourValidation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/museum/settings/formSubmitter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/museum/settings/saveAdditionalInformation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/museum/settings/textareaActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/components/navbarStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/components/navbarStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/components/navbarStyle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/components/navbarStyle.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/components/components-search.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/components/components-search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/pages/admin/create/createMuseum.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/admin/create/createMuseum.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/pages/museum/homePage/userHasCome.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/museum/homePage/userHasCome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/pages/museum/homePage/userHasNotCome.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/museum/homePage/userHasNotCome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/pages/museum/tourists/onDateChangeAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/museum/tourists/onDateChangeAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/pages/tourOperator/home/cancellationAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/home/cancellationAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/pages/tourOperator/museumPage/onDateChangeAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/museumPage/onDateChangeAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/pages/tourOperator/museumPage/reservationBtnAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/museumPage/reservationBtnAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/pages/tourOperator/museumPage/sendReview.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/museumPage/sendReview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Museum/MuseumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Museum/MuseumController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Museum/MuseumPostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Museum/MuseumPostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/TourOperator/TourOperatorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TourOperator/TourOperatorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/general/museumProfile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/general/museumProfile.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/museum/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/home/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/museum/schedule/schedule.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/schedule/schedule.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/museum/settings/settings.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/settings/settings.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/museum/stats/stats.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/stats/stats.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/museum/tourists/tourists.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/tourists/tourists.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/tour_operator/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour_operator/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/search/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tour_operator/museum/museum.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour_operator/museum/museum.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/tour_operator/settings/settings.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour_operator/settings/settings.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,8 +43,8 @@
       <list>
         <option value="composer.json" />
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="SCSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -229,13 +222,17 @@
       <recent name="D:\Develpment\Symfony\MuseumBooking\templates\museum" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.PostControllerTest.testCreateMuseumAction">
+  <component name="RunManager" selected="PHPUnit.PostMuseumControllerTest">
     <configuration name="PostControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Controller\PostControllerTest" file="$PROJECT_DIR$/tests/Controller/PostControllerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="PostControllerTest.testCreateMuseumAction" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\Controller\PostControllerTest" file="$PROJECT_DIR$/tests/Controller/PostControllerTest.php" method="testCreateMuseumAction" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PostMuseumControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="App\Tests\PostMuseumControllerTest" file="$PROJECT_DIR$/tests/PostMuseumControllerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp">
@@ -249,6 +246,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.PostMuseumControllerTest" />
         <item itemvalue="PHPUnit.PostControllerTest.testCreateMuseumAction" />
         <item itemvalue="PHPUnit.PostControllerTest" />
       </list>
@@ -378,7 +376,8 @@
       <workItem from="1614831846053" duration="753000" />
       <workItem from="1614881204677" duration="5643000" />
       <workItem from="1614921355156" duration="3327000" />
-      <workItem from="1615572400511" duration="1197000" />
+      <workItem from="1615572400511" duration="2230000" />
+      <workItem from="1616008280573" duration="3203000" />
     </task>
     <servers />
   </component>

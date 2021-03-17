@@ -73,40 +73,6 @@
             </h4>
            </div>
        {% endfor %}
-
-{#       <div class="col-6 container m-auto ">#}
-{#           <div class="col-12 c-visitor-card row">#}
-{#               <div class="col-12 row c-visitor-card__first-page">#}
-{#                   <div class="col-12 c-visitor-card__hour">#}
-{#                       <h4>17:00-18:00</h4>#}
-{#                   </div>#}
-{#                   <div class="c-visitor-card__image-container col-4 ">#}
-{#                       <img src="{{asset("images/user-profile-image.jpg") }}" alt="">#}
-{#                   </div>#}
-{#                   <div class="c-visitor-card__credential col-8">#}
-{#                       <div class="c-visitor-card__credential__name">#}
-{#                           <h4>Иванела Стойлова</h4>#}
-{#                       </div>#}
-{#                       <div class="c-visitor-card__credential__booked-tickets">#}
-{#                           <h5>Резервирани билета - 21</h5>#}
-
-{#                       </div>#}
-
-{#                       <div class="c-visitor-card__credential__visit-rate">#}
-{#                           4.7/5#}
-{#                       </div>#}
-{#                   </div>#}
-{#               </div>#}
-{#               <div class="c-visitor-card__second-page">#}
-{#                   <h4>Потребителят посети ли музеят ви </h4>#}
-{#                   <button class="btn btn-success">Да</button>#}
-{#                   <button class="btn btn-danger">Не</button>#}
-{#               </div>#}
-
-{#           </div>#}
-
-{#       </div>#}
-
    </div>
 </div>
 
@@ -189,25 +155,25 @@
             var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
             chart.draw(data, options);
         }
-
-
-            var slideIndex = 1;
-            showDivs(slideIndex);
-
-            function plusDivs(n) {
-            showDivs(slideIndex += n);
-        }
-
-            function showDivs(n) {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            if (n > x.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = x.length}
-            for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-            x[slideIndex-1].style.display = "block";
-        }
+        //
+        //
+        //     var slideIndex = 1;
+        //     showDivs(slideIndex);
+        //
+        //     function plusDivs(n) {
+        //     showDivs(slideIndex += n);
+        // }
+        //
+        //     function showDivs(n) {
+        //     var i;
+        //     var x = document.getElementsByClassName("mySlides");
+        //     if (n > x.length) {slideIndex = 1}
+        //     if (n < 1) {slideIndex = x.length}
+        //     for (i = 0; i < x.length; i++) {
+        //     x[i].style.display = "none";
+        // }
+        //     x[slideIndex-1].style.display = "block";
+        // }
 
 
 
