@@ -2,21 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="849987b0-80f0-4d98-9254-bdbd26928508" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/js/pages/museum/schedules/containersManager.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/pages/museum/schedules/scheduleActions/addSchedule.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/pages/museum/schedules/scheduleActions/deleteSchedule.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/pages/museum/schedules/validation/hourValidation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/pages/museum/settings/formSubmitter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/pages/museum/settings/saveAdditionalInformation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/pages/museum/settings/textareaActions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/visitPage/visitPage.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Controller/PostMuseumControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.test" beforeDir="false" afterPath="$PROJECT_DIR$/.env.test" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MuseumBooking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MuseumBooking.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/general/museumProfile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/general/museumProfile.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/museum/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/museum/schedule/schedule.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/schedule/schedule.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/museum/settings/settings.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/settings/settings.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/search/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/tour_operator/museum/museum.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour_operator/museum/museum.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/tour_operator/settings/settings.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour_operator/settings/settings.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml.dist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GeneralController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GeneralController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Museum/MuseumPostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Museum/MuseumPostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Controller/PostControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/PostAdminControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/PostMuseumControllerTest.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,10 +51,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/Controller/Museum/MuseumPostController.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/Controller/Museum/MuseumController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Controller/Museum/MuseumPostController.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.1">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3.2">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
       <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
@@ -150,12 +149,14 @@
       <path value="$PROJECT_DIR$/vendor/twig/twig" />
       <path value="$PROJECT_DIR$/vendor/twig/extra-bundle" />
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
-      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
       <path value="$PROJECT_DIR$/vendor/friendsofphp/proxy-manager-lts" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge" />
       <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/vendor/php-webdriver/webdriver" />
+      <path value="$PROJECT_DIR$/vendor/symfony/panther" />
     </include_path>
   </component>
   <component name="ProblemsViewState">
@@ -190,7 +191,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="last_opened_file_path" value="C:/xampp/php/phpunit" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/Controller" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -203,16 +204,16 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="php.test.frameworks.configurable" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Develpment\Symfony\MuseumBooking\tests\Controller" />
       <recent name="D:\Develpment\Symfony\MuseumBooking\src\Controller" />
       <recent name="D:\Develpment\Symfony\MuseumBooking\templates\museum\tourists" />
       <recent name="D:\Develpment\Symfony\MuseumBooking\public\js\pages\museum" />
       <recent name="D:\Develpment\Symfony\MuseumBooking\public\images" />
-      <recent name="D:\Develpment\Symfony\MuseumBooking\public\images\tourOperator" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Develpment\Symfony\MuseumBooking\src\Controller\Admin" />
@@ -224,15 +225,15 @@
   </component>
   <component name="RunManager" selected="PHPUnit.PostMuseumControllerTest">
     <configuration name="PostControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Controller\PostControllerTest" file="$PROJECT_DIR$/tests/Controller/PostControllerTest.php" scope="Class" />
+      <TestRunner class="App\Tests\Controller\PostControllerTest" file="$PROJECT_DIR$/tests/Controller/PostAdminControllerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="PostControllerTest.testCreateMuseumAction" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\Controller\PostControllerTest" file="$PROJECT_DIR$/tests/Controller/PostControllerTest.php" method="testCreateMuseumAction" scope="Method" />
+      <TestRunner class="App\Tests\Controller\PostControllerTest" file="$PROJECT_DIR$/tests/Controller/PostAdminControllerTest.php" method="testCreateMuseumAction" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="PostMuseumControllerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="App\Tests\PostMuseumControllerTest" file="$PROJECT_DIR$/tests/PostMuseumControllerTest.php" scope="Class" />
+      <TestRunner class="App\Tests\PostMuseumControllerTest" coverage_engine="PHPDBG" file="$PROJECT_DIR$/tests/PostMuseumControllerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp">
@@ -377,7 +378,13 @@
       <workItem from="1614881204677" duration="5643000" />
       <workItem from="1614921355156" duration="3327000" />
       <workItem from="1615572400511" duration="2230000" />
-      <workItem from="1616008280573" duration="3203000" />
+      <workItem from="1616008280573" duration="4402000" />
+      <workItem from="1616045202521" duration="4218000" />
+      <workItem from="1616184487126" duration="2961000" />
+      <workItem from="1616225166609" duration="2891000" />
+      <workItem from="1616229572384" duration="2933000" />
+      <workItem from="1619083771852" duration="782000" />
+      <workItem from="1619545529828" duration="2585000" />
     </task>
     <servers />
   </component>

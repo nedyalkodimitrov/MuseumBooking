@@ -20,11 +20,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class MuseumPostController extends AbstractController
 {
     /**
-     * @Route("/museum/createSchedule", name="create-schedule")
+         * @Route("/museum/createSchedule", name="create-schedule", methods="POST")
      */
-    public function index(HttpFoundation\Request $request, DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
+    public function createSchedule(HttpFoundation\Request $request, DayRepository $dayRepository, ScheduleRepository $scheduleRepository, MuseumRepository $museumRepository)
     {
 
+        $museumId = $request->request->get("museumId");
         $startTimeStr = $request->request->get("startTime");
         $endTimeStr = $request->request->get("endTime");
         $dayName = $request->request->get("dayName");
@@ -34,7 +35,13 @@ class MuseumPostController extends AbstractController
         $endTime = new \DateTime($endTimeStr);
         $day = $dayRepository->findOneBy(["name" => $dayName]);
 
-        $museum = $this->getUser()->getMuseum();
+        if ($museumId == null){
+            $museum = $this->getUser()->getMuseum();
+
+        }else{
+            $museum = $museumRepository->find(intval($museumId));
+        }
+
         $schedulesForDay = $scheduleRepository->findBy(["day" => $day, "museum" => $museum]);
         if (count($schedulesForDay) > 6){
             return $this->json("Max");
@@ -46,7 +53,7 @@ class MuseumPostController extends AbstractController
         $schedule = new Schedule();
 
         $schedule->setDay($day);
-        $schedule->setMuseum($museum);
+        $schedule->setMuseum();
         $schedule->setStartTime($startTime);
         $schedule->setEndTime($endTime);
         $schedule->setPrice($price);
@@ -83,7 +90,7 @@ class MuseumPostController extends AbstractController
 
 
     /**
-     * @Route("/museum/userHasCome", name="user-has-come")
+     * @Route("/museum/userHasCome", name="user-has-come" , methods = {"POST"})
      */
     public function userHasCome(HttpFoundation\Request $request, TicketRepository  $ticketRepository, tourOperatorService  $tourOperatorService)
     {
@@ -113,7 +120,7 @@ class MuseumPostController extends AbstractController
 
 
     /**
-     * @Route("/museum/userHasNotCome", name="")
+     * @Route("/museum/userHasNotCome", name="", methods = {"POST"})
      */
     public function userHasNotCome(HttpFoundation\Request $request, TicketRepository  $ticketRepository, tourOperatorService $tourOperatorService)
     {
@@ -139,7 +146,7 @@ class MuseumPostController extends AbstractController
     }
 
     /**
-     * @Route("/museum/getTouristsByDate", name="getTouristsByDate")
+     * @Route("/museum/getTouristsByDate", name="getTouristsByDate", methods = {"POST"})
      */
     public function getTouristsByDate(HttpFoundation\Request $request, TicketRepository  $ticketRepository, tourOperatorService $tourOperatorService)
     {
@@ -165,14 +172,11 @@ class MuseumPostController extends AbstractController
           }
 
 
-
-
-
         return $this->json($touristsInfo );
     }
 
     /**
-     * @Route("/museum/additionInformationChange", name="changeAdditionalInformation")
+     * @Route("/museum/additionInformationChange", name="changeAdditionalInformation", methods = {"POST"})
      */
     public function additionalInformationChangeAction(HttpFoundation\Request $request)
     {

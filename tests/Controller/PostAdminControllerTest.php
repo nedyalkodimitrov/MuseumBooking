@@ -2,9 +2,11 @@
 
 
 namespace App\Tests\Controller;
+use phpDocumentor\Reflection\Types\Object_;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Response;
 
-class PostControllerTest extends WebTestCase
+class PostAdminControllerTest extends WebTestCase
 {
     public function testCreateMuseumAction()
     {
@@ -23,7 +25,7 @@ class PostControllerTest extends WebTestCase
         "password" : "test"'
         );
 
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertEquals(Response::HTTP_FOUND , $client->getResponse());
 
     }
 }

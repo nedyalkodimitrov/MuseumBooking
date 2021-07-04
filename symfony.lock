@@ -1,12 +1,15 @@
 {
-    "laminas/laminas-zendframework-bridge": {
-        "version": "1.1.1"
+    "php-webdriver/webdriver": {
+        "version": "1.10.0"
     },
-    "php": {
-        "version": "7.1"
-    },
-    "symfony/deprecation-contracts": {
-        "version": "v2.2.0"
+    "symfony/panther": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "93d9baa582d0a755cc9ef81bc38a921d5fa16973"
+        }
     },
     "symfony/phpunit-bridge": {
         "version": "5.1",
@@ -22,5 +25,8 @@
             "./phpunit.xml.dist",
             "./tests/bootstrap.php"
         ]
+    },
+    "symfony/test-pack": {
+        "version": "v1.0.7"
     }
 }

@@ -19,6 +19,23 @@ class GeneralController extends AbstractController
     const AdminImage = 'images/leader-image.jpg';
     const AdminUserName = 'The Leader';
 
+
+
+    /**
+     * @Route("/visitCard", name="visitCard")
+     */
+    public function visitCard( TourOperatorRepository $tourOperatorRepository,TicketRepository $ticketRepository,  tourOperatorService $tourOperatorService)
+    {
+
+         return $this->render('visitPage/visitPage.html.twig', [
+
+
+        ]);
+
+    }
+
+
+
     /**
      * @Route("/general/tourOperator/{profileId}", name="tourOperatorProfile")
      */
@@ -85,6 +102,15 @@ class GeneralController extends AbstractController
             'userImage' =>  $userImage,
             'museumReviews' => $museumReviews
         ]);
+    }
+
+
+    /**
+     * @Route("/general/test", name="test", methods="GET")
+     */
+    public function test(MuseumReviewsRepository  $museumReviewsRepository, TicketRepository  $ticketRepository, MuseumRepository $museumRepository,DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
+    {
+        return $this->json(2);
     }
 
     private function getUserCredentials(){
