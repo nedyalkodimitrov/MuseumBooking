@@ -1,0 +1,195 @@
+{% extends 'tour_operator/tourOperatorBase.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("css/06-components/tour-operator/trip/components-allTrips-trip-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/tour-operator/trip/components-header.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/tour-operator/trip/components-chosen-monuments.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/tour-operator/trip/components-friends-list.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-elements-mini-slider.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-hidden-container.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/05-objects/objects-element-cover.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/tour-operator/components-allMuseums-filter.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/components-hidden-search.css") }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+{% endblock %}
+{% block title %}{% endblock %}
+
+{% block body %}
+    <header class="col-12 c-trip-header  m-0">
+        <div class="col-12 c-trip-header__image p-0 m-0">
+            <img src="data:image/png;base64,{{ image }}" alt="">
+
+        </div>
+        <div class="col-12 o-element-cover p-0 m-0">
+
+        </div>
+
+        <div class="c-trip-header__text ">
+            <h1>{{ trip.name }}</h1>
+            <h3>{{ trip.startDate }} - {{ trip.endDate }}</h3>
+        </div>
+    </header>
+
+
+    <div class="col-10 mx-auto text-center mt-4 mb-2">
+        <h2>Приятели, с които ще споделите пътуването</h2>
+    </div>
+    <div class="c-trip-friends-list col-10 mx-auto row mb-5">
+        <div class="col-4 col-md-4 col-lg-2">
+            <button class="col-12 mx-auto c-trip-friends-list__add" id="show-tour-operator-search">
+                <div class="c-trip-friends-list__add__image-wrapper">
+                    <i class="fa fa-plus"><h4>Add Friend</h4></i>
+
+                </div>
+                <div class="c-trip-friends-list__friend__text">
+
+                </div>
+            </button>
+        </div>
+        {% for friend in trip.friends %}
+            <div class="col-4 col-md-4 col-lg-2">
+                <div class="col-12 mx-auto c-trip-friends-list__friend">
+                    <div class="c-trip-friends-list__friend__image-wrapper">
+                        <img src="{{ asset('/images/tourOperator/'~friend.image) }}" alt="">
+                        <div class="c-trip-friends-list__friend__image-wrapper__cover">
+                            <button class="btn col-12 c-trip-friends-list__friend__image-wrapper__cover__upperPart">View Profile</button>
+                            <button class="btn col-12 c-trip-friends-list__friend__image-wrapper__cover__bottomPart"><i class="fa fa-times"></i> </button>
+                        </div>
+
+                    </div>
+                    <div class="c-trip-friends-list__friend__text">
+                        <h4>{{ friend.Name }}</h4>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+    <div class="col-12 text-center mt-4 mb-2">
+        <h2>Избрани музей за посещение</h2>
+    </div>
+    <div class="c-elements-mini-slider">
+        <div class="c-elements-mini-slider__btn prev"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+        <div class="c-elements-mini-slider__btn next"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+        <div class="c-elements-mini-slider__container">
+            <button class="c-elements-mini-slider__container__slide c-elements-mini-slider__container__slide--add-element" id="show-museum-search">
+                <h4>Добави музей</h4>
+                <i class="fa fa-plus"></i>
+            </button>
+            {% for museum in trip.museums %}
+                <div class="c-elements-mini-slider__container__slide">
+                    <div class="c-elements-mini-slider__container__slide__image">
+                        <img src="{{ asset('/images/museums/'~museum.image) }}" alt="">
+                    </div>
+                    <div class="c-elements-mini-slider__container__slide__text">
+                        <h4>{{ museum.museumname }}</h4>
+                    </div>
+                    <div class="col-12 o-element-cover p-0 m-0">
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="col-12 text-center mt-4 mb-2">
+        <h2>Избрани забелжеителности за посещение</h2>
+    </div>
+    <div class="c-elements-mini-slider">
+        <div class="c-elements-mini-slider__btn prev"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+        <div class="c-elements-mini-slider__btn next"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+        <div class="c-elements-mini-slider__container">
+            <button class="c-elements-mini-slider__container__slide c-elements-mini-slider__container__slide--add-element" id="show-landmarks-search">
+                <h4>Добави музей</h4>
+                <i class="fa fa-plus"></i>
+            </button>
+            {% for museum in trip.museums %}
+                <div class="c-elements-mini-slider__container__slide">
+                    <div class="c-elements-mini-slider__container__slide__image">
+                        <img src="{{ asset('/images/museums/'~museum.image) }}" alt="">
+                    </div>
+                    <div class="c-elements-mini-slider__container__slide__text">
+                        <h4>{{ museum.museumname }}</h4>
+                    </div>
+                    <div class="col-12 o-element-cover p-0 m-0">
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{#tour operators#}
+    <div class="col-12 c-hidden-search" id="tour-operator-search-container">
+        <div class="col-10 c-hidden-search__container">
+            <div class="c-allMuseums-filter col-12 row mx-auto p-0 ">
+                <div class="col-12 row mx-auto  c-allMuseums-filter__search">
+                    <input type="text" id="tour-operator-search" class="col-9 col-md-10 col-lg-11  m-0 c-allMuseums-filter__search__input" placeholder="Как се казва вашия приятел">
+                    <div class="col-1">  <button class="c-allMuseums-filter__search__button  m-0"><i class="fa fa-search"></i></button></div>
+                </div>
+
+            </div>
+             <div class="c-hidden-search__container__results col-12 row mx-auto p-0 " id="tour-operator-search-results">
+
+
+            </div>
+
+
+            <button class="c-hidden-search__container__close-button"><i class=" fa fa-times"></i></button>
+        </div>
+    </div>
+{#  museums #}
+    <div class="col-12 c-hidden-search" id="museums-search-container">
+        <div class="col-10 c-hidden-search__container">
+            <div class="c-allMuseums-filter col-12 row mx-auto p-0 ">
+                <div class="col-12 row mx-auto  c-allMuseums-filter__search">
+                    <input type="text" id="museum-search" class="col-9 col-md-10 col-lg-11  m-0 c-allMuseums-filter__search__input" placeholder="Музей?">
+                    <div class="col-1">  <button class="c-allMuseums-filter__search__button  m-0"><i class="fa fa-search"></i></button></div>
+                </div>
+
+            </div>
+             <div class="c-hidden-search__container__results col-12 row mx-auto p-0 " id="museums-search-results">
+
+
+            </div>
+
+
+            <button class="c-hidden-search__container__close-button"><i class=" fa fa-times"></i></button>
+        </div>
+    </div>
+
+{#    landmarks#}
+
+    <div class="col-12 c-hidden-search" id="landmarks-search-container">
+        <div class="col-10 c-hidden-search__container">
+            <div class="c-allMuseums-filter col-12 row mx-auto p-0 ">
+                <div class="col-12 row mx-auto  c-allMuseums-filter__search">
+                    <input type="text" id="landmarks-search" class="col-9 col-md-10 col-lg-11  m-0 c-allMuseums-filter__search__input" placeholder="Забележителност?">
+                    <div class="col-1">  <button class="c-allMuseums-filter__search__button  m-0"><i class="fa fa-search"></i></button></div>
+                </div>
+
+            </div>
+             <div class="c-hidden-search__container__results col-12 row mx-auto p-0 " id="landmarks-search-results">
+
+
+            </div>
+
+
+            <button class="c-hidden-search__container__close-button"><i class=" fa fa-times"></i></button>
+        </div>
+    </div>
+
+
+    <script src="{{ asset("js/components/components-elements-mini-slider.js") }}"></script>
+    <script src="{{ asset("js/pages/tourOperator/trip/visualiseSearch.js") }}"></script>
+    <script src="{{ asset("js/pages/tourOperator/trip/findLandMark.js") }}"></script>
+    <script src="{{ asset("js/pages/tourOperator/trip/findMuseum.js") }}"></script>
+    <script src="{{ asset("js/pages/tourOperator/trip/findTourOperator.js") }}"></script>
+    <script src="{{ asset("js/components/components-elements-mini-slider.js") }}"></script>
+    <script src="{{ asset("js/components/components-elements-mini-slider.js") }}"></script>
+
+{% endblock %}

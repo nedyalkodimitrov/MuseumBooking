@@ -1,0 +1,86 @@
+.c-trip-friends-list__friend, .c-trip-friends-list__add {
+  text-align: center;
+  padding-top: 100%;
+  width: 100%;
+  border: none;
+  background: rgba(255, 255, 255, 0);
+}
+.c-trip-friends-list__friend:focus, .c-trip-friends-list__add:focus {
+  outline: none;
+}
+.c-trip-friends-list__friend__image-wrapper, .c-trip-friends-list__add__image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.c-trip-friends-list__friend__image-wrapper img, .c-trip-friends-list__add__image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.c-trip-friends-list__friend__image-wrapper__cover, .c-trip-friends-list__add__image-wrapper__cover {
+  transition: 0.3s;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0%;
+  opacity: 0;
+  background: greenyellow;
+}
+.c-trip-friends-list__friend__image-wrapper__cover__upperPart, .c-trip-friends-list__friend__image-wrapper__cover__bottomPart, .c-trip-friends-list__add__image-wrapper__cover__upperPart, .c-trip-friends-list__add__image-wrapper__cover__bottomPart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  color: white;
+}
+.c-trip-friends-list__friend__image-wrapper__cover__upperPart button, .c-trip-friends-list__friend__image-wrapper__cover__bottomPart button, .c-trip-friends-list__add__image-wrapper__cover__upperPart button, .c-trip-friends-list__add__image-wrapper__cover__bottomPart button {
+  background: none;
+  border: none;
+}
+.c-trip-friends-list__friend__image-wrapper__cover__upperPart button:hover, .c-trip-friends-list__friend__image-wrapper__cover__bottomPart button:hover, .c-trip-friends-list__add__image-wrapper__cover__upperPart button:hover, .c-trip-friends-list__add__image-wrapper__cover__bottomPart button:hover {
+  color: white;
+}
+.c-trip-friends-list__friend__image-wrapper__cover__upperPart, .c-trip-friends-list__add__image-wrapper__cover__upperPart {
+  background: darkblue;
+}
+.c-trip-friends-list__friend__image-wrapper__cover__upperPart:hover, .c-trip-friends-list__add__image-wrapper__cover__upperPart:hover {
+  background: rgba(0, 0, 139, 0.8);
+  color: white;
+}
+.c-trip-friends-list__friend__image-wrapper__cover__bottomPart, .c-trip-friends-list__add__image-wrapper__cover__bottomPart {
+  background: darkred;
+}
+.c-trip-friends-list__friend__image-wrapper__cover__bottomPart:hover, .c-trip-friends-list__add__image-wrapper__cover__bottomPart:hover {
+  background: rgba(139, 0, 0, 0.8);
+  color: white;
+}
+.c-trip-friends-list__friend__image-wrapper__cover:hover, .c-trip-friends-list__add__image-wrapper__cover:hover {
+  opacity: 1;
+}
+.c-trip-friends-list__friend__text, .c-trip-friends-list__add__text {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 0.3em;
+  z-index: 100;
+  align-self: center;
+}
+.c-trip-friends-list__add__image-wrapper {
+  background: #636fa4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.c-trip-friends-list__add__image-wrapper i {
+  font-size: 1.4em;
+  color: white;
+}
+
+/*# sourceMappingURL=components-friends-list.css.map */

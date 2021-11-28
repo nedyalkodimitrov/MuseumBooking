@@ -11,68 +11,76 @@
 
 {% block body %}
     {{ parent() }}
-    <div class="tickets-container o-flex-container col-12 ">
-        <div class="text"> <h2>Last reserved tickets</h2></div>
-        <div class="tickets-wrapper row col-12 m-0 p-0 justify-content-center">
-
-               {% for ticket in tickets %}
-
-                      <div class="col-12 col-md-6 col-xl-5 c-fancy-card m-2 c-fancy-card--with-title">
-                           <div class="c-fancy-card__title">
-                                    <h4>
-                                        <a href="{{ path('tour_operator_museumView', {"id": ticket.schedule.museum.id}) }}">
-
-                                         {{ ticket.schedule.museum.museumName }}
-                                        </a>
-                                    </h4>
-                           </div>
-                           <div class=" c-fancy-card__user">
-                               <img class="c-fancy-card__image c-fancy-card__image--big" src="{{ asset('images/museums/'~ ticket.schedule.museum.image) }}" alt="">
-                               {#                                <div class=" c-fancy-card__name">{{ ticket.schedule.museum.museumName }}</div>#}
-
-                           </div>
-                           <div class=" c-fancy-card__text text-left"> Bought tickets: {{ticket.number }} tickets
-                               <br>
-                               Bought Date: {{ ticket.boughtDate| date('d/m/Y') }}
-                               <br>
-                               Reserved Date: {{ ticket.reservedDate| date('d/m/Y') }}
-                               <br>
-                               Hour: {{ ticket.schedule.startTime |date('H:i') }} - {{ ticket.schedule.endTime|date('H:i') }}
-                           </div>
-                           {#                            <div class="c-fancy-card__information--left">Reserved Date: {{ ticket.reservedDate| date('d/m/Y') }}</div>#}
-                           {#                            <div class=" c-fancy-card__information--right"></div>#}
-                           <div class=" text-center c-fancy-card__information">
-                               {% if ticket.reservedDate| date("Y-m-d") > "now"| date("Y-m-d") %}
-                                   <div class="c-fancy-card__button-holder">
-                                       <button class="cancellation-btn " value="{{ ticket.id }}">
-                                           <h6>Cancellation </h6>
-                                       </button>
-                                   </div>
-                               {% else  %}
-                                   {% if ticket.hasCome %}
-                                       <div class="c-fancy-card__check">
-                                           <button><i class="fas fa-check "></i></button>
-                                       </div>
-                                   {% else %}
-                                       <div class="c-fancy-card__missed">
-                                           <button><i class="fas fa-times "></i></button>
-                                       </div>
-                                   {% endif %}
 
 
+    <div class="col-12 mt-2">
+        <h2 class="col-12 text-center">Избрани музеи за вас</h2>
+        <div>
 
-                               {% endif %}
-                           </div>
-
-                       </div>
-
-               {% endfor %}
         </div>
     </div>
+{#    <div class="tickets-container o-flex-container col-12 ">#}
+{#        <div class="text"> <h2>Last reserved tickets</h2></div>#}
+{#        <div class="tickets-wrapper row col-12 m-0 p-0 justify-content-center">#}
+
+{#               {% for ticket in tickets %}#}
+
+{#                      <div class="col-12 col-md-6 col-xl-5 c-fancy-card m-2 c-fancy-card--with-title">#}
+{#                           <div class="c-fancy-card__title">#}
+{#                                    <h4>#}
+{#                                        <a href="{{ path('tour_operator_museumView', {"id": ticket.schedule.museum.id}) }}">#}
+
+{#                                         {{ ticket.schedule.museum.museumName }}#}
+{#                                        </a>#}
+{#                                    </h4>#}
+{#                           </div>#}
+{#                           <div class=" c-fancy-card__user">#}
+{#                               <img class="c-fancy-card__image c-fancy-card__image--big" src="{{ asset('images/museums/'~ ticket.schedule.museum.image) }}" alt="">#}
+{#                               #}{#                                <div class=" c-fancy-card__name">{{ ticket.schedule.museum.museumName }}</div>#}
+
+{#                           </div>#}
+{#                           <div class=" c-fancy-card__text text-left"> Bought tickets: {{ticket.number }} tickets#}
+{#                               <br>#}
+{#                               Bought Date: {{ ticket.boughtDate| date('d/m/Y') }}#}
+{#                               <br>#}
+{#                               Reserved Date: {{ ticket.reservedDate| date('d/m/Y') }}#}
+{#                               <br>#}
+{#                               Hour: {{ ticket.schedule.startTime |date('H:i') }} - {{ ticket.schedule.endTime|date('H:i') }}#}
+{#                           </div>#}
+{#                           #}{#                            <div class="c-fancy-card__information--left">Reserved Date: {{ ticket.reservedDate| date('d/m/Y') }}</div>#}
+{#                           #}{#                            <div class=" c-fancy-card__information--right"></div>#}
+{#                           <div class=" text-center c-fancy-card__information">#}
+{#                               {% if ticket.reservedDate| date("Y-m-d") > "now"| date("Y-m-d") %}#}
+{#                                   <div class="c-fancy-card__button-holder">#}
+{#                                       <button class="cancellation-btn " value="{{ ticket.id }}">#}
+{#                                           <h6>Cancellation </h6>#}
+{#                                       </button>#}
+{#                                   </div>#}
+{#                               {% else  %}#}
+{#                                   {% if ticket.hasCome %}#}
+{#                                       <div class="c-fancy-card__check">#}
+{#                                           <button><i class="fas fa-check "></i></button>#}
+{#                                       </div>#}
+{#                                   {% else %}#}
+{#                                       <div class="c-fancy-card__missed">#}
+{#                                           <button><i class="fas fa-times "></i></button>#}
+{#                                       </div>#}
+{#                                   {% endif %}#}
+
+
+
+{#                               {% endif %}#}
+{#                           </div>#}
+
+{#                       </div>#}
+
+{#               {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
     <hr class="col-4 mx-auto line">
     <div class="top-museum-container">
        <div class="text">
-           <h2>Top museums in Bulgaria</h2>
+           <h2>Най-посещаваните музеи в България</h2>
        </div>
 
         {% for museum in topMuseums %}
@@ -84,7 +92,7 @@
 
                   <div class="col-11">
                       <div class="c-top-museum-suggestion-card__information-container__museumName">
-                          <a href="{{ path('tour_operator_museumView', {"id": museum.id}) }}"> <h2>{{museum.museumName}}</h2></a>
+                          <a href="{{ path('tour_operator_show_museum', {"id": museum.id}) }}"> <h3>{{museum.museumName}}</h3></a>
                       </div>
                       <div class="c-top-museum-suggestion-card__information-container__presentation">
                           <h5>{{ museum.additionalInformation }}</h5>

@@ -1,0 +1,81 @@
+.c-hidden-search {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  transition: transform 0.6s ease;
+  transform: translateY(-100%);
+
+  &__container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: fit-content;
+    background-color: white;
+    border: 1px solid white;
+    padding: 1.5rem;
+    border-radius: 1em;
+
+    &__results{
+      min-height: 20em;
+
+
+      &__row{
+        align-items: center;
+        margin-top: 0.4em;
+        color: black;
+        padding: 1em;
+        border-radius: 1em;
+        transition: 0.3s;
+        text-decoration: none;
+        &:hover{
+          box-shadow: 0px 0px 10px 10px  grey;
+          text-decoration: none;
+
+        }
+
+        img{
+          width: 5em;
+          height: 5em;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+        button {
+          border-radius: 1em;
+          background: darkgreen;
+          color: white;
+
+        }
+
+      }
+    }
+
+
+    &__close-button {
+      transition: 0.2s;
+      position: absolute;
+      top: 1%;
+      right: 1%;
+      border: none;
+      background: rgba(0,0,0,0.0);
+      font-size: 1.8em;
+      color: #a50d0d;
+
+      &:hover{
+        transform: scale(1.2 );
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+
+  }
+
+
+
+}

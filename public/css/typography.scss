@@ -1,0 +1,75 @@
+@import '04-elements/elemets-headings';
+*{
+    padding: 0;
+    margin: 0;
+    font:inherit;
+}
+
+html {
+    font: 16px  'Lato', sans-serif;;
+    font-weight: 400;
+}
+body, form, input, select, option, p, a, span, table,thead, tbody,th, table th  {
+    font: inherit;
+
+}
+
+
+
+p {margin-bottom: 1rem;}
+
+h1, h2, h3, h4, h5 {
+ 
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1.30;
+}
+
+//h1 {
+//  margin-top: 0;
+//  font-size: 4.209rem;
+//}
+//
+//h2 {font-size: 3.157rem;}
+//
+//h3 {font-size: 2.369rem;}
+//
+//h4 {font-size: 1.777rem;}
+//
+//h5 {font-size: 1.333rem;}
+
+small, .text_small {font-size: 0.75rem;}
+
+
+blockquote  {
+    padding: 1em;
+    font-style: italic;
+    opacity: 0.8;
+    font-family: sans-serif;
+
+}
+
+blockquote p:last-child{
+    padding: 0;
+    padding-left: 35rem;
+}
+
+
+
+ @media only screen and (min-width: 600px) {
+     html {
+         font-size: 12px ;
+     }
+ }
+
+ @media only screen and (min-width: 800px) {
+     html {
+         font-size: 14px;
+     }
+ }
+
+ @media only screen and (min-width: 1024px) {
+     html {
+         font-size: 16px;
+     }
+ }

@@ -21,9 +21,9 @@ class MuseumController extends AbstractController
 {
     private const  ImagePath = "images/museums/";
     /**
-     * @Route("/museum", name="museum")
+     * @Route("/museum", name="museum_show_home")
      */
-    public function home(TicketRepository $ticketRepository, ScheduleRepository $scheduleRepository, DayRepository $dayRepository)
+    public function index(TicketRepository $ticketRepository, ScheduleRepository $scheduleRepository, DayRepository $dayRepository)
     {
         $museum = $this->getUser()->getMuseum();
         $museumId = $museum->getId();
@@ -64,9 +64,9 @@ class MuseumController extends AbstractController
     }
 
     /**
-     * @Route("/museum/settings", name="museums_settings")
+     * @Route("/museum/settings", name="museum_show_settings")
      */
-    public function museumSettings(Request $request,FileService $fileService)
+    public function showSettings(Request $request,FileService $fileService)
     {
         $museum = $this->getUser()->getMuseum();
         $images = $museum->getImages();
@@ -107,9 +107,9 @@ class MuseumController extends AbstractController
     }
 
     /**
-     * @Route("/museum/schedule", name="museum_schedule")
+     * @Route("/museum/schedule", name="museum_show_schedule")
      */
-    public function schedule(ScheduleRepository $scheduleRepository, DayRepository $dayRepository)
+    public function showSchedule(ScheduleRepository $scheduleRepository, DayRepository $dayRepository)
     {
         $museum = $this->getUser()->getMuseum();
         $schedule = [];
@@ -134,9 +134,9 @@ class MuseumController extends AbstractController
 
 
     /**
-     * @Route("/museum/stats", name="museum_stats")
+     * @Route("/museum/stats", name="museum_show_stats")
      */
-    public function stats(StatsService $statsService, ScheduleRepository $scheduleRepository, DayRepository $dayRepository)
+    public function showStats(StatsService $statsService, ScheduleRepository $scheduleRepository, DayRepository $dayRepository)
     {
         $museum = $this->getUser()->getMuseum();
         $reviews = $museum->getReviews();
@@ -182,9 +182,9 @@ class MuseumController extends AbstractController
     }
 
     /**
-     * @Route("/museum/tourists", name="museum_tourists")
+     * @Route("/museum/tourists", name="museum_show_tourists")
      */
-    public function tourists(ScheduleRepository $scheduleRepository, DayRepository $dayRepository)
+    public function showTourists(ScheduleRepository $scheduleRepository, DayRepository $dayRepository)
     {
         $museum = $this->getUser()->getMuseum();
         $reviews = $museum->getReviews();

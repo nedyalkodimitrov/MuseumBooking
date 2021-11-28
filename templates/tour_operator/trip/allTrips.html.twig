@@ -1,0 +1,32 @@
+{% extends 'tour_operator/tourOperatorBase.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("css/06-components/tour-operator/components-allTrips-trip-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/05-objects/objects-element-cover.css") }}">
+
+
+
+{% endblock %}
+{% block title %}{% endblock %}
+
+{% block body %}
+    <div class="col-12 row m-0 p-0 mt-4">
+        {% for key, trip in trips %}
+         <a href="{{ path('tour_operator_show_single_trip', {'id' : trip.id}) }}" class="col-6 c-allTrips-trip-card__link">
+             <div class="col-11 mx-auto c-allTrips-trip-card">
+                 <div class="col-12 c-allTrips-trip-card__name"><h3>{{ trip.name }}</h3></div>
+                 <div class="col-12 c-allTrips-trip-card__people"><h5>Участници: {{ trip.friends |length }}</h5></div>
+                 <div class="col-12 c-allTrips-trip-card__date">
+                     <h5>Дати: {{ trip.startDate }} - {{ trip.endDate }}</h5>
+
+                 </div>
+                 <div class="c-allTrips-trip-card__image">
+                     <img src="data:image/png;base64,{{ images[key] }}" alt="">
+                 </div>
+                 <div class="o-element-cover">
+                 </div>
+             </div>
+         </a>
+        {% endfor %}
+    </div>
+{% endblock %}

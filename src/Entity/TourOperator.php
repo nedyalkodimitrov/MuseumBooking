@@ -48,6 +48,15 @@ class TourOperator
     public  $tickets;
 
     /**
+     * @ORM\OneToMany(targetEntity="WishList", mappedBy="tourOperator")
+     */
+    public  $wishList;
+    /**
+     * @ORM\OneToMany(targetEntity="Trip", mappedBy="leader")
+     */
+    public  $trips;
+
+    /**
      * @ORM\Column(type="float")
      */
     public $visitRating;
@@ -214,6 +223,40 @@ class TourOperator
     {
         $this->image = $image;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getWishList()
+    {
+        return $this->wishList;
+    }
+
+    /**
+     * @param mixed $wishList
+     */
+    public function setWishList($wishList): void
+    {
+        $this->wishList = $wishList;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTrips()
+    {
+        return $this->trips;
+    }
+
+    /**
+     * @param mixed $trips
+     */
+    public function setTrips($trips): void
+    {
+        $this->trips = $trips;
+    }
+
+
 
 
 

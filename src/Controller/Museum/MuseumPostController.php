@@ -20,7 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MuseumPostController extends AbstractController
 {
     /**
-         * @Route("/museum/createSchedule", name="create-schedule", methods="POST")
+         * @Route("/museum/createSchedule", name="museum_create_schedule", methods="POST")
      */
     public function createSchedule(HttpFoundation\Request $request, DayRepository $dayRepository, ScheduleRepository $scheduleRepository, MuseumRepository $museumRepository)
     {
@@ -67,7 +67,7 @@ class MuseumPostController extends AbstractController
     }
 
     /**
-     * @Route("/museum/deleteSchedule", name="delete-schedule", methods={"POST"})
+     * @Route("/museum/deleteSchedule", name="museum_delete_schedule", methods={"POST"})
      */
     public function deleteSchedule(HttpFoundation\Request $request, DayRepository $dayRepository, ScheduleRepository $scheduleRepository)
     {
@@ -90,9 +90,9 @@ class MuseumPostController extends AbstractController
 
 
     /**
-     * @Route("/museum/userHasCome", name="user-has-come" , methods = {"POST"})
+     * @Route("/museum/userHasCome", name="museum_user_has_come" , methods = {"POST"})
      */
-    public function userHasCome(HttpFoundation\Request $request, TicketRepository  $ticketRepository, tourOperatorService  $tourOperatorService)
+    public function IsUserHasCome(HttpFoundation\Request $request, TicketRepository  $ticketRepository, tourOperatorService  $tourOperatorService)
     {
         $ticketId = $request->request->get("ticketId");
 
@@ -120,9 +120,9 @@ class MuseumPostController extends AbstractController
 
 
     /**
-     * @Route("/museum/userHasNotCome", name="", methods = {"POST"})
+     * @Route("/museum/userHasNotCome", name="museum_user_has_not_come", methods = {"POST"})
      */
-    public function userHasNotCome(HttpFoundation\Request $request, TicketRepository  $ticketRepository, tourOperatorService $tourOperatorService)
+    public function isUserHasNotCome(HttpFoundation\Request $request, TicketRepository  $ticketRepository, tourOperatorService $tourOperatorService)
     {
         $ticketId = $request->request->get("ticketId");
 
@@ -146,7 +146,7 @@ class MuseumPostController extends AbstractController
     }
 
     /**
-     * @Route("/museum/getTouristsByDate", name="getTouristsByDate", methods = {"POST"})
+     * @Route("/museum/getTouristsByDate", name="museum_get_tourists_by_date", methods = {"POST"})
      */
     public function getTouristsByDate(HttpFoundation\Request $request, TicketRepository  $ticketRepository, tourOperatorService $tourOperatorService)
     {
@@ -176,9 +176,9 @@ class MuseumPostController extends AbstractController
     }
 
     /**
-     * @Route("/museum/additionInformationChange", name="changeAdditionalInformation", methods = {"POST"})
+     * @Route("/museum/additionInformationChange", name="museum_change_additional_information", methods = {"POST"})
      */
-    public function additionalInformationChangeAction(HttpFoundation\Request $request)
+    public function updateAdditionalInformationChangeAction(HttpFoundation\Request $request)
     {
         $additionaInforamation = $request->request->get('additionalInformation');
 

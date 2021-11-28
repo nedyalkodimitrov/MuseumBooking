@@ -4,8 +4,8 @@
     <link rel="stylesheet" href="{{ asset("css/pages/museum/particles/navStyle.css") }}">
     <link rel="stylesheet" href="{{ asset("css/pages/museum/particles/slideshow.css") }}">
 {#    <link rel="stylesheet" href="{{ asset("css/pages/tourOperator/museum/museumPageStyle.css") }}">#}
-    <link rel="stylesheet" href="{{ asset("css/06-components/components-tourOperator-museumPage-museumInformation.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/06-components/components-schedule-visitor-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/tour-operator-museumPage-museumInformation.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/schedule-visitor-card.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-ticket-card.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-stats-museum-review.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-fancy-card.css") }}">
@@ -33,7 +33,7 @@
                          <div class=" c-fancy-card__user">
                              <img class="c-fancy-card__image p-0 " src="{{asset("images/museums/"~ticket.schedule.museum.image) }}" alt="">
                              <div class=" c-fancy-card__name"><h5>
-                                     <a href="{{ path('tour_operator_museumView', {"id": ticket.schedule.museum.id}) }}">
+                                     <a href="{{ path('tour_operator_show_museum', {"id": ticket.schedule.museum.id}) }}">
                                          {{ ticket.schedule.museum.museumName }}
                                      </a></h5></div>
                          </div>

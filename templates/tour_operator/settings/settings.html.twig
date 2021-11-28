@@ -1,9 +1,7 @@
 {% extends 'tour_operator/tourOperatorBase.html.twig' %}
 {% block stylesheets %}
     {{ parent() }}
-{#    <link rel="stylesheet" href="{{ asset("css/06-components/components-settings-drive-license-type.css") }}">#}
-    <link rel="stylesheet" href="{{ asset("css/06-components/components-settings-profile-image.css") }}">
-{#    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">#}
+    <link rel="stylesheet" href="{{ asset("css/06-components/settings/components-profile-header.css") }}">
     <link rel="stylesheet" href="{{ asset("css/pages/tourOperator/settings/settingPageStyle.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-slider.css") }}">
     <script src="{{ asset("js/components/components-ajax.js") }}"></script>
@@ -35,18 +33,18 @@
             </div>
             {{ form_start(form) }}
 
-            <div class="c-profile-image">
-                <label for="form_image" class="c-profile-image__image-container">
+            <div class="c-profile-header">
+                <label for="form_image" class="c-profile-header__image-container">
                     <img src="{{ asset(userImage) }}" alt="">
-                    <div class="c-profile-image__image-container__hover-container">
-                        <i class="fas fa-camera c-profile-image__image-container__hover-container__element"></i>
+                    <div class="c-profile-header__image-container__hover-container">
+                        <i class="fas fa-camera c-profile-header__image-container__hover-container__element"></i>
                     </div>
 
                 </label>
                 {{ form_widget(form.image, {'attr': {'class': 'c-profile-image__upload'}}) }}
 
-                <h3 class="c-profile-image__museum-name">{{ userFirstName }}</h3>
-                <h2 class="c-profile-image__museum-name">{{ userFamilyName }}</h2>
+                <h3 class="c-profile-header__name">{{ userFirstName }}</h3>
+                <h2 class="c-profile-header__name">{{ userFamilyName }}</h2>
             </div>
             {{ form_end(form) }}
        

@@ -51,7 +51,7 @@ class GeneralController extends AbstractController
 
         $visitedMuseums = $tourOperatorService->getVisitedMuseums($profileId, $ticketRepository, $tourOperatorRepository);
         return $this->render('general/tourOperatorProfile.html.twig', [
-            'controller_name' => 'TourOperatorController',
+            'controller_name' => 'Controller',
             'userName' => $userName,
             'userImage' => $userImage,
             'friend' => $tourOperatorFriend,
@@ -94,7 +94,7 @@ class GeneralController extends AbstractController
         $museumReviews = $museumReviewsRepository->findBy(['id' => $id],array(), 4);
 
         return $this->render('general/museumProfile.html.twig', [
-            'controller_name' => 'TourOperatorController',
+            'controller_name' => 'Controller',
             'museum' => $museum,
             'schedules' => $schedule,
             'tickets' => $tickets,

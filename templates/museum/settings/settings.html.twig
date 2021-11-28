@@ -2,9 +2,8 @@
 {% block title %}Museum Booking | Settings{% endblock %}
 {% block stylesheets %}
 
-    <link rel="stylesheet" href="{{ asset("css/06-components/components-schedules-card.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/06-components/components-settings-profile-image.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/06-components/components-settings-museum-summary-information.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/settings/components-profile-header.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/settings/settings-museum-summary-information.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-map.css") }}">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-slider.css") }}">
@@ -47,17 +46,17 @@
                 </div>
             {{ form_start(form) }}
 
-            <div class="c-profile-image">
-                <label for="form_image" class="c-profile-image__image-container">
+            <div class="c-profile-header">
+                <label for="form_image" class="c-profile-header__image-container">
                     <img src="{{ asset(userImage) }}" alt="">
-                    <div class="c-profile-image__image-container__hover-container">
-                        <i class="fas fa-camera c-profile-image__image-container__hover-container__element"></i>
+                    <div class="c-profile-header__image-container__hover-container">
+                        <i class="fas fa-camera c-profile-header__image-container__hover-container__element"></i>
                     </div>
 
                 </label>
-                {{ form_widget(form.image, {'attr': {'class': 'c-profile-image__upload'}}) }}
+                {{ form_widget(form.image, {'attr': {'class': 'c-profile-header__upload'}}) }}
 
-                <h2 class="c-profile-image__museum-name">{{ museum.museumName }}</h2>
+                <h2 class="c-profile-header__name">{{ museum.museumName }}</h2>
             </div>
             {{ form_end(form) }}
             </div>

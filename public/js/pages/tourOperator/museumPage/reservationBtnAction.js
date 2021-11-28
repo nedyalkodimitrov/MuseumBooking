@@ -5,9 +5,8 @@ function bookTicket(){
         console.log();
         var dateText =  $('.schedules-day-text').text();
         var splitDate = dateText.split();
-        let result = ajaxRequest('POST', '/public/tourOperator/bookTicket', {"scheduleId": scheduleId, "number" : numberOfTickets, "reservedDate": splitDate[0]});
+        let result = ajaxRequest('POST', '/tourOperator/bookTicket', {"scheduleId": scheduleId, "number" : numberOfTickets, "reservedDate": splitDate[0]});
         console.log(result);
-        location.reload();
 
     });
 

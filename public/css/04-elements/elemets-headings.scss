@@ -1,58 +1,73 @@
 @import "../02-tools/tools-breakpoints";
 
 h1{
-  font-size: 3em;
+  //font-size: 3em;
   @include for-phone-only {
-    font-seize: 2em ;
+    font-size: 2rem ;
+    line-height: 1.25rem;
   }
   @include for-tablet-portrait-up {
-    font-seize: 2em ;
+    font-size: 2rem ;
   }
   @include for-tablet-landscape-up {
-    font-seize: 2.5em ;
+    font-size: 2.5rem ;
   }
   @include for-desktop-up {
-    font-seize: 3em ;
+    font-size: 3rem ;
   }
 
 
 }
 h2{
-  font-size: 2.25em;
-
+  font-size: 2.25rem;
+  line-height: 1.25rem;
   @include for-phone-only {
-    font-seize: 1.625em ;
+    font-size: 1.625rem ;
   }
   @include for-tablet-portrait-up {
-    font-seize: 1.625em ;
+    font-size: 1.625rem ;
   }
   @include for-tablet-landscape-up {
-    font-seize: 2em ;
+    font-size: 2rem ;
   }
   @include for-desktop-up {
-    font-seize: 2.25em ;
+    font-size: 2.25rem ;
   }
 
 
 }
 
 h3{
-  font-size: 1.75em;
+  font-size: 1.75rem;
+  line-height: 1.25rem;
   @include for-phone-only {
-    font-seize: 1.375em ;
+    font-size: 1.375rem ;
   }
   @include for-tablet-portrait-up {
-    font-seize: 1.375em;
+    font-size: 1.375rem;
   }
   @include for-tablet-landscape-up {
-    font-seize: 1.5em ;
+    font-size: 1.5rem ;
   }
   @include for-desktop-up {
-    font-seize: 1.75em ;
+    font-size: 1.75rem ;
   }
 
 
 }
 h4{
-  font-size: 1.125em;
+  //font-size: 1.125em;
+
+  @include for-phone-only {
+    font-size: 1.125rem ;
+  }
+  @include for-tablet-portrait-up {
+    font-size: 1.140rem;
+  }
+  @include for-tablet-landscape-up {
+    font-size: 1.20rem ;
+  }
+  @include for-desktop-up {
+    font-size: 1.25rem ;
+  }
 }

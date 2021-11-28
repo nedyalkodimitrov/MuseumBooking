@@ -21,9 +21,7 @@ class Museum
      * @ORM\OneToOne(targetEntity="User", inversedBy="museum")
      */
     public  $user;
-    /**
-     * @ORM\OneToMany(targetEntity="MuseumWorker", mappedBy="museum")
-     */
+
 
     /**
      * @ORM\Column(type="float")
@@ -73,6 +71,21 @@ class Museum
      * @ORM\OneToMany(targetEntity="MuseumReview", mappedBy="museum")
      */
     public  $reviews;
+    /**
+     * @ORM\OneToMany(targetEntity="WishList", mappedBy="museum")
+     */
+    public  $wishList;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    public $latitude;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    public $longitude;
+
 
 
     public function getId(): ?int
@@ -255,6 +268,39 @@ class Museum
     {
         $this->reviews = $reviews;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * @param mixed $latitude
+     */
+    public function setLatitude($latitude): void
+    {
+        $this->latitude = $latitude;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
+
+    /**
+     * @param mixed $longitude
+     */
+    public function setLongitude($longitude): void
+    {
+        $this->longitude = $longitude;
+    }
+
 
 
 

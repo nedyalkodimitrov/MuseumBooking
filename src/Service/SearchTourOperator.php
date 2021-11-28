@@ -11,18 +11,20 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 class SearchTourOperator
 {
 
-    public function  searchTourOperator(string $data, ServiceEntityRepository  $searchRepository)
+    public function  find(string $data, ServiceEntityRepository  $searchRepository)
     {
         $information = [];
         $result = $searchRepository->findByValue($data);
 
         for ($i = 0; $i < count($result); $i++)
         {
-            array_push($information, $result[0]->getImage());
-            array_push($information, $result[0]->getName()." ".$result[0]->getFName());
-            array_push($information, $result[0]->getCity()->getCountry()->getName().', '.$result[0]->getCity()->getName());
-            array_push($information, $result[0]->getVisitRating());
-            array_push($information, $result[0]->getId());
+            $temp = [];
+            $temp[] = $result[$i]->getImage();
+            $temp[] = $result[$i]->getName()." ".$result[0]->getFName();
+            $temp[] = $result[$i]->getCity()->getCountry()->getName().', '.$result[0]->getCity()->getName();
+            $temp[] = $result[$i]->getVisitRating();
+            $temp[] = $result[$i]->getId();
+            $information[] = $temp;
 
         }
         if (count($information) == 0){

@@ -1,16 +1,12 @@
 {% extends 'museum/museumBase.html.twig' %}
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset("css/museum/homePage/homePageStyle.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/06-components/components-visitor-card.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/06-components/components-schedules-card.css") }}">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    {{ parent() }}
 
     <link rel="stylesheet" href="{{ asset("css/06-components/components-slider.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/06-components/components-schedule-visitor-card.css") }}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <link rel="stylesheet" href="{{ asset("css/06-components/schedule/schedule-visitor-card.css") }}">
+
     <script src="{{ asset("js/museum/homePage/slideshow.js") }}" ></script>
     <script src="{{ asset("js/components/components-slider.js") }}" ></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 {% endblock %}
 
 {% block title%}

@@ -15,7 +15,7 @@ class SecurityController extends AbstractController
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         if ($this->isGranted('ROLE_MUSEUM')) {
-            return $this->redirectToRoute('museum');
+            return $this->redirectToRoute('museum_show_home');
         }else if ($this->isGranted('ROLE_TOUROPERATOR')){
             return $this->redirectToRoute('tour_operator');
         }

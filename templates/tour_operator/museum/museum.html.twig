@@ -4,11 +4,11 @@
     <link rel="stylesheet" href="{{ asset("css/pages/museum/particles/navStyle.css") }}">
     <link rel="stylesheet" href="{{ asset("css/pages/museum/particles/slideshow.css") }}">
     <link rel="stylesheet" href="{{ asset("css/pages/tourOperator/museum/museumPageStyle.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/06-components/components-tourOperator-museumPage-museumInformation.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/06-components/components-schedule-visitor-card.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/06-components/components-input.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/06-components/components-tourOperator-museum-feedback-form.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/06-components/components-calendar.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/tour-operator/museum/tour-operator-museumPage-museumInformation.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/schedule/schedule-visitor-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/form/components-input.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/tour-operator-museum-feedback-form.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/schedule/components-calendar.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-stats-museum-review.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-fancy-card.css") }}">
 
@@ -26,20 +26,8 @@
     <input type="hidden" id="museumId" value="{{ museum.id }}">
     <div class="slider-container pt-5 mt-0 container-color" >
         <div class="slider  ">
-{#            <div class="slider--el slider--el-1 anim-4parts active">#}
-{#                <div class="slider--el-bg">#}
-{#                    <div class="part top left"></div>#}
-{#                    <div class="part top right"></div>#}
-{#                    <div class="part bot left"></div>#}
-{#                    <div class="part bot right"></div>#}
-{#                </div>#}
-{#                <div class="slider--el-content">#}
-
-{#                </div>#}
-{#            </div>#}
             {% set sliderEl = 1 %}
             {% for image in museum.images %}
-{#                style="background-image: url('{{ asset('images/museums/'~image.path) }}');"#}
                 <div class="slider--el slider--el-{{ sliderEl }} anim-9parts">
                     <div class="slider--el-bg">
                         <div class="part left-top"></div>
@@ -59,81 +47,61 @@
                 </div>
                 {% set sliderEl = sliderEl + 1 %}
             {% endfor %}
-{#            <div class="slider--el slider--el-3 anim-5parts">#}
-{#                <div class="slider--el-bg">#}
-{#                    <div class="part part-1"></div>#}
-{#                    <div class="part part-2"></div>#}
-{#                    <div class="part part-3"></div>#}
-{#                    <div class="part part-4"></div>#}
-{#                    <div class="part part-5"></div>#}
-{#                </div>#}
-{#                <div class="slider--el-content">#}
-
-{#                </div>#}
-{#            </div>#}
-{#            <div class="slider--el slider--el-4 anim-3parts">#}
-{#                <div class="slider--el-bg">#}
-{#                    <div class="part left"></div>#}
-{#                    <div class="part mid"></div>#}
-{#                    <div class="part right"></div>#}
-{#                </div>#}
-{#                <div class="slider--el-content">#}
-
-{#                </div>#}
-{#            </div>#}
             <span class="slider--control left"><i class="fas fa-chevron-left"></i></span>
             <span class="slider--control right"><i class="fas fa-chevron-right"></i></span>
         </div>
     </div>
 
 
-    <div class="o-block-container o-block-container--white c-tourOperator-museumPage-museumInformation">
-        {# museum information       #}
-        <div class=" c-tourOperator-museumPage-museumInformation__content mt-1">
-            <h1 class="c-tourOperator-museumPage-museumInformation__content__museumName">{{museum.museumName}}</h1>
-            <h3 class="c-tourOperator-museumPage-museumInformation__content__museumAdditionalInformation">{{ museum.additionalInformation    }}</h3>
+    {# museum information       #}
+    <div class="col-12  o-block-container o-block-container--white c-tourOperator-museumPage-museumInformation">
+        <div class="mt-4 col-11 c-tourOperator-museumPage-museumInformation__content ">
+            <h1 class="c-tourOperator-museumPage-museumInformation__content__museumName mb-2">{{museum.museumName}}</h1>
+            <h4 class="c-tourOperator-museumPage-museumInformation__content__museumAdditionalInformation">{{ museum.additionalInformation}}</h4>
         </div>
-        <hr class="mx-auto col-2">
-        {#   museum most visit hours     #}
-        <div class="col-12 container justify-content-center">
-            <div class="col-12 text-center m-3"><h2>Most visited hours </h2></div>
-            <div id="chart_div" class="mx-auto" style="width: 100%; height: 100%"></div>
-        </div>
-
     </div>
 
-    {#    bought tickets#}
-    <div class="col-12 o-block-container o-block-container--white">
-        <div class="text-center p-4">
-            <h2>Bought tickets for this museum</h2>
+    {#   museum most visit hours     #}
+    <div class="col-12  text-center o-block-container o-block-container--white ">
+        <div class="col-11  mt-4 mx-auto container justify-content-center ">
+            <div class="col-12 text-center mb-2"><h2>Най-посещавани часове </h2></div>
+            {#            <div id="chart_div" class="mx-auto" style="width: 100%; height: 100%"></div>#}
         </div>
-        <div class="tickets-container row m-0 p-3 justify-content-center  container col-12">
+    </div>
+
+
+    {#    bought tickets#}
+    <div class="col-12 o-block-container o-block-container--white pb-4">
+        <div class="col-12 mt-4 text-center ">
+            <h2>Закупени билети</h2>
+        </div>
+        <div class="col-11 row m-0 mx-auto justify-content-center ">
             {% for ticket in tourOperatorTickets %}
                 {% set schedule = ticket.schedule %}
-                <div class="col-6 col-sm-6 mt-4 col-md-4 col-lg-2  p-0 ">
-                    <div class="  c-schedule-visitor-card  col-10">
+                <div class="col-6 col-md-4 col-lg-2 mt-2 p-0 ">
+                    <div class="col-10 mx-auto c-schedule-visitor-card">
                         <div class="c-schedule-visitor-card__hour">
                             <h4>{{ ticket.reservedDate|date('d-m-Y')  }}</h4><span>{{ schedule.Day.Name }}</span>
                             <h4>{{ schedule.startTime|date('H:i') }}-{{ schedule.endTime|date('H:i') }}</h4>
                         </div>
                         <div class="c-schedule-visitor-card__max-capacity">
-                            <h5> Price: {{ schedule.museum.maxCapacity }}</h5>
+                            <h5> Цена: {{ schedule.museum.maxCapacity }}</h5>
                         </div>
                         <div class="c-schedule-visitor-card__max-capacity">
                             {% set ticketsNumber = 0 %}
                             {% for ticket in schedule.tickets %}
                                 {% set ticketsNumber = ticketsNumber + ticket.number %}
                             {% endfor %}
-                            <h5>Number - {{ ticket.number }}</h5>
+                            <h5>Брой: {{ ticket.number }}</h5>
                         </div>
                      
                         {% if ticket.hasCome   %}
                             <div class="c-schedule-visitor-card__done">
-                                <i class="fas fa-check "> You are gone</i>
+                                <i class="fas fa-check ">Посетен</i>
                             </div>
                         {% else %}
                             <div class="c-schedule-visitor-card__wait">
-                               <i class="fas fa-times">You are not gone</i>
+                               <i class="fas fa-times">Не посетен</i>
                             </div>
                         {% endif %}
 
@@ -148,58 +116,53 @@
 
 
 
-    <div class="tickets-wrapper m-0 pb-3 ">
-        <div class="col-12 text-center mx-auto pt-4 calendar-upper-title">
-            <h2>Chose your reservation date</h2>
+    <div class="tickets-wrapper m-0 pb-3 col-12 ">
+        <div class="col-12 text-center mx-auto mb-2 pt-4 calendar-upper-title">
+            <h2 class="">Резервирайте билет</h2>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="calendar  col-11 col-md-12 mx-auto  mt-2 p-0">
-                    <div>
-                        <div class="card-header">
-                            <ul>
-                                <li id="month" class="text-white text-uppercase text-center">
-                                </li>
-                                <li id="year" class="text-white text-uppercase text-center">
-                                </li>
-                            </ul>
-                        </div>
-                        <table class="table calendar table-bordered  "  id="calendar">
-                            <thead>
-                            <tr class="weekdays bg-dark">
-                                <th scope="col" class="text-white text-center">Mon</th>
-                                <th scope="col" class="text-white text-center">Tue</th>
-                                <th scope="col" class="text-white text-center">Wed</th>
-                                <th scope="col" class="text-white text-center">Thu</th>
-                                <th scope="col" class="text-white text-center">Fri</th>
-                                <th scope="col" class="text-white text-center">Sat</th>
-                                <th scope="col" class="text-white text-center">Sun</th>
-                            </tr>
-                            </thead>
-                            <tbody class="days bg-light" id="calendarDays"></tbody>
-                            <tfoot></tfoot>
-                        </table>
-                    </div>
+        <div class="container row col-11 p-0 m-0 ">
+            <div class="calendar col-12 col-md-12 mx-auto  m-0 p-0">
+                <div class="card-header">
+                    <ul>
+                        <li id="month" class="text-white text-uppercase text-center">
+                        </li>
+                        <li id="year" class="text-white text-uppercase text-center">
+                        </li>
+                    </ul>
                 </div>
+                <table class="table calendar table-bordered  "  id="calendar">
+                    <thead>
+                    <tr class="weekdays bg-dark">
+                        <th scope="col" class="text-white text-center">Пон</th>
+                        <th scope="col" class="text-white text-center">Вто</th>
+                        <th scope="col" class="text-white text-center">Сря</th>
+                        <th scope="col" class="text-white text-center">Чет</th>
+                        <th scope="col" class="text-white text-center">Пет</th>
+                        <th scope="col" class="text-white text-center">Съб</th>
+                        <th scope="col" class="text-white text-center">Нед</th>
+                    </tr>
+                    </thead>
+                    <tbody class="days bg-light" id="calendarDays"></tbody>
+                    <tfoot></tfoot>
+                </table>
             </div>
-
-{#            <br><hr>#}
-
         </div>
-        <div class="info m-0  ">
-            <h2 class="p-3 schedules-day-text">Today's Tickets</h2>
-            <h6>* the reservation deadline is 2 hours before the ticket start time</h6>
+
+        <div class=" mt-4 p-0 info ">
+            <h2 class=" schedules-day-text">Билети за днеска</h2>
+            <h6>* може да резервите билети до два часа преди началото</h6>
             <hr >
         </div>
-        <div class="tickets-container ticket-reserve-container row m-0 p-3   col-12 ">
+
+        <div class="col-11 row mx-auto p-0  ">
             {% for schedule in schedules %}
-                <div class="col-6 c-schedule-visitor-card--container col-sm-6 col-md-4 col-lg-2 row p-0 justify-content-center mt-3 mt-sm-0">
-                    <div class="  c-schedule-visitor-card  col-11">
+                <div class="col-6 col-md-4 col-lg-2 p-0 mt-3 c-schedule-visitor-card--container  justify-content-center ">
+                    <div class="col-11  c-schedule-visitor-card mx-auto">
                         <div class="c-schedule-visitor-card__hour">
                             <h4>{{ schedule.startTime|date('H:i') }}-{{ schedule.endTime|date('H:i') }}</h4>
                         </div>
                         <div class="c-schedule-visitor-card__max-capacity">
-                            <h5> Price: {{ schedule.museum.maxCapacity }}</h5>
+                            <h5>Цена: {{ schedule.museum.maxCapacity }}</h5>
                         </div>
                         <div class="c-schedule-visitor-card__max-capacity">
                             {% set ticketsNumber = 0 %}
@@ -208,14 +171,14 @@
                                     {% set ticketsNumber = ticketsNumber + ticket.number %}
                                 {% endif %}
                             {% endfor %}
-                            <h5>Free entry - {{ schedule.museum.maxCapacity - ticketsNumber }}</h5>
+                            <h5>Свободни места: {{ schedule.museum.maxCapacity - ticketsNumber }}</h5>
                         </div>
                         <div class="c-schedule-visitor-card__max-capacity number" >
                             <input type="number" value="0" min="0" max="{{ schedule.museum.maxCapacity - ticketsNumber }}">
                         </div>
                         {% if "now"|date('H:i') < schedule.endTime|date('H:i')  %}
                             <div class="c-schedule-visitor-card__done">
-                                <button value="{{ schedule.id }}" onclick="bookTicket()" class="reserve-ticket-btn">Reserve</button>
+                                <button value="{{ schedule.id }}" onclick="bookTicket()" class="reserve-ticket-btn">Запази</button>
                             </div>
                         {% else %}
                             <div class="c-schedule-visitor-card__wait">
@@ -227,7 +190,7 @@
 
                 </div>
                 {% else  %}
-                <h4 class="text-center info  c-schedule-visitor-card--container">This museum doesn't have tickets for this day</h4>
+                <h4 class="text-center info  c-schedule-visitor-card--container">Музеят няма програма за този ден</h4>
             {% endfor %}
 
         </div>
@@ -237,15 +200,14 @@
     </div>
     <div class="o-block-container o-block-container--white">
         <div class="location-container">
-            <div class="text p-2 text-center mt-2"> <h2> Where to find museum? </h2></div>
+            <div class="text p-2 text-center mt-4"> <h2> Къде да намерим музея? </h2></div>
             <div class="location"><div class="gmap_canvas"><iframe  id="gmap_canvas" src="https://maps.google.com/maps?q=abrituscastle&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.whatismyip-address.com"></a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:932px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:932px;}</style></div>
-
         </div>
     </div>
 
 
     <div class="col-12 justify-content-center row o-block-container--white m-0 ">
-        <h3 class="col-12 m-0 p-0 justify-content-center container text-center m-3">Reviews</h3>
+        <h3 class="col-12 m-0 p-0 justify-content-center container text-center m-3">Ревюта</h3>
         <hr class="col-2 mx-auto">
 
         <div class="col-12 m-0 p-0   row c-stats-museum-review-container">
@@ -260,8 +222,8 @@
                           <h5>{{ review.text }}</h5>
 
                       </div>
-                      <div class=" c-fancy-card__information--left">Date: {{ review.date | date("m/d/Y") }}</div>
-                      <div class="c-fancy-card__information--right">Rating: {{ review.rating }}</div>
+                      <div class=" c-fancy-card__information--left">Дата: {{ review.date | date("m/d/Y") }}</div>
+                      <div class="c-fancy-card__information--right">Оценка: {{ review.rating }}</div>
 
                   </div>
 
@@ -272,10 +234,10 @@
     </div>
 
     <div class="o-block-container o-block-container--white">
-        <hr class="col-10 mx-asymfouto">
+        <hr class="col-10 mx-auto">
         <div class="text p-2 text-center mt-2">
-            <h2> Feedback </h2>
-            <h5>* we need your feedback to continue our mission to popularity travel</h5>
+            <h2> Ревю </h2>
+            <h5>* вашето мнение е ключово за развитието ни</h5>
             <hr class="col-2 mx-auto">
         </div>
        <div class="c-tourOperator-museum-feedback-form  justify-content-center">
@@ -297,7 +259,7 @@
     <script src="{{ asset("js/pages/tourOperator/museumPage/sendReview.js") }}"></script>
 
     <script>
-
+        console.log(new Date("d/mm/YYYY"));
         google.charts.load('current', {packages: ['corechart', 'line']});
         google.charts.setOnLoadCallback(drawBackgroundColor);
 

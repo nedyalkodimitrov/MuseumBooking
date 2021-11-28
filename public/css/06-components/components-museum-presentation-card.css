@@ -1,0 +1,26 @@
+.c-museum-presentation-card {
+  box-shadow: 0px 0px 5px 1px gray;
+  background: linear-gradient(to right, #636FA4, #636FA4);
+  overflow: hidden;
+  transition: background 0.4s;
+  padding: 2em;
+  color: white;
+  border-radius: 15px;
+}
+.c-museum-presentation-card__title {
+  color: white;
+  text-align: center;
+  margin-bottom: 1em;
+}
+.c-museum-presentation-card__title a {
+  color: inherit;
+}
+.c-museum-presentation-card__image {
+  margin: auto;
+  width: 8em;
+  height: 8em;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/*# sourceMappingURL=museum-presentation-card.css.map */

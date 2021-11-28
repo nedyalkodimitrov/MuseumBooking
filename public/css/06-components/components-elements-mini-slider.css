@@ -1,0 +1,73 @@
+.c-elements-mini-slider {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.c-elements-mini-slider__btn {
+  transition: 0.3s;
+  width: 2.3em;
+  height: 75%;
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  color: white;
+  top: 50%;
+  transform: translate(0, -50%);
+  z-index: 1000;
+  cursor: pointer;
+}
+.c-elements-mini-slider__btn i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.4em;
+}
+.c-elements-mini-slider__btn.prev {
+  left: 0px;
+}
+.c-elements-mini-slider__btn.next {
+  right: 0px;
+}
+.c-elements-mini-slider__btn:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+.c-elements-mini-slider__container {
+  transition: margin-left 0.2s ease, left 0.5s ease;
+  position: absolute;
+  left: 0;
+}
+.c-elements-mini-slider__container__slide {
+  float: left;
+  position: relative;
+  top: 0;
+  transition: width 0.2s ease, height 0.2s ease, top 0.2s ease;
+}
+.c-elements-mini-slider__container__slide__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.c-elements-mini-slider__container__slide__image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.c-elements-mini-slider__container__slide__text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  color: white;
+  padding-bottom: 0.5em;
+  padding-left: 0.5em;
+}
+.c-elements-mini-slider__container__slide--add-element {
+  color: white;
+  text-align: center;
+  background: #636FA4;
+}
+
+/*# sourceMappingURL=components-elements-mini-slider.css.map */

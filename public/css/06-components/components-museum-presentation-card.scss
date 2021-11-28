@@ -1,0 +1,27 @@
+.c-museum-presentation-card{
+  box-shadow: 0px 0px 5px 1px gray;
+  background: linear-gradient(to right, #636FA4, #636FA4);
+  overflow: hidden;
+  transition: background 0.4s;
+  padding: 2em;
+  color: white;
+  border-radius: 15px;
+  &__title{
+    color: white;
+    text-align: center;
+    margin-bottom: 1em;
+    a{
+      color: inherit;
+
+    }
+  }
+  &__image{
+    margin: auto;
+    width: 8em;
+    height: 8em;
+    border-radius: 50%;
+    object-fit: cover;
+
+
+  }
+}

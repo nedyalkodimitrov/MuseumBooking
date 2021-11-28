@@ -1,0 +1,81 @@
+
+.c-elements-mini-slider{
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+
+  &__btn{
+    transition: 0.3s;
+    width: 2.3em;
+    height: 75%;
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+    color: white;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 1000;
+    cursor: pointer;
+    i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.4em;
+    }
+    &.prev{
+      //background: linear-gradient(to left, rgba(0,0,0,0), rgba(93, 25, 180, 0.8) );
+      left: 0px;
+    }
+    &.next{
+      //background:black;
+      right: 0px;
+    }
+
+    &:hover{
+      background: rgba(0,0,0,0.5);
+    }
+  }
+  &__container{
+    transition: margin-left .2s ease, left .5s ease;
+    position: absolute;
+    left: 0;
+    &__slide{
+      float: left;
+      position: relative;
+      top: 0;
+      transition: width .2s ease, height .2s ease, top .2s ease;
+      &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        img{
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      &__text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 3;
+        color: white;
+        padding-bottom: 0.5em;
+        padding-left: 0.5em;
+
+        //background: rgba(0,0,0,0.4);
+      }
+
+
+      &--add-element{
+        color: white;
+        text-align: center;
+        background: #636FA4;
+
+      }
+    }
+  }
+}

@@ -4,11 +4,13 @@
     <link rel="stylesheet" href="{{ asset("css/pages/museum/particles/navStyle.css") }}">
     <link rel="stylesheet" href="{{ asset("css/pages/museum/particles/slideshow.css") }}">
     {#    <link rel="stylesheet" href="{{ asset("css/pages/tourOperator/museum/museumPageStyle.css") }}">#}
-    <link rel="stylesheet" href="{{ asset("css/06-components/components-tourOperator-museumPage-museumInformation.css") }}">
-    <link rel="stylesheet" href="{{ asset("css/06-components/components-schedule-visitor-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/tour-operator-museumPage-museumInformation.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/schedule-visitor-card.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-ticket-card.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-stats-museum-review.css") }}">
     <link rel="stylesheet" href="{{ asset("css/06-components/components-fancy-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/museum-presentation-card.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/06-components/tour-operator/components-allMuseums-filter.css") }}">
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
@@ -20,37 +22,42 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-  <div class="col-12 row c-fancy-cards-container justify-content-center" >
-      <div class="col-12 row justify-content-around mx-auto ">
+    <div class="c-allMuseums-filter col-11 row mx-auto p-0 ">
+        <div class="col-7 mx-auto  c-allMuseums-filter__search">
+            <input type="text" class="col-11 c-allMuseums-filter__search__input" placeholder="Кой град искате да посетите?">
+            <button class="c-allMuseums-filter__search__button"><i class="fa fa-search"></i></button>
+        </div>
+
+    </div>
+
+
+  <div class="col-12 row c-fancy-cards-container " >
+      <div class="col-12 row mx-auto ">
           {% for museum in museums %}
-              <div class="mt-4 col-12 col-md-6 col-xl-5 c-fancy-card c-fancy-card--with-title">
-                  <div class="c-fancy-card__title">
-                      <h4>
-                          <a href="{{ path('tour_operator_museumView', {"id": museum.id}) }}">
-                              {{ museum.museumName }}
-                          </a>
-                      </h4>
-                  </div>
-                  <div class=" c-fancy-card__user">
-                      <img class="c-fancy-card__image c-fancy-card__image--big" src="{{ asset('images/museums/'~ museum.image) }}" alt="">
-                      {#                                <div class=" c-fancy-card__name">{{ ticket.schedule.museum.museumName }}</div>#}
+             <div class=" col-12 col-md-6 col-lg-4">
+                 <div class="mt-4 col-11 c-museum-presentation-card mx-auto">
+                     <div class="col-12 m-0 p-0">
+                         <h3 class="c-museum-presentation-card__title">
+                             <a href="{{ path('tour_operator_show_museum', {"id": museum.id}) }}">
+                                 {{ museum.museumName }}
+                             </a>
+                         </h3>
+                     </div>
+                     <div class="col-12 text-center mb-3">
+                         <img class="c-museum-presentation-card__image" src="{{ asset('images/museums/'~ museum.image) }}" alt="">
+                     </div>
+                     <div class="c-museum-presentation-card__information text-left">
+                         <h5>Град: {{ museum.city.name }}, {{ museum.city.country.name }}</h5>
+                         <h5>Капаците: {{museum.maxCapacity }}</h5>
+                         <h5>Рейтинг: {{ museum.rating }}</h5>
+                     </div>
+                     {#                            <div class="c-fancy-card__information--left">Reserved Date: {{ ticket.reservedDate| date('d/m/Y') }}</div>#}
+                     {#                            <div class=" c-fancy-card__information--right"></div>#}
 
-                  </div>
-                  <div class=" c-fancy-card__text text-left">
-                      City: {{ museum.city.name }}, {{ museum.city.country.name }}
 
-                      <br>
-                      Max Capacity: {{museum.maxCapacity }}
-                      <br>
-                      Rating: {{ museum.rating }}
-                  </div>
-                  {#                            <div class="c-fancy-card__information--left">Reserved Date: {{ ticket.reservedDate| date('d/m/Y') }}</div>#}
-                  {#                            <div class=" c-fancy-card__information--right"></div>#}
-                  <div class=" text-center c-fancy-card__information">
-                      <h5 class="">Because we love history </h5>
-                  </div>
+                 </div>
 
-              </div>
+             </div>
           {% endfor %}
 
 

@@ -1,0 +1,21 @@
+.c-allMuseums-filter {
+  margin-top: 2em;
+}
+.c-allMuseums-filter__search {
+  font-size: 1.3em;
+}
+.c-allMuseums-filter__search__input {
+  border: 2px solid #626FA3;
+  border-radius: 1em;
+  padding: 0.4em;
+  padding-left: 0.6em;
+}
+.c-allMuseums-filter__search__button {
+  background-color: #626FA3;
+  border-radius: 50%;
+  padding: 0.5em;
+  color: white;
+  border: 1px solid #626FA3;
+}
+
+/*# sourceMappingURL=components-allMuseums-filter.css.map */

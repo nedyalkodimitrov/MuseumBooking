@@ -1,0 +1,37 @@
+.c-allTrips-trip-card {
+  transition: 0.3s;
+  position: relative;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  border-radius: 1em;
+  overflow: hidden;
+  cursor: pointer;
+}
+.c-allTrips-trip-card__name, .c-allTrips-trip-card__people, .c-allTrips-trip-card__date {
+  position: relative;
+  z-index: 50;
+  color: white;
+  padding: 0.5em;
+}
+.c-allTrips-trip-card__image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+.c-allTrips-trip-card__image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+.c-allTrips-trip-card:hover {
+  box-shadow: 0px 0px 10px 2px grey;
+}
+.c-allTrips-trip-card__link:hover {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=components-allTrips-trip-card.css.map */

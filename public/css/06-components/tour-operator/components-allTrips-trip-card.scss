@@ -1,0 +1,45 @@
+.c-allTrips-trip-card {
+  transition: 0.3s;
+  position: relative;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  border-radius: 1em;
+  overflow: hidden;
+  cursor: pointer;
+  &__name, &__people, &__date {
+    position: relative;
+    z-index: 50  ;
+    color: white;
+    padding: 0.5em;
+  }
+
+  &__image{
+      position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+
+    img{
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    }
+
+
+  &:hover{
+    box-shadow: 0px 0px 10px 2px grey;
+  }
+
+
+  &__link {
+    &:hover{
+      text-decoration: none;
+    }
+  }
+
+}

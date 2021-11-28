@@ -2,8 +2,124 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="849987b0-80f0-4d98-9254-bdbd26928508" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/05-objects/objects-element-cover.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/components-elements-mini-slider.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/components-hidden-search.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/components-museum-presentation-card.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/components-search.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/form/components-form-security.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/form/components-input.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/schedule/components-bought-ticket.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/schedule/components-calendar.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/schedule/components-ticket-card.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/settings/components-profile-header.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/settings/components-settings-museum-information.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/settings/components-settings-museum-summary-information.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/tour-operator/components-allMuseums-filter.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/tour-operator/components-allTrips-trip-card.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/tour-operator/museum/components-tourOperator-museum-feedback-form.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/tour-operator/museum/components-tourOperator-museumPage-museumInformation.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/tour-operator/museum/components-tourOperator-museumPage-museumInformation.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/tour-operator/trip/components-chosen-monuments.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/tour-operator/trip/components-friends-list.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/06-components/tour-operator/trip/components-header.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/typography.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/components/components-elements-mini-slider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/trip/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/trip/crud/addFriend.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/trip/crud/addLandmark.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/trip/crud/addMuseum.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/trip/crud/removeFriend.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/trip/crud/removeLandmark.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/trip/crud/removeMuseum.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/trip/findLandMark.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/trip/findMuseum.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/trip/findTourOperator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/trip/visualiseSearch.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Security/TripCRUD.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Service/SearchLandmark.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Service/UserNameService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/tour_operator/trip/allTrips.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/tour_operator/trip/trip.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/04-elements/elemets-headings.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/04-elements/elemets-headings.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-add-schedule.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/schedule/components-add-schedule.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-add-schedule.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/schedule/components-add-schedule.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-add-schedule.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/schedule/components-add-schedule.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-bought-ticket.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/schedule/components-bought-ticket.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-bought-ticket.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-bought-ticket.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/schedule/components-bought-ticket.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/schedule/components-calendar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-calendar.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-calendar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/schedule/components-calendar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-fancy-card.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/components-fancy-card.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-form-security.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/form/components-form-security.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-form-security.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-form-security.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/form/components-form-security.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-hidden-container.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/components-hidden-container.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-hidden-container.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/components-hidden-container.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-hidden-container.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/components-hidden-container.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-input.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/form/components-input.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-input.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-input.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/form/components-input.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-museum-chart-card.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/museum/components-museum-chart-card.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-museum-chart-card.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/museum/components-museum-chart-card.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-museum-chart-card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/museum/components-museum-chart-card.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-schedule-visitor-card.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/schedule/components-schedule-visitor-card.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-schedule-visitor-card.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/schedule/components-schedule-visitor-card.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-schedule-visitor-card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/schedule/components-schedule-visitor-card.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-schedules-card.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/schedule/components-schedules-card.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-schedules-card.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/schedule/components-schedules-card.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-schedules-card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/schedule/components-schedules-card.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-settings-museum-information.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/settings/components-settings-museum-information.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-settings-museum-information.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-settings-museum-information.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/settings/components-settings-museum-information.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-settings-museum-summary-information.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/settings/components-settings-museum-summary-information.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-settings-museum-summary-information.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-settings-museum-summary-information.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/settings/components-settings-museum-summary-information.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-settings-profile-image.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/settings/components-profile-header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-settings-profile-image.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-settings-profile-image.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/settings/components-profile-header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-ticket-card.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/schedule/components-ticket-card.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-ticket-card.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-ticket-card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/schedule/components-ticket-card.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-tourOperator-museum-feedback-form.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/tour-operator/museum/components-tourOperator-museum-feedback-form.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-tourOperator-museum-feedback-form.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-tourOperator-museum-feedback-form.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/tour-operator/museum/components-tourOperator-museum-feedback-form.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-tourOperator-museumPage-museumInformation.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/06-components/tour-operator/museum/components-tourOperator-museumPage-museumInformation.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-tourOperator-museumPage-museumInformation.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/06-components/components-tourOperator-museumPage-museumInformation.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/pages/tourOperator/museumPage/reservationBtnAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/tourOperator/museumPage/reservationBtnAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/GeneralController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GeneralController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Museum/MuseumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Museum/MuseumController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Museum/MuseumPostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Museum/MuseumPostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SearchController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/TourOperator/TourOperatorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TourOperator/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/TourOperator/tourOperatorPostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TourOperator/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Museum.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Museum.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/TourOperator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/TourOperator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/SearchMuseum.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/SearchMuseum.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/SearchTourOperator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/SearchTourOperator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/general/museumProfile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/general/museumProfile.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/general/tourOperatorProfile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/general/tourOperatorProfile.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/museum/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/museum/museumBase.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/museumBase.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/museum/schedule/schedule.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/schedule/schedule.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/museum/settings/settings.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/settings/settings.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/museum/tourists/tourists.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/museum/tourists/tourists.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tour_operator/friendProfile/friendProfile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour_operator/friendProfile/friendProfile.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tour_operator/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour_operator/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tour_operator/museum/allMuseums.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour_operator/museum/allMuseums.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tour_operator/museum/museum.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour_operator/museum/museum.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tour_operator/museum/visitedMuseums.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour_operator/museum/visitedMuseums.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tour_operator/settings/settings.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour_operator/settings/settings.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tour_operator/stats/stats.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour_operator/stats/stats.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tour_operator/tourOperatorBase.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour_operator/tourOperatorBase.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,11 +154,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/Controller/Museum/MuseumPostController.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/Controller/Museum/MuseumController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3.2">
+  <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
       <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
@@ -181,7 +305,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/css/06-components/components-museum" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -194,23 +318,23 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Develpment\Languages\PHP\Frameworks\Symfony\MuseumBooking\public\css\06-components\components-museum" />
+      <recent name="D:\Develpment\Languages\PHP\Frameworks\Symfony\MuseumBooking\public\css\06-components\components-settings" />
+      <recent name="D:\Develpment\Languages\PHP\Frameworks\Symfony\MuseumBooking\public\css" />
       <recent name="D:\Develpment\Symfony\MuseumBooking\tests\Controller" />
       <recent name="D:\Develpment\Symfony\MuseumBooking\src\Controller" />
-      <recent name="D:\Develpment\Symfony\MuseumBooking\templates\museum\tourists" />
-      <recent name="D:\Develpment\Symfony\MuseumBooking\public\js\pages\museum" />
-      <recent name="D:\Develpment\Symfony\MuseumBooking\public\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Develpment\Symfony\MuseumBooking\src\Controller\Admin" />
-      <recent name="D:\Develpment\Symfony\MuseumBooking\src\Controller" />
-      <recent name="D:\Develpment\Symfony\MuseumBooking\public\js\pages\museum" />
-      <recent name="D:\Develpment\Symfony\MuseumBooking\public\images" />
-      <recent name="D:\Develpment\Symfony\MuseumBooking\templates\museum" />
+      <recent name="D:\Develpment\Languages\PHP\Frameworks\Symfony\MuseumBooking\public\js\pages\tourOperator\trip\crud" />
+      <recent name="D:\Develpment\Languages\PHP\Frameworks\Symfony\MuseumBooking\public\css\06-components" />
+      <recent name="D:\Develpment\Languages\PHP\Frameworks\Symfony\MuseumBooking\public\css\06-components\components-museum" />
+      <recent name="D:\Develpment\Languages\PHP\Frameworks\Symfony\MuseumBooking\public\css\06-components\components-form" />
+      <recent name="D:\Develpment\Languages\PHP\Frameworks\Symfony\MuseumBooking\public\css\06-components\components-settings" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.PostMuseumControllerTest">
@@ -375,7 +499,26 @@
       <workItem from="1616229572384" duration="2933000" />
       <workItem from="1619083771852" duration="782000" />
       <workItem from="1619545529828" duration="2585000" />
-      <workItem from="1632303695749" duration="1355000" />
+      <workItem from="1632303695749" duration="1477000" />
+      <workItem from="1633448578376" duration="19000" />
+      <workItem from="1635145351857" duration="5460000" />
+      <workItem from="1635402298968" duration="717000" />
+      <workItem from="1635407970643" duration="596000" />
+      <workItem from="1635707307538" duration="4046000" />
+      <workItem from="1635752127272" duration="13000" />
+      <workItem from="1636201777427" duration="6744000" />
+      <workItem from="1636360103190" duration="73000" />
+      <workItem from="1636360190007" duration="18000" />
+      <workItem from="1636360219490" duration="14705000" />
+      <workItem from="1636401231377" duration="1349000" />
+      <workItem from="1636402600851" duration="1650000" />
+      <workItem from="1636437605999" duration="4699000" />
+      <workItem from="1636640401660" duration="11079000" />
+      <workItem from="1636793290300" duration="10928000" />
+      <workItem from="1636961928935" duration="5604000" />
+      <workItem from="1636999445475" duration="4528000" />
+      <workItem from="1637046499290" duration="3327000" />
+      <workItem from="1637075655946" duration="10239000" />
     </task>
     <servers />
   </component>
@@ -392,6 +535,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">

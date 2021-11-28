@@ -60,7 +60,7 @@
                        {% endif %}
 
                        {% if is_granted('ROLE_MUSEUM') %}
-                           <a href="{{ path('museums_settings') }}"><img src="{{ asset(userImage)}}" alt=""></a>
+                           <a href="{{ path('museum_show_settings') }}"><img src="{{ asset(userImage)}}" alt=""></a>
                        {% endif %}
 
                        {%  if is_granted('ROLE_ADMIN') %}

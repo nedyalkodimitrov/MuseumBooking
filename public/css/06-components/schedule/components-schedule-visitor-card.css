@@ -1,0 +1,48 @@
+.c-schedule-visitor-card {
+  background-color: white;
+  border: 1px solid black;
+  height: fit-content;
+  padding: 0;
+  text-align: center;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.c-schedule-visitor-card__hour {
+  padding: 0.3em;
+  color: white;
+  background-color: #6873A5;
+  width: 100%;
+}
+.c-schedule-visitor-card__max-capacity {
+  padding: 0.5em;
+}
+.c-schedule-visitor-card__done, .c-schedule-visitor-card__wait {
+  transition: 0.3s background-color ease;
+  color: white;
+  font-size: 1.1em;
+}
+.c-schedule-visitor-card__done button, .c-schedule-visitor-card__wait button {
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-size: 1.1em;
+  border: none;
+  background-color: inherit;
+}
+.c-schedule-visitor-card__done i, .c-schedule-visitor-card__wait i {
+  padding: 0.5em;
+}
+.c-schedule-visitor-card__done {
+  background-color: green;
+}
+.c-schedule-visitor-card__done button {
+  padding: 1em;
+}
+.c-schedule-visitor-card__done button:hover {
+  background-color: darkgreen;
+}
+.c-schedule-visitor-card__wait {
+  background-color: orangered;
+}
+
+/*# sourceMappingURL=schedule-visitor-card.css.map */

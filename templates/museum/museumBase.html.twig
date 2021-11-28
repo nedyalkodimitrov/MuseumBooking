@@ -1,28 +1,34 @@
 {% extends 'base.html.twig' %}
 {% block title %} Hi{% endblock %}
 
-{% block stylesheets %}{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+
+{% endblock %}
 
 
 {% block body %}
     {% block navBarLinks %}
-        <li><a href="{{ path("museum") }}"><i class="fas fa-home"></i></a></li>
-        <li class="dropdown"><a href="{{ path("museum_schedule") }}" >Schedule </a></li>
-        <li><a href="{{ path("museum_stats") }}">Stats</a></li>
-        <li><a href="{{ path("museum_tourists") }}">Tourists</a></li>
+        <li><a href="{{ path("museum_show_home") }}"><i class="fas fa-home"></i></a></li>
+        <li class="dropdown"><a href="{{ path("museum_show_schedule") }}" >Schedule </a></li>
+        <li><a href="{{ path("museum_show_stats") }}">Stats</a></li>
+        <li><a href="{{ path("museum_show_tourists") }}">Tourists</a></li>
     {% endblock %}
 
 
 
     {% block footerLinksLinksUp %}
-        <li><a href="{{ path("museum") }}">Home</a></li>
-        <li class="dropdown"><a href="{{ path("museum_schedule") }}" >Schedule </a></li>
+        <li><a href="{{ path("museum_show_home") }}">Home</a></li>
+        <li class="dropdown"><a href="{{ path("museum_show_schedule") }}" >Schedule </a></li>
         <li><a href="">Stats</a></li>
 
     {% endblock %}
     {% block footerLinksLinksDown %}
-        <li><a href="{{ path("museum") }}">Home</a></li>
-        <li class="dropdown"><a href="{{ path("museum_schedule") }}" >Schedule </a></li>
+        <li><a href="{{ path("museum_show_home") }}">Home</a></li>
+        <li class="dropdown"><a href="{{ path("museum_show_schedule") }}" >Schedule </a></li>
         <li><a href="">Stats</a></li>
     {% endblock %}
 
