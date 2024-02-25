@@ -60,4 +60,3 @@ It all began with a love for competition, but now it's about making culture and 
 ## Footer
 
 - Copyright &copy; 2020, All Right Reserved [Museum Booking](#)
-- [Footer Links](#) (if applicable)
